@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Emotion Example
+
+Extract and inline critical css with
+[@emotion/css](https://github.com/emotion-js/emotion/tree/master/packages/css),
+[@emotion/server](https://github.com/emotion-js/emotion/tree/master/packages/server),
+[@emotion/react](https://github.com/emotion-js/emotion/tree/master/packages/react),
+and [@emotion/styled](https://github.com/emotion-js/emotion/tree/master/packages/styled).
+
+## Preview
+
+Preview the example live on [StackBlitz](http://stackblitz.com/):
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-emotion)
 
 ## Getting Started
 
