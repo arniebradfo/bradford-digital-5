@@ -1,5 +1,5 @@
 import createCache from "@emotion/cache";
-import { CacheProvider } from "@emotion/react";
+import { CacheProvider, Global } from "@emotion/react";
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const App = ({ Component, pageProps }) => (
   <CacheProvider value={cache}>
-    {globalStyles}
+    <Global styles={globalStyles} />
     <Component {...pageProps} />
   </CacheProvider>
 );
