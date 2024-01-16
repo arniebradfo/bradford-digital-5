@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "./components/Button";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           priority
         />{" "}
         <span>bradford.digital</span>
+        <Button>BUTTON!</Button>
       </h1>
     </main>
   );

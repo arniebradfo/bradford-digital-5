@@ -1,0 +1,7 @@
+.primaryButton {
+  background-color: blue;
+
+  & .child{
+    color: white;
+  }
+}
