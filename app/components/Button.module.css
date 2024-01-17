@@ -1,5 +1,5 @@
 .primaryButton {
-  background-color: blue;
+  background-color: var(--blue-500);
 
   & .child{
     color: white;
