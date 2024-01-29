@@ -26,7 +26,7 @@ export default function Home() {
       <Image
         src={AvyMapMockupDesktop}
         alt="AvyMap app"
-        sizes="(max-width: 800px) 100vw, 800px"
+        sizes="(max-width: 1000px) 100vw, 1000px"
         placeholder="blur"
       />
     </main>
