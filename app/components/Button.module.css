@@ -1,7 +1,8 @@
 .primaryButton {
-  background-color: var(--blue-500);
-
-  & .child{
-    color: white;
-  }
+  appearance: unset;
+  display: inline-block;
+  background: #EEEEEE;
+  padding: 24px 32px;
+  border-radius: 8px;
+  font-weight: bold;
 }

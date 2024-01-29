@@ -4,8 +4,9 @@ import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
 
 export default function Home() {
   return (
-    <main style={{ margin: "0 auto", maxWidth: 1000 }}>
-      <h1
+    <main style={{ margin: "0 auto", maxWidth: 1000, padding: 80 }}>
+      <Button>Test Button</Button>
+      {/* <h1
         style={{
           display: "flex",
           justifyContent: "center",
@@ -28,7 +29,7 @@ export default function Home() {
         alt="AvyMap app"
         sizes="(max-width: 1000px) 100vw, 1000px"
         placeholder="blur"
-      />
+      /> */}
     </main>
   );
 }
