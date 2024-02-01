@@ -1,4 +1,4 @@
-.primaryButton {
+.Button {
   appearance: unset;
   display: inline-block;
   padding: 24px 32px;
@@ -7,10 +7,7 @@
   position: relative;
   isolation: isolate;
 
-  > * {
-    position: relative;
-    /* z-index: 1; */
-  }
+  outline: solid rgba(0, 0, 0, 0.1) 0.25px;
 }
 
 
@@ -20,5 +17,6 @@
   border-radius: 8px;
   position: absolute;
   inset: 0;
-  /* z-index: 0; */
+  z-index: -1;
+  pointer-events: none;
 }

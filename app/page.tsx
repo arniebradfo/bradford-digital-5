@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
 import { Button } from "./components/Button";
-import { Button2 } from "./components/Button2";
 
 export default function Home() {
   return (
@@ -18,8 +17,7 @@ export default function Home() {
         gap: 80
       }}
     >
-      <Button>Parallax Mouse</Button>
-      <Button2>Scale Hover</Button2>
+      <Button>Got It!</Button>
       {/* <h1
         style={{
           display: "flex",

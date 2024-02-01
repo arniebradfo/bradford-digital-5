@@ -1,9 +1,8 @@
 "use client";
 import {
-  AnimationDefinition,
+  Easing,
   motion,
   useAnimationControls,
-  useMotionValue,
 } from "framer-motion";
 import style from "./Button.module.css";
 import { useRef, useState } from "react";
@@ -14,22 +13,24 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
 }) => {
   const animationControl = useAnimationControls();
   const elementRef = useRef<HTMLDivElement>(null);
-  const translateX = useMotionValue(0);
-  const translateY = useMotionValue(0);
 
   return (
     <div
-      className={style.primaryButton}
+      className={style.Button}
       ref={elementRef}
-      // onMouseEnter={(e) => {}}
-      onMouseLeave={(e) => {
-        translateX.set(0);
-        translateY.set(0);
+      onMouseEnter={() => {
+        if (!elementRef.current) return null;
+        animationControl.start({ scale: 1}, {  ease: 'backOut', duration });
+
       }}
-      onMouseMove={(e) => {
+      onMouseLeave={() => {
+        if (!elementRef.current) return null;
+        animationControl.start({ scale: 0 }, { ease: 'backIn', duration });
+      }}
+      onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
 
-        const { clientX: mouseX, clientY: mouseY } = e;
+        const { clientX: mouseX, clientY: mouseY } = mouseEvent;
         const {
           offsetHeight: elementH,
           offsetWidth: elementW,
@@ -37,42 +38,35 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
           offsetTop: elementY,
         } = elementRef.current;
 
+        const transformOriginX = mouseX - elementX;
+        const transformOriginY = mouseY - elementY;
+
         const centerX = elementX + elementW / 2;
         const centerY = elementY + elementH / 2;
 
         const offsetX = mouseX - centerX;
         const offsetY = mouseY - centerY;
 
-        const offsetCoefficient = 0.3;
+        const translateX = offsetX * offsetCoefficient;
+        const translateY = offsetY * offsetCoefficient;
 
-        console.log({
-          // offsetX,
-          // offsetY,
+        animationControl.set({
+          x: translateX,
+          y: translateY,
+          transformOrigin: `${transformOriginX}px ${transformOriginY}px`,
         });
-
-        // TODO: decrease duration value by distance of target to mouse
-        // maybe it doesn't matter?
-
-        // const durationStart
-        const tX = offsetX * offsetCoefficient;
-        const tY = offsetY * offsetCoefficient;
-
-        translateX.set(tX);
-        translateY.set(tY);
-
-        // animationControl.start(
-        //   { x: tX, y: tY },
-        //   { ease: "linear", duration: 0.05 }
-        // );
       }}
       // {...props}
     >
       <motion.div
         className={style.ButtonBg}
         animate={animationControl}
-        style={{ x: translateX, y: translateY }}
+        style={{ scale: 0, transformOrigin: '50% 50%' }}
       ></motion.div>
       <span>{children}</span>
     </div>
   );
 };
+
+const duration = .2;
+const offsetCoefficient = 0.4;
