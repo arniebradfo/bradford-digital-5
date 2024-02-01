@@ -14,8 +14,8 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
 }) => {
   const animationControl = useAnimationControls();
   const elementRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const translateX = useMotionValue(0);
+  const translateY = useMotionValue(0);
 
   return (
     <div
@@ -23,10 +23,8 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
       ref={elementRef}
       // onMouseEnter={(e) => {}}
       onMouseLeave={(e) => {
-        x.set(0);
-        y.set(0);
-        // const transform = { x: 0, y: 0 };
-        // animationControl.start(transform);
+        translateX.set(0);
+        translateY.set(0);
       }}
       onMouseMove={(e) => {
         if (!elementRef.current) return null;
@@ -53,23 +51,26 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
         });
 
         // TODO: decrease duration value by distance of target to mouse
+        // maybe it doesn't matter?
 
         // const durationStart
         const tX = offsetX * offsetCoefficient;
         const tY = offsetY * offsetCoefficient;
 
-        x.set(tX);
-        y.set(tY);
+        translateX.set(tX);
+        translateY.set(tY);
 
-        // const transform: AnimationDefinition = { x, y };
-        // animationControl.start(transform, { ease: "linear", duration: 0.05 });
+        // animationControl.start(
+        //   { x: tX, y: tY },
+        //   { ease: "linear", duration: 0.05 }
+        // );
       }}
       // {...props}
     >
       <motion.div
         className={style.ButtonBg}
         animate={animationControl}
-        style={{ x, y }}
+        style={{ x: translateX, y: translateY }}
       ></motion.div>
       <span>{children}</span>
     </div>
