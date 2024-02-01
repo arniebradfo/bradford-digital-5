@@ -1,5 +1,10 @@
 "use client";
-import { motion, useAnimationControls } from "framer-motion";
+import {
+  AnimationDefinition,
+  motion,
+  useAnimationControls,
+  useMotionValue,
+} from "framer-motion";
 import style from "./Button.module.css";
 import { useRef, useState } from "react";
 
@@ -9,19 +14,20 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
 }) => {
   const animationControl = useAnimationControls();
   const elementRef = useRef<HTMLDivElement>(null);
-  const [animationState, setAnimationState] = useState<AnimationState>('off');
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   return (
-    <motion.div
+    <div
       className={style.primaryButton}
-      animate={animationControl}
       ref={elementRef}
-      onMouseLeave={(e) => {
-        const transform = { x: 0, y: 0 }
-        setAnimationState('stopping')
-        animationControl.start(transform).then(()=>setAnimationState('off'));
-      }}
       // onMouseEnter={(e) => {}}
+      onMouseLeave={(e) => {
+        x.set(0);
+        y.set(0);
+        // const transform = { x: 0, y: 0 };
+        // animationControl.start(transform);
+      }}
       onMouseMove={(e) => {
         if (!elementRef.current) return null;
 
@@ -39,27 +45,33 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
         const offsetX = mouseX - centerX;
         const offsetY = mouseY - centerY;
 
-        const offsetCoefficient = 0.2;
+        const offsetCoefficient = 0.3;
 
-        const transform = {
-          x: offsetX * offsetCoefficient,
-          y: offsetY * offsetCoefficient,
-        }
+        console.log({
+          // offsetX,
+          // offsetY,
+        });
 
-        // todo use transition timing to 'catch up' to mouse
+        // TODO: decrease duration value by distance of target to mouse
 
-        if (animationState === 'off') {
-          setAnimationState('starting')
-          animationControl.start(transform).then(()=>setAnimationState('running'));
-        } else {
-          animationControl.set(transform)
-        }
+        // const durationStart
+        const tX = offsetX * offsetCoefficient;
+        const tY = offsetY * offsetCoefficient;
+
+        x.set(tX);
+        y.set(tY);
+
+        // const transform: AnimationDefinition = { x, y };
+        // animationControl.start(transform, { ease: "linear", duration: 0.05 });
       }}
       // {...props}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        className={style.ButtonBg}
+        animate={animationControl}
+        style={{ x, y }}
+      ></motion.div>
+      <span>{children}</span>
+    </div>
   );
 };
-
-type AnimationState = "off" | "starting" | "running" | "stopping";

@@ -1,8 +1,24 @@
 .primaryButton {
   appearance: unset;
   display: inline-block;
-  background: #EEEEEE;
   padding: 24px 32px;
   border-radius: 8px;
   font-weight: bold;
+  position: relative;
+  isolation: isolate;
+
+  > * {
+    position: relative;
+    /* z-index: 1; */
+  }
+}
+
+
+
+.ButtonBg {
+  background: #EEEEEE;
+  border-radius: 8px;
+  position: absolute;
+  inset: 0;
+  /* z-index: 0; */
 }
