@@ -10,35 +10,13 @@ import style from "./Button.module.css";
 import { useRef } from "react";
 import { mouseOffset } from "./mouseOffset";
 import { useMagneticParallax } from "./useMagneticParallax";
+import { useScaleParallax } from "./useScaleParallax";
 
-export const Button: React.FC<
-  React.ComponentProps<"div"> & {
-    duration?: number;
-    scaleOffsetLevel?: number;
-    magneticOffsetLevel?: number;
-  }
-> = ({
+export const Button: React.FC<React.ComponentProps<"div">> = ({
   children,
-  duration = 0.15,
-  scaleOffsetLevel = 0.3,
-  magneticOffsetLevel = 0.15,
   // ...props
 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const scaleTranslateX = useTransform(() => mouseX.get() * scaleOffsetLevel);
-  const scaleTranslateY = useTransform(() => mouseY.get() * scaleOffsetLevel);
-
-  const scale = useMotionValue(0);
-  const opacity = useMotionValue(0);
-
-  const transformOriginX = useMotionValue(0);
-  const transformOriginY = useMotionValue(0);
-
-  const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
   const clickScale = useMotionValue(1);
 
@@ -49,7 +27,21 @@ export const Button: React.FC<
     updateMagneticParallax,
     endMagneticParallax,
   } = useMagneticParallax({
-    offsetLevel: magneticOffsetLevel,
+    offsetLevel: 0.15,
+    duration,
+  });
+
+  const {
+    scaleTranslateX,
+    scaleTranslateY,
+    transformOrigin,
+    scale,
+    opacity,
+    startScaleParallax,
+    updateScaleParallax,
+    endScaleParallax,
+  } = useScaleParallax({
+    offsetLevel: 0.3,
     duration,
   });
 
@@ -59,60 +51,20 @@ export const Button: React.FC<
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return null;
-
         startMagneticParallax({ mouseEvent, element: elementRef.current });
-
-        const {
-          topLeftOffsetX, //
-          topLeftOffsetY,
-        } = mouseOffset({ mouseEvent, element: elementRef.current });
-
-        transformOriginX.set(topLeftOffsetX);
-        transformOriginY.set(topLeftOffsetY);
-
-        animate(scale, 1, { duration });
-        animate(opacity, 1, { duration: opacityDuration });
-
+        startScaleParallax({ mouseEvent, element: elementRef.current });
         animate(clickScale, clickScaleLevel, { duration });
       }}
       onHoverEnd={(mouseEvent) => {
         if (!elementRef.current) return null;
-
         endMagneticParallax({ mouseEvent, element: elementRef.current });
-
-        const {
-          topLeftOffsetX, //
-          topLeftOffsetY,
-        } = mouseOffset({ mouseEvent, element: elementRef.current });
-
-        // TODO: if this value is wayyy outside the button, set to center
-        transformOriginX.set(topLeftOffsetX);
-        transformOriginY.set(topLeftOffsetY);
-
-        animate(scale, 0, { duration });
-        animate(opacity, 0, {
-          duration: opacityDuration,
-          delay: duration - opacityDuration,
-        });
-
+        endScaleParallax({ mouseEvent, element: elementRef.current });
         animate(clickScale, 1, { duration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
-
         updateMagneticParallax({ mouseEvent, element: elementRef.current });
-
-        const {
-          topLeftOffsetX, //
-          topLeftOffsetY,
-          centerOffsetX,
-          centerOffsetY,
-        } = mouseOffset({ mouseEvent, element: elementRef.current });
-
-        transformOriginX.set(topLeftOffsetX);
-        transformOriginY.set(topLeftOffsetY);
-        mouseX.set(centerOffsetX);
-        mouseY.set(centerOffsetY);
+        updateScaleParallax({ mouseEvent, element: elementRef.current });
       }}
       onPointerDown={() => animate(clickScale, 1, { duration: clickDuration })}
       onPointerUp={() =>
@@ -120,7 +72,6 @@ export const Button: React.FC<
           duration: clickDuration,
         })
       }
-
       // {...props}
     >
       <motion.div
@@ -147,6 +98,6 @@ export const Button: React.FC<
   );
 };
 
-const opacityDuration = 0.05;
+const duration = 0.15;
 const clickDuration = 0.1;
 const clickScaleLevel = 1.1;
