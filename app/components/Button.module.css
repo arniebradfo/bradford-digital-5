@@ -8,7 +8,9 @@
   isolation: isolate;
   cursor: pointer;
 
-  outline: solid rgba(0, 0, 0, 0.1) 0.25px;
+  /* &:not(:hover){
+    outline: solid rgba(0, 0, 0, 0.1) 0.25px;
+  } */
 
 }
 

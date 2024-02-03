@@ -1,27 +1,95 @@
 "use client";
-import { Easing, motion, useAnimationControls } from "framer-motion";
+import {
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 import style from "./Button.module.css";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { mouseOffset } from "./mouseOffset";
 
-export const Button: React.FC<React.ComponentProps<"div">> = ({
+export const Button: React.FC<
+  React.ComponentProps<"div"> & {
+    duration?: number;
+    scaleOffsetLevel?: number;
+    magneticOffsetLevel?: number;
+  }
+> = ({
   children,
+  duration = 0.15,
+  scaleOffsetLevel = 0.3,
+  magneticOffsetLevel = 0.15,
   // ...props
 }) => {
-  const animationControl = useAnimationControls();
   const elementRef = useRef<HTMLDivElement>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const scaleTranslateX = useTransform(() => mouseX.get() * scaleOffsetLevel);
+  const scaleTranslateY = useTransform(() => mouseY.get() * scaleOffsetLevel);
+
+  const scale = useMotionValue(0);
+  const opacity = useMotionValue(0);
+
+  const transformOriginX = useMotionValue(0);
+  const transformOriginY = useMotionValue(0);
+
+  const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
+
+  const magneticOffset = useMotionValue(0);
+
+  const magneticTranslateX = useTransform(
+    () => mouseX.get() * magneticOffset.get()
+  );
+  const magneticTranslateY = useTransform(
+    () => mouseY.get() * magneticOffset.get()
+  );
 
   return (
     <div
       className={style.Button}
       ref={elementRef}
-      onMouseEnter={() => {
+      onMouseEnter={(mouseEvent) => {
         if (!elementRef.current) return null;
-        animationControl.start({ scale: 1 }, { ease: "backOut", duration });
+
+        animate(magneticOffset, magneticOffsetLevel, { duration });
+
+        const {
+          topLeftOffsetX, //
+          topLeftOffsetY,
+          centerOffsetX,
+          centerOffsetY,
+        } = mouseOffset(mouseEvent, elementRef.current);
+
+        transformOriginX.set(topLeftOffsetX);
+        transformOriginY.set(topLeftOffsetY);
+        mouseX.set(centerOffsetX);
+        mouseY.set(centerOffsetY);
+
+        animate(scale, 1, { duration });
+        animate(opacity, 1, { duration: opacityDuration });
+
       }}
-      onMouseLeave={() => {
+      onMouseLeave={(mouseEvent) => {
         if (!elementRef.current) return null;
-        animationControl.start({ scale: 0 }, { ease: "backIn", duration });
+
+        const {
+          topLeftOffsetX, //
+          topLeftOffsetY,
+        } = mouseOffset(mouseEvent, elementRef.current);
+
+        // TODO: if this value is wayyy outside the button, set to center
+        transformOriginX.set(topLeftOffsetX);
+        transformOriginY.set(topLeftOffsetY);
+
+        animate(magneticOffset, 0, { duration });
+        animate(mouseX, 0, { duration });
+        animate(mouseY, 0, { duration });
+        animate(scale, 0, { duration });
+        animate(opacity, 0, { duration: opacityDuration, delay: duration - opacityDuration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
@@ -33,26 +101,28 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
           centerOffsetY,
         } = mouseOffset(mouseEvent, elementRef.current);
 
-        const translateX = centerOffsetX * offsetCoefficient;
-        const translateY = centerOffsetY * offsetCoefficient;
-
-        animationControl.set({
-          x: translateX,
-          y: translateY,
-          transformOrigin: `${topLeftOffsetX}px ${topLeftOffsetY}px`,
-        });
+        transformOriginX.set(topLeftOffsetX);
+        transformOriginY.set(topLeftOffsetY);
+        mouseX.set(centerOffsetX);
+        mouseY.set(centerOffsetY);
       }}
       // {...props}
     >
       <motion.div
         className={style.ButtonBg}
-        animate={animationControl}
-        style={{ scale: 0, transformOrigin: "50% 50%" }}
+        style={{
+          x: scaleTranslateX,
+          y: scaleTranslateY,
+          transformOrigin,
+          scale,
+          opacity
+        }}
       ></motion.div>
-      <span>{children}</span>
+      <motion.div style={{ x: magneticTranslateX, y: magneticTranslateY }}>
+        {children}
+      </motion.div>
     </div>
   );
 };
 
-const duration = 0.2;
-const offsetCoefficient = 0.4;
+const opacityDuration = 0.05
