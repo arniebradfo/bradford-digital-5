@@ -6,11 +6,11 @@
   font-weight: bold;
   position: relative;
   isolation: isolate;
+  cursor: pointer;
 
   outline: solid rgba(0, 0, 0, 0.1) 0.25px;
+
 }
-
-
 
 .ButtonBg {
   background: #EEEEEE;

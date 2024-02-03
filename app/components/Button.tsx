@@ -1,11 +1,8 @@
 "use client";
-import {
-  Easing,
-  motion,
-  useAnimationControls,
-} from "framer-motion";
+import { Easing, motion, useAnimationControls } from "framer-motion";
 import style from "./Button.module.css";
 import { useRef, useState } from "react";
+import { mouseOffset } from "./mouseOffset";
 
 export const Button: React.FC<React.ComponentProps<"div">> = ({
   children,
@@ -20,40 +17,29 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
       ref={elementRef}
       onMouseEnter={() => {
         if (!elementRef.current) return null;
-        animationControl.start({ scale: 1}, {  ease: 'backOut', duration });
-
+        animationControl.start({ scale: 1 }, { ease: "backOut", duration });
       }}
       onMouseLeave={() => {
         if (!elementRef.current) return null;
-        animationControl.start({ scale: 0 }, { ease: 'backIn', duration });
+        animationControl.start({ scale: 0 }, { ease: "backIn", duration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
 
-        const { clientX: mouseX, clientY: mouseY } = mouseEvent;
         const {
-          offsetHeight: elementH,
-          offsetWidth: elementW,
-          offsetLeft: elementX,
-          offsetTop: elementY,
-        } = elementRef.current;
+          topLeftOffsetX, //
+          topLeftOffsetY,
+          centerOffsetX,
+          centerOffsetY,
+        } = mouseOffset(mouseEvent, elementRef.current);
 
-        const transformOriginX = mouseX - elementX;
-        const transformOriginY = mouseY - elementY;
-
-        const centerX = elementX + elementW / 2;
-        const centerY = elementY + elementH / 2;
-
-        const offsetX = mouseX - centerX;
-        const offsetY = mouseY - centerY;
-
-        const translateX = offsetX * offsetCoefficient;
-        const translateY = offsetY * offsetCoefficient;
+        const translateX = centerOffsetX * offsetCoefficient;
+        const translateY = centerOffsetY * offsetCoefficient;
 
         animationControl.set({
           x: translateX,
           y: translateY,
-          transformOrigin: `${transformOriginX}px ${transformOriginY}px`,
+          transformOrigin: `${topLeftOffsetX}px ${topLeftOffsetY}px`,
         });
       }}
       // {...props}
@@ -61,12 +47,12 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
       <motion.div
         className={style.ButtonBg}
         animate={animationControl}
-        style={{ scale: 0, transformOrigin: '50% 50%' }}
+        style={{ scale: 0, transformOrigin: "50% 50%" }}
       ></motion.div>
       <span>{children}</span>
     </div>
   );
 };
 
-const duration = .2;
+const duration = 0.2;
 const offsetCoefficient = 0.4;

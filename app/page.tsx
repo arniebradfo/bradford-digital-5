@@ -2,6 +2,7 @@ import Image from "next/image";
 import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
 import { Button } from "./components/Button";
 import { Button2 } from "./components/Button2";
+import { Button3 } from "./components/Button3";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
         gap: 80
       }}
     >
-      <Button2>Hover bg</Button2>
-      <Button>Got It!</Button>
+      <Button3>Mixed Parallax</Button3>
+      <Button2>Move to Parallax</Button2>
+      <Button>Expand Parallax</Button>
       {/* <h1
         style={{
           display: "flex",
