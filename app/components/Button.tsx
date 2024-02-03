@@ -40,6 +40,7 @@ export const Button: React.FC<
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
   const magneticOffset = useMotionValue(0);
+  const clickScale = useMotionValue(1);
 
   const magneticTranslateX = useTransform(
     () => mouseX.get() * magneticOffset.get()
@@ -49,13 +50,14 @@ export const Button: React.FC<
   );
 
   return (
-    <div
+    <motion.div
       className={style.Button}
       ref={elementRef}
-      onMouseEnter={(mouseEvent) => {
+      onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return null;
 
         animate(magneticOffset, magneticOffsetLevel, { duration });
+        animate(clickScale, clickScaleLevel, { duration });
 
         const {
           topLeftOffsetX, //
@@ -71,9 +73,8 @@ export const Button: React.FC<
 
         animate(scale, 1, { duration });
         animate(opacity, 1, { duration: opacityDuration });
-
       }}
-      onMouseLeave={(mouseEvent) => {
+      onHoverEnd={(mouseEvent) => {
         if (!elementRef.current) return null;
 
         const {
@@ -89,7 +90,11 @@ export const Button: React.FC<
         animate(mouseX, 0, { duration });
         animate(mouseY, 0, { duration });
         animate(scale, 0, { duration });
-        animate(opacity, 0, { duration: opacityDuration, delay: duration - opacityDuration });
+        animate(opacity, 0, {
+          duration: opacityDuration,
+          delay: duration - opacityDuration,
+        });
+        animate(clickScale, 1, { duration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
@@ -106,6 +111,15 @@ export const Button: React.FC<
         mouseX.set(centerOffsetX);
         mouseY.set(centerOffsetY);
       }}
+      onPointerDown={() =>
+        animate(clickScale, 1, { duration: clickDuration })
+      }
+      onPointerUp={() =>
+        animate(clickScale, clickScaleLevel, {
+          duration: clickDuration,
+        })
+      }
+
       // {...props}
     >
       <motion.div
@@ -115,14 +129,23 @@ export const Button: React.FC<
           y: scaleTranslateY,
           transformOrigin,
           scale,
-          opacity
+          opacity,
         }}
       ></motion.div>
-      <motion.div style={{ x: magneticTranslateX, y: magneticTranslateY }}>
+      <motion.div
+        style={{
+          x: magneticTranslateX,
+          y: magneticTranslateY,
+          scale: clickScale,
+          transformOrigin: "50% 50%",
+        }}
+      >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
-const opacityDuration = 0.05
+const opacityDuration = 0.05;
+const clickDuration = 0.1;
+const clickScaleLevel = 1.1;

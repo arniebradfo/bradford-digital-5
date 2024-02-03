@@ -1,5 +1,5 @@
 export function mouseOffset<T extends HTMLElement>(
-  mouseEvent: React.MouseEvent<T>,
+  mouseEvent: React.MouseEvent<T> | MouseEvent,
   element: T
 ) {
   const { clientX: globalMouseX, clientY: globalMouseY } = mouseEvent;
