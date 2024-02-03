@@ -9,6 +9,7 @@ import {
 import style from "./Button.module.css";
 import { useRef } from "react";
 import { mouseOffset } from "./mouseOffset";
+import { useMagneticParallax } from "./useMagneticParallax";
 
 export const Button: React.FC<
   React.ComponentProps<"div"> & {
@@ -39,15 +40,18 @@ export const Button: React.FC<
 
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
-  const magneticOffset = useMotionValue(0);
   const clickScale = useMotionValue(1);
 
-  const magneticTranslateX = useTransform(
-    () => mouseX.get() * magneticOffset.get()
-  );
-  const magneticTranslateY = useTransform(
-    () => mouseY.get() * magneticOffset.get()
-  );
+  const {
+    magneticTranslateX,
+    magneticTranslateY,
+    startMagneticParallax,
+    updateMagneticParallax,
+    endMagneticParallax,
+  } = useMagneticParallax({
+    offsetLevel: magneticOffsetLevel,
+    duration,
+  });
 
   return (
     <motion.div
@@ -56,64 +60,61 @@ export const Button: React.FC<
       onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return null;
 
-        animate(magneticOffset, magneticOffsetLevel, { duration });
-        animate(clickScale, clickScaleLevel, { duration });
+        startMagneticParallax({ mouseEvent, element: elementRef.current });
 
         const {
           topLeftOffsetX, //
           topLeftOffsetY,
-          centerOffsetX,
-          centerOffsetY,
-        } = mouseOffset(mouseEvent, elementRef.current);
+        } = mouseOffset({ mouseEvent, element: elementRef.current });
 
         transformOriginX.set(topLeftOffsetX);
         transformOriginY.set(topLeftOffsetY);
-        mouseX.set(centerOffsetX);
-        mouseY.set(centerOffsetY);
 
         animate(scale, 1, { duration });
         animate(opacity, 1, { duration: opacityDuration });
+
+        animate(clickScale, clickScaleLevel, { duration });
       }}
       onHoverEnd={(mouseEvent) => {
         if (!elementRef.current) return null;
 
+        endMagneticParallax({ mouseEvent, element: elementRef.current });
+
         const {
           topLeftOffsetX, //
           topLeftOffsetY,
-        } = mouseOffset(mouseEvent, elementRef.current);
+        } = mouseOffset({ mouseEvent, element: elementRef.current });
 
         // TODO: if this value is wayyy outside the button, set to center
         transformOriginX.set(topLeftOffsetX);
         transformOriginY.set(topLeftOffsetY);
 
-        animate(magneticOffset, 0, { duration });
-        animate(mouseX, 0, { duration });
-        animate(mouseY, 0, { duration });
         animate(scale, 0, { duration });
         animate(opacity, 0, {
           duration: opacityDuration,
           delay: duration - opacityDuration,
         });
+
         animate(clickScale, 1, { duration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return null;
+
+        updateMagneticParallax({ mouseEvent, element: elementRef.current });
 
         const {
           topLeftOffsetX, //
           topLeftOffsetY,
           centerOffsetX,
           centerOffsetY,
-        } = mouseOffset(mouseEvent, elementRef.current);
+        } = mouseOffset({ mouseEvent, element: elementRef.current });
 
         transformOriginX.set(topLeftOffsetX);
         transformOriginY.set(topLeftOffsetY);
         mouseX.set(centerOffsetX);
         mouseY.set(centerOffsetY);
       }}
-      onPointerDown={() =>
-        animate(clickScale, 1, { duration: clickDuration })
-      }
+      onPointerDown={() => animate(clickScale, 1, { duration: clickDuration })}
       onPointerUp={() =>
         animate(clickScale, clickScaleLevel, {
           duration: clickDuration,
@@ -131,7 +132,7 @@ export const Button: React.FC<
           scale,
           opacity,
         }}
-      ></motion.div>
+      />
       <motion.div
         style={{
           x: magneticTranslateX,

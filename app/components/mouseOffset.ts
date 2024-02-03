@@ -1,7 +1,12 @@
-export function mouseOffset<T extends HTMLElement>(
-  mouseEvent: React.MouseEvent<T> | MouseEvent,
-  element: T
-) {
+export type MouseOffsetProps= {
+  mouseEvent: React.MouseEvent | MouseEvent;
+  element: HTMLElement;
+};
+
+export function mouseOffset<T extends HTMLElement>({
+  mouseEvent,
+  element,
+}: MouseOffsetProps) {
   const { clientX: globalMouseX, clientY: globalMouseY } = mouseEvent;
   const {
     offsetHeight: elementH,
