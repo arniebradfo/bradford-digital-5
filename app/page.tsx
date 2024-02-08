@@ -1,51 +1,76 @@
 import Image from "next/image";
 import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
-import { Button } from "./components/Button";
 import Link from "next/link";
+import { externalLinkAttributes } from "./utils/link";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        margin: "0 auto",
-        maxWidth: 1000,
-        padding: 80,
-        display: "flex",
-        flexDirection: 'column',
-        height: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 8
-      }}
-    >
-
-      <h1
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 24,
-          alignItems: "center",
-          padding: 64,
-        }}
-      >
+    <div>
+      <header>
         <Image
-          src="/logo/hexagon.inline.svg"
-          alt="Vercel Logo"
+          src="/logo/small.svg"
+          alt="jb logo"
           width={16 * 3}
           height={16 * 3}
           priority
-        />{" "}
-        <span>James Bradford / UX Engineer</span>
-      </h1>
-      <p>
-        <Link href={'/components'}>Components</Link>
-      </p>
-      {/* <Image
+        />
+        <h1>James Bradford / UX Engineer</h1>
+        <p>
+          Currently working in the{" "}
+          <Link
+            href={"https://www.pnnl.gov/visual-analytics"}
+            {...externalLinkAttributes}
+          >
+            Human Centered Computing Group
+          </Link>{" "}
+          at{" "}
+          <Link href={"https://www.pnnl.gov/"} {...externalLinkAttributes}>
+            Pacific Northwest National Laboratory
+          </Link>{" "}
+          making web apps for cybersecurity, geospatial, machine learning, and
+          data visualization.
+        </p>
+        <nav>
+          {[
+            {
+              children: "LinkedIn",
+              href: "https://www.linkedin.com/in/arniebradfo/",
+              ...externalLinkAttributes,
+            },
+            {
+              children: "GitHub",
+              href: "https://github.com/arniebradfo",
+              ...externalLinkAttributes,
+            },
+            {
+              children: "Figma",
+              href: "https://www.figma.com/@arniebradfo",
+              ...externalLinkAttributes,
+            },
+            {
+              children: "Resume",
+              href: "#",
+            },
+            {
+              children: "FUN!",
+              href: "/components",
+            },
+          ].map((linkProps, i) => (
+            <>
+              {i > 0 && <span>/</span>}
+              <Link {...linkProps} />
+            </>
+          ))}
+        </nav>
+      </header>
+      <main>
+        {/* <Image
         src={AvyMapMockupDesktop}
         alt="AvyMap app"
         sizes="(max-width: 1000px) 100vw, 1000px"
         placeholder="blur"
       /> */}
-    </main>
+      </main>
+    </div>
   );
 }
