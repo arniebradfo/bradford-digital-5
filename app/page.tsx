@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
 import { Button } from "./components/Button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,10 +18,8 @@ export default function Home() {
         gap: 8
       }}
     >
-      <Button>Parallax</Button>
-      <Button>Parallax</Button>
-      <Button>Parallax</Button>
-      {/* <h1
+
+      <h1
         style={{
           display: "flex",
           justifyContent: "center",
@@ -36,9 +35,12 @@ export default function Home() {
           height={16 * 3}
           priority
         />{" "}
-        <span>bradford.digital</span>
+        <span>James Bradford / UX Engineer</span>
       </h1>
-      <Image
+      <p>
+        <Link href={'/components'}>Components</Link>
+      </p>
+      {/* <Image
         src={AvyMapMockupDesktop}
         alt="AvyMap app"
         sizes="(max-width: 1000px) 100vw, 1000px"
