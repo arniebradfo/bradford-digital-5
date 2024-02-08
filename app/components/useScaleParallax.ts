@@ -28,12 +28,7 @@ export const useScaleParallax = ({
 
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
-
-
-  const startScaleParallax = ({
-    mouseEvent,
-    element,
-  }: MouseOffsetProps) => {
+  const startScaleParallax = ({ mouseEvent, element }: MouseOffsetProps) => {
     const {
       topLeftOffsetX, //
       topLeftOffsetY,
@@ -46,7 +41,6 @@ export const useScaleParallax = ({
     animate(opacity, 1, { duration: opacityDuration });
   };
   const updateScaleParallax = ({ mouseEvent, element }: MouseOffsetProps) => {
-
     const {
       topLeftOffsetX, //
       topLeftOffsetY,
@@ -84,7 +78,7 @@ export const useScaleParallax = ({
     opacity,
     startScaleParallax,
     updateScaleParallax,
-    endScaleParallax
+    endScaleParallax,
   };
 };
 
