@@ -1,9 +1,11 @@
 :root{
   --blue-500: blue;
+  --font-family-sans: var(--next-font-family-sans, sans-serif), sans-serif;
+  --font-family-mono: var(--next-font-family-mono, monospace), monospace;
 }
 
 html{
-  font-family: sans-serif;
+  font-family: var(--font-family-sans);
 }
 
 html, body{
