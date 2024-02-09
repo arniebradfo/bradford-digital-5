@@ -1,11 +1,14 @@
-import React, { HTMLAttributes } from "react";
+import React, { ComponentProps, HTMLAttributes } from "react";
 import style from "./Text.module.css";
 
-export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
-  /** type of tag to use */
-  tagName?: keyof JSX.IntrinsicElements;
+// THIS?: https://stackoverflow.com/a/54049872/5648839 //
+type TagProps<Tag> = Tag extends keyof JSX.IntrinsicElements ? JSX.IntrinsicElements[Tag] : never
 
-  // COLOR
+export type TextProps<TagName extends keyof JSX.IntrinsicElements> = TagProps<TagName> & {
+  /** type of tag to use */
+  tagName?: TagName;
+
+  // COLOR //
   /** #1 font color  */
   heading?: boolean;
   /** #2 font color - default  */
@@ -15,7 +18,7 @@ export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** #4 font color  */
   disabled?: boolean;
 
-  // SIZE
+  // SIZE //
   /** large font-size  */
   large?: boolean;
   /** medium font-size  */
@@ -25,7 +28,7 @@ export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** header font-sizes */
   h?: number;
 
-  // FONT STYLE
+  // FONT STYLE //
   /** bold font-weight  */
   bold?: boolean;
   /** normal font-weight - default (ie not bold)  */
@@ -33,7 +36,7 @@ export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** italic font-style  */
   italic?: boolean;
 
-  // FAMILY / Style
+  // FAMILY / STYLE //
   /** sans-serif font-family - default */
   sans?: boolean;
   /** monospace font-family (ie code) */
@@ -46,8 +49,8 @@ export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
 };
 
 /** A utility text component for declarative styling */
-export const Txt: React.FC<TextProps> = ({
-  tagName,
+export const Txt = <TagName extends keyof JSX.IntrinsicElements>({
+  tagName: RootTag = 'span',
 
   heading,
   body,
@@ -64,100 +67,14 @@ export const Txt: React.FC<TextProps> = ({
   italic,
 
   sans,
-  monospace: mono,
+  monospace,
   meta,
 
   ellipsize,
+
   className,
   ...props
-}) => {
-  /* const txtCss = useMemo(
-    () => [
-      {
-        color: body //
-          ? Tkn.TextBody
-          : heading
-          ? Tkn.TextHeading
-          : muted
-          ? Tkn.TextMuted
-          : disabled
-          ? Tkn.TextDisabled
-          : undefined,
-      },
-      {
-        fontSize: medium //
-          ? Tkn.FontSizeMedium
-          : large
-          ? Tkn.FontSizeLarge
-          : small
-          ? Tkn.FontSizeSmall
-          : undefined,
-      },
-      meta && utilityStyles.textMeta, // needs to come before fontWeight
-      {
-        fontWeight: normal //
-          ? (Tkn.FontWeightNormal as any)
-          : bold
-          ? (Tkn.FontWeightBold as any)
-          : undefined,
-      },
-      {
-        fontStyle: normal //
-          ? "normal"
-          : italic
-          ? "italic"
-          : undefined,
-      },
-      {
-        fontFamily: sans
-          ? Tkn.FontFamilySans
-          : mono
-          ? Tkn.FontFamilyMonospace
-          : serif
-          ? Tkn.FontFamilySerif
-          : undefined,
-      },
-      {
-        display: block ? "block" : undefined,
-      },
-      running && utilityStyles.textRunning,
-      ellipsize && utilityStyles.textEllipsis,
-      alignTxtIcons,
-    ],
-    [
-      block,
-      bold,
-      disabled,
-      ellipsize,
-      heading,
-      italic,
-      large,
-      medium,
-      meta,
-      mono,
-      muted,
-      normal,
-      body,
-      running,
-      sans,
-      serif,
-      small,
-    ]
-  );
-
-  const _className = useMemo(() => {
-    const classNames = [];
-    if (skeleton) classNames.push(Classes.SKELETON);
-    if (className) classNames.push(className);
-    return classNames.length > 0 ? classNames.join(" ") : undefined;
-  }, [className, skeleton]);
-
-  const RootTag = useMemo(() => {
-    return tagName ?? (running ? "p" : "span");
-  }, [running, tagName]);
- */
-  
-  const RootTag = tagName ?? "span";
+}: TextProps<TagName>) => {
 
   return <RootTag className={style.Text} {...props} />;
 };
