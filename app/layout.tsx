@@ -4,14 +4,14 @@ import "./reset.css";
 import "./globals.css";
 
 const PlexSans = IBM_Plex_Sans({
-  weight: ["400", "700"],
+  weight: ["500", "700"],
   subsets: ["latin"],
-  variable: "--next-font-family-sans",
+  variable: "--plex-font-family-sans",
 });
 const PlexMono = IBM_Plex_Mono({
-  weight: ["400", "700"],
+  weight: ["500", "700"],
   subsets: ["latin"],
-  variable: "--next-font-family-mono",
+  variable: "--plex-font-family-mono",
 });
 
 export const metadata: Metadata = {

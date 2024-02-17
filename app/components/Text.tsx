@@ -1,163 +1,79 @@
 import React, { HTMLAttributes } from "react";
 import style from "./Text.module.css";
 
-export type TextProps = HTMLAttributes<HTMLOrSVGElement> & {
-  /** type of tag to use */
-  tagName?: keyof JSX.IntrinsicElements;
+export type TxtProps = HTMLAttributes<HTMLOrSVGElement> & {
+  /** type of tag to use - <span/> is default */
+  tag?: keyof JSX.IntrinsicElements;
 
-  // COLOR
-  /** #1 font color  */
-  heading?: boolean;
-  /** #2 font color - default  */
-  body?: boolean;
-  /** #3 font color  */
-  muted?: boolean;
-  /** #4 font color  */
-  disabled?: boolean;
+  /** color, foreground: 1 is darkest, 4 is lightest, 2 is default */
+  fg?: 1 | 2 | 3 | 4;
 
-  // SIZE
-  /** large font-size  */
-  large?: boolean;
-  /** medium font-size  */
-  medium?: boolean;
-  /** small font-size  */
-  small?: boolean;
-  /** header font-sizes */
-  h?: number;
+  /** text-size: 1 is largest, 6 is smallest, 5 is default */
+  size?: 1 | 2 | 3 | 4 | 5 | 6;
 
-  // FONT STYLE
-  /** bold font-weight  */
+  /** font-weight: bold;  */
   bold?: boolean;
-  /** normal font-weight - default (ie not bold)  */
+  /** font-weight: normal; default (ie not bold)  */
   normal?: boolean;
-  /** italic font-style  */
+  /** font-style: italic;  */
   italic?: boolean;
 
-  // FAMILY / Style
-  /** sans-serif font-family - default */
+  /** font-family: sans-serif; default */
   sans?: boolean;
-  /** monospace font-family (ie code) */
-  monospace?: boolean;
-  /** all caps text blocks */
-  meta?: boolean;
+  /** font-family: monospace; (ie code) */
+  mono?: boolean;
 
-  /** truncate text with '...' if its in a flex parent */
-  ellipsize?: boolean;
+  /** text-transform: uppercase; letter-spacing: ++; */
+  uppercase?: boolean;
+  /** text-overflow: ellipsis; truncate text with '...' if its in a flex parent */
+  ellipsis?: boolean;
 };
 
 /** A utility text component for declarative styling */
-export const Txt: React.FC<TextProps> = ({
-  tagName,
-
-  heading,
-  body,
-  muted,
-  disabled,
-
-  large,
-  medium,
-  small,
-  h,
-
+export const Txt: React.FC<TxtProps> = ({
+  tag: RootTag = "span",
+  fg: color,
+  size,
   bold,
   normal,
   italic,
-
   sans,
-  monospace: mono,
-  meta,
-
-  ellipsize,
+  mono,
+  uppercase,
+  ellipsis,
   className,
   ...props
 }) => {
-  /* const txtCss = useMemo(
-    () => [
-      {
-        color: body //
-          ? Tkn.TextBody
-          : heading
-          ? Tkn.TextHeading
-          : muted
-          ? Tkn.TextMuted
-          : disabled
-          ? Tkn.TextDisabled
-          : undefined,
-      },
-      {
-        fontSize: medium //
-          ? Tkn.FontSizeMedium
-          : large
-          ? Tkn.FontSizeLarge
-          : small
-          ? Tkn.FontSizeSmall
-          : undefined,
-      },
-      meta && utilityStyles.textMeta, // needs to come before fontWeight
-      {
-        fontWeight: normal //
-          ? (Tkn.FontWeightNormal as any)
-          : bold
-          ? (Tkn.FontWeightBold as any)
-          : undefined,
-      },
-      {
-        fontStyle: normal //
-          ? "normal"
-          : italic
-          ? "italic"
-          : undefined,
-      },
-      {
-        fontFamily: sans
-          ? Tkn.FontFamilySans
-          : mono
-          ? Tkn.FontFamilyMonospace
-          : serif
-          ? Tkn.FontFamilySerif
-          : undefined,
-      },
-      {
-        display: block ? "block" : undefined,
-      },
-      running && utilityStyles.textRunning,
-      ellipsize && utilityStyles.textEllipsis,
-      alignTxtIcons,
-    ],
-    [
-      block,
-      bold,
-      disabled,
-      ellipsize,
-      heading,
-      italic,
-      large,
-      medium,
-      meta,
-      mono,
-      muted,
-      normal,
-      body,
-      running,
-      sans,
-      serif,
-      small,
-    ]
+  const classNames = [
+    style.Text,
+    color && colors[color - 1],
+    size && sizes[size - 1],
+    bold && style.TextBold,
+    normal && style.TextNormal,
+    italic && style.TextItalic,
+    sans && style.TextSans,
+    mono && style.TextMono,
+    uppercase && style.TextUppercase,
+    ellipsis && style.TextEllipsis,
+    className,
+  ];
+  return (
+    <RootTag className={classNames.filter(Boolean).join(" ")} {...props} />
   );
-
-  const _className = useMemo(() => {
-    const classNames = [];
-    if (skeleton) classNames.push(Classes.SKELETON);
-    if (className) classNames.push(className);
-    return classNames.length > 0 ? classNames.join(" ") : undefined;
-  }, [className, skeleton]);
-
-  const RootTag = useMemo(() => {
-    return tagName ?? (running ? "p" : "span");
-  }, [running, tagName]);
- */
-  
-  const RootTag = tagName ?? "span";
-
-  return <RootTag className={style.Text} {...props} />;
 };
+
+const colors = [
+  style.TextColor1,
+  style.TextColor2,
+  style.TextColor3,
+  style.TextColor4,
+];
+
+const sizes = [
+  style.TextSize1,
+  style.TextSize2,
+  style.TextSize3,
+  style.TextSize4,
+  style.TextSize5,
+  style.TextSize6,
+];

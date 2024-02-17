@@ -1,11 +1,42 @@
 :root{
   --blue-500: blue;
-  --font-family-sans: var(--next-font-family-sans, sans-serif), sans-serif;
-  --font-family-mono: var(--next-font-family-mono, monospace), monospace;
+
+  --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
+  --font-family-mono: var(--plex-font-family-mono, monospace), monospace;
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
+
+  --background-color-1: hsl(0, 0%, 100%);
+  --background-color-2: hsl(0, 0%, 95%);
+  --background-color-3: hsl(0, 0%, 90%);
+  --background-color-4: hsl(0, 0%, 85%);
+
+  --foreground-color-1: hsl(0, 0%, 0%);
+  --foreground-color-2: hsl(0, 0%, 20%);
+  --foreground-color-3: hsl(0, 0%, 40%);
+  --foreground-color-4: hsl(0, 0%, 60%);
+
+  --font-size-1: 32px;
+  --font-size-2: 24px;
+  --font-size-3: 18px;
+  --font-size-4: 16px;
+  --font-size-5: 14px;
+  --font-size-6: 12px;
+
+  --line-height: 1.4;
 }
 
 html{
   font-family: var(--font-family-sans);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-5);
+  color: var(--foreground-color-2);
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 html, body{

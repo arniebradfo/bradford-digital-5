@@ -1,4 +1,83 @@
+/* BASE */
 .Text {
-  color: red;
+  /* color: red; */
 }
 
+
+/* COLORS */
+
+.TextColor1 {
+  color: var(--foreground-color-1)
+}
+
+.TextColor2 {
+  color: var(--foreground-color-2)
+}
+
+.TextColor3 {
+  color: var(--foreground-color-3)
+}
+
+.TextColor4 {
+  color: var(--foreground-color-4)
+}
+
+/* SIZES */
+
+.TextSize1 {
+  font-size: var(--font-size-1);
+}
+
+.TextSize2 {
+  font-size: var(--font-size-2);
+}
+
+.TextSize3 {
+  font-size: var(--font-size-3);
+}
+
+.TextSize4 {
+  font-size: var(--font-size-4);
+}
+
+.TextSize5 {
+  font-size: var(--font-size-5);
+}
+
+.TextSize6 {
+  font-size: var(--font-size-6);
+}
+
+/* STYLE */
+
+.TextBold {
+  font-weight: var(--font-weight-bold, bold);
+}
+
+.TextNormal {
+  font-weight: var(--font-weight-normal, normal);
+}
+
+.TextItalic {
+  font-style: italic;
+}
+
+.TextSans {
+  font-family: var(--font-family-sans), sans-serif;
+}
+
+.TextMono {
+  font-family: var(--font-family-mono), monospace;
+}
+
+.TextUppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.TextEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
