@@ -1,6 +1,6 @@
 "use client";
 import { animate, motion, useMotionValue } from "framer-motion";
-import style from "./Button.module.css";
+import style from "./LinkButton.module.css";
 import { useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useScaleParallax } from "../utils/useScaleParallax";
@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const MotionLink = motion(Link);
 
-export const Button: React.FC<React.ComponentProps<typeof MotionLink>> = ({
+export const LinkButton: React.FC<React.ComponentProps<typeof MotionLink>> = ({
   children,
   ...props
 }) => {
@@ -43,7 +43,7 @@ export const Button: React.FC<React.ComponentProps<typeof MotionLink>> = ({
 
   return (
     <MotionLink
-      className={style.Button}
+      className={style.LinkButton}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return;
@@ -71,7 +71,7 @@ export const Button: React.FC<React.ComponentProps<typeof MotionLink>> = ({
       {...props}
     >
       <motion.div
-        className={style.ButtonBg}
+        className={style.LinkButtonBg}
         style={{
           x: scaleTranslateX,
           y: scaleTranslateY,

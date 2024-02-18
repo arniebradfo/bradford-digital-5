@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "./Button";
+import { LinkButton } from "./LinkButton";
 
 export default function Page() {
   return (
@@ -16,10 +16,10 @@ export default function Page() {
         gap: 8,
       }}
     >
-      <Button href={'#'}>Parallax</Button>
-      <Button href={'#'}>Parallax</Button>
-      <Button href={'#'}>Parallax</Button>
-      <Button href={'/'}>Home</Button>
+      <LinkButton href={'#'}>Parallax</LinkButton>
+      <LinkButton href={'#'}>Parallax</LinkButton>
+      <LinkButton href={'#'}>Parallax</LinkButton>
+      <LinkButton href={'/'}>Home</LinkButton>
     </div>
   );
 }

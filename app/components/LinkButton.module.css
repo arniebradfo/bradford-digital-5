@@ -1,4 +1,4 @@
-.Button {
+.LinkButton {
   appearance: unset;
   display: inline-block;
   padding: 24px 32px;
@@ -14,7 +14,7 @@
 
 }
 
-.ButtonBg {
+.LinkButtonBg {
   background: #EEEEEE;
   border-radius: 8px;
   position: absolute;
