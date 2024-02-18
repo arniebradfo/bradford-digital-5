@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react";
 import style from "./Text.module.css";
+import { jCN } from "../utils/joinClassNames";
 
 export type TxtProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** type of tag to use - <span/> is default */
@@ -45,7 +46,7 @@ export const Txt: React.FC<TxtProps> = ({
   ...props
 }) => {
   const classNames = [
-    style.Text,
+    // style.Text, // not needed
     color && colors[color - 1],
     size && sizes[size - 1],
     bold && style.TextBold,
@@ -58,7 +59,7 @@ export const Txt: React.FC<TxtProps> = ({
     className,
   ];
   return (
-    <RootTag className={classNames.filter(Boolean).join(" ")} {...props} />
+    <RootTag className={jCN(classNames)} {...props} />
   );
 };
 
