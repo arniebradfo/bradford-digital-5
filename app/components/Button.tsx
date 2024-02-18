@@ -1,20 +1,16 @@
 "use client";
-import {
-  animate,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { animate, motion, useMotionValue } from "framer-motion";
 import style from "./Button.module.css";
 import { useRef } from "react";
-import { mouseOffset } from "../utils/mouseOffset";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useScaleParallax } from "../utils/useScaleParallax";
+import Link from "next/link";
 
-export const Button: React.FC<React.ComponentProps<"div">> = ({
+const MotionLink = motion(Link);
+
+export const Button: React.FC<React.ComponentProps<typeof MotionLink>> = ({
   children,
-  // ...props
+  ...props
 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -46,7 +42,7 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
   });
 
   return (
-    <motion.div
+    <MotionLink
       className={style.Button}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
@@ -72,7 +68,7 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
       onPointerUp={() => {
         animate(clickScale, clickScaleLevel, { duration: clickDuration });
       }}
-      // {...props}
+      {...props}
     >
       <motion.div
         className={style.ButtonBg}
@@ -94,7 +90,7 @@ export const Button: React.FC<React.ComponentProps<"div">> = ({
       >
         {children}
       </motion.div>
-    </motion.div>
+    </MotionLink>
   );
 };
 

@@ -16,12 +16,10 @@ export default function Page() {
         gap: 8,
       }}
     >
-      <Button>Parallax</Button>
-      <Button>Parallax</Button>
-      <Button>Parallax</Button>
-      <p>
-        <Link href={'/'}>Home</Link>
-      </p>
+      <Button href={'#'}>Parallax</Button>
+      <Button href={'#'}>Parallax</Button>
+      <Button href={'#'}>Parallax</Button>
+      <Button href={'/'}>Home</Button>
     </div>
   );
 }
