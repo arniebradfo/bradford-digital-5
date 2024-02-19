@@ -1,0 +1,8 @@
+.NavLayout {
+  display: flex;
+  align-items: center;
+}
+
+.NavSpacer {
+  display: inline-block;
+}

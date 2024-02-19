@@ -1,12 +1,17 @@
+
 .LinkButton {
   appearance: unset;
   display: inline-block;
-  padding: 24px 32px;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
   position: relative;
   isolation: isolate;
+  
   cursor: pointer;
+
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  color: var(--foreground-color-1);
 
   /* &:not(:hover){
     outline: solid rgba(0, 0, 0, 0.1) 0.25px;
@@ -15,7 +20,7 @@
 }
 
 .LinkButtonBg {
-  background: #EEEEEE;
+  background: hsla(0, 0%, 0%, 0.05);
   border-radius: 8px;
   position: absolute;
   inset: 0;

@@ -1,20 +1,23 @@
-:root{
-  --blue-500: blue;
-
+:root {
+  /* --plex-font-family- are from layout.tsx */
   --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
   --font-family-mono: var(--plex-font-family-mono, monospace), monospace;
   --font-weight-normal: 500;
   --font-weight-bold: 700;
 
   --background-color-1: hsl(0, 0%, 100%);
-  --background-color-2: hsl(0, 0%, 95%);
-  --background-color-3: hsl(0, 0%, 90%);
-  --background-color-4: hsl(0, 0%, 85%);
+  --background-color-2: hsl(0, 0%, 97%);
+  --background-color-3: hsl(0, 0%, 93%);
+  --background-color-4: hsl(0, 0%, 88%);
+
+  --border-color-1: hsla(0, 0%, 0%, 0.05);
 
   --foreground-color-1: hsl(0, 0%, 0%);
-  --foreground-color-2: hsl(0, 0%, 20%);
-  --foreground-color-3: hsl(0, 0%, 40%);
-  --foreground-color-4: hsl(0, 0%, 60%);
+  --foreground-color-2: hsl(0, 0%, 25%);
+  --foreground-color-3: hsl(0, 0%, 47%);
+  --foreground-color-4: hsl(0, 0%, 75%);
+
+  --accent-color-1: rgb(0, 0, 255);
 
   --font-size-1: 32px;
   --font-size-2: 24px;
@@ -26,7 +29,7 @@
   --line-height: 1.4;
 }
 
-html{
+html {
   font-family: var(--font-family-sans);
   line-height: var(--line-height);
   font-weight: var(--font-weight-normal);
@@ -34,14 +37,32 @@ html{
   color: var(--foreground-color-2);
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: inherit;
   font-size: inherit;
 }
 
-html, body{
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: var(--foreground-color-2);
+  text-decoration-color: var(--foreground-color-4);
+
+  &:hover {
+    /* color: var(--accent-color-1); */
+    color: var(--foreground-color-1);
+    text-decoration-color: var(--foreground-color-1);
+
+  }
 }

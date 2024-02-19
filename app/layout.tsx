@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
+import { jCN } from "./utils/joinClassNames";
 
 const PlexSans = IBM_Plex_Sans({
   weight: ["500", "700"],
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={PlexSans.variable}>
+    <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
       <body>{children}</body>
     </html>
   );
