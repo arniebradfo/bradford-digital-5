@@ -6,6 +6,7 @@ import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
 import { jCN } from "../utils/joinClassNames";
+import { useClickScale } from "../utils/useClickScale";
 
 const MotionLink = motion(Link);
 
@@ -20,8 +21,6 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   ...props
 }) => {
   const elementRef = useRef<HTMLElement>(null);
-
-  const clickScale = useMotionValue(1);
 
   const {
     translateX: magneticTranslateX,
@@ -50,6 +49,19 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     duration,
   });
 
+  const {
+    scale: clickScale,
+    startClickScale,
+    endClickScale,
+    onPointerDown: clickScalePointerDown,
+    onPointerUp: clickScalePointerUp,
+  } = useClickScale({
+    elementRef,
+    scalePx: 8,
+    duration,
+    clickDuration: duration / 2,
+  });
+
   return (
     <MotionLink
       className={jCN([className, style.LinkButton])}
@@ -57,22 +69,22 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       onHoverStart={(mouseEvent) => {
         startMagneticParallax({ mouseEvent });
         startGrowParallax({ mouseEvent });
-        animate(clickScale, clickScaleLevel, { duration });
+        startClickScale();
       }}
       onHoverEnd={(mouseEvent) => {
         endMagneticParallax({ mouseEvent });
         endGrowParallax({ mouseEvent });
-        animate(clickScale, 1, { duration });
+        endClickScale();
       }}
       onMouseMove={(mouseEvent) => {
         updateMagneticParallax({ mouseEvent });
         updateGrowParallax({ mouseEvent });
       }}
       onPointerDown={() => {
-        animate(clickScale, 1, { duration: clickDuration });
+        clickScalePointerDown();
       }}
       onPointerUp={() => {
-        animate(clickScale, clickScaleLevel, { duration: clickDuration });
+        clickScalePointerUp();
       }}
       {...props}
     >
@@ -103,4 +115,5 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
 
 const duration = 0.15;
 const clickDuration = 0.1;
-const clickScaleLevel = 1.1;
+// const clickScaleLevel = 1.1;
+// const scalePx = 20;
