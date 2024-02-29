@@ -2,8 +2,6 @@
 .LinkButton {
   appearance: unset;
   display: inline-block;
-  padding: 8px 16px;
-  border-radius: 4px;
   position: relative;
   isolation: isolate;
   
@@ -12,6 +10,8 @@
   text-decoration: none;
   font-weight: var(--font-weight-bold);
   color: var(--foreground-color-1);
+
+  overflow: visible;
 
   /* &:not(:hover){
     outline: solid rgba(0, 0, 0, 0.1) 0.25px;

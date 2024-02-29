@@ -5,11 +5,18 @@ import { useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useScaleParallax } from "../utils/useScaleParallax";
 import Link from "next/link";
+import { jCN } from "../utils/joinClassNames";
 
 const MotionLink = motion(Link);
 
-export const LinkButton: React.FC<React.ComponentProps<typeof MotionLink>> = ({
+export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
+  insideClassName?: string;
+};
+
+export const LinkButton: React.FC<LinkButtonProps> = ({
   children,
+  className,
+  insideClassName,
   ...props
 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -43,7 +50,7 @@ export const LinkButton: React.FC<React.ComponentProps<typeof MotionLink>> = ({
 
   return (
     <MotionLink
-      className={style.LinkButton}
+      className={jCN([className, style.LinkButton])}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return;
@@ -81,6 +88,7 @@ export const LinkButton: React.FC<React.ComponentProps<typeof MotionLink>> = ({
         }}
       />
       <motion.div
+        className={jCN([insideClassName])}
         style={{
           x: magneticTranslateX,
           y: magneticTranslateY,

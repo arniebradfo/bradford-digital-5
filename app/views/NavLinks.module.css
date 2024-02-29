@@ -6,3 +6,7 @@
 .NavSpacer {
   display: inline-block;
 }
+
+.NavLinkInside {
+  padding: 8px 16px;
+}
