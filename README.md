@@ -7,7 +7,6 @@
 - LinkButton 
   - Performance, cache size, reset on window-resize
   - props for px size and animation?
-- make external link MediaButton
-- export figma content for MediaButton
-- Footer About button
+- Add Plugin/Project sections, unify common css
+- Footer About section
 - look at other notes from portfolio review
