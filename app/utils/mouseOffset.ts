@@ -3,17 +3,14 @@ export type MouseEventProps = {
 };
 
 export type MouseOffsetProps = MouseEventProps & {
-  // elementDOMRect: DOMRect;
-  element?: HTMLElement | null;
+  elementDOMRect?: DOMRect;
+  // element?: HTMLElement | null;
 };
 
 export function mouseOffset<T extends HTMLElement>({
   mouseEvent,
-  element,
+  elementDOMRect,
 }: MouseOffsetProps) {
-  // const [elementDOMRect, setElementDOMRect] = useState<DOMRect>(blankDOMRect);
-  // useEffect to setElementDOMRect on window resize?
-
   const { clientX: globalMouseX, clientY: globalMouseY } = mouseEvent;
 
   const {
@@ -21,7 +18,8 @@ export function mouseOffset<T extends HTMLElement>({
     width: elementW,
     left: elementX,
     top: elementY,
-  } = element?.getBoundingClientRect() || blankDOMRect;
+  } = elementDOMRect || blankDOMRect;
+  // } = element?.getBoundingClientRect() || blankDOMRect;
 
   const topLeftOffsetX = globalMouseX - elementX;
   const topLeftOffsetY = globalMouseY - elementY;

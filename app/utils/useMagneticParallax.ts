@@ -1,6 +1,6 @@
 import { animate, useMotionValue, useTransform } from "framer-motion";
 import { MouseEventProps, mouseOffset } from "./mouseOffset";
-import { useCallback, useLayoutEffect } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 
 export const useMagneticParallax = ({
   elementRef,
@@ -22,12 +22,17 @@ export const useMagneticParallax = ({
   const magneticTranslateY = useTransform(
     () => mouseY.get() * magneticOffset.get()
   );
+  const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
   const startMagneticParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
+      // cache the element dimensions on start
+      const _elementDOMRect = elementRef.current?.getBoundingClientRect();
+      setElementDOMRect(_elementDOMRect);
+
       const { centerOffsetX, centerOffsetY } = mouseOffset({
         mouseEvent,
-        element: elementRef.current,
+        elementDOMRect: _elementDOMRect,
       });
       mouseX.set(centerOffsetX);
       mouseY.set(centerOffsetY);
@@ -41,12 +46,12 @@ export const useMagneticParallax = ({
     ({ mouseEvent }: MouseEventProps) => {
       const { centerOffsetX, centerOffsetY } = mouseOffset({
         mouseEvent,
-        element: elementRef.current,
+        elementDOMRect,
       });
       mouseX.set(centerOffsetX);
       mouseY.set(centerOffsetY);
     },
-    [elementRef, mouseX, mouseY]
+    [elementDOMRect, mouseX, mouseY]
   );
 
   const endMagneticParallax = useCallback(

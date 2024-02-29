@@ -5,7 +5,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { MouseEventProps, mouseOffset } from "./mouseOffset";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 export const useScaleParallax = ({
   elementRef,
@@ -30,12 +30,19 @@ export const useScaleParallax = ({
 
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
+  const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
+
   const startScaleParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
+      
+      // cache the element dimensions on start
+      const _elementDOMRect = elementRef.current?.getBoundingClientRect();
+      setElementDOMRect(_elementDOMRect);
+
       const {
         topLeftOffsetX, //
         topLeftOffsetY,
-      } = mouseOffset({ mouseEvent, element: elementRef.current });
+      } = mouseOffset({ mouseEvent, elementDOMRect: _elementDOMRect });
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
@@ -53,14 +60,14 @@ export const useScaleParallax = ({
         topLeftOffsetY,
         centerOffsetX,
         centerOffsetY,
-      } = mouseOffset({ mouseEvent, element: elementRef.current });
+      } = mouseOffset({ mouseEvent, elementDOMRect });
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
       mouseX.set(centerOffsetX);
       mouseY.set(centerOffsetY);
     },
-    [elementRef, mouseX, mouseY, transformOriginX, transformOriginY]
+    [elementDOMRect, mouseX, mouseY, transformOriginX, transformOriginY]
   );
 
   const endScaleParallax = useCallback(
@@ -68,7 +75,7 @@ export const useScaleParallax = ({
       const {
         topLeftOffsetX, //
         topLeftOffsetY,
-      } = mouseOffset({ mouseEvent, element: elementRef.current });
+      } = mouseOffset({ mouseEvent, elementDOMRect });
 
       // TODO: if this value is wayyy outside the button, set to center
       transformOriginX.set(topLeftOffsetX);
@@ -80,7 +87,14 @@ export const useScaleParallax = ({
         delay: duration - opacityDuration,
       });
     },
-    [duration, elementRef, opacity, scale, transformOriginX, transformOriginY]
+    [
+      duration,
+      elementDOMRect,
+      opacity,
+      scale,
+      transformOriginX,
+      transformOriginY,
+    ]
   );
 
   return {
