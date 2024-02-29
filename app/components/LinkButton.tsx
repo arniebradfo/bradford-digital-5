@@ -1,9 +1,9 @@
 "use client";
 import { animate, motion, useMotionValue } from "framer-motion";
 import style from "./LinkButton.module.css";
-import { useLayoutEffect, useMemo, useRef } from "react";
+import { useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
-import { useScaleParallax } from "../utils/useScaleParallax";
+import { useGrowParallax } from "../utils/useScaleParallax";
 import Link from "next/link";
 import { jCN } from "../utils/joinClassNames";
 
@@ -24,8 +24,8 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   const clickScale = useMotionValue(1);
 
   const {
-    magneticTranslateX,
-    magneticTranslateY,
+    translateX: magneticTranslateX,
+    translateY: magneticTranslateY,
     startMagneticParallax,
     updateMagneticParallax,
     endMagneticParallax,
@@ -36,15 +36,15 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   });
 
   const {
-    scaleTranslateX,
-    scaleTranslateY,
-    transformOrigin,
-    scale,
-    opacity,
-    startScaleParallax,
-    updateScaleParallax,
-    endScaleParallax,
-  } = useScaleParallax({
+    translateX: growTranslateX,
+    translateY: growTranslateY,
+    transformOrigin: growTransformOrigin,
+    scale: growScale,
+    opacity: growOpacity,
+    startGrowParallax,
+    updateGrowParallax,
+    endGrowParallax,
+  } = useGrowParallax({
     elementRef,
     offsetLevel: 0.3,
     duration,
@@ -55,21 +55,18 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       className={jCN([className, style.LinkButton])}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
-        if (!elementRef.current) return;
         startMagneticParallax({ mouseEvent });
-        startScaleParallax({ mouseEvent });
+        startGrowParallax({ mouseEvent });
         animate(clickScale, clickScaleLevel, { duration });
       }}
       onHoverEnd={(mouseEvent) => {
-        if (!elementRef.current) return;
         endMagneticParallax({ mouseEvent });
-        endScaleParallax({ mouseEvent });
+        endGrowParallax({ mouseEvent });
         animate(clickScale, 1, { duration });
       }}
       onMouseMove={(mouseEvent) => {
-        if (!elementRef.current) return;
         updateMagneticParallax({ mouseEvent });
-        updateScaleParallax({ mouseEvent });
+        updateGrowParallax({ mouseEvent });
       }}
       onPointerDown={() => {
         animate(clickScale, 1, { duration: clickDuration });
@@ -82,11 +79,11 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       <motion.div
         className={style.LinkButtonBg}
         style={{
-          x: scaleTranslateX,
-          y: scaleTranslateY,
-          transformOrigin,
-          scale,
-          opacity,
+          x: growTranslateX,
+          y: growTranslateY,
+          transformOrigin: growTransformOrigin,
+          scale: growScale,
+          opacity: growOpacity,
         }}
       />
       <motion.div

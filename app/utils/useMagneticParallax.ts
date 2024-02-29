@@ -16,12 +16,8 @@ export const useMagneticParallax = ({
 
   const magneticOffset = useMotionValue(0);
 
-  const magneticTranslateX = useTransform(
-    () => mouseX.get() * magneticOffset.get()
-  );
-  const magneticTranslateY = useTransform(
-    () => mouseY.get() * magneticOffset.get()
-  );
+  const translateX = useTransform(() => mouseX.get() * magneticOffset.get());
+  const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
   const startMagneticParallax = useCallback(
@@ -64,8 +60,8 @@ export const useMagneticParallax = ({
   );
 
   return {
-    magneticTranslateX,
-    magneticTranslateY,
+    translateX,
+    translateY,
     startMagneticParallax,
     updateMagneticParallax,
     endMagneticParallax,

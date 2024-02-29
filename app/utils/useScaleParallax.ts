@@ -7,7 +7,7 @@ import {
 import { MouseEventProps, mouseOffset } from "./mouseOffset";
 import { useCallback, useState } from "react";
 
-export const useScaleParallax = ({
+export const useGrowParallax = ({
   elementRef,
   offsetLevel,
   duration,
@@ -19,8 +19,8 @@ export const useScaleParallax = ({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const scaleTranslateX = useTransform(() => mouseX.get() * offsetLevel);
-  const scaleTranslateY = useTransform(() => mouseY.get() * offsetLevel);
+  const translateX = useTransform(() => mouseX.get() * offsetLevel);
+  const translateY = useTransform(() => mouseY.get() * offsetLevel);
 
   const scale = useMotionValue(0);
   const opacity = useMotionValue(0);
@@ -32,7 +32,7 @@ export const useScaleParallax = ({
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
-  const startScaleParallax = useCallback(
+  const startGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
       
       // cache the element dimensions on start
@@ -53,7 +53,7 @@ export const useScaleParallax = ({
     [duration, elementRef, opacity, scale, transformOriginX, transformOriginY]
   );
 
-  const updateScaleParallax = useCallback(
+  const updateGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
       const {
         topLeftOffsetX, //
@@ -70,7 +70,7 @@ export const useScaleParallax = ({
     [elementDOMRect, mouseX, mouseY, transformOriginX, transformOriginY]
   );
 
-  const endScaleParallax = useCallback(
+  const endGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
       const {
         topLeftOffsetX, //
@@ -98,14 +98,14 @@ export const useScaleParallax = ({
   );
 
   return {
-    scaleTranslateX,
-    scaleTranslateY,
+    translateX,
+    translateY,
     transformOrigin,
     scale,
     opacity,
-    startScaleParallax,
-    updateScaleParallax,
-    endScaleParallax,
+    startGrowParallax,
+    updateGrowParallax,
+    endGrowParallax,
   };
 };
 
