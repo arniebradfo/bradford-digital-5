@@ -1,16 +1,18 @@
 import {
-  HoverHandlers,
   animate,
   useMotionTemplate,
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { MouseOffsetProps, mouseOffset } from "./mouseOffset";
+import { MouseEventProps, mouseOffset } from "./mouseOffset";
+import { useCallback } from "react";
 
 export const useScaleParallax = ({
+  elementRef,
   offsetLevel,
   duration,
 }: {
+  elementRef: React.RefObject<HTMLElement>;
   offsetLevel: number;
   duration: number;
 }) => {
@@ -28,47 +30,58 @@ export const useScaleParallax = ({
 
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
-  const startScaleParallax = ({ mouseEvent, element }: MouseOffsetProps) => {
-    const {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-    } = mouseOffset({ mouseEvent, element });
+  const startScaleParallax = useCallback(
+    ({ mouseEvent }: MouseEventProps) => {
+      const {
+        topLeftOffsetX, //
+        topLeftOffsetY,
+      } = mouseOffset({ mouseEvent, element: elementRef.current });
 
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
+      transformOriginX.set(topLeftOffsetX);
+      transformOriginY.set(topLeftOffsetY);
 
-    animate(scale, 1, { duration });
-    animate(opacity, 1, { duration: opacityDuration });
-  };
-  const updateScaleParallax = ({ mouseEvent, element }: MouseOffsetProps) => {
-    const {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-      centerOffsetX,
-      centerOffsetY,
-    } = mouseOffset({ mouseEvent, element });
+      animate(scale, 1, { duration });
+      animate(opacity, 1, { duration: opacityDuration });
+    },
+    [duration, elementRef, opacity, scale, transformOriginX, transformOriginY]
+  );
 
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
-    mouseX.set(centerOffsetX);
-    mouseY.set(centerOffsetY);
-  };
-  const endScaleParallax = ({ mouseEvent, element }: MouseOffsetProps) => {
-    const {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-    } = mouseOffset({ mouseEvent, element });
+  const updateScaleParallax = useCallback(
+    ({ mouseEvent }: MouseEventProps) => {
+      const {
+        topLeftOffsetX, //
+        topLeftOffsetY,
+        centerOffsetX,
+        centerOffsetY,
+      } = mouseOffset({ mouseEvent, element: elementRef.current });
 
-    // TODO: if this value is wayyy outside the button, set to center
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
+      transformOriginX.set(topLeftOffsetX);
+      transformOriginY.set(topLeftOffsetY);
+      mouseX.set(centerOffsetX);
+      mouseY.set(centerOffsetY);
+    },
+    [elementRef, mouseX, mouseY, transformOriginX, transformOriginY]
+  );
 
-    animate(scale, 0, { duration });
-    animate(opacity, 0, {
-      duration: opacityDuration,
-      delay: duration - opacityDuration,
-    });
-  };
+  const endScaleParallax = useCallback(
+    ({ mouseEvent }: MouseEventProps) => {
+      const {
+        topLeftOffsetX, //
+        topLeftOffsetY,
+      } = mouseOffset({ mouseEvent, element: elementRef.current });
+
+      // TODO: if this value is wayyy outside the button, set to center
+      transformOriginX.set(topLeftOffsetX);
+      transformOriginY.set(topLeftOffsetY);
+
+      animate(scale, 0, { duration });
+      animate(opacity, 0, {
+        duration: opacityDuration,
+        delay: duration - opacityDuration,
+      });
+    },
+    [duration, elementRef, opacity, scale, transformOriginX, transformOriginY]
+  );
 
   return {
     scaleTranslateX,

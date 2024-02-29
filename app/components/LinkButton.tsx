@@ -1,7 +1,7 @@
 "use client";
 import { animate, motion, useMotionValue } from "framer-motion";
 import style from "./LinkButton.module.css";
-import { useRef } from "react";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useScaleParallax } from "../utils/useScaleParallax";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   classNameInside,
   ...props
 }) => {
-  const elementRef = useRef<HTMLDivElement>(null);
+  const elementRef = useRef<HTMLElement>(null);
 
   const clickScale = useMotionValue(1);
 
@@ -30,6 +30,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     updateMagneticParallax,
     endMagneticParallax,
   } = useMagneticParallax({
+    elementRef,
     offsetLevel: 0.15,
     duration,
   });
@@ -44,6 +45,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     updateScaleParallax,
     endScaleParallax,
   } = useScaleParallax({
+    elementRef,
     offsetLevel: 0.3,
     duration,
   });
@@ -54,20 +56,20 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         if (!elementRef.current) return;
-        startMagneticParallax({ mouseEvent, element: elementRef.current });
-        startScaleParallax({ mouseEvent, element: elementRef.current });
+        startMagneticParallax({ mouseEvent });
+        startScaleParallax({ mouseEvent });
         animate(clickScale, clickScaleLevel, { duration });
       }}
       onHoverEnd={(mouseEvent) => {
         if (!elementRef.current) return;
-        endMagneticParallax({ mouseEvent, element: elementRef.current });
-        endScaleParallax({ mouseEvent, element: elementRef.current });
+        endMagneticParallax({ mouseEvent });
+        endScaleParallax({ mouseEvent });
         animate(clickScale, 1, { duration });
       }}
       onMouseMove={(mouseEvent) => {
         if (!elementRef.current) return;
-        updateMagneticParallax({ mouseEvent, element: elementRef.current });
-        updateScaleParallax({ mouseEvent, element: elementRef.current });
+        updateMagneticParallax({ mouseEvent });
+        updateScaleParallax({ mouseEvent });
       }}
       onPointerDown={() => {
         animate(clickScale, 1, { duration: clickDuration });

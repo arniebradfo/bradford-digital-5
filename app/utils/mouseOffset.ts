@@ -1,29 +1,27 @@
-export type MouseOffsetProps= {
+export type MouseEventProps = {
   mouseEvent: React.MouseEvent | MouseEvent;
-  element: HTMLElement;
+};
+
+export type MouseOffsetProps = MouseEventProps & {
+  // elementDOMRect: DOMRect;
+  element?: HTMLElement | null;
 };
 
 export function mouseOffset<T extends HTMLElement>({
   mouseEvent,
   element,
 }: MouseOffsetProps) {
+  // const [elementDOMRect, setElementDOMRect] = useState<DOMRect>(blankDOMRect);
+  // useEffect to setElementDOMRect on window resize?
+
   const { clientX: globalMouseX, clientY: globalMouseY } = mouseEvent;
 
-  // This is relative to the element.offsetElement
-  // const {
-  //   offsetHeight: elementH,
-  //   offsetWidth: elementW,
-  //   offsetLeft: elementX,
-  //   offsetTop: elementY,
-  // } = element;
-
-  // This is relative to the window, like the mouse client x,y
-  const  {
+  const {
     height: elementH,
     width: elementW,
     left: elementX,
     top: elementY,
-  } = element.getBoundingClientRect()
+  } = element?.getBoundingClientRect() || blankDOMRect;
 
   const topLeftOffsetX = globalMouseX - elementX;
   const topLeftOffsetY = globalMouseY - elementY;
@@ -45,3 +43,10 @@ export function mouseOffset<T extends HTMLElement>({
     centerOffsetY,
   };
 }
+
+const blankDOMRect = {
+  height: 0,
+  width: 0,
+  left: 0,
+  top: 0,
+};
