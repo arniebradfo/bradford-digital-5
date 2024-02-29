@@ -10,13 +10,13 @@ import { jCN } from "../utils/joinClassNames";
 const MotionLink = motion(Link);
 
 export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
-  insideClassName?: string;
+  classNameInside?: string;
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
   children,
   className,
-  insideClassName,
+  classNameInside,
   ...props
 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -88,7 +88,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         }}
       />
       <motion.div
-        className={jCN([insideClassName])}
+        className={jCN([classNameInside])}
         style={{
           x: magneticTranslateX,
           y: magneticTranslateY,

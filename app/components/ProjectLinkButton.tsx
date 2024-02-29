@@ -28,7 +28,7 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
 }) => (
   <LinkButton
     className={jCN([className, style.Layout])}
-    insideClassName={style.InsideLayout}
+    classNameInside={style.InsideLayout}
     {...props}
   >
     <div className={style.ImageWrapper}>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LinkButton } from "./LinkButton";
+import style from "./LinkButton.module.css";
 
 export default function Page() {
   return (
@@ -16,10 +17,10 @@ export default function Page() {
         gap: 8,
       }}
     >
-      <LinkButton href={'#'}>Parallax</LinkButton>
-      <LinkButton href={'#'}>Parallax</LinkButton>
-      <LinkButton href={'#'}>Parallax</LinkButton>
-      <LinkButton href={'/'}>Home</LinkButton>
+      <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
+      <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
+      <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
+      <LinkButton className={style.LinkButtonTestInside} href={'/'}>Home</LinkButton>
     </div>
   );
 }

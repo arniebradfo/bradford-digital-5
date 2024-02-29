@@ -19,7 +19,7 @@ export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
             /
           </Txt>
         )}
-        <LinkButton insideClassName={style.NavLinkInside} {...linkProps} />
+        <LinkButton classNameInside={style.NavLinkInside} {...linkProps} />
       </Fragment>
     ))}
   </nav>
