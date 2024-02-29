@@ -3,7 +3,7 @@ import { animate, motion, useMotionValue } from "framer-motion";
 import style from "./LinkButton.module.css";
 import { useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
-import { useGrowParallax } from "../utils/useScaleParallax";
+import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
 import { jCN } from "../utils/joinClassNames";
 
