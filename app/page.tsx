@@ -1,17 +1,13 @@
-import AvyMapMockupDesktop from "../public/lfs-media/AvyMap_Mockup-Desktop.png";
 import { HomeHeader } from "./views/HomeHeader";
+import { ProjectLinks } from "./views/ProjectLinks";
+import style from "./page.module.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className={style.Layout}>
       <HomeHeader />
       <main>
-        {/* <Image
-        src={AvyMapMockupDesktop}
-        alt="AvyMap app"
-        sizes="(max-width: 1000px) 100vw, 1000px"
-        placeholder="blur"
-      /> */}
+        <ProjectLinks />
       </main>
     </div>
   );

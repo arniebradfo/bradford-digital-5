@@ -1,0 +1,33 @@
+.Layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.InsideLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 32px;
+}
+
+.ImageWrapper {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  height: 64px;
+  width: 64px;
+}
+
+.Image {
+  width: auto;
+  max-width: unset;
+}
+
+.Text {
+  font-weight: var(--font-weight-normal);
+  flex: 1 1 auto;
+}
