@@ -59,7 +59,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     elementRef,
     scalePx: 8,
     duration,
-    clickDuration: duration / 2,
+    clickDuration,
   });
 
   return (

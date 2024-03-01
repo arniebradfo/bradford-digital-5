@@ -22,7 +22,11 @@ export const useGrowParallax = ({
   const translateX = useTransform(() => mouseX.get() * offsetLevel);
   const translateY = useTransform(() => mouseY.get() * offsetLevel);
 
-  const scale = useMotionValue(0);
+  // const scale = useMotionValue(0);
+  const scaleX = useMotionValue(0);
+  const scaleY = useMotionValue(0);
+  const scale = useMotionTemplate`${scaleX}, ${scaleY}`;
+
   const opacity = useMotionValue(0);
 
   const transformOriginX = useMotionValue(0);
@@ -34,7 +38,6 @@ export const useGrowParallax = ({
 
   const startGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
-      
       // cache the element dimensions on start
       const _elementDOMRect = elementRef.current?.getBoundingClientRect();
       setElementDOMRect(_elementDOMRect);
@@ -47,10 +50,25 @@ export const useGrowParallax = ({
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
 
-      animate(scale, 1, { duration });
+      const { height = 1, width = 1 } = _elementDOMRect || {};
+      const scaleFromX = initialScaleSize / width;
+      const scaleFromY = initialScaleSize / height;
+
+      scaleX.set(scaleFromX);
+      scaleY.set(scaleFromY);
+      animate(scaleX, 1, { duration });
+      animate(scaleY, 1, { duration });
       animate(opacity, 1, { duration: opacityDuration });
     },
-    [duration, elementRef, opacity, scale, transformOriginX, transformOriginY]
+    [
+      duration,
+      elementRef,
+      opacity,
+      scaleX,
+      scaleY,
+      transformOriginX,
+      transformOriginY,
+    ]
   );
 
   const updateGrowParallax = useCallback(
@@ -81,7 +99,12 @@ export const useGrowParallax = ({
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
 
-      animate(scale, 0, { duration });
+      const { height = 1, width = 1 } = elementDOMRect || {};
+      const scaleFromX = initialScaleSize / width;
+      const scaleFromY = initialScaleSize / height;
+
+      animate(scaleX, scaleFromX, { duration });
+      animate(scaleY, scaleFromY, { duration });
       animate(opacity, 0, {
         duration: opacityDuration,
         delay: duration - opacityDuration,
@@ -91,7 +114,8 @@ export const useGrowParallax = ({
       duration,
       elementDOMRect,
       opacity,
-      scale,
+      scaleX,
+      scaleY,
       transformOriginX,
       transformOriginY,
     ]
@@ -110,3 +134,4 @@ export const useGrowParallax = ({
 };
 
 const opacityDuration = 0.05;
+const initialScaleSize = 12;
