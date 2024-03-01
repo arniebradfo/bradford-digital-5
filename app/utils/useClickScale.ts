@@ -32,7 +32,7 @@ export const useClickScale = ({
   }, [duration, scale]);
 
   const onPointerDown = useCallback(() => {
-    animate(scale, 1 - clickScale / 2, { duration: clickDuration });
+    animate(scale, 1 - clickScale, { duration: clickDuration });
   }, [clickDuration, clickScale, scale]);
 
   const onPointerUp = useCallback(() => {

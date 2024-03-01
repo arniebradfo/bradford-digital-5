@@ -12,11 +12,15 @@ const MotionLink = motion(Link);
 
 export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
   classNameInside?: string;
+  offsetPx?: number;
+  duration?: number;
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
   children,
   className,
+  offsetPx = 24,
+  duration = 0.15,
   classNameInside,
   ...props
 }) => {
@@ -30,7 +34,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     endMagneticParallax,
   } = useMagneticParallax({
     elementRef,
-    offsetPx: 20,
+    offsetPx: offsetPx / 2,
     duration,
   });
 
@@ -45,7 +49,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     endGrowParallax,
   } = useGrowParallax({
     elementRef,
-    offsetPx: 40,
+    offsetPx,
     duration,
   });
 
@@ -113,7 +117,4 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   );
 };
 
-const duration = 0.15;
 const clickDuration = 0.1;
-// const clickScaleLevel = 1.1;
-// const scalePx = 20;
