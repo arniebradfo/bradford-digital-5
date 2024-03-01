@@ -1,5 +1,6 @@
 import { ProjectLinkButton } from "../components/ProjectLinkButton";
 import { jCN } from "../utils/joinClassNames";
+import { externalLinkAttributes } from "../utils/link";
 import { linkContent } from "./linkContent";
 import style from "./ProjectLinks.module.css";
 
@@ -12,6 +13,7 @@ export const ProjectLinks: React.FC<React.ComponentProps<"div">> = ({
       <ProjectLinkButton
         className={style.ProjectLink}
         key={linkProps.header}
+        {...externalLinkAttributes}
         {...linkProps}
       />
     ))}
