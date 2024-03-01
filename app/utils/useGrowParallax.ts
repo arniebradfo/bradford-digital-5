@@ -9,11 +9,11 @@ import { useCallback, useState } from "react";
 
 export const useGrowParallax = ({
   elementRef,
-  offsetLevel,
+  offsetPx,
   duration,
 }: {
   elementRef: React.RefObject<HTMLElement>;
-  offsetLevel: number;
+  offsetPx: number;
   duration: number;
 }) => {
   const translateX = useMotionValue(0);
@@ -77,12 +77,17 @@ export const useGrowParallax = ({
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
-      translateX.set(centerOffsetX * offsetLevel);
-      translateY.set(centerOffsetY * offsetLevel);
+
+      const { width = 0, height = 0 } = elementDOMRect || {};
+      const offsetX = offsetPx / width;
+
+      // offsetX = offsetPx
+      translateX.set(centerOffsetX * offsetX);
+      translateY.set(centerOffsetY * offsetX);
     },
     [
       elementDOMRect,
-      offsetLevel,
+      offsetPx,
       transformOriginX,
       transformOriginY,
       translateX,

@@ -30,7 +30,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     endMagneticParallax,
   } = useMagneticParallax({
     elementRef,
-    offsetLevel: 0.15,
+    offsetPx: 20,
     duration,
   });
 
@@ -45,7 +45,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     endGrowParallax,
   } = useGrowParallax({
     elementRef,
-    offsetLevel: 0.3,
+    offsetPx: 40,
     duration,
   });
 

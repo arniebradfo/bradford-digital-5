@@ -18,7 +18,7 @@ export default function Page() {
       }}
     >
       <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
-      <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
+      <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax Parallax Parallax Parallax Parallax Parallax</LinkButton>
       <LinkButton className={style.LinkButtonTestInside} href={'#'}>Parallax</LinkButton>
       <LinkButton className={style.LinkButtonTestInside} href={'/'}>Home</LinkButton>
     </div>

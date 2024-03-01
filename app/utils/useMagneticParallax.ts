@@ -4,11 +4,11 @@ import { useCallback, useLayoutEffect, useState } from "react";
 
 export const useMagneticParallax = ({
   elementRef,
-  offsetLevel,
+  offsetPx,
   duration,
 }: {
   elementRef: React.RefObject<HTMLElement>;
-  offsetLevel: number;
+  offsetPx: number;
   duration: number;
 }) => {
   const mouseX = useMotionValue(0);
@@ -18,6 +18,7 @@ export const useMagneticParallax = ({
 
   const translateX = useTransform(() => mouseX.get() * magneticOffset.get());
   const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
+
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
   const startMagneticParallax = useCallback(
@@ -33,9 +34,12 @@ export const useMagneticParallax = ({
       mouseX.set(centerOffsetX);
       mouseY.set(centerOffsetY);
 
-      animate(magneticOffset, offsetLevel, { duration });
+      const { width = 0, height = 0 } = _elementDOMRect || {};
+      const offsetX = offsetPx / width;
+
+      animate(magneticOffset, offsetX, { duration });
     },
-    [duration, elementRef, magneticOffset, mouseX, mouseY, offsetLevel]
+    [duration, elementRef, magneticOffset, mouseX, mouseY, offsetPx]
   );
 
   const updateMagneticParallax = useCallback(
