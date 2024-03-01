@@ -6,7 +6,8 @@
 ## TODOs
 - LinkButton 
   - Performance, cache size, reset on window-resize
-  - props for px size and animation?
+  - props for offsetPx and duration
+  - set duration based on width? or param
 - Add Plugin/Project sections, unify common css
 - Footer About section
 - look at other notes from portfolio review
