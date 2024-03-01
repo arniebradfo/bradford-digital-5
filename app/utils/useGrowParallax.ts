@@ -16,13 +16,9 @@ export const useGrowParallax = ({
   offsetLevel: number;
   duration: number;
 }) => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const translateX = useMotionValue(0);
+  const translateY = useMotionValue(0);
 
-  const translateX = useTransform(() => mouseX.get() * offsetLevel);
-  const translateY = useTransform(() => mouseY.get() * offsetLevel);
-
-  // const scale = useMotionValue(0);
   const scaleX = useMotionValue(0);
   const scaleY = useMotionValue(0);
   const scale = useMotionTemplate`${scaleX}, ${scaleY}`;
@@ -31,7 +27,6 @@ export const useGrowParallax = ({
 
   const transformOriginX = useMotionValue(0);
   const transformOriginY = useMotionValue(0);
-
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
@@ -82,10 +77,17 @@ export const useGrowParallax = ({
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
-      mouseX.set(centerOffsetX);
-      mouseY.set(centerOffsetY);
+      translateX.set(centerOffsetX * offsetLevel);
+      translateY.set(centerOffsetY * offsetLevel);
     },
-    [elementDOMRect, mouseX, mouseY, transformOriginX, transformOriginY]
+    [
+      elementDOMRect,
+      offsetLevel,
+      transformOriginX,
+      transformOriginY,
+      translateX,
+      translateY,
+    ]
   );
 
   const endGrowParallax = useCallback(
