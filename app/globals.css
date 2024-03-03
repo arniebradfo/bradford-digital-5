@@ -10,7 +10,10 @@
   --background-color-3: hsl(0, 0%, 93%);
   --background-color-4: hsl(0, 0%, 88%);
 
-  --border-color-1: hsla(0, 0%, 0%, 0.05);
+  --border-color-1: hsl(0, 0%, 90%);
+  --border-1: 1px solid var(--border-color-1);
+  --border-color-2: hsla(0, 0%, 0%, 0.05);
+  --border-2: 1px solid var(--border-color-2);
 
   --foreground-color-1: hsl(0, 0%, 0%);
   --foreground-color-2: hsl(0, 0%, 25%);
@@ -35,6 +38,8 @@ html {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-5);
   color: var(--foreground-color-2);
+  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 h1,
@@ -55,7 +60,7 @@ body {
   padding: 0;
 }
 
-body{
+body {
   overflow-x: hidden;
   overflow-y: auto;
 }

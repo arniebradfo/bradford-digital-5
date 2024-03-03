@@ -1,11 +1,40 @@
 .Layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  padding: 48px;
+}
+
+.SectionWrapper {
+  border-bottom: var(--border-1);
   overflow: hidden;
 }
 
-.ProjectLink{
+.Section {
+  margin: 0 auto;
+  max-width: 1600px;
+
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.SectionDescription {
+  flex: 0 0 240px;
+
+  & p {
+    margin: 8px 0;
+  }
+}
+
+.SectionContent {
+  flex: 1 1 auto;
+  max-width: 1200px;
+}
+
+.ProjectLinkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.ProjectLink {
   flex: 1 1 33%;
 }

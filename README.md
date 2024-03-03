@@ -6,6 +6,8 @@
 ## TODOs
 - LinkButton 
   - GrowBg click animation
+  - clamp growBG to button size
+  - easing
 - Add Plugin/Project sections, unify common css
 - Footer About section
 - look at other notes from portfolio review
