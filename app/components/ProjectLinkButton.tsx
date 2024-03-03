@@ -44,10 +44,10 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
       />
     </div>
     <div className={style.Text}>
-      <Txt fg={3} size={6} uppercase>
+      <Txt fg={3} size={6} uppercase >
         {label}
       </Txt>
-      <Txt tag="h2" fg={1} size={3}>
+      <Txt tag="h2" fg={1} size={3} bold>
         {header}
       </Txt>
       <Txt fg={2} size={5}>

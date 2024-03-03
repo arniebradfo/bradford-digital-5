@@ -28,6 +28,5 @@
 }
 
 .Text {
-  font-weight: var(--font-weight-normal);
   flex: 1 1 auto;
 }

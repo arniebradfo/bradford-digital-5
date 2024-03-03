@@ -2,8 +2,8 @@
   /* --plex-font-family- are from layout.tsx */
   --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
   --font-family-mono: var(--plex-font-family-mono, monospace), monospace;
-  --font-weight-normal: 500;
-  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
 
   --background-color-1: hsl(0, 0%, 100%);
   --background-color-2: hsl(0, 0%, 97%);
@@ -66,13 +66,12 @@ body {
 }
 
 a {
-  color: var(--foreground-color-2);
-  text-decoration-color: var(--foreground-color-4);
+  color: var(--foreground-color-1);
+  text-decoration-color: var(--foreground-color-3);
 
   &:hover {
-    /* color: var(--accent-color-1); */
-    color: var(--foreground-color-1);
     text-decoration-color: var(--foreground-color-1);
-
+    /* color: var(--accent-color-1); */
+    /* color: var(--foreground-color-1); */
   }
 }

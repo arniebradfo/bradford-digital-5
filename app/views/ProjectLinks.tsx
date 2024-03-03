@@ -21,7 +21,7 @@ export const ProjectLinks: React.FC<React.ComponentProps<"div">> = ({
             <Txt size={6} fg={3} uppercase>
               {label}
             </Txt>
-            <Txt size={2} fg={1} tag="h3">
+            <Txt size={2} fg={1} tag="h3" bold>
               {header}
             </Txt>
             <Txt size={5} tag="p">

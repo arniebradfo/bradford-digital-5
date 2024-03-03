@@ -9,4 +9,5 @@
 
 .NavLinkInside {
   padding: 8px 16px;
+  font-weight: var(--font-weight-bold);
 }

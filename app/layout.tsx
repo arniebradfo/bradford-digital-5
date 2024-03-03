@@ -5,12 +5,12 @@ import "./globals.css";
 import { jCN } from "./utils/joinClassNames";
 
 const PlexSans = IBM_Plex_Sans({
-  weight: ["500", "700"],
+  weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--plex-font-family-sans",
 });
 const PlexMono = IBM_Plex_Mono({
-  weight: ["500", "700"],
+  weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--plex-font-family-mono",
 });

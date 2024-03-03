@@ -14,11 +14,11 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
     className={jCN([className, style.Layout, styleSection.SectionWrapper])}
     {...props}
   >
-    <div className={jCN([styleSection.Section, style.FooterSection])}>
+    <Txt tag="p" size={6} className={jCN([styleSection.Section, style.FooterSection])}>
       <Txt>
         <Txt>Copyright {new Date().getFullYear()}</Txt>
         <Spacer>-</Spacer>
-        <Txt fg={1}>James Bradford</Txt>
+        <Txt fg={1} bold>James Bradford</Txt>
       </Txt>
       <Spacer>/</Spacer>
       <Txt>
@@ -41,6 +41,6 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
           Vercel
         </Link>
       </Txt>
-    </div>
+    </Txt>
   </footer>
 );
