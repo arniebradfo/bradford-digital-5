@@ -8,18 +8,4 @@
   max-width: 1600px;
 
   padding: 48px;
-
-}
-
-.SectionDescription {
-  flex: 0 0 240px;
-
-  & p {
-    margin: 8px 0;
-  }
-}
-
-.SectionContent {
-  flex: 1 1 auto;
-  max-width: 1200px;
 }

@@ -17,7 +17,7 @@ export const ProjectLinks: React.FC<React.ComponentProps<"div">> = ({
     {sections.map(({ label, header, description, links }) => (
       <div key={header} className={styleSection.SectionWrapper}>
         <div className={jCN([styleSection.Section, style.ProjectsSection])}>
-          <div className={styleSection.SectionDescription}>
+          <div className={style.ProjectsDescription}>
             <Txt size={6} fg={3} uppercase>
               {label}
             </Txt>
@@ -29,7 +29,7 @@ export const ProjectLinks: React.FC<React.ComponentProps<"div">> = ({
             </Txt>
           </div>
 
-          <div className={jCN([style.ProjectLinkList, styleSection.SectionContent])}>
+          <div className={jCN([style.ProjectLinkList, style.ProjectsContent])}>
             {links.map((linkProps, i) => (
               <ProjectLinkButton
                 key={i}
