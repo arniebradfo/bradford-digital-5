@@ -1,11 +1,7 @@
-.HeaderWrapper {
-  position: relative;
-  background-color: var(--background-color-2);
-}
+.HeaderWrapper {}
 
 .HeaderLayout {
   position: relative;
-  background-color: var(--background-color-2);
 }
 
 .HeaderText {
@@ -20,7 +16,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  /* left: 0; */
   max-width: 100%;
   padding: 48px;
 }

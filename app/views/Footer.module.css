@@ -1,5 +1,7 @@
 .Layout {
-  background-color: var(--background-color-2);
+  && {
+    border: unset;
+  }
 }
 
 .FooterSection {

@@ -38,7 +38,8 @@ html {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-5);
   color: var(--foreground-color-2);
-  text-wrap: balance;
+  background-color: var(--background-color-2);
+  /* text-wrap: balance; */
   text-wrap: pretty;
 }
 
