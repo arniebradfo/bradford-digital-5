@@ -68,7 +68,7 @@ const section = {
     label: "Personal Projects",
     header: "Plugins",
     description:
-      "Extensions to software I use frequently. These are utilities that optimize my personal workflows, but are published open source.",
+      "Extensions and utilities for software I use frequently to optimize my personal workflows, published open source.",
     links: pluginLinks,
   },
   projects: {
