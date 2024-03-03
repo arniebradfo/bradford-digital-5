@@ -1,6 +1,7 @@
 import { HomeHeader } from "./views/HomeHeader";
 import { ProjectLinks } from "./views/ProjectLinks";
 import style from "./page.module.css";
+import { Footer } from "./views/Footer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <main>
         <ProjectLinks />
       </main>
+      <Footer/>
     </div>
   );
 }
