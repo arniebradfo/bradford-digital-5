@@ -1,5 +1,6 @@
 import {
   animate,
+  clamp,
   useMotionTemplate,
   useMotionValue,
   useTransform,
@@ -37,10 +38,13 @@ export const useGrowParallax = ({
       const _elementDOMRect = elementRef.current?.getBoundingClientRect();
       setElementDOMRect(_elementDOMRect);
 
-      const {
+      let {
         topLeftOffsetX, //
         topLeftOffsetY,
       } = mouseOffset({ mouseEvent, elementDOMRect: _elementDOMRect });
+
+      topLeftOffsetX = clamp(0, _elementDOMRect?.width || 0, topLeftOffsetX);
+      topLeftOffsetY = clamp(0, _elementDOMRect?.height || 0, topLeftOffsetY);
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
@@ -68,12 +72,15 @@ export const useGrowParallax = ({
 
   const updateGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
-      const {
+      let {
         topLeftOffsetX, //
         topLeftOffsetY,
         centerOffsetX,
         centerOffsetY,
       } = mouseOffset({ mouseEvent, elementDOMRect });
+
+      topLeftOffsetX = clamp(0, elementDOMRect?.width || 0, topLeftOffsetX);
+      topLeftOffsetY = clamp(0, elementDOMRect?.height || 0, topLeftOffsetY);
 
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
@@ -97,12 +104,14 @@ export const useGrowParallax = ({
 
   const endGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
-      const {
+      let {
         topLeftOffsetX, //
         topLeftOffsetY,
       } = mouseOffset({ mouseEvent, elementDOMRect });
 
-      // TODO: if this value is wayyy outside the button, set to center
+      topLeftOffsetX = clamp(0, elementDOMRect?.width || 0, topLeftOffsetX);
+      topLeftOffsetY = clamp(0, elementDOMRect?.height || 0, topLeftOffsetY);
+
       transformOriginX.set(topLeftOffsetX);
       transformOriginY.set(topLeftOffsetY);
 

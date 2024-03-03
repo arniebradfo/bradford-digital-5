@@ -12,6 +12,13 @@
   padding: 16px 20px;
 }
 
+.ButtonBg {
+  && {
+    background-color: var(--background-color-2);
+    border-radius: 12px;
+  }
+}
+
 .ImageWrapper {
   flex: 0 0 auto;
   display: flex;

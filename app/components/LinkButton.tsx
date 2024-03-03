@@ -1,5 +1,5 @@
 "use client";
-import { animate, motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import style from "./LinkButton.module.css";
 import { useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
@@ -11,9 +11,10 @@ import { useClickScale } from "../utils/useClickScale";
 const MotionLink = motion(Link);
 
 export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
-  classNameInside?: string;
   offsetPx?: number;
   duration?: number;
+  classNameBg?: string;
+  classNameInside?: string;
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
@@ -22,6 +23,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   offsetPx = 24,
   duration = 0.15,
   classNameInside,
+  classNameBg,
   ...props
 }) => {
   const elementRef = useRef<HTMLElement>(null);
@@ -93,7 +95,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       {...props}
     >
       <motion.div
-        className={style.LinkButtonBg}
+        className={jCN([classNameBg, style.LinkButtonBg])}
         style={{
           x: growTranslateX,
           y: growTranslateY,
