@@ -1,7 +1,10 @@
-.HeaderLayout {
-  padding: 48px;
+.HeaderWrapper {
   position: relative;
-  border-bottom: var(--border-1);
+  background-color: var(--background-color-2);
+}
+
+.HeaderLayout {
+  position: relative;
   background-color: var(--background-color-2);
 }
 
