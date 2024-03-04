@@ -6,7 +6,7 @@
 ## TODOs
 - LinkButton 
   - GrowBg click animation
-  - clamp growBG to button size
   - easing
+  - ascii comment in the html
 - About section
 - look at other notes from portfolio review

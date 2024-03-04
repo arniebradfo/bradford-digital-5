@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 import { jCN } from "./utils/joinClassNames";
+import { AsciiArt, asciiArt } from "./components/AsciiArt";
 
 const PlexSans = IBM_Plex_Sans({
   weight: ["400", "500"],
@@ -28,6 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
+      <AsciiArt />
       <body>{children}</body>
     </html>
   );
