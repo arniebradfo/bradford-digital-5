@@ -45,8 +45,8 @@ const links = [
     children: "Resume",
     href: "#",
   },
-  {
-    children: "FUN!",
-    href: "/components",
-  },
+  // {
+  //   children: "FUN!",
+  //   href: "/components",
+  // },
 ];
