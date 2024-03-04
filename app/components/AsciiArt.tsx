@@ -16,12 +16,16 @@ export const asciiArt = `
     _-_  |   |   
    |   | |   |   
     ¯-¯  |   ¯-_ 
-    _-¯|  ¯-_   |  JAMES BRADFORD 
-   |   |  _-¯   |  UX ENGINEER    
+    _-¯|  ¯-_   |
+   |   |  _-¯   |
    |   | ¯-_ _-¯ 
  _-¯   |    ¯    
 ¯-_ _-¯          
-   ¯             
+   ¯
+   
+   JAMES BRADFORD / UX ENGINEER
+   ---
+   github.com/arniebradfo/bradford-digital-5
 
 `;
 
