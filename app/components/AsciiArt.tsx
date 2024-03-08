@@ -4,9 +4,11 @@ import { useLayoutEffect } from "react";
 
 export const AsciiArt = () => {
   useLayoutEffect(() => {
-    if (document) {
+    if (document && asciiArtComment) {
       document.firstElementChild?.prepend(asciiArtComment);
       return () => asciiArtComment.remove();
+    } else {
+      console.warn({ document, asciiArt, asciiArtComment });
     }
   });
   return null;
@@ -31,4 +33,4 @@ export const asciiArt = `
 
 `;
 
-const asciiArtComment = document.createComment(asciiArt);
+const asciiArtComment = document?.createComment(asciiArt);
