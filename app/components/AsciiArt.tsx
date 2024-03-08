@@ -4,11 +4,12 @@ import { useLayoutEffect } from "react";
 
 export const AsciiArt = () => {
   useLayoutEffect(() => {
-    if (document && asciiArtComment) {
+    if (document) {
+      const asciiArtComment = document?.createComment(asciiArt);
       document.firstElementChild?.prepend(asciiArtComment);
       return () => asciiArtComment.remove();
     } else {
-      console.warn({ document, asciiArt, asciiArtComment });
+      console.warn({ asciiArt });
     }
   });
   return null;
@@ -32,6 +33,3 @@ export const asciiArt = `
    github.com/arniebradfo/bradford-digital-5
 
 `;
-
-const asciiArtComment =
-  document != null ? document.createComment(asciiArt) : undefined;
