@@ -33,4 +33,5 @@ export const asciiArt = `
 
 `;
 
-const asciiArtComment = document?.createComment(asciiArt);
+const asciiArtComment =
+  document != null ? document.createComment(asciiArt) : undefined;
