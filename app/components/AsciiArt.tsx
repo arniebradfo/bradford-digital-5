@@ -4,8 +4,10 @@ import { useLayoutEffect } from "react";
 
 export const AsciiArt = () => {
   useLayoutEffect(() => {
-    document.firstElementChild?.prepend(asciiArtComment);
-    return () => asciiArtComment.remove();
+    if (document) {
+      document.firstElementChild?.prepend(asciiArtComment);
+      return () => asciiArtComment.remove();
+    }
   });
   return null;
 };
