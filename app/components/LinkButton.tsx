@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import style from "./LinkButton.module.css";
-import { useRef } from "react";
+import { CSSProperties, useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   children,
   className,
   offsetPx = 24,
-  duration = 0.15,
+  duration = 0.15, // match
   classNameInside,
   classNameBg,
   ...props
@@ -68,9 +68,15 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     clickDuration,
   });
 
+  const customVar = {
+    "--link-button-duration": duration + "s",
+    "--link-button-click-duration": clickDuration + "s"
+  } as CSSProperties
+
   return (
     <MotionLink
       className={jCN([className, style.LinkButton])}
+      style={customVar}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         startMagneticParallax({ mouseEvent });

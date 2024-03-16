@@ -30,6 +30,12 @@
   --font-size-6: 12px;
 
   --line-height: 1.4;
+
+  --border-radius: 8px;
+
+  /* match default LinkButtonProps.duration  */
+  --link-button-duration: 0.15s;
+
 }
 
 html {

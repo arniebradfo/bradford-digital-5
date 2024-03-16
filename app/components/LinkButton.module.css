@@ -1,10 +1,9 @@
-
 .LinkButton {
   appearance: unset;
   display: inline-block;
   position: relative;
   isolation: isolate;
-  
+
   cursor: pointer;
 
   text-decoration: none;
@@ -12,21 +11,88 @@
 
   overflow: visible;
 
+  border-radius: var(--border-radius);
   /* &:not(:hover){
     outline: solid rgba(0, 0, 0, 0.1) 0.25px;
   } */
 
+  &:not(:hover) .LinkButtonBg {
+    transition-timing-function: ease-in;
+    /* transition-duration: calc(var(--link-button-duration)*0.5); */
+    border-radius: 999px;
+    /* background-color: var(--background-color-2); */
+  }
+
+
+
 }
 
 .LinkButtonBg {
-  background: var(--background-color-3);
-  border-radius: 8px;
+  background-color: var(--background-color-3);
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+
+  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.8) ease-out;
+  border-radius: var(--border-radius);
 }
 
 .LinkButtonTestInside {
   padding: 8px 16px;
+}
+
+.LinkButtonOutline {
+  border: 1px solid var(--background-color-4);
+  background-color: var(--background-color-1);
+
+  transition: border-color, background-color calc(var(--link-button-duration)*0.3) linear;
+
+  &:hover {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  /* & .LinkButtonBg {
+    border: 1px solid transparent;
+    transition: border-color background-color calc(var(--link-button-duration)*0.3) linear;
+  }
+  &:hover{
+    & .LinkButtonBg {
+      border-color: var(--background-color-1);
+    }
+  } */
+}
+
+.LinkButtonEmphasis {
+  color: var(--background-color-1);
+  background-color: var(--foreground-color-2);
+  z-index: 1;
+
+  transition: border-color, background-color var(--link-button-duration) linear;
+
+  &:hover {
+    background-color: transparent;
+    /* color: var(--foreground-color-1); */
+  }
+
+  & .LinkButtonBg {
+    transition: border-radius, border-color, background-color var(--link-button-duration) ease-out;
+    /* background-color: transparent; */
+    /* background-color: var(--background-color-4); */
+    /* background-color: var(--accent-color-1); */
+    /* background-color: var(--foreground-color-1); */
+    /* background-color: var(--foreground-color-1); */
+
+  }
+
+  &:hover {
+    & .LinkButtonBg {
+      /* background-color: var(--accent-color-1); */
+      background-color: var(--foreground-color-1);
+
+    }
+  }
+
+
 }
