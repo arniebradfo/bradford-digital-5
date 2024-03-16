@@ -5,7 +5,8 @@
 }
 
 .HeaderText {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  text-wrap: balance;
 }
 
 .HeaderDetails {
@@ -20,3 +21,10 @@
   padding: 48px;
 }
 
+@media screen and (max-width: 600px) {
+  .HeaderNav {
+    position: static;
+    padding: 0;
+    margin: 16px -16px 0;
+  }
+}

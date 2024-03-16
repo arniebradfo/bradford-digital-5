@@ -30,9 +30,10 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
         style={{ marginBottom: 48 }}
       />
 
-      <Txt tag="h1" size={2} fg={1} uppercase className={style.HeaderText} bold>
+      <Txt tag="h1" size={1} fg={1} uppercase className={style.HeaderText} bold>
         <Txt>James Bradford</Txt>
         <Spacer normal>/</Spacer>
+        <wbr/>
         <Txt fg={3}>UX Engineer</Txt>
       </Txt>
 
