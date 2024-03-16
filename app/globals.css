@@ -33,14 +33,12 @@
 
   --border-radius: 8px;
 
-  /* match default LinkButtonProps.duration  */
-  --link-button-duration: 0.15s;
-
 }
 
-/* @media (prefers-color-scheme: dark) { */
-  /* :root { */
-    .darkTheme {
+@media (prefers-color-scheme: dark) {
+
+  /* :root:not(.lightTheme) { */
+  :root {
     color-scheme: dark;
 
     --background-color-1: hsl(0, 0%, 6%);
@@ -58,8 +56,7 @@
     --foreground-color-3: hsl(0, 0%, 53%);
     --foreground-color-4: hsl(0, 0%, 25%);
   }
-
-/* } */
+}
 
 html {
   font-family: var(--font-family-sans);

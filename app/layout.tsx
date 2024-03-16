@@ -3,11 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./reset.css";
 import "./globals.css";
 import { jCN } from "./utils/joinClassNames";
-import { AsciiArt, asciiArt } from "./components/AsciiArt";
-import { themeDetectorInline } from "./utils/themeDetector";
-
-import Head from "next/head";
-import Script from "next/script";
+import { AsciiArt } from "./components/AsciiArt";
 
 const PlexSans = IBM_Plex_Sans({
   weight: ["400", "500"],
@@ -33,16 +29,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
-      {/* <Head>
-      </Head> */}
-      <head>
-        <Script
-          id="my-script"
-          strategy="beforeInteractive"
-          // src="/scripts/test.js"
-          >{themeDetectorInline}</Script>
-        {/* /> */}
-      </head>
       <body>{children}</body>
       <AsciiArt />
     </html>

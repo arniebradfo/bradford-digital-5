@@ -21,19 +21,26 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
     {...props}
   >
     <div className={jCN([style.HeaderLayout, styleSection.Section])}>
-      <Image
-        src="/logo/small.svg"
-        alt="jb logo"
-        width={16 * 3}
-        height={16 * 3}
-        priority
-        style={{ marginBottom: 48 }}
-      />
+      {[
+        [style.showDarkTheme, "/logo/small-white.svg"],
+        [style.showLightTheme, "/logo/small.svg"],
+      ].map(([theme, src]) => (
+        <Image
+          key={theme}
+          className={theme}
+          src={src}
+          alt={`jb logo - ${theme}`}
+          width={16 * 3}
+          height={16 * 3}
+          priority
+          style={{ marginBottom: 48 }}
+        />
+      ))}
 
       <Txt tag="h1" size={1} fg={1} uppercase className={style.HeaderText} bold>
         <Txt>James Bradford</Txt>
         <Spacer normal>/</Spacer>
-        <wbr/>
+        <wbr />
         <Txt fg={3}>UX Engineer</Txt>
       </Txt>
 
