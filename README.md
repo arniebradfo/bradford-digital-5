@@ -7,6 +7,5 @@
 - LinkButton 
   - GrowBg click animation
   - easing
-  - ascii comment in the html
 - About section
 - look at other notes from portfolio review
