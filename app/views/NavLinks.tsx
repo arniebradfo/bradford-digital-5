@@ -6,6 +6,7 @@ import style from "./NavLinks.module.css";
 import { LinkButton } from "../components/LinkButton";
 import { Txt } from "../components/Text";
 import { Fragment } from "react";
+// import Resume from "../../public/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf";
 
 export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
   className,
@@ -19,7 +20,11 @@ export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
             /
           </Txt>
         )}
-        <LinkButton offsetPx={16} classNameInside={style.NavLinkInside} {...linkProps} />
+        <LinkButton
+          offsetPx={16}
+          classNameInside={style.NavLinkInside}
+          {...linkProps}
+        />
       </Fragment>
     ))}
   </nav>
@@ -43,7 +48,8 @@ const links = [
   },
   {
     children: "Resume",
-    href: "#",
+    href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
+    ...externalLinkAttributes,
   },
   // {
   //   children: "FUN!",
