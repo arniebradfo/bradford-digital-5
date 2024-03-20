@@ -1,4 +1,5 @@
 import {
+  KeyframeOptions,
   animate,
   clamp,
   useMotionTemplate,
@@ -6,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { MouseEventProps, mouseOffset } from "./mouseOffset";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 export const useGrowParallax = ({
   elementRef,
@@ -32,6 +33,8 @@ export const useGrowParallax = ({
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
+  const opacityDuration = useMemo(() => duration * 0.2, [duration]);
+
   const startGrowParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
       // cache the element dimensions on start
@@ -55,14 +58,15 @@ export const useGrowParallax = ({
 
       scaleX.set(scaleFromX);
       scaleY.set(scaleFromY);
-      animate(scaleX, 1, { duration });
-      animate(scaleY, 1, { duration });
-      animate(opacity, 1, { duration: opacityDuration });
+      animate(scaleX, 1, { duration, ease });
+      animate(scaleY, 1, { duration, ease });
+      animate(opacity, 1, { duration: opacityDuration, ease });
     },
     [
       duration,
       elementRef,
       opacity,
+      opacityDuration,
       scaleX,
       scaleY,
       transformOriginX,
@@ -119,17 +123,22 @@ export const useGrowParallax = ({
       const scaleFromX = initialScaleSize / width;
       const scaleFromY = initialScaleSize / height;
 
-      animate(scaleX, scaleFromX, { duration });
-      animate(scaleY, scaleFromY, { duration });
+      const durationX = width > height ? duration * 0.9 : duration;
+      const durationY = width < height ? duration * 0.9 : duration;
+
+      animate(scaleX, scaleFromX, { duration: durationX, ease: easeReverse });
+      animate(scaleY, scaleFromY, { duration: durationY, ease: easeReverse });
       animate(opacity, 0, {
         duration: opacityDuration,
         delay: duration - opacityDuration,
+        ease: easeReverse,
       });
     },
     [
       duration,
       elementDOMRect,
       opacity,
+      opacityDuration,
       scaleX,
       scaleY,
       transformOriginX,
@@ -149,5 +158,14 @@ export const useGrowParallax = ({
   };
 };
 
-const opacityDuration = 0.05;
 const initialScaleSize = 12;
+const ease: KeyframeOptions["ease"] = "easeOut";
+const easeReverse: KeyframeOptions["ease"] = "easeIn";
+// const ease: KeyframeOptions["ease"] = [0.0, 0.65, 0.65, 1];
+// const ease: KeyframeOptions["ease"] = [0.0, 0.0, 0.0, 0.5];
+// const easeReverse: KeyframeOptions["ease"] = [
+//   ease[1],
+//   ease[0],
+//   ease[3],
+//   ease[2],
+// ];

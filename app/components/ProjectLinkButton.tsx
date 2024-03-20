@@ -30,8 +30,8 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
     className={jCN([className, style.Layout])}
     classNameInside={style.InsideLayout}
     classNameBg={style.ButtonBg}
-    offsetPx={40}
-    // duration={0.2}
+    offsetPx={60}
+    // duration={0.3}
     {...props}
   >
     <div className={style.ImageWrapper}>

@@ -22,12 +22,12 @@
   z-index: -1;
   pointer-events: none;
 
-  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.8) ease-out;
+  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.8) ease-in;
   border-radius: var(--border-radius);
 
   .LinkButton:not(:hover) & {
-    transition-timing-function: ease-in;
-    border-radius: 999px;
+    transition-timing-function: ease-out;
+    border-radius: 24px;
   }
 
 }
