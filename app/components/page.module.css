@@ -1,0 +1,22 @@
+.Layout {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 80px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.ButtonRow {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.LinkButtonTestInside {
+  padding: 8px 16px;
+}

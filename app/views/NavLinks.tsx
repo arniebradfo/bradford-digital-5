@@ -51,8 +51,8 @@ const links = [
     href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
     ...externalLinkAttributes,
   },
-  // {
-  //   children: "FUN!",
-  //   href: "/components",
-  // },
+  {
+    children: "FUN!",
+    href: "/components",
+  },
 ];

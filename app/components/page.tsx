@@ -1,47 +1,51 @@
-import Link from "next/link";
 import { LinkButton } from "./LinkButton";
-import style from "./LinkButton.module.css";
+import styleButton from "./LinkButton.module.css";
+import stylePage from "./page.module.css";
 import { jCN } from "../utils/joinClassNames";
+import TestImage from "../../public/lfs-media/AvyMap/AvyMap_Screenshot-Desktop.png";
+import Image from "next/image";
 
 export default function Page() {
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 1000,
-        padding: 80,
-        display: "flex",
-        // flexDirection: "column",
-        height: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 8,
-      }}
-    >
-      <LinkButton
-        className={jCN([style.LinkButtonTestInside, style.LinkButtonEmphasis])}
-        href={"#"}
-      >
-        Parallax
-      </LinkButton>
-      <LinkButton
-        className={jCN([style.LinkButtonTestInside, style.LinkButtonOutline])}
-        href={"#"}
-      >
-        Parallax Parallax
-      </LinkButton>
-      <LinkButton
-        className={jCN([style.LinkButtonTestInside, style.LinkButtonOutline])}
-        href={"#"}
-      >
-        Parallax
-      </LinkButton>
-      <LinkButton
-        className={jCN([style.LinkButtonTestInside])}
-        href={"/"}
-      >
-        Home
-      </LinkButton>
+    <div className={stylePage.Layout}>
+      <div className={stylePage.ButtonRow}>
+        <LinkButton
+          className={jCN([
+            stylePage.LinkButtonTestInside,
+            styleButton.LinkButtonEmphasis,
+          ])}
+          href={"#"}
+        >
+          Parallax
+        </LinkButton>
+        <LinkButton
+          className={jCN([
+            stylePage.LinkButtonTestInside,
+            styleButton.LinkButtonOutline,
+          ])}
+          href={"#"}
+        >
+          Parallax Parallax
+        </LinkButton>
+        <LinkButton
+          className={jCN([
+            stylePage.LinkButtonTestInside,
+            styleButton.LinkButtonOutline,
+          ])}
+          href={"#"}
+        >
+          Parallax
+        </LinkButton>
+        <LinkButton
+          className={jCN([stylePage.LinkButtonTestInside])}
+          href={"/"}
+        >
+          Home
+        </LinkButton>
+      </div>
+      <div className={stylePage.ButtonRow}>
+        <Image src={TestImage} alt="a test image" />
+      </div>
     </div>
   );
 }

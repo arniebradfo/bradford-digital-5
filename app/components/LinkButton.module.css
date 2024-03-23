@@ -22,18 +22,15 @@
   z-index: -1;
   pointer-events: none;
 
-  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.8) ease-in;
+  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.7) ease-in;
   border-radius: var(--border-radius);
-
+  
   .LinkButton:not(:hover) & {
+    transition-delay: calc(var(--link-button-duration)*0.3);
     transition-timing-function: ease-out;
     border-radius: 24px;
   }
 
-}
-
-.LinkButtonTestInside {
-  padding: 8px 16px;
 }
 
 .LinkButtonOutline {
