@@ -1,0 +1,16 @@
+.ImageLayers {
+  position: relative;
+  background-color: #121212;
+  border-radius: 2px;
+  box-shadow: var(--box-shadow-2);
+}
+
+.ImageBase {
+  border-radius: 2px;
+}
+
+.ImageLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+}
