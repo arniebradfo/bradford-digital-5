@@ -1,9 +1,14 @@
 import { LinkButton } from "./LinkButton";
+import { jCN } from "../utils/joinClassNames";
+import Image from "next/image";
+
 import styleButton from "./LinkButton.module.css";
 import stylePage from "./page.module.css";
-import { jCN } from "../utils/joinClassNames";
-import TestImage from "../../public/lfs-media/AvyMap/AvyMap_Screenshot-Desktop.png";
-import Image from "next/image";
+
+import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
+import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
+import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
+import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
 
 export default function Page() {
   return (
@@ -43,8 +48,11 @@ export default function Page() {
           Home
         </LinkButton>
       </div>
-      <div className={stylePage.ButtonRow}>
-        <Image src={TestImage} alt="a test image" />
+      <div className={jCN([stylePage.ButtonRow, stylePage.ImageLayers])} >
+        <Image src={Layer4} className={stylePage.ImageBase} alt="a test image" />
+        {[Layer1, Layer2, Layer3].map((layer, i) => (
+          <Image key={i} src={layer} alt="a test image" className={stylePage.ImageLayer} />
+        ))}
       </div>
     </div>
   );
