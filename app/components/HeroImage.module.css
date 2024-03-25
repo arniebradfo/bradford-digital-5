@@ -1,24 +1,29 @@
 .ImageLayers {
   position: relative;
-  background-color: #121212;
-  border-radius: 2px;
-  
-  transition: box-shadow  0.1s ease;
-  box-shadow: var(--box-shadow-1);
-  &:hover{
+  /* border-radius: 2px; */
+  /* overflow: visible; */
+  perspective: 1000px;
+
+
+  & .ImageBackground {
+    transition: box-shadow var(--duration, 0.5s) ease;
+    box-shadow: var(--box-shadow-2);
+  }
+
+  &:hover .ImageBackground {
     box-shadow: var(--box-shadow-4);
-    
+
   }
 }
 
-.ImageBase {
-  border-radius: 2px;
-  pointer-events: none;
-}
+
+.ImageBackground {}
 
 .ImageLayer {
   position: absolute;
   inset: 0;
   border-radius: 2px;
   pointer-events: none;
+  transform-style: preserve-3d;
+  transform-origin: 50%;
 }
