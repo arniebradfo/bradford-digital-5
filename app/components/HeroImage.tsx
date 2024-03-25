@@ -9,8 +9,17 @@ import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
 import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
 import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
-import { useRef } from "react";
-import { motion, useMotionTemplate, useTransform } from "framer-motion";
+import { CSSProperties, useRef } from "react";
+import {
+  KeyframeOptions,
+  MotionValue,
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import { useMagneticParallaxLayers } from "../utils/useMagneticParallaxLayers";
 
 export const HeroImage: React.FC<React.ComponentProps<"div">> = ({
   className,
@@ -19,75 +28,106 @@ export const HeroImage: React.FC<React.ComponentProps<"div">> = ({
   const elementRef = useRef<HTMLDivElement>(null);
 
   const {
-    translateX: x0,
-    translateY: y0,
+    translateX,
+    translateY,
     startMagneticParallax,
     updateMagneticParallax,
     endMagneticParallax,
   } = useMagneticParallax({
     elementRef,
-    offsetPx: 24,
-    duration: 0.2,
+    offsetPx: 8,
+    duration,
   });
 
-  const x1 = useTransform(() => x0.get() * 1);
-  const y1 = useTransform(() => y0.get() * 1);
+  const scale0 = useMotionValue(0);
+  const scale = useTransform(() => 1 + scale0.get() * scaleMore);
+  const transform = useMotionTemplate`scale(${scale})`;
 
-  const x2 = useTransform(() => x0.get() * 2);
-  const y2 = useTransform(() => y0.get() * 2);
+  const motionValues = {
+    translateX,
+    translateY,
+    scale0,
+  };
 
-  const x3 = useTransform(() => x0.get() * 3);
-  const y3 = useTransform(() => y0.get() * 3);
+  const t1 = useMagneticParallaxLayers({
+    ...motionValues,
+    scaleMore: scaleMore * 1,
+    translateMore: translateMore * 1,
+  });
+  const t2 = useMagneticParallaxLayers({
+    ...motionValues,
+    scaleMore: scaleMore * 2,
+    translateMore: translateMore * 2,
+  });
+  const t3 = useMagneticParallaxLayers({
+    ...motionValues,
+    scaleMore: scaleMore * 3,
+    translateMore: translateMore * 3,
+  });
+  const t4 = useMagneticParallaxLayers({
+    ...motionValues,
+    scaleMore: scaleMore * 4,
+    translateMore: translateMore * 4,
+  });
 
-  const x4 = useTransform(() => x0.get() * 4);
-  const y4 = useTransform(() => y0.get() * 4);
-
-  const tVals = [
-    [x1, y1],
-    [x2, y2],
-    [x3, y3],
-    [x4, y4],
-  ];
+  const transforms = [t1, t2, t3, t4];
 
   return (
-    <motion.div
-      className={style.ImageLayers}
-      ref={elementRef}
-      onHoverStart={(mouseEvent) => {
-        startMagneticParallax({ mouseEvent });
-      }}
-      onHoverEnd={(mouseEvent) => {
-        endMagneticParallax({ mouseEvent });
-      }}
-      onMouseMove={(mouseEvent) => {
-        updateMagneticParallax({ mouseEvent });
-      }}
-    >
-      <MotionImage
-        src={Layer4}
-        className={style.ImageBase}
-        alt="a test image"
-        style={{
-          x: x1,
-          y: y1,
-          transformOrigin: "50% 50%",
+    <div style={{ perspective: "1000px" }}>
+      <motion.div
+        className={style.ImageLayers}
+        ref={elementRef}
+        onHoverStart={(mouseEvent) => {
+          startMagneticParallax({ mouseEvent });
+          animate(scale0, 1, { duration, ease: "easeInOut" });
         }}
-      />
-      {[Layer3, Layer2, Layer1].map((layer, i) => (
+        onHoverEnd={(mouseEvent) => {
+          endMagneticParallax({ mouseEvent });
+          animate(scale0, 0, { duration, ease: "easeInOut" });
+        }}
+        onMouseMove={(mouseEvent) => {
+          updateMagneticParallax({ mouseEvent });
+        }}
+        style={{
+          // transformStyle: "preserve-3d",
+          // transform,
+          perspective: "1000px"
+        }}
+      >
+        {/* add div background */}
         <MotionImage
-          key={i}
-          src={layer}
+          src={Layer4}
+          className={style.ImageBase}
           alt="a test image"
-          className={style.ImageLayer}
           style={{
-            x: tVals[i + 1][0],
-            y: tVals[i + 1][1],
+            // x: x1,
+            // y: y1,
+            transform: t1,
+            transformStyle: "preserve-3d",
             transformOrigin: "50% 50%",
           }}
         />
-      ))}
-    </motion.div>
+        {[Layer3, Layer2, Layer1].map((layer, i) => (
+          <MotionImage
+            key={i}
+            src={layer}
+            alt="a test image"
+            className={style.ImageLayer}
+            style={{
+              transform: transforms[i + 1],
+              transformStyle: "preserve-3d",
+              transformOrigin: "50% 50%",
+            }}
+          />
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
 const MotionImage = motion(Image);
+
+const scaleMore = 0.005;
+const translateMore = 2;
+const duration = 0.15;
+const ease: KeyframeOptions["ease"] = "easeInOut";

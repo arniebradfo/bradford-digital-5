@@ -37,7 +37,7 @@ export const useMagneticParallax = ({
       const { width = 0, height = 0 } = _elementDOMRect || {};
       const offsetX = offsetPx / width;
 
-      animate(magneticOffset, offsetX, { duration });
+      animate(magneticOffset, offsetX, { duration, ease });
     },
     [duration, elementRef, magneticOffset, mouseX, mouseY, offsetPx]
   );
@@ -56,9 +56,9 @@ export const useMagneticParallax = ({
 
   const endMagneticParallax = useCallback(
     ({ mouseEvent }: MouseEventProps) => {
-      animate(magneticOffset, 0, { duration });
-      animate(mouseX, 0, { duration });
-      animate(mouseY, 0, { duration });
+      animate(magneticOffset, 0, { duration, ease });
+      animate(mouseX, 0, { duration, ease });
+      animate(mouseY, 0, { duration, ease });
     },
     [duration, magneticOffset, mouseX, mouseY]
   );
@@ -71,3 +71,5 @@ export const useMagneticParallax = ({
     endMagneticParallax,
   };
 };
+
+const ease = "easeInOut"
