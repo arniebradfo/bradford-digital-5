@@ -40,7 +40,6 @@ export const HeroImage: React.FC<React.ComponentProps<"div">> = ({
 
   const scale0 = useMotionValue(0);
   const scale = useTransform(() => 1 + scale0.get() * scaleMore);
-  const transform = useMotionTemplate`scale(${scale})`;
 
   const motionValues = {
     translateX,
@@ -75,7 +74,7 @@ export const HeroImage: React.FC<React.ComponentProps<"div">> = ({
 
   return (
     <motion.div
-      className={style.ImageLayers}
+      className={jCN([className, style.ImageLayers])}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         startMagneticParallax({ mouseEvent });
@@ -127,4 +126,3 @@ const scaleUp = 0.015;
 const scaleMore = 0.005;
 const translateMore = 2;
 const duration = 0.15;
-const ease: KeyframeOptions["ease"] = "easeInOut";
