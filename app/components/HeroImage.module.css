@@ -4,10 +4,12 @@
   /* overflow: visible; */
   perspective: 1000px;
 
+  --box-shadow: var(--box-shadow-1);
+
 
   & .ImageBackground {
     transition: box-shadow var(--duration, 0.5s) ease;
-    box-shadow: var(--box-shadow-2);
+    box-shadow: var(--box-shadow);
   }
 
   &:hover .ImageBackground {

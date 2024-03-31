@@ -45,7 +45,7 @@ export default function Page() {
         </LinkButton>
       </div>
       <div className={jCN([stylePage.ButtonRow])} >
-        <HeroImage/>
+        <HeroImage className={jCN([stylePage.HeroImage])} />
       </div>
     </div>
   );
