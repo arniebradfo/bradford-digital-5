@@ -4,6 +4,7 @@ import "./reset.css";
 import "./globals.css";
 import { jCN } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
+import Script from "next/script";
 
 const PlexSans = IBM_Plex_Sans({
   weight: ["400", "500"],
@@ -29,7 +30,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          id="log"
+          strategy="beforeInteractive"
+        >{`console.log('hello')`}</Script>
+      </body>
       <AsciiArt />
     </html>
   );
