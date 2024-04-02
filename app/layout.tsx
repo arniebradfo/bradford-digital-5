@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
-import "./reset.css";
-import "./globals.css";
 import { jCN } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
+import { initializeTheme } from "./themeSwitch";
 import Script from "next/script";
+
+import "./reset.css";
+import "./globals.css";
 
 const PlexSans = IBM_Plex_Sans({
   weight: ["400", "500"],
@@ -32,10 +34,9 @@ export default function RootLayout({
     <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
       <body>
         {children}
-        <Script
-          id="log"
-          strategy="beforeInteractive"
-        >{`console.log('hello')`}</Script>
+        <Script id="log" strategy="beforeInteractive">
+          {initializeTheme}
+        </Script>
       </body>
       <AsciiArt />
     </html>
