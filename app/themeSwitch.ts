@@ -1,20 +1,21 @@
 export const initializeTheme = /*js*/ `
 
 if (document != null && window != null && window.matchMedia) {
-  function updateThemeBasedOnPreference(e) {
+
+  function updateTheme(e) {
     if (e.matches) {
       // Dark mode
-      document.documentElement.classList.add('dark-mode')
-      document.documentElement.classList.remove('light-mode')
+      document.documentElement.setAttribute('data-theme', 'dark')
     } else {
       // Light mode
-      document.documentElement.classList.remove('dark-mode')
-      document.documentElement.classList.add('light-mode')
+      document.documentElement.setAttribute('data-theme', 'light')
     }
   }
+
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  updateThemeBasedOnPreference(prefersDarkScheme);
-  prefersDarkScheme.addEventListener('change', updateThemeBasedOnPreference);
+  updateTheme(prefersDarkScheme);
+  prefersDarkScheme.addEventListener('change', updateTheme);
+  
 }
 
 `;

@@ -31,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])}>
+    <html lang="en" className={jCN([PlexSans.variable, PlexMono.variable])} data-theme="light">
       <body>
-        {children}
-        <Script id="log" strategy="beforeInteractive">
+        <Script id="initializeTheme" strategy="beforeInteractive">
           {initializeTheme}
         </Script>
+        {children}
       </body>
       <AsciiArt />
     </html>
