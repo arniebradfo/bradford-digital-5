@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { jCN } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
-import { initializeTheme } from "./themeSwitch";
+import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
 
 import "./reset.css";
