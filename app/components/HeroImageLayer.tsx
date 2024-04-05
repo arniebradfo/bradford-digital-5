@@ -4,7 +4,7 @@ import { jCN } from "../utils/joinClassNames";
 import Image from "next/image";
 
 import style from "./HeroImage.module.css";
-import { MotionValue, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   useMagneticParallaxLayers,
   useMagneticParallaxLayersProps,
@@ -13,12 +13,10 @@ import {
 export const HeroImageLayer: React.FC<
   React.ComponentProps<typeof MotionImage> & {
     level: number;
-    backgroundColor?: string;
     motionValues: useMagneticParallaxLayersProps;
   }
 > = ({
   level,
-  backgroundColor,
   motionValues,
   className,
   style: motionStyle,
@@ -36,7 +34,6 @@ export const HeroImageLayer: React.FC<
       className={jCN([className, style.ImageLayer])}
       style={{
         transform,
-        backgroundColor,
         ...motionStyle,
       }}
       {...props}

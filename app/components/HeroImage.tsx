@@ -63,8 +63,8 @@ export const HeroImage: React.FC<React.ComponentProps<typeof motion.div>> = ({
             scale0,
           }}
           level={i + 1}
-          backgroundColor={i == 0 ? "#121212" : undefined}
           style={{
+            backgroundColor: i == 0 ? "#121212" : undefined,
             position: i == 0 ? "relative" : undefined,
           }}
         />
