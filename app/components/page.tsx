@@ -52,7 +52,7 @@ export default function Page() {
           className={jCN([stylePage.LinkButtonTestInside])}
           href={"/"}
         >
-          Normal
+          Normal - Home
         </LinkButton>
       </div>
       <div className={jCN([stylePage.ButtonRow])}>
