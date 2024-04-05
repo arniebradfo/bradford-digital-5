@@ -3,19 +3,19 @@
 import { jCN } from "../utils/joinClassNames";
 
 import style from "./HeroImage.module.css";
-import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
-import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
-import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
-import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
+
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { CSSProperties, useRef } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
-import { HeroImageLayer } from "./HeroImageLayer";
+import { HeroImageLayer, HeroImageLayerProps } from "./HeroImageLayer";
 
-export const HeroImage: React.FC<React.ComponentProps<typeof motion.div>> = ({
-  className,
-  ...props
-}) => {
+export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
+
+export const HeroImage: React.FC<
+  React.ComponentProps<typeof motion.div> & {
+    imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
+  }
+> = ({ className, imageLayers, ...props }) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -52,24 +52,33 @@ export const HeroImage: React.FC<React.ComponentProps<typeof motion.div>> = ({
       style={customVar}
       {...props}
     >
-      {[Layer4, Layer3, Layer2, Layer1].map((layer, i) => (
-        <HeroImageLayer
-          key={i}
-          src={layer}
-          alt="a test image"
-          className={jCN([style.ImageLayer])}
-          motionValues={{
-            translateX,
-            translateY,
-            scale0,
-          }}
-          level={i + 1}
-          style={{
-            backgroundColor: i == 0 ? "#121212" : undefined,
-            position: i == 0 ? "relative" : undefined,
-          }}
-        />
-      ))}
+      {imageLayers.map(
+        (
+          {
+            className: layerClassName,
+            style: layerStyle,
+            level,
+            ...layerProps
+          },
+          i
+        ) => (
+          <HeroImageLayer
+            key={i}
+            className={jCN([layerClassName, style.ImageLayer])}
+            motionValues={{
+              translateX,
+              translateY,
+              scale0,
+            }}
+            level={level || i + 1}
+            style={{
+              position: i == 0 ? "relative" : undefined, // first layer determines size
+              ...layerStyle,
+            }}
+            {...layerProps}
+          />
+        )
+      )}
     </motion.div>
   );
 };

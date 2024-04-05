@@ -10,18 +10,14 @@ import {
   useMagneticParallaxLayersProps,
 } from "../utils/useMagneticParallaxLayers";
 
+export type HeroImageLayerProps = React.ComponentProps<typeof HeroImageLayer>;
+
 export const HeroImageLayer: React.FC<
   React.ComponentProps<typeof MotionImage> & {
-    level: number;
+    level?: number;
     motionValues: useMagneticParallaxLayersProps;
   }
-> = ({
-  level,
-  motionValues,
-  className,
-  style: motionStyle,
-  ...props
-}) => {
+> = ({ level = 1, motionValues, className, style: motionStyle, ...props }) => {
   const transform = useMagneticParallaxLayers({
     ...motionValues,
     scaleUp,
