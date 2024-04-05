@@ -3,7 +3,7 @@
 import { jCN } from "../utils/joinClassNames";
 import Image from "next/image";
 
-import style from "./HeroImage.module.css";
+// import style from "./HeroImage.module.css";
 import { motion } from "framer-motion";
 import {
   useMagneticParallaxLayers,
@@ -31,7 +31,7 @@ export const HeroImageLayer: React.FC<
 
   return (
     <MotionImage
-      className={jCN([className, style.ImageLayer])}
+      className={jCN([className])}
       style={{
         transform,
         ...motionStyle,

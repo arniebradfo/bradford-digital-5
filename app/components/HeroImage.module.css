@@ -1,22 +1,17 @@
 .ImageLayers {
   position: relative;
-  /* border-radius: 2px; */
-  /* overflow: visible; */
   perspective: 1000px;
 
 
-  & .ImageBackground {
+  & .ImageLayer:first-of-type {
     transition: box-shadow var(--duration, 0.5s) ease;
     box-shadow: var(--box-shadow-2);
   }
 
-  &:hover .ImageBackground {
+  &:hover .ImageLayer:first-of-type {
     box-shadow: var(--box-shadow-4);
   }
 }
-
-
-.ImageBackground {}
 
 .ImageLayer {
   position: absolute;

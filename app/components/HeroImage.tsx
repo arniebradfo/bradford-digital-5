@@ -57,6 +57,7 @@ export const HeroImage: React.FC<React.ComponentProps<typeof motion.div>> = ({
           key={i}
           src={layer}
           alt="a test image"
+          className={jCN([style.ImageLayer])}
           motionValues={{
             translateX,
             translateY,
