@@ -6,10 +6,10 @@ import { Txt } from "../components/Text";
 import { jCN } from "../utils/joinClassNames";
 import { externalLinkAttributes } from "../utils/link";
 import { linkContent } from "./linkContent";
-import style from "./ProjectLinks.module.css";
+import style from "./ProjectLinksSection.module.css";
 import styleSection from "./Section.module.css";
 
-export const ProjectLinks: React.FC<React.ComponentProps<"div">> = ({
+export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (

@@ -1,5 +1,6 @@
 import { HomeHeader } from "./views/HomeHeader";
-import { ProjectLinks } from "./views/ProjectLinks";
+import { ProjectLinksSection } from "./views/ProjectLinksSection";
+// import { ProjectFeatureSection } from "./views/ProjectFeatureSection";
 import style from "./page.module.css";
 import { Footer } from "./views/Footer";
 
@@ -8,7 +9,8 @@ export default function Home() {
     <div className={style.Layout}>
       <HomeHeader />
       <main>
-        <ProjectLinks />
+        <ProjectLinksSection />
+        {/* <ProjectFeatureSection /> */}
       </main>
       <Footer/>
     </div>
