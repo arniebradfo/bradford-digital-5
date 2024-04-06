@@ -1,7 +1,6 @@
 import { Txt } from "../components/Text";
 import { jCN } from "../utils/joinClassNames";
-import style from "./ProjectLinksSection.module.css";
-import styleSection from "./Section.module.css";
+import style from "./Section.module.css";
 
 import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
 import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
@@ -37,13 +36,10 @@ export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
 }) => (
   <div className={jCN([className, style.Layout])} {...props}>
     {sections.map(({ ...description }) => (
-      <div key={description.header} className={styleSection.SectionWrapper}>
-        <div className={jCN([styleSection.Section, style.ProjectsSection])}>
-          <SectionDescription
-            className={jCN([style.ProjectsDescription])}
-            {...description}
-          />
-          <div className={jCN([styleSection.FeatureContent])}>
+      <div key={description.header} className={style.SectionWrapper}>
+        <div className={jCN([style.Section, style.ProjectsSection])}>
+          <SectionDescription {...description} />
+          <div className={jCN([style.SectionContent])}>
             <HeroImage imageLayers={imageLayers} />
           </div>
         </div>
@@ -54,7 +50,6 @@ export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
 
 const section = {
   redeye: {
-    
     label: "PNNL / CISA RedTeam",
     header: "RedEye",
     description:

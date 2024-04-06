@@ -6,8 +6,7 @@ import { jCN } from "../utils/joinClassNames";
 import { externalLinkAttributes } from "../utils/link";
 import { linkContent } from "./linkContent";
 import { SectionDescription } from "./SectionDescription";
-import style from "./ProjectLinksSection.module.css";
-import styleSection from "./Section.module.css";
+import style from "./Section.module.css";
 
 export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
   className,
@@ -15,14 +14,11 @@ export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
 }) => (
   <div className={jCN([className, style.Layout])} {...props}>
     {sections.map(({ label, header, description, links }) => (
-      <div key={header} className={styleSection.SectionWrapper}>
-        <div className={jCN([styleSection.Section, style.ProjectsSection])}>
-          <SectionDescription
-            className={jCN([style.ProjectsDescription])}
-            {...{ label, header, description }}
-          />
+      <div key={header} className={style.SectionWrapper}>
+        <div className={jCN([style.Section, style.ProjectsSection])}>
+          <SectionDescription {...{ label, header, description }} />
 
-          <div className={jCN([style.ProjectLinkList, style.ProjectsContent])}>
+          <div className={jCN([style.SectionContent, style.ProjectLinkList])}>
             {links.map((linkProps, i) => (
               <ProjectLinkButton
                 key={i}

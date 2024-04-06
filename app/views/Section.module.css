@@ -1,3 +1,9 @@
+.Layout {
+  background-color: var(--background-color-1);
+  --section-content-width: 1000px;
+
+}
+
 .SectionWrapper {
   border-bottom: var(--border-1);
   overflow: hidden;
@@ -6,19 +12,44 @@
 .Section {
   margin: 0 auto;
   max-width: 1600px;
-
   padding: 48px;
 }
 
 .SectionDescription {
+  flex: 1 0 240px;
+  max-width: 500px;
   text-wrap: balance;
   & p {
     margin: 8px 0;
   }
 }
 
-.FeatureContent {
+.SectionContent {
   flex: 5 0 75%;
-  max-width: 1100px;
+  max-width: var(--section-content-width);
   /* margin: -16px -20px; */
+}
+
+
+
+/* ---- */
+
+.ProjectsSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px 64px;
+}
+
+.ProjectLinkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: -16px -20px;
+  max-width: calc(var(--section-content-width) + 40px);
+}
+
+.ProjectLink {
+  flex: 1 1 33%;
+  min-width: 300px;
 }
