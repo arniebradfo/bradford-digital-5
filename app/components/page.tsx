@@ -1,21 +1,8 @@
 import { LinkButton } from "./LinkButton";
 import { jCN } from "../utils/joinClassNames";
-import { HeroImage, HeroImageProps } from "./HeroImage";
 
 import styleButton from "./LinkButton.module.css";
 import stylePage from "./page.module.css";
-
-import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
-import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
-import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
-import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
-
-const imageLayers: HeroImageProps["imageLayers"] = [
-  { src: Layer4, alt: "RedEye screenshot background layer with grid", style: { backgroundColor: "#121212" } },
-  { src: Layer3, alt: "RedEye screenshot mid layer with node-graph of computer network" },
-  { src: Layer2, alt: "RedEye screenshot mid layer with log line information panel" },
-  { src: Layer1, alt: "RedEye screenshot top layer with timeline and menu bar" },
-];
 
 export default function Page() {
   return (
@@ -54,9 +41,6 @@ export default function Page() {
         >
           Normal - Home
         </LinkButton>
-      </div>
-      <div className={jCN([stylePage.ButtonRow])}>
-        <HeroImage imageLayers={imageLayers} />
       </div>
     </div>
   );

@@ -14,10 +14,6 @@
   flex: 1 0 240px;
   max-width: 500px;
   text-wrap: balance;
-
-  & p {
-    margin: 8px 0;
-  }
 }
 
 .ProjectsContent {
