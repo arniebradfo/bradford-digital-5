@@ -3,7 +3,7 @@ import Link from "next/link";
 import { externalLinkAttributes } from "../utils/link";
 import { Txt } from "../components/Text";
 import { Spacer } from "../components/Spacer";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { NavLinks } from "./NavLinks";
 import style from "./HomeHeader.module.css";
 import styleSection from "./Section.module.css";
@@ -13,14 +13,14 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
   ...props
 }) => (
   <header
-    className={jCN([
+    className={cx(
       style.HeaderWrapper,
       styleSection.SectionWrapper,
       className,
-    ])}
+    )}
     {...props}
   >
-    <div className={jCN([style.HeaderLayout, styleSection.Section])}>
+    <div className={cx(style.HeaderLayout, styleSection.Section)}>
       {/* {[
         [style.showDarkTheme, "/logo/small-white.svg"],
         [style.showLightTheme, "/logo/small.svg"],

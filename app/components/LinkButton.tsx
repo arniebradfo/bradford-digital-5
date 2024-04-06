@@ -5,7 +5,7 @@ import { CSSProperties, useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { useClickScale } from "../utils/useClickScale";
 
 const MotionLink = motion(Link);
@@ -75,7 +75,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
 
   return (
     <MotionLink
-      className={jCN([className, style.LinkButton])}
+      className={cx(className, style.LinkButton)}
       style={customVar}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
@@ -101,7 +101,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       {...props}
     >
       <motion.div
-        className={jCN([classNameBg, style.LinkButtonBg])}
+        className={cx(classNameBg, style.LinkButtonBg)}
         style={{
           x: growTranslateX,
           y: growTranslateY,
@@ -111,7 +111,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         }}
       />
       <motion.div
-        className={jCN([classNameInside])}
+        className={cx(classNameInside)}
         style={{
           x: magneticTranslateX,
           y: magneticTranslateY,

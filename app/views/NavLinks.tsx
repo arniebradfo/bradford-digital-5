@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Spacer } from "../components/Spacer";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { externalLinkAttributes } from "../utils/link";
 import style from "./NavLinks.module.css";
 import { LinkButton } from "../components/LinkButton";
@@ -12,7 +12,7 @@ export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <nav className={jCN([style.NavLayout, className])} {...props}>
+  <nav className={cx(style.NavLayout, className)} {...props}>
     {links.map((linkProps, i) => (
       <Fragment key={linkProps.children}>
         {i > 0 && (

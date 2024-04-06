@@ -1,6 +1,6 @@
 "use client";
 
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import Image from "next/image";
 
 // import style from "./HeroImage.module.css";
@@ -27,7 +27,7 @@ export const HeroImageLayer: React.FC<
 
   return (
     <MotionImage
-      className={jCN([className])}
+      className={cx(className)}
       style={{
         transform,
         ...motionStyle,

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react";
 import style from "./Text.module.css";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 
 export type TxtProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** type of tag to use - <span/> is default */
@@ -59,7 +59,7 @@ export const Txt: React.FC<TxtProps> = ({
     className,
   ];
   return (
-    <RootTag className={jCN(classNames)} {...props} />
+    <RootTag className={cx(...classNames)} {...props} />
   );
 };
 

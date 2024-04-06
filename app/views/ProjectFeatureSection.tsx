@@ -1,5 +1,5 @@
 import { Txt } from "../components/Text";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import style from "./Section.module.css";
 
 import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
@@ -34,12 +34,12 @@ export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <div className={jCN([className, style.Layout])} {...props}>
+  <div className={cx(className, style.Layout)} {...props}>
     {sections.map(({ ...description }) => (
       <div key={description.header} className={style.SectionWrapper}>
-        <div className={jCN([style.Section, style.ProjectsSection])}>
+        <div className={cx(style.Section, style.ProjectsSection)}>
           <SectionDescription {...description} />
-          <div className={jCN([style.SectionContent])}>
+          <div className={cx(style.SectionContent)}>
             <HeroImage imageLayers={imageLayers} />
           </div>
         </div>

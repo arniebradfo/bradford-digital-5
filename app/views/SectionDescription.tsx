@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { LinkButton, LinkButtonProps } from "../components/LinkButton";
 import { Txt } from "../components/Text";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import Image, { ImageProps } from "next/image";
 import style from "./Section.module.css";
 
@@ -22,10 +22,10 @@ export const SectionDescription: React.FC<
   links,
   ...props
 }) => (
-  <div className={jCN([className, style.SectionDescription])}>
+  <div className={cx(className, style.SectionDescription)}>
     {imageProps && (
       // img alt is in imageProps...
-      // eslint-disable-next-line jsx-a11y/alt-text 
+      // eslint-disable-next-line jsx-a11y/alt-text
       <Image {...imageProps} />
     )}
     {label && (

@@ -1,6 +1,6 @@
 "use client";
 
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 
 import style from "./HeroImage.module.css";
 
@@ -36,7 +36,7 @@ export const HeroImage: React.FC<
 
   return (
     <motion.div
-      className={jCN([className, style.ImageLayers])}
+      className={cx(className, style.ImageLayers)}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
         startMagneticParallax({ mouseEvent });
@@ -64,7 +64,7 @@ export const HeroImage: React.FC<
         ) => (
           <HeroImageLayer
             key={i}
-            className={jCN([layerClassName, style.ImageLayer])}
+            className={cx(layerClassName, style.ImageLayer)}
             motionValues={{
               translateX,
               translateY,

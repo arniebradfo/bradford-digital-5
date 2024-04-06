@@ -2,7 +2,7 @@ import {
   ProjectLinkButton,
   ProjectLinkButtonProps,
 } from "../components/ProjectLinkButton";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { externalLinkAttributes } from "../utils/link";
 import { linkContent } from "./linkContent";
 import { SectionDescription } from "./SectionDescription";
@@ -12,13 +12,13 @@ export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <div className={jCN([className, style.Layout])} {...props}>
+  <div className={cx(className, style.Layout)} {...props}>
     {sections.map(({ label, header, description, links }) => (
       <div key={header} className={style.SectionWrapper}>
-        <div className={jCN([style.Section, style.ProjectsSection])}>
+        <div className={cx(style.Section, style.ProjectsSection)}>
           <SectionDescription {...{ label, header, description }} />
 
-          <div className={jCN([style.SectionContent, style.ProjectLinkList])}>
+          <div className={cx(style.SectionContent, style.ProjectLinkList)}>
             {links.map((linkProps, i) => (
               <ProjectLinkButton
                 key={i}

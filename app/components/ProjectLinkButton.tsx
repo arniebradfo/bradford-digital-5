@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { LinkButton, LinkButtonProps } from "./LinkButton";
 import style from "./ProjectLinkButton.module.css";
 import { Txt } from "./Text";
@@ -27,7 +27,7 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
   ...props
 }) => (
   <LinkButton
-    className={jCN([className, style.Layout])}
+    className={cx(className, style.Layout)}
     classNameInside={style.InsideLayout}
     classNameBg={style.ButtonBg}
     offsetPx={60}

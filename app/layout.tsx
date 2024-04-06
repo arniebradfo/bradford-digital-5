@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
-import { jCN } from "./utils/joinClassNames";
+import { cx } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
 import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={jCN([PlexSans.variable, PlexMono.variable])}
+      className={cx(PlexSans.variable, PlexMono.variable)}
       data-theme="light"
       suppressHydrationWarning
     >
