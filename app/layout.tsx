@@ -25,8 +25,6 @@ export const metadata: Metadata = {
     "James Bradford is UX Engineer (User Research, UX Design, and UI Development) currently working in the Human Centered Computing Group at Pacific Northwest National Laboratory's Seattle Office making web apps for cybersecurity, geospatial analysis, machine learning, and data visualization.",
 };
 
-console.log(PlexSans);
-
 export default function RootLayout({
   children,
 }: {
