@@ -34,7 +34,7 @@ export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <div className={cx(className, style.Layout)} {...props}>
+  <>
     {sections.map(({ ...description }) => (
       <div key={description.header} className={style.SectionWrapper}>
         <div className={cx(style.Section, style.ProjectsSection)}>
@@ -45,7 +45,7 @@ export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
         </div>
       </div>
     ))}
-  </div>
+  </>
 );
 
 const section = {

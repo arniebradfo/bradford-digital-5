@@ -1,12 +1,8 @@
-.Layout {
-  background-color: var(--background-color-1);
-  --section-content-width: 1000px;
 
-}
 
 .SectionWrapper {
   border-bottom: var(--border-1);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .Section {
