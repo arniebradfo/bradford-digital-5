@@ -1,6 +1,6 @@
 import { HomeHeader } from "./views/HomeHeader";
 import { PluginLinksSection, ProjectLinksSection } from "./views/ProjectLinksSections";
-import { RedEyeFeatureSection } from "./views/ProjectFeatureSection";
+import { RedEyeFeatureSection } from "./views/ProjectFeatureSections";
 import style from "./page.module.css";
 import { Footer } from "./views/Footer";
 import { cx } from "./utils/joinClassNames";
