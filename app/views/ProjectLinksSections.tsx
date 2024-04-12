@@ -12,7 +12,7 @@ export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <div className={style.SectionWrapper} {...props}>
+  <div className={cx(className, style.SectionWrapper)} {...props}>
     <div className={cx(style.Section, style.ProjectsSection)}>
       <SectionDescription {...section.projects.description} />
       <div className={cx(style.SectionContent, style.ProjectLinkList)}>
@@ -33,7 +33,7 @@ export const PluginLinksSection: React.FC<React.ComponentProps<"div">> = ({
   className,
   ...props
 }) => (
-  <div className={style.SectionWrapper} {...props}>
+  <div className={cx(className, style.SectionWrapper)} {...props}>
     <div className={cx(style.Section, style.ProjectsSection)}>
       <SectionDescription {...section.plugins.description} />
       <div className={cx(style.SectionContent, style.ProjectLinkList)}>

@@ -8,7 +8,35 @@ import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
 import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import { LinkButton } from "../components/LinkButton";
-import { SectionDescription } from "./SectionDescription";
+import {
+  SectionDescription,
+  SectionDescriptionProps,
+} from "./SectionDescription";
+import React from "react";
+
+const ProjectFeatureSection: React.FC<
+  React.ComponentProps<"div"> & {
+    sectionDescriptionProps: SectionDescriptionProps;
+    heroImageProps: HeroImageProps;
+  }
+> = ({ className, sectionDescriptionProps, heroImageProps, ...props }) => (
+  <div className={cx(className, style.SectionWrapper)} {...props}>
+    <div className={cx(style.Section, style.ProjectsSection)}>
+      <SectionDescription {...sectionDescriptionProps} />
+      <div className={cx(style.SectionContent)}>
+        <HeroImage {...heroImageProps} />
+      </div>
+    </div>
+  </div>
+);
+
+export const RedEyeFeatureSection: React.FC<React.ComponentProps<"div">> = (props) => (
+  <ProjectFeatureSection
+    sectionDescriptionProps={section.redeye}
+    heroImageProps={{ imageLayers }}
+    {...props}
+  />
+);
 
 const imageLayers: HeroImageProps["imageLayers"] = [
   {
@@ -29,24 +57,6 @@ const imageLayers: HeroImageProps["imageLayers"] = [
     alt: "RedEye screenshot top layer with timeline and menu bar",
   },
 ];
-
-export const ProjectFeatureSection: React.FC<React.ComponentProps<"div">> = ({
-  className,
-  ...props
-}) => (
-  <>
-    {sections.map(({ ...description }) => (
-      <div key={description.header} className={style.SectionWrapper}>
-        <div className={cx(style.Section, style.ProjectsSection)}>
-          <SectionDescription {...description} />
-          <div className={cx(style.SectionContent)}>
-            <HeroImage imageLayers={imageLayers} />
-          </div>
-        </div>
-      </div>
-    ))}
-  </>
-);
 
 const section = {
   redeye: {

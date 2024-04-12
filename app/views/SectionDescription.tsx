@@ -5,6 +5,10 @@ import { cx } from "../utils/joinClassNames";
 import Image, { ImageProps } from "next/image";
 import style from "./Section.module.css";
 
+export type SectionDescriptionProps = React.ComponentProps<
+  typeof SectionDescription
+>;
+
 export const SectionDescription: React.FC<
   React.ComponentProps<"div"> & {
     imageProps?: ImageProps;
