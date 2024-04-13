@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { externalLinkAttributes } from "../utils/link";
+import { externalLinkAttributes as external } from "../utils/link";
 import { Txt } from "../components/Text";
 import { Spacer } from "../components/Spacer";
 import { cx } from "../utils/joinClassNames";
@@ -57,12 +57,12 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
         Currently working in the{" "}
         <Link
           href={"https://www.pnnl.gov/visual-analytics"}
-          {...externalLinkAttributes}
+          {...external}
         >
           Human Centered Computing Group
         </Link>{" "}
         at{" "}
-        <Link href={"https://www.pnnl.gov/"} {...externalLinkAttributes}>
+        <Link href={"https://www.pnnl.gov/"} {...external}>
           Pacific Northwest National Laboratory
         </Link>
         {"'s "}

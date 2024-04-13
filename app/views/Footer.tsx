@@ -4,7 +4,7 @@ import { Txt } from "../components/Text";
 import { cx } from "../utils/joinClassNames";
 import style from "./Footer.module.css";
 import styleSection from "./Section.module.css";
-import { externalLinkAttributes } from "../utils/link";
+import { externalLinkAttributes as external } from "../utils/link";
 
 export const Footer: React.FC<React.ComponentProps<"footer">> = ({
   className,
@@ -22,22 +22,22 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
       </Txt>
       <Spacer>/</Spacer>
       <Txt>
-        <Link href={"https://github.com/arniebradfo/bradford-digital-5"} {...externalLinkAttributes}>
+        <Link href={"https://github.com/arniebradfo/bradford-digital-5"} {...external}>
           Coded with ♥
         </Link>
         {" using "}
-        <Link href={"https://react.dev/"} {...externalLinkAttributes}>
+        <Link href={"https://react.dev/"} {...external}>
           React
         </Link>
         {" & "}
-        <Link href={"https://nextjs.org/"} {...externalLinkAttributes}>
+        <Link href={"https://nextjs.org/"} {...external}>
           Next.js
         </Link>
       </Txt>
       <Spacer>/</Spacer>
       <Txt>
         Deployed on{" "}
-        <Link href={"https://vercel.com/solutions/nextjs"} {...externalLinkAttributes}>
+        <Link href={"https://vercel.com/solutions/nextjs"} {...external}>
           Vercel
         </Link>
       </Txt>

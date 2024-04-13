@@ -3,7 +3,6 @@ import {
   ProjectLinkButtonProps,
 } from "../components/ProjectLinkButton";
 import { cx } from "../utils/joinClassNames";
-import { externalLinkAttributes } from "../utils/link";
 import { linkContent } from "./linkContent";
 import { SectionDescription } from "./SectionDescription";
 import style from "./Section.module.css";
@@ -20,7 +19,7 @@ export const ProjectLinksSection: React.FC<React.ComponentProps<"div">> = ({
           <ProjectLinkButton
             key={i}
             className={style.ProjectLink}
-            {...externalLinkAttributes}
+            external
             {...linkProps}
           />
         ))}
@@ -41,7 +40,7 @@ export const PluginLinksSection: React.FC<React.ComponentProps<"div">> = ({
           <ProjectLinkButton
             key={i}
             className={style.ProjectLink}
-            {...externalLinkAttributes}
+            external
             {...linkProps}
           />
         ))}

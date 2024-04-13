@@ -38,16 +38,19 @@ const redeye: ProjectFeatureSectionProps = {
     header: "RedEye",
     description:
       "Red Team C2 Log Visualization tool to  display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
-    links: [{
-      href: "#",
-      children: "Case Study",
-      type: 'emphasis'
-    },{
-      href: "#",
-      children: "GitHub",
-      type: 'outline'
-    }],
-
+    links: [
+      {
+        href: "#",
+        children: "Case Study",
+        type: "emphasis",
+      },
+      {
+        href: "https://github.com/cisagov/RedEye",
+        children: "GitHub",
+        type: "outline",
+        external: true,
+      },
+    ],
   },
   heroImageProps: {
     imageLayers: [

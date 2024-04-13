@@ -34,22 +34,22 @@ const links = [
   {
     children: "LinkedIn",
     href: "https://www.linkedin.com/in/arniebradfo/",
-    ...externalLinkAttributes,
+    external: true,
   },
   {
     children: "GitHub",
     href: "https://github.com/arniebradfo",
-    ...externalLinkAttributes,
+    external: true,
   },
   {
     children: "Figma",
     href: "https://www.figma.com/@arniebradfo",
-    ...externalLinkAttributes,
+    external: true,
   },
   {
     children: "Resume",
     href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
-    ...externalLinkAttributes,
+    external: true,
   },
   {
     children: "FUN!",
