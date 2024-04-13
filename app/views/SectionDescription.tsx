@@ -49,8 +49,8 @@ export const SectionDescription: React.FC<
     )}
     {links && (
       <div className={cx(style.SectionDescriptionButtonRow)}>
-        {links.map((linkProps) => (
-          <LinkButton {...linkProps} />
+        {links.map((linkProps,i) => (
+          <LinkButton key={i} {...linkProps} />
         ))}
       </div>
     )}
