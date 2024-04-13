@@ -19,9 +19,11 @@ export const useMagneticParallaxLayers = ({
 }: useMagneticParallaxLayersProps) => {
   const x = useTransform(() => translateX.get() * translateMore);
   const y = useTransform(() => translateY.get() * translateMore);
-  const rX = useTransform(() => translateX.get() * 1 * 0.5);
-  const rY = useTransform(() => translateY.get() * -1 * 0.5);
+  const rX = useTransform(() => translateX.get() * 1 * rotateMore);
+  const rY = useTransform(() => translateY.get() * -1 * rotateMore);
   const scale = useTransform(() => 1 + scale0.get() * (scaleMore + scaleUp));
   const transform = useMotionTemplate`rotateX(${rY}deg) rotateY(${rX}deg) scale(${scale}) translate(${x}px, ${y}px)`;
   return transform as MotionValue<string> & "none";
 };
+
+const rotateMore = 0.1
