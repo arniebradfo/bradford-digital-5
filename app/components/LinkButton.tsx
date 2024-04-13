@@ -15,6 +15,7 @@ export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
   duration?: number;
   classNameBg?: string;
   classNameInside?: string;
+  type?: "minimal" | "outline" | "emphasis";
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
@@ -22,6 +23,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   className,
   offsetPx = 24,
   duration = 0.15, // match
+  type = "minimal",
   classNameInside,
   classNameBg,
   ...props
@@ -70,12 +72,20 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
 
   const customVar = {
     "--link-button-duration": duration + "s",
-    "--link-button-click-duration": clickDuration + "s"
-  } as CSSProperties
+    "--link-button-click-duration": clickDuration + "s",
+  } as CSSProperties;
 
   return (
     <MotionLink
-      className={cx(className, style.LinkButton)}
+      className={cx(
+        className,
+        style.LinkButton,
+        type === "outline"
+          ? style.LinkButtonOutline
+          : type === "emphasis"
+          ? style.LinkButtonEmphasis
+          : undefined
+      )}
       style={customVar}
       ref={elementRef}
       onHoverStart={(mouseEvent) => {
@@ -111,7 +121,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         }}
       />
       <motion.div
-        className={cx(classNameInside)}
+        className={cx(classNameInside, style.LinkButtonInside)}
         style={{
           x: magneticTranslateX,
           y: magneticTranslateY,

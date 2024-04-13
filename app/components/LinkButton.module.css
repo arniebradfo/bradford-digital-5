@@ -8,6 +8,7 @@
 
   text-decoration: none;
   color: var(--foreground-color-1);
+  font-weight: var(--font-weight-bold);
 
   overflow: visible;
 
@@ -24,7 +25,7 @@
 
   transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.7) ease-in;
   border-radius: var(--border-radius);
-  
+
   .LinkButton:not(:hover) & {
     transition-delay: calc(var(--link-button-duration)*0.3);
     transition-timing-function: ease-out;
@@ -32,6 +33,12 @@
   }
 
 }
+
+.LinkButtonInside {
+  padding: 8px 16px;
+}
+
+.LinkButtonMinimal {}
 
 .LinkButtonOutline {
   border: 1px solid var(--background-color-4);
