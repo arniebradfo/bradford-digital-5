@@ -1,5 +1,3 @@
-
-
 .SectionWrapper {
   border-bottom: var(--border-1);
   overflow: visible;
@@ -15,6 +13,7 @@
   flex: 1 0 240px;
   max-width: 500px;
   text-wrap: balance;
+
   & p {
     margin: 8px 0;
   }
@@ -26,6 +25,12 @@
   /* margin: -16px -20px; */
 }
 
+.SectionDescriptionButtonRow {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  /* margin-left: -16px; */
+}
 
 
 /* ---- */

@@ -26,7 +26,7 @@ export const SectionDescription: React.FC<
   links,
   ...props
 }) => (
-  <div className={cx(className, style.SectionDescription)}>
+  <div className={cx(className, style.SectionDescription)} {...props}>
     {imageProps && (
       // img alt is in imageProps...
       // eslint-disable-next-line jsx-a11y/alt-text
@@ -48,8 +48,10 @@ export const SectionDescription: React.FC<
       </Txt>
     )}
     {links && (
-      <div>
-        <LinkButton href={"#"}>Link</LinkButton>
+      <div className={cx(style.SectionDescriptionButtonRow)}>
+        {links.map((linkProps) => (
+          <LinkButton {...linkProps} />
+        ))}
       </div>
     )}
   </div>

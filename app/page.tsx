@@ -1,6 +1,6 @@
 import { HomeHeader } from "./views/HomeHeader";
 import { PluginLinksSection, ProjectLinksSection } from "./views/ProjectLinksSections";
-import { RedEyeFeatureSection } from "./views/ProjectFeatureSections";
+import { ProjectFeatureSection, sections } from "./views/ProjectFeatureSections";
 import style from "./page.module.css";
 import { Footer } from "./views/Footer";
 import { cx } from "./utils/joinClassNames";
@@ -12,7 +12,7 @@ export default function Home() {
       <main className={cx(style.SectionLayout)}>
         <PluginLinksSection />
         <ProjectLinksSection />
-        <RedEyeFeatureSection />
+        <ProjectFeatureSection {...sections.redeye} />
       </main>
       <Footer/>
     </div>
