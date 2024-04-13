@@ -40,7 +40,7 @@ const redeye: ProjectFeatureSectionProps = {
       "Red Team C2 Log Visualization tool to  display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
     links: [
       {
-        href: "#",
+        href: "/RedEye",
         children: "Case Study",
         type: "emphasis",
       },

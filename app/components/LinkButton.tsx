@@ -7,6 +7,7 @@ import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
 import { cx } from "../utils/joinClassNames";
 import { useClickScale } from "../utils/useClickScale";
+import { externalLinkAttributes } from "../utils/link";
 
 const MotionLink = motion(Link);
 
@@ -16,6 +17,7 @@ export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
   classNameBg?: string;
   classNameInside?: string;
   type?: "minimal" | "outline" | "emphasis";
+  external?: boolean;
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
@@ -26,6 +28,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   type = "minimal",
   classNameInside,
   classNameBg,
+  external,
   ...props
 }) => {
   const elementRef = useRef<HTMLElement>(null);
@@ -108,6 +111,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       onPointerUp={() => {
         clickScalePointerUp();
       }}
+      {...(external ? externalLinkAttributes : {})}
       {...props}
     >
       <motion.div
