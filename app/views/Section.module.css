@@ -9,6 +9,11 @@
   padding: 48px;
 }
 
+.SectionDescriptionImage{
+  width: 32px;
+  margin-bottom: 24px;
+}
+
 .SectionDescription {
   flex: 1 0 240px;
   max-width: 500px;

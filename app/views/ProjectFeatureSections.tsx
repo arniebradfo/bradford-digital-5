@@ -1,10 +1,13 @@
 import { cx } from "../utils/joinClassNames";
 import style from "./Section.module.css";
 
-import Layer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
-import Layer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
-import Layer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
-import Layer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
+import RedEyeLayer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
+import RedEyeLayer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
+import RedEyeLayer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
+import RedEyeLayer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
+
+import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
+
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import {
   SectionDescription,
@@ -38,6 +41,10 @@ const redeye: ProjectFeatureSectionProps = {
     header: "RedEye",
     description:
       "Red Team C2 Log Visualization tool to  display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
+    imageProps: {
+      src: ImgRedEye,
+      alt: "RedEye Logo"
+    },
     links: [
       {
         href: "/RedEye",
@@ -55,20 +62,20 @@ const redeye: ProjectFeatureSectionProps = {
   heroImageProps: {
     imageLayers: [
       {
-        src: Layer4,
+        src: RedEyeLayer4,
         alt: "RedEye screenshot background layer with grid",
         style: { backgroundColor: "#121212" },
       },
       {
-        src: Layer3,
+        src: RedEyeLayer3,
         alt: "RedEye screenshot mid layer with node-graph of computer network",
       },
       {
-        src: Layer2,
+        src: RedEyeLayer2,
         alt: "RedEye screenshot mid layer with log line information panel",
       },
       {
-        src: Layer1,
+        src: RedEyeLayer1,
         alt: "RedEye screenshot top layer with timeline and menu bar",
       },
     ],
