@@ -26,4 +26,4 @@ export const useMagneticParallaxLayers = ({
   return transform as MotionValue<string> & "none";
 };
 
-const rotateMore = 0.1
+const rotateMore = 0.2

@@ -16,7 +16,7 @@
 .ImageLayer {
   position: absolute;
   inset: 0;
-  border-radius: 2px;
+  border-radius: var(--border-radius-image);
   pointer-events: none;
   transform-style: preserve-3d;
   transform-origin: 50%;
