@@ -1,12 +1,18 @@
 import { cx } from "../utils/joinClassNames";
 import style from "./Section.module.css";
 
-import RedEyeLayer1 from "../../public/lfs-media/RedEye/Hero/Layer-1.png";
-import RedEyeLayer2 from "../../public/lfs-media/RedEye/Hero/Layer-2.png";
-import RedEyeLayer3 from "../../public/lfs-media/RedEye/Hero/Layer-3.png";
-import RedEyeLayer4 from "../../public/lfs-media/RedEye/Hero/Layer-4.png";
+import RedEyeLayer1 from "../../public/lfs-media/Hero/RedEyeHero-01-BackgroundGrid.png";
+import RedEyeLayer2 from "../../public/lfs-media/Hero/RedEyeHero-02-Graph.png";
+import RedEyeLayer3 from "../../public/lfs-media/Hero/RedEyeHero-03-InfoPanel.png";
+import RedEyeLayer4 from "../../public/lfs-media/Hero/RedEyeHero-04-NavBar.png";
+
+import HydroELibLayer1 from "../../public/lfs-media/Hero/HydroELibraryHero-01-Background.png";
+import HydroELibLayer2 from "../../public/lfs-media/Hero/HydroELibraryHero-02-Filter.png";
+import HydroELibLayer3 from "../../public/lfs-media/Hero/HydroELibraryHero-03-Navigation.png";
+import HydroELibLayer4 from "../../public/lfs-media/Hero/HydroELibraryHero-04-DampMap.png";
 
 import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
+import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
 
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import {
@@ -62,21 +68,67 @@ const redeye: ProjectFeatureSectionProps = {
   heroImageProps: {
     imageLayers: [
       {
-        src: RedEyeLayer4,
+        src: RedEyeLayer1,
         alt: "RedEye screenshot background layer with grid",
         style: { backgroundColor: "#121212" },
       },
       {
-        src: RedEyeLayer3,
+        src: RedEyeLayer2,
         alt: "RedEye screenshot mid layer with node-graph of computer network",
       },
       {
-        src: RedEyeLayer2,
+        src: RedEyeLayer3,
         alt: "RedEye screenshot mid layer with log line information panel",
       },
       {
-        src: RedEyeLayer1,
+        src: RedEyeLayer4,
         alt: "RedEye screenshot top layer with timeline and menu bar",
+      },
+    ],
+  },
+};
+
+const hydropowerELibrary: ProjectFeatureSectionProps = {
+  sectionDescriptionProps: {
+    label: "PNNL / WPTO",
+    header: "Hydropower eLibrary",
+    description: "A repository of FERC licensed hydropower projects",
+    imageProps: {
+      src: ImgHydropowerELibrary,
+      alt: "Hydropower eLibrary Favicon"
+    },
+    links: [
+      {
+        href: "/Hydropower-eLibrary",
+        children: "Case Study",
+        type: "emphasis",
+      },
+      {
+        href: "https://hydropowerelibrary.pnnl.gov",
+        children: "Live Site",
+        type: "outline",
+        external: true,
+      },
+    ],
+  },
+  heroImageProps: {
+    imageLayers: [
+      {
+        src: HydroELibLayer1,
+        alt: "",
+        style: { backgroundColor: "#FFFFFF" },
+      },
+      {
+        src: HydroELibLayer2,
+        alt: "",
+      },
+      {
+        src: HydroELibLayer3,
+        alt: "",
+      },
+      {
+        src: HydroELibLayer4,
+        alt: "",
       },
     ],
   },
@@ -84,4 +136,5 @@ const redeye: ProjectFeatureSectionProps = {
 
 export const sections = {
   redeye,
+  hydropowerELibrary
 };

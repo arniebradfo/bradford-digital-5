@@ -73,6 +73,10 @@ html {
   background-color: var(--background-color-2);
   /* text-wrap: balance; */
   text-wrap: pretty;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
 }
 
 h1,

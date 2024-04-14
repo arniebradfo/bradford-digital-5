@@ -13,6 +13,7 @@ export default function Home() {
         <PluginLinksSection />
         <ProjectLinksSection />
         <ProjectFeatureSection {...sections.redeye} />
+        <ProjectFeatureSection {...sections.hydropowerELibrary} />
       </main>
       <Footer/>
     </div>
