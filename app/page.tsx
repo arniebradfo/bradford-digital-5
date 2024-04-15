@@ -14,6 +14,7 @@ export default function Home() {
         <ProjectLinksSection />
         <ProjectFeatureSection {...sections.redeye} />
         <ProjectFeatureSection {...sections.hydropowerELibrary} />
+        <ProjectFeatureSection {...sections.irrigationViz} />
       </main>
       <Footer/>
     </div>

@@ -11,8 +11,13 @@ import HydroELibLayer2 from "../../public/lfs-media/Hero/HydroELibraryHero-02-Fi
 import HydroELibLayer3 from "../../public/lfs-media/Hero/HydroELibraryHero-03-Navigation.png";
 import HydroELibLayer4 from "../../public/lfs-media/Hero/HydroELibraryHero-04-DampMap.png";
 
+import IrrigationVizLayer1 from "../../public/lfs-media/Hero/IrrigationVizHero-01-Map.png";
+import IrrigationVizLayer2 from "../../public/lfs-media/Hero/IrrigationVizHero-02-LeftPanel.png";
+import IrrigationVizLayer3 from "../../public/lfs-media/Hero/IrrigationVizHero-03-NavMapMetrics.png";
+
 import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
 import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
+import ImgIrrigationViz from "../../public/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
 
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import {
@@ -49,7 +54,7 @@ const redeye: ProjectFeatureSectionProps = {
       "Red Team C2 Log Visualization tool to  display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
     imageProps: {
       src: ImgRedEye,
-      alt: "RedEye Logo"
+      alt: "RedEye Logo",
     },
     links: [
       {
@@ -95,14 +100,9 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     description: "A repository of FERC licensed hydropower projects",
     imageProps: {
       src: ImgHydropowerELibrary,
-      alt: "Hydropower eLibrary Favicon"
+      alt: "Hydropower eLibrary Favicon",
     },
     links: [
-      {
-        href: "/Hydropower-eLibrary",
-        children: "Case Study",
-        type: "emphasis",
-      },
       {
         href: "https://hydropowerelibrary.pnnl.gov",
         children: "Live Site",
@@ -134,7 +134,45 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
   },
 };
 
+const irrigationViz: ProjectFeatureSectionProps = {
+  sectionDescriptionProps: {
+    label: "PNNL / WPTO",
+    header: "IrrigationViz",
+    description: "Visualize and compare upgrades to an irrigation district",
+    imageProps: {
+      src: ImgIrrigationViz,
+      alt: "IrrigationViz Logo",
+    },
+    links: [
+      {
+        href: "https://irrigationviz.pnnl.gov/",
+        children: "Live Site",
+        type: "outline",
+        external: true,
+      },
+    ],
+  },
+  heroImageProps: {
+    imageLayers: [
+      {
+        src: IrrigationVizLayer1,
+        alt: "",
+        style: { backgroundColor: "#FFFFFF" },
+      },
+      {
+        src: IrrigationVizLayer2,
+        alt: "",
+      },
+      {
+        src: IrrigationVizLayer3,
+        alt: "",
+      },
+    ],
+  },
+};
+
 export const sections = {
   redeye,
-  hydropowerELibrary
+  hydropowerELibrary,
+  irrigationViz,
 };
