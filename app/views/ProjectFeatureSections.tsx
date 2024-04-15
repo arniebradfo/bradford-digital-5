@@ -15,9 +15,14 @@ import IrrigationVizLayer1 from "../../public/lfs-media/Hero/IrrigationVizHero-0
 import IrrigationVizLayer2 from "../../public/lfs-media/Hero/IrrigationVizHero-02-LeftPanel.png";
 import IrrigationVizLayer3 from "../../public/lfs-media/Hero/IrrigationVizHero-03-NavMapMetrics.png";
 
+import AvyMapLayer1 from "../../public/lfs-media/Hero/AvyMapHero-01-Map.png";
+import AvyMapLayer2 from "../../public/lfs-media/Hero/AvyMapHero-02-Controls.png";
+import AvyMapLayer3 from "../../public/lfs-media/Hero/AvyMapHero-03-Button.png";
+
 import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
 import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
 import ImgIrrigationViz from "../../public/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
+import ImgAvyMap from "../../public/lfs-media/Project-Icons/Project-Icon-AvyMap.svg";
 
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import {
@@ -157,7 +162,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
       {
         src: IrrigationVizLayer1,
         alt: "",
-        style: { backgroundColor: "#FFFFFF" },
+        style: { backgroundColor: "#F6F6F4" },
       },
       {
         src: IrrigationVizLayer2,
@@ -171,8 +176,46 @@ const irrigationViz: ProjectFeatureSectionProps = {
   },
 };
 
+const avyMap: ProjectFeatureSectionProps = {
+  sectionDescriptionProps: {
+    label: "Personal Project",
+    header: "AvyMap",
+    description: "Visualize avalanche danger of any slope",
+    imageProps: {
+      src: ImgAvyMap,
+      alt: "AvyMap Icon",
+    },
+    links: [
+      {
+        href: "https://www.avymap.com/#15.09/48.80559/-121.77503",
+        children: "Live Prototype",
+        type: "outline",
+        external: true,
+      },
+    ],
+  },
+  heroImageProps: {
+    imageLayers: [
+      {
+        src: AvyMapLayer1,
+        alt: "",
+        style: { backgroundColor: "#F0F8FA" },
+      },
+      {
+        src: AvyMapLayer2,
+        alt: "",
+      },
+      {
+        src: AvyMapLayer3,
+        alt: "",
+      },
+    ],
+  },
+};
+
 export const sections = {
   redeye,
   hydropowerELibrary,
   irrigationViz,
+  avyMap
 };
