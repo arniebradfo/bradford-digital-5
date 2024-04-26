@@ -1,4 +1,3 @@
-
 // Variables to store the latest mouse position
 export let globalMouse = { x: 0, y: 0 };
 
@@ -9,4 +8,5 @@ function updateMousePosition(event: MouseEvent) {
 }
 
 // Listen to mousemove events on the document
-document.addEventListener("mousemove", updateMousePosition);
+if (typeof window !== "undefined")
+  document.addEventListener("mousemove", updateMousePosition);
