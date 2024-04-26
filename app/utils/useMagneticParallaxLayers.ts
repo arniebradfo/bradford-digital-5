@@ -23,6 +23,12 @@ export const useMagneticParallaxLayers = ({
   const rY = useTransform(() => translateY.get() * -1 * rotateMore);
   const scale = useTransform(() => 1 + scale0.get() * (scaleMore + scaleUp));
   const transform = useMotionTemplate`rotateX(${rY}deg) rotateY(${rX}deg) scale(${scale}) translate(${x}px, ${y}px)`;
+
+  // const { scrollYProgress } = useScroll({ target: elementRef, offset: ["start end", "end start"] });
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   console.log("Page scroll: ", latest);
+  // });
+
   return transform as MotionValue<string> & "none";
 };
 

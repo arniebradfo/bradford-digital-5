@@ -9,6 +9,7 @@ import { HeroImage } from "./HeroImage";
 export default function Page() {
   return (
     <div className={stylePage.Layout}>
+      Scroll Down
       {/* <div className={stylePage.ButtonRow}>
         <LinkButton type="emphasis" href={"#"}>
           Primary

@@ -1,6 +1,13 @@
-import { animate, useMotionValue, useTransform } from "framer-motion";
+import {
+  animate,
+  useAnimationFrame,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { mouseOffset } from "./mouseOffset";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useMagneticParallax = ({
   elementRef,
@@ -20,22 +27,26 @@ export const useMagneticParallax = ({
   const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
+  // const [isActive, setIsActive] = useState(false);
 
   const startMagneticParallax = useCallback(() => {
+    // setIsActive(true);
+
     // cache the element dimensions on start
     const _elementDOMRect = elementRef.current?.getBoundingClientRect();
     setElementDOMRect(_elementDOMRect);
-
-    const { centerOffsetX, centerOffsetY } = mouseOffset({
-      elementDOMRect: _elementDOMRect,
-    });
-    mouseX.set(centerOffsetX);
-    mouseY.set(centerOffsetY);
 
     const { width = 0, height = 0 } = _elementDOMRect || {};
     const offsetX = offsetPx / width;
 
     animate(magneticOffset, offsetX, { duration, ease });
+
+    const { centerOffsetX, centerOffsetY } = mouseOffset({
+      elementDOMRect:_elementDOMRect,
+    });
+    mouseX.set(centerOffsetX);
+    mouseY.set(centerOffsetY);
+
   }, [duration, elementRef, magneticOffset, mouseX, mouseY, offsetPx]);
 
   const updateMagneticParallax = useCallback(() => {
@@ -47,10 +58,44 @@ export const useMagneticParallax = ({
   }, [elementDOMRect, mouseX, mouseY]);
 
   const endMagneticParallax = useCallback(() => {
+    // setIsActive(false);
+
     animate(magneticOffset, 0, { duration, ease });
     animate(mouseX, 0, { duration, ease });
     animate(mouseY, 0, { duration, ease });
   }, [duration, magneticOffset, mouseX, mouseY]);
+
+  // const { scrollYProgress } = useScroll({
+  //   target: elementRef,
+  //   offset: ["start end", "end start"],
+  // });
+
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   if (!isActive) return;
+  //   // console.log("Page scroll: ", latest);
+
+  //   // cache the element dimensions on start
+  //   const _elementDOMRect = elementRef.current?.getBoundingClientRect();
+  //   setElementDOMRect(_elementDOMRect);
+
+  //   const { width = 0, height = 0 } = _elementDOMRect || {};
+  //   const offsetX = offsetPx / width;
+
+  //   animate(magneticOffset, offsetX, { duration, ease });
+
+  //   const { centerOffsetX, centerOffsetY } = mouseOffset({
+  //     elementDOMRect,
+  //   });
+  //   mouseX.set(centerOffsetX);
+  //   mouseY.set(centerOffsetY);
+  //   // requestAnimationFrame(() => {
+
+  //   // })
+  // });
+
+  // useAnimationFrame((time, delta) => {
+  //   // console.log({time, delta});
+  // });
 
   return {
     translateX,
