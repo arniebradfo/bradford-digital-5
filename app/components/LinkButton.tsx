@@ -91,19 +91,19 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       )}
       style={customVar}
       ref={elementRef}
-      onHoverStart={(mouseEvent) => {
-        startMagneticParallax({ mouseEvent });
-        startGrowParallax({ mouseEvent });
+      onHoverStart={() => {
+        startMagneticParallax();
+        startGrowParallax();
         startClickScale();
       }}
-      onHoverEnd={(mouseEvent) => {
-        endMagneticParallax({ mouseEvent });
-        endGrowParallax({ mouseEvent });
+      onHoverEnd={() => {
+        endMagneticParallax();
+        endGrowParallax();
         endClickScale();
       }}
-      onMouseMove={(mouseEvent) => {
-        updateMagneticParallax({ mouseEvent });
-        updateGrowParallax({ mouseEvent });
+      onMouseMove={() => {
+        updateMagneticParallax();
+        updateGrowParallax();
       }}
       onPointerDown={() => {
         clickScalePointerDown();

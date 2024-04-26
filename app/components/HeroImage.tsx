@@ -38,16 +38,16 @@ export const HeroImage: React.FC<
     <motion.div
       className={cx(className, style.ImageLayers)}
       ref={elementRef}
-      onHoverStart={(mouseEvent) => {
-        startMagneticParallax({ mouseEvent });
+      onHoverStart={() => {
+        startMagneticParallax();
         animate(scale0, 1, { duration, ease: "easeInOut" });
       }}
-      onHoverEnd={(mouseEvent) => {
-        endMagneticParallax({ mouseEvent });
+      onHoverEnd={() => {
+        endMagneticParallax();
         animate(scale0, 0, { duration, ease: "easeInOut" });
       }}
-      onMouseMove={(mouseEvent) => {
-        updateMagneticParallax({ mouseEvent });
+      onMouseMove={() => {
+        updateMagneticParallax();
       }}
       style={customVar}
       {...props}

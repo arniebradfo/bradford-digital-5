@@ -1,34 +1,25 @@
-export type MouseEventProps = {
-  mouseEvent: React.MouseEvent | MouseEvent;
-};
+import { globalMouse } from "./globalMouse";
 
-export type MouseOffsetProps = MouseEventProps & {
+export type MouseOffsetProps = {
   elementDOMRect?: DOMRect;
-  // element?: HTMLElement | null;
 };
 
-export function mouseOffset<T extends HTMLElement>({
-  mouseEvent,
-  elementDOMRect,
-}: MouseOffsetProps) {
-  const { clientX: globalMouseX, clientY: globalMouseY } = mouseEvent;
-
+export function mouseOffset({ elementDOMRect }: MouseOffsetProps) {
   const {
     height: elementH,
     width: elementW,
     left: elementX,
     top: elementY,
   } = elementDOMRect || blankDOMRect;
-  // } = element?.getBoundingClientRect() || blankDOMRect;
 
-  const topLeftOffsetX = globalMouseX - elementX;
-  const topLeftOffsetY = globalMouseY - elementY;
+  const topLeftOffsetX = globalMouse.x - elementX;
+  const topLeftOffsetY = globalMouse.y - elementY;
 
   const centerX = elementX + elementW / 2;
   const centerY = elementY + elementH / 2;
 
-  const centerOffsetX = globalMouseX - centerX;
-  const centerOffsetY = globalMouseY - centerY;
+  const centerOffsetX = globalMouse.x - centerX;
+  const centerOffsetY = globalMouse.y - centerY;
 
   return {
     topLeftOffsetX,
