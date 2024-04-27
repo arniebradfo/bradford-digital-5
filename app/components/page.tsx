@@ -25,7 +25,16 @@ export default function Page() {
         </LinkButton>
       </div> */}
       <div style={{ marginBlock: 1000 }}>
-        <HeroImage {...sections.irrigationViz.heroImageProps} />
+        <HeroImage {...sections.irrigationViz.heroImageProps} isScrollParallax />
+      </div>
+      <div style={{ marginBlock: 1000 }}>
+        <HeroImage {...sections.redeye.heroImageProps} isScrollParallax />
+      </div>
+      <div style={{ marginBlock: 1000 }}>
+        <HeroImage {...sections.hydropowerELibrary.heroImageProps} isScrollParallax />
+      </div>
+      <div style={{ marginBlock: 1000 }}>
+        <HeroImage {...sections.avyMap.heroImageProps} isScrollParallax />
       </div>
     </div>
   );

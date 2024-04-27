@@ -13,10 +13,12 @@ export const useMagneticParallax = ({
   elementRef,
   offsetPx,
   duration,
+  isScrollUpdated,
 }: {
   elementRef: React.RefObject<HTMLElement>;
   offsetPx: number;
   duration: number;
+  isScrollUpdated?: boolean;
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -27,7 +29,7 @@ export const useMagneticParallax = ({
   const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
-  
+
   const startMagneticParallax = useCallback(() => {
     // cache the element dimensions on start
     const _elementDOMRect = elementRef.current?.getBoundingClientRect();
@@ -58,6 +60,22 @@ export const useMagneticParallax = ({
     animate(mouseX, 0, { duration, ease });
     animate(mouseY, 0, { duration, ease });
   }, [duration, magneticOffset, mouseX, mouseY]);
+
+  const { scrollYProgress } = useScroll({
+    target: elementRef,
+    offset: ["start end", "end start"],
+  });
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!isScrollUpdated) return;
+
+    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
+    setElementDOMRect(_elementDOMRect);
+    const { centerOffsetX, centerOffsetY } = mouseOffset({
+      elementDOMRect: _elementDOMRect,
+    });
+    mouseX.set(centerOffsetX);
+    mouseY.set(centerOffsetY);
+  });
 
   return {
     translateX,

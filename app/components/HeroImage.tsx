@@ -21,13 +21,14 @@ export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
 export const HeroImage: React.FC<
   React.ComponentProps<typeof motion.div> & {
     imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
+    isScrollParallax?: boolean;
   }
-> = ({ className, imageLayers, ...props }) => {
+> = ({ className, imageLayers, isScrollParallax, ...props }) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   const {
     translateX,
-    translateY: magneticTranslateY,
+    translateY: translateYMagnetic,
     startMagneticParallax,
     updateMagneticParallax,
     endMagneticParallax,
@@ -35,15 +36,16 @@ export const HeroImage: React.FC<
     elementRef,
     offsetPx: 8,
     duration,
+    isScrollUpdated: true,
   });
 
-  const scale0 = useMotionValue(0);
   const scrollTranslateY = useMotionValue(0);
-  const translateY = useTransform(
-    () => magneticTranslateY.get() + scrollTranslateY.get()
+  const translateYCombined = useTransform(
+    () => translateYMagnetic.get() + scrollTranslateY.get()
   );
 
-  const customVar = { "--duration": duration + "s" } as CSSProperties;
+  const scaleScroll = useMotionValue(0);
+  const scaleMagnetic = useMotionValue(0);
 
   const { scrollYProgress } = useScroll({
     target: elementRef,
@@ -51,22 +53,26 @@ export const HeroImage: React.FC<
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const scrollScale0 = Math.abs(Math.abs(latest - 0.5) * 2 - 1);
-    const scrollTranslate0 = (latest - 0.5) * scrollScale0;
-    const scrollScale = scrollScale0 * 3;
-    const scrollTranslate = scrollTranslate0 * 15;
+    if (!isScrollParallax) return; // skip computation if unused
+    
+    const _scaleScroll0 = Math.abs(Math.abs(latest - 0.5) * 2 - 1);
+    const _translateYScroll0 = (latest - 0.5) * _scaleScroll0;
+    const _scaleScroll = _scaleScroll0 * 3;
+    const _translateYScroll = _translateYScroll0 * 15;
     // console.log("Page scroll: ", latest - 0.5);
-    if (scale0.get() === 0) {
-      animate(scale0, scrollScale, { duration, ease: "easeInOut" });
-      animate(scrollTranslateY, scrollTranslate, {
+    if (scaleScroll.get() === 0) {
+      animate(scaleScroll, _scaleScroll, { duration, ease: "easeInOut" });
+      animate(scrollTranslateY, _translateYScroll, {
         duration,
         ease: "easeInOut",
       });
     } else {
-      scale0.set(scrollScale);
-      scrollTranslateY.set(scrollTranslate);
+      scaleScroll.set(_scaleScroll);
+      scrollTranslateY.set(_translateYScroll);
     }
   });
+
+  const customVar = { "--duration": duration + "s" } as CSSProperties;
 
   return (
     <motion.div
@@ -74,11 +80,11 @@ export const HeroImage: React.FC<
       ref={elementRef}
       onHoverStart={() => {
         startMagneticParallax();
-        // animate(scale0, 1, { duration, ease: "easeInOut" });
+        animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
       }}
       onHoverEnd={() => {
         endMagneticParallax();
-        // animate(scale0, 0, { duration, ease: "easeInOut" });
+        animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
       }}
       onMouseMove={() => {
         updateMagneticParallax();
@@ -101,8 +107,10 @@ export const HeroImage: React.FC<
             className={cx(layerClassName, style.ImageLayer)}
             motionValues={{
               translateX,
-              translateY,
-              scale0,
+              translateY: isScrollParallax
+                ? translateYCombined
+                : translateYMagnetic,
+              scale0: isScrollParallax ? scaleScroll : scaleMagnetic,
             }}
             level={level || i + 1}
             style={{
