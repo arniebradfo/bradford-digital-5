@@ -5,7 +5,7 @@ import ImgBlueprintStyler from "../../public/lfs-media/Project-Icons/Project-Ico
 import ImgFigmaAutoConstraints from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Auto-Constraints.svg";
 import ImgFigmaRandomLayers from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Random-Layers.svg";
 import ImgFigmaRepeatAsList from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Repeat-As-List.svg";
-import ImgFigmaStyleQuickActions from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Style-Quick-Actions.png";
+import ImgFigmaStyleQuickActions from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Style-Quick-Actions.svg";
 import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
 import ImgIrrigationViz from "../../public/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
 import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";

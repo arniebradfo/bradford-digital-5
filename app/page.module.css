@@ -1,4 +1,4 @@
-.Layout{
-  /* overflow-x: hidden;
-  overflow-y: auto; */
+.SectionLayout {
+  background-color: var(--background-color-1);
+  --section-content-width: 1000px;
 }

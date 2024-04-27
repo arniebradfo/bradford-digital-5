@@ -30,6 +30,9 @@ export const asciiArt = `
    
    JAMES BRADFORD / UX ENGINEER
    ---
-   github.com/arniebradfo/bradford-digital-5
+   Take a look at the site source code:
+   https://github.com/arniebradfo/bradford-digital-5
 
 `;
+
+if (typeof window !== 'undefined') console.log(asciiArt);

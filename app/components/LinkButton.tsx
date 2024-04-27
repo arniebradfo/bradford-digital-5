@@ -5,8 +5,9 @@ import { CSSProperties, useRef } from "react";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { useGrowParallax } from "../utils/useGrowParallax";
 import Link from "next/link";
-import { jCN } from "../utils/joinClassNames";
+import { cx } from "../utils/joinClassNames";
 import { useClickScale } from "../utils/useClickScale";
+import { externalLinkAttributes } from "../utils/link";
 
 const MotionLink = motion(Link);
 
@@ -15,6 +16,8 @@ export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
   duration?: number;
   classNameBg?: string;
   classNameInside?: string;
+  type?: "minimal" | "outline" | "emphasis";
+  external?: boolean;
 };
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
@@ -22,8 +25,10 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   className,
   offsetPx = 24,
   duration = 0.15, // match
+  type = "minimal",
   classNameInside,
   classNameBg,
+  external,
   ...props
 }) => {
   const elementRef = useRef<HTMLElement>(null);
@@ -70,27 +75,35 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
 
   const customVar = {
     "--link-button-duration": duration + "s",
-    "--link-button-click-duration": clickDuration + "s"
-  } as CSSProperties
+    "--link-button-click-duration": clickDuration + "s",
+  } as CSSProperties;
 
   return (
     <MotionLink
-      className={jCN([className, style.LinkButton])}
+      className={cx(
+        className,
+        style.LinkButton,
+        type === "outline"
+          ? style.LinkButtonOutline
+          : type === "emphasis"
+          ? style.LinkButtonEmphasis
+          : undefined
+      )}
       style={customVar}
       ref={elementRef}
-      onHoverStart={(mouseEvent) => {
-        startMagneticParallax({ mouseEvent });
-        startGrowParallax({ mouseEvent });
+      onHoverStart={() => {
+        startMagneticParallax();
+        startGrowParallax();
         startClickScale();
       }}
-      onHoverEnd={(mouseEvent) => {
-        endMagneticParallax({ mouseEvent });
-        endGrowParallax({ mouseEvent });
+      onHoverEnd={() => {
+        endMagneticParallax();
+        endGrowParallax();
         endClickScale();
       }}
-      onMouseMove={(mouseEvent) => {
-        updateMagneticParallax({ mouseEvent });
-        updateGrowParallax({ mouseEvent });
+      onMouseMove={() => {
+        updateMagneticParallax();
+        updateGrowParallax();
       }}
       onPointerDown={() => {
         clickScalePointerDown();
@@ -98,10 +111,11 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       onPointerUp={() => {
         clickScalePointerUp();
       }}
+      {...(external ? externalLinkAttributes : {})}
       {...props}
     >
       <motion.div
-        className={jCN([classNameBg, style.LinkButtonBg])}
+        className={cx(classNameBg, style.LinkButtonBg)}
         style={{
           x: growTranslateX,
           y: growTranslateY,
@@ -111,7 +125,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         }}
       />
       <motion.div
-        className={jCN([classNameInside])}
+        className={cx(classNameInside, style.LinkButtonInside)}
         style={{
           x: magneticTranslateX,
           y: magneticTranslateY,

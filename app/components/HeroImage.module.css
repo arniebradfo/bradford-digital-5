@@ -1,0 +1,23 @@
+.ImageLayers {
+  position: relative;
+  perspective: 1000px;
+
+
+  & .ImageLayer:first-of-type {
+    transition: box-shadow var(--duration, 0.5s) ease;
+    box-shadow: var(--box-shadow-3);
+  }
+
+  &:hover .ImageLayer:first-of-type {
+    box-shadow: var(--box-shadow-4);
+  }
+}
+
+.ImageLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-image);
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transform-origin: 50%;
+}

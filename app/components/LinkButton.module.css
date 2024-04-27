@@ -8,6 +8,7 @@
 
   text-decoration: none;
   color: var(--foreground-color-1);
+  font-weight: var(--font-weight-bold);
 
   overflow: visible;
 
@@ -22,19 +23,22 @@
   z-index: -1;
   pointer-events: none;
 
-  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.8) ease-in;
+  transition: border-radius, border-color, background-color calc(var(--link-button-duration)*0.7) ease-in;
   border-radius: var(--border-radius);
 
   .LinkButton:not(:hover) & {
+    transition-delay: calc(var(--link-button-duration)*0.3);
     transition-timing-function: ease-out;
     border-radius: 24px;
   }
 
 }
 
-.LinkButtonTestInside {
+.LinkButtonInside {
   padding: 8px 16px;
 }
+
+.LinkButtonMinimal {}
 
 .LinkButtonOutline {
   border: 1px solid var(--background-color-4);
@@ -51,8 +55,16 @@
   background-color: var(--foreground-color-2);
   z-index: 1;
 
+  transition-duration: calc(var(--link-button-duration)*.5);
+
+  & .LinkButtonBg {
+    /* background-color: var(--foreground-color-2); */
+    background-color: transparent;
+  }
+
   &:hover {
     background-color: transparent;
+    transition-delay: calc(var(--link-button-duration)*.5);
 
     & .LinkButtonBg {
       background-color: var(--foreground-color-1);

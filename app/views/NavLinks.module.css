@@ -1,13 +1,9 @@
 .NavLayout {
   display: flex;
   align-items: center;
+  /* font-weight: var(--font-weight-bold); */
 }
 
 .NavSpacer {
   display: inline-block;
-}
-
-.NavLinkInside {
-  padding: 8px 16px;
-  font-weight: var(--font-weight-bold);
 }
