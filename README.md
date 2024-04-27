@@ -4,6 +4,8 @@
 - Uses [`git-lfs`](https://git-lfs.com/). This must also be [enabled](https://vercel.com/changelog/git-lfs-support) on the [vercel project settings](https://vercel.com/arniebradfos-projects/bradford-digital-5/settings/git).
 
 ## TODOs
+- Blueprint Section
+- AvyMap Hero with Mobile...
 - About section
 - intro animation
 - look at other notes from portfolio review

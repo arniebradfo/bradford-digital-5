@@ -15,6 +15,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { HeroImageLayer, HeroImageLayerProps } from "./HeroImageLayer";
+import { useRouter } from "next/navigation";
 
 export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
 
@@ -22,9 +23,19 @@ export const HeroImage: React.FC<
   React.ComponentProps<typeof motion.div> & {
     imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
     isScrollParallax?: boolean;
+    href?: string; // LinkProps["href"];
+    external?: boolean;
   }
-> = ({ className, imageLayers, isScrollParallax, ...props }) => {
+> = ({
+  className,
+  imageLayers,
+  isScrollParallax,
+  href,
+  external,
+  ...props
+}) => {
   const elementRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const {
     translateX,
@@ -54,7 +65,7 @@ export const HeroImage: React.FC<
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (!isScrollParallax) return; // skip computation if unused
-    
+
     const _scaleScroll0 = Math.abs(Math.abs(latest - 0.5) * 2 - 1);
     const _translateYScroll0 = (latest - 0.5) * _scaleScroll0;
     const _scaleScroll = _scaleScroll0 * 3;
@@ -76,8 +87,14 @@ export const HeroImage: React.FC<
 
   return (
     <motion.div
-      className={cx(className, style.ImageLayers)}
+      // hover cursor if href
+      className={cx(className, style.ImageLayers, href && style.ImageLink)}
       ref={elementRef}
+      onClick={() => {
+        if (!href) return;
+        if (external) window.open(href);
+        else router.push(href);
+      }}
       onHoverStart={() => {
         startMagneticParallax();
         animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });

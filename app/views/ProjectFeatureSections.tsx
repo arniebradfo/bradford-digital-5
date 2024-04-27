@@ -76,6 +76,7 @@ const redeye: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
+    href: "/RedEye",
     imageLayers: [
       {
         src: RedEyeLayer1,
@@ -117,6 +118,8 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
+    href: "https://hydropowerelibrary.pnnl.gov",
+    external: true,
     imageLayers: [
       {
         src: HydroELibLayer1,
@@ -158,6 +161,9 @@ const irrigationViz: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
+    href: "https://irrigationviz.pnnl.gov/",
+    external: true,
+
     imageLayers: [
       {
         src: IrrigationVizLayer1,
@@ -195,6 +201,8 @@ const avyMap: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
+    href: "https://www.avymap.com/#15.09/48.80559/-121.77503",
+    external: true,
     imageLayers: [
       {
         src: AvyMapLayer1,
@@ -217,5 +225,5 @@ export const sections = {
   redeye,
   hydropowerELibrary,
   irrigationViz,
-  avyMap
+  avyMap,
 };
