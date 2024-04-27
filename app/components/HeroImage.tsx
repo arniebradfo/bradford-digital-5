@@ -39,23 +39,34 @@ export const HeroImage: React.FC<
 
   const scale0 = useMotionValue(0);
   const scrollTranslateY = useMotionValue(0);
-  const translateY = useTransform(() => magneticTranslateY.get()/2 + scrollTranslateY.get());
+  const translateY = useTransform(
+    () => magneticTranslateY.get() + scrollTranslateY.get()
+  );
 
   const customVar = { "--duration": duration + "s" } as CSSProperties;
 
   const { scrollYProgress } = useScroll({
     target: elementRef,
-    offset: ["200px end", "end 200px"],
+    offset: ["40% end", "40% start"],
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const scrollScale = Math.abs(Math.abs(latest - 0.5) * 2 -1)
-    console.log("Page scroll: ", latest-0.5);
-    scale0.set(scrollScale*3)
-    scrollTranslateY.set((latest-0.5)*15*scrollScale)
+    const scrollScale0 = Math.abs(Math.abs(latest - 0.5) * 2 - 1);
+    const scrollTranslate0 = (latest - 0.5) * scrollScale0;
+    const scrollScale = scrollScale0 * 3;
+    const scrollTranslate = scrollTranslate0 * 15;
+    // console.log("Page scroll: ", latest - 0.5);
+    if (scale0.get() === 0) {
+      animate(scale0, scrollScale, { duration, ease: "easeInOut" });
+      animate(scrollTranslateY, scrollTranslate, {
+        duration,
+        ease: "easeInOut",
+      });
+    } else {
+      scale0.set(scrollScale);
+      scrollTranslateY.set(scrollTranslate);
+    }
   });
-
-  // ANIMATE from page scroll translate x to mouse translate x
 
   return (
     <motion.div
