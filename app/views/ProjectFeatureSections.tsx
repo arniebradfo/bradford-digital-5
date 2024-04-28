@@ -37,7 +37,10 @@ export const ProjectFeatureSection: React.FC<
     heroImageProps: HeroImageProps;
   }
 > = ({ className, sectionDescriptionProps, heroImageProps, ...props }) => (
-  <div className={cx(className, style.SectionWrapper, style.SectionInteractive)} {...props}>
+  <div
+    className={cx(className, style.SectionWrapper, style.SectionInteractive)}
+    {...props}
+  >
     <div className={cx(style.Section, style.ProjectsSection)}>
       <SectionDescription {...sectionDescriptionProps} />
       <div className={cx(style.SectionContent)}>
@@ -62,11 +65,11 @@ const redeye: ProjectFeatureSectionProps = {
       alt: "RedEye Logo",
     },
     links: [
-      {
-        href: "/RedEye",
-        children: "Case Study",
-        type: "emphasis",
-      },
+      // {
+      //   href: "/RedEye",
+      //   children: "Case Study",
+      //   type: "emphasis",
+      // },
       {
         href: "https://github.com/cisagov/RedEye",
         children: "GitHub",
@@ -76,7 +79,8 @@ const redeye: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "/RedEye",
+    href: "https://github.com/cisagov/RedEye",
+    external: true,
     imageLayers: [
       {
         src: RedEyeLayer1,
