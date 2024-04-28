@@ -3,6 +3,13 @@
   overflow: visible;
 }
 
+.SectionInteractive {
+  transition: background-color 500ms linear;
+  &:hover{
+    background-color: var(--background-color-2);
+  }
+}
+
 .Section {
   margin: 0 auto;
   max-width: 1600px;

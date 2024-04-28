@@ -37,7 +37,7 @@ export const ProjectFeatureSection: React.FC<
     heroImageProps: HeroImageProps;
   }
 > = ({ className, sectionDescriptionProps, heroImageProps, ...props }) => (
-  <div className={cx(className, style.SectionWrapper)} {...props}>
+  <div className={cx(className, style.SectionWrapper, style.SectionInteractive)} {...props}>
     <div className={cx(style.Section, style.ProjectsSection)}>
       <SectionDescription {...sectionDescriptionProps} />
       <div className={cx(style.SectionContent)}>
