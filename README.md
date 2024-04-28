@@ -6,6 +6,7 @@
 ## TODOs
 - Blueprint Section
 - AvyMap Hero with Mobile...
+- more consistent content const organization?
 - About section
 - intro animation
 - look at other notes from portfolio review

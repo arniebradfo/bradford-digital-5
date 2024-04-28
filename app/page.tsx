@@ -1,5 +1,5 @@
 import { HomeHeader } from "./views/HomeHeader";
-import { PluginLinksSection, ProjectLinksSection } from "./views/ProjectLinksSections";
+import { BlueprintLinksSection, PluginLinksSection, ProjectLinksSection } from "./views/ProjectLinksSections";
 import { ProjectFeatureSection, sections } from "./views/ProjectFeatureSections";
 import style from "./page.module.css";
 import { Footer } from "./views/Footer";
@@ -11,8 +11,9 @@ export default function Home() {
       <HomeHeader />
       <main className={cx(style.SectionLayout)}>
         <PluginLinksSection />
-        <ProjectLinksSection />
+        {/* <ProjectLinksSection /> */}
         <ProjectFeatureSection {...sections.redeye} />
+        <BlueprintLinksSection />
         <ProjectFeatureSection {...sections.hydropowerELibrary} />
         <ProjectFeatureSection {...sections.irrigationViz} />
         <ProjectFeatureSection {...sections.avyMap} />

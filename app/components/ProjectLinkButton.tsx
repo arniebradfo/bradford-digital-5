@@ -14,6 +14,7 @@ export type ProjectLinkButtonProps = LinkButtonProps & {
   imgSrc: ImageProps["src"];
   imgAlt: string;
   imgProps?: Partial<ImageProps>;
+  isLarge?: boolean;
 };
 
 export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
@@ -24,10 +25,11 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
   imgSrc,
   imgAlt,
   imgProps,
+  isLarge,
   ...props
 }) => (
   <LinkButton
-    className={cx(className, style.Layout)}
+    className={cx(className, style.Layout, isLarge && style.ImageIsLarge)}
     classNameInside={style.InsideLayout}
     classNameBg={style.ButtonBg}
     offsetPx={60}
@@ -36,16 +38,16 @@ export const ProjectLinkButton: React.FC<ProjectLinkButtonProps> = ({
   >
     <div className={style.ImageWrapper}>
       <Image
-        className={style.Image}
         src={imgSrc}
         alt={imgAlt}
         height={64}
         // width={64}
         {...imgProps}
+        className={cx(style.Image, imgProps?.className)}
       />
     </div>
     <div className={style.Text}>
-      <Txt fg={3} size={6} uppercase >
+      <Txt fg={3} size={6} uppercase>
         {label}
       </Txt>
       <Txt tag="h2" fg={1} size={3} bold>

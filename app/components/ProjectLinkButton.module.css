@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
   && {
     font-weight: initial;
   }
@@ -30,12 +31,23 @@
   overflow: visible;
   height: 64px;
   width: 64px;
+
+  .ImageIsLarge & {
+    height: 124px;
+    width:  124px;
+  }
 }
 
 .Image {
   width: auto;
   max-width: unset;
+
+  .ImageIsLarge & {
+    width: 100%;
+    height: auto;
+  }
 }
+
 
 .Text {
   flex: 1 1 auto;

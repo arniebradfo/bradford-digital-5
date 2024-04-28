@@ -59,3 +59,7 @@
   flex: 1 1 33%;
   min-width: 300px;
 }
+
+.ProjectLinkLarge {
+  /* flex: 1 1 50%; */
+}
