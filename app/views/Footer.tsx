@@ -29,6 +29,10 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
         <Link href={"https://react.dev/"} {...external}>
           React
         </Link>
+        {", "}
+        <Link href={"https://www.framer.com/motion/"} {...external}>
+          Framer Motion
+        </Link>
         {" & "}
         <Link href={"https://nextjs.org/"} {...external}>
           Next.js
