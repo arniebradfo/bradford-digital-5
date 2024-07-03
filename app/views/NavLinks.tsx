@@ -46,11 +46,11 @@ const links = [
     href: "https://www.figma.com/@arniebradfo",
     external: true,
   },
-  {
-    children: "Resume",
-    href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
-    external: true,
-  },
+  // {
+  //   children: "Resume",
+  //   href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
+  //   external: true,
+  // },
   // {
   //   children: "FUN!",
   //   href: "/components",
