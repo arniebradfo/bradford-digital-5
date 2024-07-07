@@ -24,7 +24,7 @@ export const Header: React.FC<React.ComponentProps<"header">> = ({
             style={{
               height: 16 * 2,
               width: 16 * 2,
-              marginLeft: -8
+              marginLeft: -8,
             }}
           />
           <span>

@@ -31,6 +31,8 @@
 
   --line-height: 1.4;
 
+  --letter-spacing-1: 0.05em;
+
   --border-radius: 8px;
   --border-radius-image: 4px;
 
@@ -88,6 +90,16 @@ h5,
 h6 {
   font-weight: inherit;
   font-size: inherit;
+  line-height: 1.2;
+}
+
+.metaText {
+  font-family: var(--font-family-sans);
+  font-weight:  var(--font-weight-normal);
+  color:  var(--foreground-color-3);
+  font-size: var(--font-size-6);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-1);
 }
 
 html,

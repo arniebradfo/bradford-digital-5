@@ -1,0 +1,40 @@
+.PageElements {
+
+  & p {
+    margin-block: .5rem;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    margin-block: .5rem;
+    margin-top: 1em;
+    line-height: 1.2;
+  }
+
+}
+
+.MetaHeader {
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    & code {
+      display: block;
+
+      color: var(--foreground-color-3);
+      font-size: var(--font-size-6);
+      font-family: var(--font-family-sans);
+      font-weight: var(--font-weight-normal);
+
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-1);
+    }
+  }
+}

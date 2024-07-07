@@ -88,3 +88,4 @@ export const H5 = (p: TxtProps) => <Txt tag="h5" size={5} fg={1} bold {...p} />
 export const H6 = (p: TxtProps) => <Txt tag="h6" size={6} fg={1} bold {...p} />
 export const B = (p: TxtProps) => <Txt tag="strong" bold fg={1} {...p} />
 export const I = (p: TxtProps) => <Txt tag="em" bold fg={1} {...p} />
+export const Meta =  (p: TxtProps) => <Txt size={6} fg={3} uppercase   {...p} />
