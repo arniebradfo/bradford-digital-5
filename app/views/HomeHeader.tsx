@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { externalLinkAttributes as external } from "../utils/link";
 import { Txt } from "../components/Text";
 import { Spacer } from "../components/Spacer";
 import { cx } from "../utils/joinClassNames";
 import { NavLinks } from "./NavLinks";
+import { Logo } from "./Logo";
 import style from "./HomeHeader.module.css";
 import styleSection from "./Section.module.css";
 
@@ -13,30 +13,18 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
   ...props
 }) => (
   <header
-    className={cx(
-      style.HeaderWrapper,
-      styleSection.SectionWrapper,
-      className,
-    )}
+    className={cx(style.HeaderWrapper, styleSection.SectionWrapper, className)}
     {...props}
   >
     <div className={cx(style.HeaderLayout, styleSection.Section)}>
-      {/* {[
-        [style.showDarkTheme, "/logo/small-white.svg"],
-        [style.showLightTheme, "/logo/small.svg"],
-      ].map(([theme, src]) => ( */}
-      <Image
-        // key={theme}
-        // className={theme}
-        // src={src}
-        src={"/logo/small.svg"}
-        alt={`jb logo`} // - ${theme}`}
-        width={16 * 3}
-        height={16 * 3}
-        priority
-        style={{ marginBottom: 48 }}
+      <Logo
+        style={{
+          marginBottom: 48,
+          height: 16 * 4,
+          width: 16 * 4,
+          marginInline: -16
+        }}
       />
-      {/* ))} */}
 
       <Txt tag="h1" size={1} fg={1} uppercase className={style.HeaderText} bold>
         <Txt>James Bradford</Txt>
@@ -55,10 +43,7 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
         </Txt>
         <Spacer>-</Spacer>
         Currently working in the{" "}
-        <Link
-          href={"https://www.pnnl.gov/visual-analytics"}
-          {...external}
-        >
+        <Link href={"https://www.pnnl.gov/visual-analytics"} {...external}>
           Human Centered Computing Group
         </Link>{" "}
         at{" "}
