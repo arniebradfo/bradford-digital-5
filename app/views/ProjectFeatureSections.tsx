@@ -66,7 +66,7 @@ const redeye: ProjectFeatureSectionProps = {
     },
     links: [
       {
-        href: "/RedEye",
+        href: "/pages/RedEye",
         children: "Case Study",
         type: "emphasis",
       },
