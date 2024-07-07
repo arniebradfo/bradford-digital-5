@@ -79,8 +79,8 @@ const redeye: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "https://github.com/cisagov/RedEye",
-    external: true,
+    href: "/pages/RedEye",
+    // external: true,
     imageLayers: [
       {
         src: RedEyeLayer1,
