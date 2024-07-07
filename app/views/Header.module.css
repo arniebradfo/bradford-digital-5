@@ -1,0 +1,22 @@
+.HeaderWrapper {}
+
+.HeaderLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.HeaderText {  
+  & a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 1em;
+  }
+}
+
+.HeaderNav {
+  margin: 0 -16px;
+}

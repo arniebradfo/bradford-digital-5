@@ -17,8 +17,8 @@ export const Logo: React.FC<Partial<ImageProps>> = ({
     className={cx(className)}
     src={"/logo/small.svg"}
     alt={`jb logo`} // - ${theme}`}
-    width={16 * 3}
-    height={16 * 3}
+    width={16}
+    height={16}
     priority
     {...props}
   />
