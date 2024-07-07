@@ -65,11 +65,11 @@ const redeye: ProjectFeatureSectionProps = {
       alt: "RedEye Logo",
     },
     links: [
-      // {
-      //   href: "/RedEye",
-      //   children: "Case Study",
-      //   type: "emphasis",
-      // },
+      {
+        href: "/RedEye",
+        children: "Case Study",
+        type: "emphasis",
+      },
       {
         href: "https://github.com/cisagov/RedEye",
         children: "GitHub",
