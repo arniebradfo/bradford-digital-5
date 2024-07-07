@@ -7,25 +7,30 @@ import { B, H1, H2, H3, H4, H5, H6, I, Txt } from "./app/components/Text";
 /** https://nextjs.org/docs/app/building-your-application/configuring/mdx#custom-elements */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    h1: (p) => <H1 {...p} />,
-    h2: (p) => <H2 {...p} />,
-    h3: (p) => <H3 {...p} />,
-    h4: (p) => <H4 {...p} />,
-    h5: (p) => <H5 {...p} />,
-    h6: (p) => <H6 {...p} />,
-    strong: (p) => <B {...p} />,
-    em: (p) => <I {...p} />,
+    h1: H1,
+    h2: H2,
+    h3: H3,
+    h4: H4,
+    h5: H5,
+    h6: H6,
+    strong: B,
+    em: I,
     img: Img,
     ...components,
   };
 }
 
 /** https://shaneafsar.com/blog/markdown-mdx-next-images/ */
-const Img = ({ ...props }: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
+const Img = ({
+  ...props
+}: React.DetailedHTMLProps<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  HTMLImageElement
+>) => {
   // Copy props into new object since it's locked
   const newProps = { ...props };
 
-  let newSrc = props.src || '' // TODO: error image?
+  let newSrc = props.src || ""; // TODO: error image?
 
   const isLocalImage = !newSrc.startsWith("http");
 
@@ -39,18 +44,17 @@ const Img = ({ ...props }: React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLI
 
     newProps.width = dimensions.width;
     newProps.height = dimensions.height;
-    
   }
 
-  /** 
+  /**
    * If you have a different basePath for your application (e.g. site.xyz/docs/),
    * you might want to hardcode that here so that you don't need to write it for
    * every image.
    */
-  if (/* !newSrc.startsWith(basePath) &&  */isLocalImage) {
+  if (/* !newSrc.startsWith(basePath) &&  */ isLocalImage) {
     newProps.src = `${basePath}${newSrc?.replace("public/", "/")}`;
   }
   return <Image {...(newProps as ImageProps)} />;
-}
+};
 
-const basePath = ''
+const basePath = "";
