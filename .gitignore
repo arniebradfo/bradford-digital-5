@@ -2,6 +2,7 @@
 
 # obsidian md editor
 .obsidian/plugins
+.obsidian/workspace.json
 
 # dependencies
 /node_modules
