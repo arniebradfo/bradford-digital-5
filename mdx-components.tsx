@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import Image, { ImageProps } from "next/image";
 import { B, H1, H2, H3, H4, H5, H6, I, Txt } from "./app/components/Text";
 
 /** https://nextjs.org/docs/app/building-your-application/configuring/mdx#custom-elements */
@@ -12,6 +13,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h6: (p) => <H6 {...p} />,
     strong: (p) => <B {...p} />,
     em: (p) => <I {...p} />,
+    img: ({ src, ...props }) => (
+      <Image
+        sizes="100vw"
+        width={100}
+        height={100}
+        // fill
+        style={{ width: "100%", height: "auto" }}
+        src={src?.replace("public/", "/") || ''}
+        {...(props as Omit<ImageProps, 'src'>)}
+      />
+    ),
     ...components,
   };
 }

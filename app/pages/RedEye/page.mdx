@@ -19,14 +19,13 @@ Red Teaming is a proactive cybersecurity strategy that involves simulating poten
 
 The US CyberSecurity and Infrastructure Security Agency (CISA) maintains a Red Team that conducts cybersecurity assessments for other government agencies. To enhance the communication of their results, CISA collaborated with PNNL to develop an app that visualizes the process and outcomes of these assessments, which they refer to as "campaigns."
 
+[TLDR; SKIP TO THE MOCKUPS](#)
+
 ### `The Task `Improve the Comprehension of a Network Intrusion 
 
 Command and Control (C2) software like Cobalt Strike is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
 
-
-![Cobalt strike folder](Test.png)
-
-![[Pasted image 20240702153917.png]]
+![Log Files](public/lfs-media/RedEye/Cobalt-Strike-Log-Files.png)
 
 Even a small Cobalt Strike data set could comprise hundreds or thousands of raw log files.
 The primary goal of RedEye was to transform these complex log files into a visual representation of the campaign. It also aimed to provide a tool for the Red Team to annotate and highlight specific campaign actions, thereby offering context to assist the Blue Team in enhancing their system's protection.
