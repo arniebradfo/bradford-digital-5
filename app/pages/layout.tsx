@@ -2,7 +2,7 @@ import { cx } from "../utils/joinClassNames";
 import { Footer } from "../views/Footer";
 import { Header } from "../views/Header";
 import style from "./layout.module.css";
-import styleSection from "../layout/Section.module.css";
+import styleSection from "../views/Section.module.css";
 
 export default function PagesLayout({
   children, // will be a page or nested layout

@@ -1,5 +1,5 @@
 import { cx } from "../utils/joinClassNames";
-import style from "../layout/Section.module.css";
+import style from "./Section.module.css";
 
 import RedEyeLayer1 from "../../public/lfs-media/Hero/RedEyeHero-01-BackgroundGrid.png";
 import RedEyeLayer2 from "../../public/lfs-media/Hero/RedEyeHero-02-Graph.png";

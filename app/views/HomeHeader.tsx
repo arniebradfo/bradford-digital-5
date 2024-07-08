@@ -6,7 +6,7 @@ import { cx } from "../utils/joinClassNames";
 import { NavLinks } from "./NavLinks";
 import { Logo } from "./Logo";
 import style from "./HomeHeader.module.css";
-import styleSection from "../layout/Section.module.css";
+import styleSection from "./Section.module.css";
 
 export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
   className,

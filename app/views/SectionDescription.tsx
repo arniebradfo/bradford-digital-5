@@ -3,7 +3,7 @@ import { LinkButton, LinkButtonProps } from "../components/LinkButton";
 import { Txt } from "../components/Text";
 import { cx } from "../utils/joinClassNames";
 import Image, { ImageProps } from "next/image";
-import style from "../layout/Section.module.css";
+import style from "./Section.module.css";
 
 export type SectionDescriptionProps = React.ComponentProps<
   typeof SectionDescription
