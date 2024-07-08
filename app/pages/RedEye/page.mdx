@@ -58,8 +58,7 @@ This user type manages the IT department and controls budget and priority. They 
 Following User Research, it's crucial to understand the core ontology of information that needs to be communicated to the user. To achieve this, I collaborated with a Red Team Expert to whiteboard diagram of the entities in a cyber attack. 
 Most campaigns follow a typical narrative. The initial step involves gaining a foothold through phishing, social engineering, or other methods. Next, privileges are elevated to gain root access to a Host computer, represented by the SYSTEM* context. Once a Host is fully compromised, lateral movement within the network to other Host machines and servers is performed. Finally, sensitive assets are sealed or other malicious objectives are carried out. Typically, the final step of a Red Team campaign involves intentionally making numerous mistakes and creating noise to test the baseline level of security and determine if the attack can be detected at all.
 
-
-![[Pasted image 20240525160539.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ##### Primary Entities
 - **Team Server** - Cobalt Strike servers that establish communication with Beacons on compromised Host computers.
@@ -76,7 +75,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 #### Cobalt Strike UI 
 Cobalt Strike provides a basic visualization of the current state of its Beacon chain. However, it lacks in-depth details and is primarily designed for issuing commands to active Beacons. It does not group Beacons by Host, display multiple Team Servers, or show exited Beacons or any form of historical information.
 
-![[Pasted image 20240525160554.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon. 
 Source: [Screenshots](https://www.cobaltstrike.com/resources/screenshots) | [Cobalt Strike](https://www.cobaltstrike.com/)
@@ -121,13 +120,13 @@ After identifying features in abstract, I jump to my design software and create 
 
 These options are then presented to the internal team to gather feedback, and a few concepts are selected to be developed into high-fidelity mockups.
 
-![[Pasted image 20240525160613.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ### `UI Design `Low Fi Example: Navigation Option Iterations 
 
 We explored several different navigation concepts, each with its own focus, costs, and benefits. For example, a 2-panel navigation layout emphasizes the relationship between the Team Server, Host, and Beacon. In contrast, a multi-page layout with breadcrumb navigation devotes more focus on the selected entity, leaving the Team Server, Host, Beacon relationship to be depicted by the graph visualization.
 
-![[Pasted image 20240525160720.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 #### Folder Structure
 
@@ -147,7 +146,7 @@ Once a layout was chosen from the low-fidelity options, I created high-fidelity 
 
 After making necessary adjustments based on the feedback, UI development work could begin in earnest.
 
-![[Pasted image 20240525160817.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ---
 
@@ -165,7 +164,7 @@ While there is a React Component Library for Carbon, the development team was no
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
-![[Pasted image 20240525160830.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
 
@@ -175,7 +174,7 @@ The primary difficulty was visually clustering the Beacons (dots), by their cont
 
 The main challenge was visually clustering the Beacons (dots) by their containing Host (circle) while also connecting the Beacons across Hosts in a way that wouldn't result in a visually confusing spider-web mess. Node-graph layouts are also notoriously expensive to calculate, usually utilizing an `O(n!)` physics based simulation that scales exponentially with each additional node.
 
-![[Pasted image 20240601184151.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 #### Initial Attempts: Beacon to Beacon, Across Hosts
 
@@ -191,7 +190,7 @@ This approach simplified the visual structure and, as it turned out, was signifi
 
 #### The Two Tiered Approach
 
-![[Pasted image 20240601184206.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 I developed this visualization based on d3 force directed layout and d3 hierarchy processing, along with some pre-processing of data.  
 
@@ -203,9 +202,10 @@ This approach divides a single, massive node-graph layout into several smaller, 
 
 Further performance improvement and visualization simplification can be achieved by collapsing one Host group and only displaying the internal layout when inspected or selected.
 
-![[Pasted image 20240525161034.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
-![[Pasted image 20240525161043.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
+
 
 ---
 
@@ -221,7 +221,7 @@ The commenting feature was designed to allow a Red Team to provide post-campaign
 
 Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub’s code comments.
 
-![[Pasted image 20240525161110.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 The interaction for this commenting task was quite simple: Select a command line and write a comment under it.
 
@@ -229,17 +229,17 @@ The interaction for this commenting task was quite simple: Select a command line
 
 After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an “Annotation Set.” The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
 
-![[Pasted image 20240525161118.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 **Single Comment** - a quick and simple way to add a comment. Click a line and write. 
 
 **Add Command to Existing Comment** - allows for editing existing annotation sets when commands are not accessible from the same list
 
-![[Pasted image 20240525161129.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 **Multi-Command Comment** - a mode to select several comments in a list and comment on all of them together.
 
-![[Pasted image 20240525161141.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 **Comment Tabs** - provide a dedicated location for viewing and editing existing comments.
 
@@ -253,7 +253,7 @@ Ultimately, we developed a headless server capable of functioning in multiple mo
 
 #### Headless Server 
 
-![[Pasted image 20240525161152.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 Recognizing that a terminal window might be somewhat complex for some users, I incorporated basic branding and labeling to help clarify its purpose and usage.
 
@@ -265,13 +265,13 @@ The MITRE ATT&CK framework is a classification system used to identify various c
 
 One of the earliest insights from user testing was the necessity for a comprehensive search feature. Initially, we offered a basic search feature that only covered the names of entities for navigation. However, during testing, users attempted global searches for specific strings in all log text output and were disappointed by the limited functionality. Delivering a performant search experience across all log text posed a significant challenge for the development team and required strong advocacy on my part, but it ultimately became one of the most useful features. Later iterations included sorting and filtering by result types.
 
-![[Pasted image 20240525161208.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ### `User Testing & Feedback `Graph Customization
 
 The most frequently requested feature from CSIA was the ability to edit and customize the graph. A typical dataset can include hundreds of Beacons, so CISA expressed a desire to hide less important data and highlight more significant information. We offered visual customizations to individual nodes, including shape, color, and name. Additionally, we provided a manual layout mode and the ability to show or hide labels.
 
-![[Pasted image 20240525161225.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ### `Challenges User Testing & Feedback `How Do I Conduct User Testing when All User Activities are Confidential?
 
@@ -281,7 +281,7 @@ We eventually created a mostly realistic synthetic dataset that CISA could use t
 
 #### Redacted Mode
 
-![[Pasted image 20240525161234.png]]
+![](public/lfs-media/RedEye/Placeholder.png)
 
 ### `Release and Reception `Open Source Release 
 
