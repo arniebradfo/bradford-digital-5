@@ -4,6 +4,7 @@ import { cx } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
 import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
+import { SetClientWidthCss } from "./utils/SetClientWidthCss";
 
 import "./reset.css";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({
         {children}
       </body>
       <AsciiArt />
+      <SetClientWidthCss />
     </html>
   );
 }
