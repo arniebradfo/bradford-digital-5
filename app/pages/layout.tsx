@@ -2,7 +2,6 @@ import { cx } from "../utils/joinClassNames";
 import { Footer } from "../views/Footer";
 import { Header } from "../views/Header";
 import style from "./layout.module.css";
-import styleSection from "../views/Section.module.css";
 
 export default function PagesLayout({
   children, // will be a page or nested layout
@@ -16,10 +15,10 @@ export default function PagesLayout({
         className={cx(
           style.PageElements,
           style.MetaHeader,
-          styleSection.SectionWrapper
+          // styleSection.SectionWrapper
         )}
       >
-        <article className={cx(styleSection.Section)}>{children}</article>
+        <article className={cx(style.ColumnFull, style.ColumnTextChildren)}>{children}</article>
       </main>
       <Footer />
     </>

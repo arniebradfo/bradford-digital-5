@@ -12,8 +12,8 @@
 
 .Section {
   margin: 0 auto;
-  max-width: 1600px;
-  padding: 48px;
+  max-width: var(--column-max);
+  padding: var(--column-padding);
 }
 
 .SectionDescriptionImage{
