@@ -5,7 +5,7 @@ import {
 import { cx } from "../utils/joinClassNames";
 import { linkContent } from "./linkContent";
 import { SectionDescription } from "./SectionDescription";
-import style from "./Section.module.css";
+import style from "../layout/Section.module.css";
 
 import ImgBlueprintFigma from "../../public/lfs-media/Project-Icons/Project-Icon-Blueprint-Figma-Components.svg";
 import ImgBlueprintStyler from "../../public/lfs-media/Project-Icons/Project-Icon-Blueprint-Styler.svg";

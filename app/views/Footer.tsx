@@ -3,7 +3,7 @@ import { Spacer } from "../components/Spacer";
 import { Txt } from "../components/Text";
 import { cx } from "../utils/joinClassNames";
 import style from "./Footer.module.css";
-import styleSection from "./Section.module.css";
+import styleSection from "../layout/Section.module.css";
 import { externalLinkAttributes as external } from "../utils/link";
 
 export const Footer: React.FC<React.ComponentProps<"footer">> = ({
