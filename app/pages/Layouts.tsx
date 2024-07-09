@@ -98,7 +98,7 @@ const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
 const _Image: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   className,
   imageProps,
-}) => <Image className={cx(className)} {...imageProps} />;
+}) => <Image className={cx(className, style.Screenshot)} {...imageProps} />;
 
 export const Layouts = {
   ArticleWrapper,

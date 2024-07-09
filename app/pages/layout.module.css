@@ -25,7 +25,7 @@
   & h5,
   & h6 {
     margin-block: .5rem;
-    margin-top: 2em;
+    margin-top: 3em;
     line-height: 1.2;
   }
 
@@ -34,14 +34,14 @@
   }
 
   hr {
-    margin-block: 4rem;
+    margin-block: 5rem;
     border: none;
     border-bottom: var(--border-1);
   }
 
   ol,
   ul {
-    padding-left: 20px;
+    padding-left: 16px;
   }
 
   figcaption {
@@ -61,6 +61,7 @@
   & h6 {
     & code {
       display: block;
+      margin-bottom: .5em;
 
       color: var(--foreground-color-3);
       font-size: var(--font-size-6);
@@ -88,13 +89,17 @@
 
 .ColumnText {
   /* no-op */
+  margin: 16px 0;
 }
 
 .ColumnFull {
   max-width: unset;
+  margin: 16px 0;
 }
 
 .ColumnMax {
+  margin: 16px 0;
+
   width: 100vw;
   width: var(--clientWidth, 100vw);
   max-width: var(--column-max);
@@ -105,12 +110,15 @@
 }
 
 .ColumnBreakout {
+  
   width: 100%;
   display: flex;
   align-items: center;
 }
 
 .Figure {
+  margin: 16px 0;
+
   display: flex;
   gap: 8px 16px;
   flex-wrap: wrap;
@@ -138,13 +146,25 @@
   padding: 16px;
 }
 
+.Screenshot {
+  border-radius: var(--border-radius-image);
+  box-shadow: var(--box-shadow-2);
+  overflow: hidden;
+}
+
 /* COLUMN COUNTS ---------------------- */
 
 .Columns {
+  /* margin: 16px 0; */
+
   display: grid;
-  --gap: 16px;
+  --gap: 8px;
   gap: var(--gap);
   grid-template-columns: repeat(1, 1fr);
+
+  & + &{
+    margin-top: var(--gap);
+  }
 }
 
 .Columns1 {

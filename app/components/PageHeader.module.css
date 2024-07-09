@@ -1,6 +1,7 @@
 .Header{
   padding: 0 var(--column-padding);
   max-width: var(--column-max);
+  margin: 0 auto;
 }
 
 .HeaderText{
