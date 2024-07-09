@@ -128,3 +128,8 @@ a {
     text-decoration-color: var(--foreground-color-1);
   }
 }
+
+hr {
+  border: none;
+  border-bottom: var(--border-1);
+}

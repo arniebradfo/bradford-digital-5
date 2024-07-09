@@ -5,6 +5,7 @@ import { cx } from "../utils/joinClassNames";
 import style from "./Footer.module.css";
 import styleSection from "./Section.module.css";
 import { externalLinkAttributes as external } from "../utils/link";
+import { Logo } from "./Logo";
 
 export const Footer: React.FC<React.ComponentProps<"footer">> = ({
   className,
@@ -33,7 +34,7 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
         <Link href={"https://www.framer.com/motion/"} {...external}>
           Framer Motion
         </Link>
-        {" & "}
+        {", & "}
         <Link href={"https://nextjs.org/"} {...external}>
           Next.js
         </Link>
@@ -45,6 +46,8 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
           Vercel
         </Link>
       </Txt>
+      {/* <div style={{flex: '1 1 auto'}} /> */}
+      {/* <Logo style={{height:24, width: 24, opacity:.3}} /> */}
     </Txt>
   </footer>
 );

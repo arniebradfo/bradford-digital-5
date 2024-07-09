@@ -8,7 +8,7 @@ import { Txt } from "../components/Text";
 import { Fragment } from "react";
 // import Resume from "../../public/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf";
 
-export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
+export const NavLinks: React.FC<React.ComponentProps<"div"> & {}> = ({
   className,
   ...props
 }) => (
@@ -31,6 +31,10 @@ export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
 );
 
 const links = [
+  {
+    children: "Project Work",
+    href: "/",
+  },
   {
     children: "LinkedIn",
     href: "https://www.linkedin.com/in/arniebradfo/",

@@ -1,7 +1,8 @@
 import { cx } from "../../utils/joinClassNames";
-import { sections } from "../../views/ProjectFeatureSections";
+import { sections, ProjectFeatureSection } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
+import { LinkButton } from "../../components/LinkButton";
 import { PageDetails } from "../../components/PageDetails";
 import { PageHeader } from "../../components/PageHeader";
 import { Layouts } from "../Layouts";
@@ -22,7 +23,24 @@ import style from "./page.module.css"
       identified vulnerabilities.
     </>
   ),
-  links: sections.redeye.sectionDescriptionProps.links,
+  links: [
+    {
+      href: "/pages/RedEye",
+      children: "Graph Demo",
+      type: "emphasis",
+      external: true,
+    },
+    {
+      href: "https://github.com/cisagov/RedEye",
+      children: "GitHub Sourcecode",
+      type: "outline",
+      external: true,
+    },
+  ],
+  heroImageProps: {
+    ...sections.redeye.heroImageProps,
+    href: undefined
+  }
 }} />
 
 <Layouts.ArticleWrapper>
@@ -353,6 +371,11 @@ This approach divides a single, massive node-graph layout into several smaller, 
 
 Further performance improvement and visualization simplification can be achieved by collapsing one Host group and only displaying the internal layout when inspected or selected.
 
+
+<br/>
+
+<LinkButton href="https://arniebradfo.github.io/RedEye-Graph/" children={"Interactive Demo Graph"} type="emphasis" external />
+
 <br/>
 <br/>
 
@@ -455,7 +478,11 @@ After nearly two years of private development, CISA approved the public release 
 
 We continued to support the project for another year until CISA deemed the app "complete" and funding concluded.
 
-As of now, the project has **2.6k Stars** and **260 Forks**
+As of now, the project has <Txt bold fg={1} size={3}>2.6k Stars</Txt> and <Txt bold fg={1} size={3}>260 Forks</Txt>
+
+<br/>
+
+<LinkButton href="https://github.com/cisagov/RedEye" children={"RedEye GitHub Sourcecode"} type="emphasis" external />
 
 ---
 
@@ -501,4 +528,7 @@ In all projects following this one, I have pushed for the deployment of an alpha
 
 JB
 
+
 </Layouts.ArticleWrapper>
+
+<ProjectFeatureSection {...sections.hydropowerELibrary} />HeroImage, 
