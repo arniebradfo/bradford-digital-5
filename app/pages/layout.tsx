@@ -18,7 +18,7 @@ export default function PagesLayout({
           // styleSection.SectionWrapper
         )}
       >
-        <article className={cx(style.ColumnFull, style.ColumnTextChildren)}>{children}</article>
+        <article className={cx(style.ArticleLayout, style.ColumnTextChildren)}>{children}</article>
       </main>
       <Footer />
     </>
