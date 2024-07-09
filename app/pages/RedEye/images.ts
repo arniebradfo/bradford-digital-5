@@ -33,14 +33,14 @@ import i31 from "../../../public/lfs-media/RedEye/Personas-Executive.svg";
 import i32 from "../../../public/lfs-media/RedEye/Personas-IT.svg";
 import i33 from "../../../public/lfs-media/RedEye/Personas-RedTeam.svg";
 import i34 from "../../../public/lfs-media/RedEye/Placeholder.png";
-import i35 from "../../../public/lfs-media/RedEye/Screenshot-01.png";
-import i36 from "../../../public/lfs-media/RedEye/Screenshot-02.png";
-import i37 from "../../../public/lfs-media/RedEye/Screenshot-03.png";
-import i38 from "../../../public/lfs-media/RedEye/Screenshot-04.png";
-import i39 from "../../../public/lfs-media/RedEye/Screenshot-05.png";
-import i40 from "../../../public/lfs-media/RedEye/Screenshot-06.png";
-import i41 from "../../../public/lfs-media/RedEye/Screenshot-07.png";
-import i42 from "../../../public/lfs-media/RedEye/Screenshot-08.png";
+import i35 from "../../../public/lfs-media/RedEye/Screenshot-01-Comments-Inline.png"
+import i36 from "../../../public/lfs-media/RedEye/Screenshot-02-Comments-Popover.png"
+import i37 from "../../../public/lfs-media/RedEye/Screenshot-03-Comments-Multi-Command.png"
+import i38 from "../../../public/lfs-media/RedEye/Screenshot-04-Comments-Tab.png"
+import i39 from "../../../public/lfs-media/RedEye/Screenshot-05-Server-Terminal.png"
+import i40 from "../../../public/lfs-media/RedEye/Screenshot-06-Search.png"
+import i41 from "../../../public/lfs-media/RedEye/Screenshot-07-Graph-Customization.png"
+import i42 from "../../../public/lfs-media/RedEye/Screenshot-08-Redacted-Mode.png"
 
 export const RedEyeImages = {
   i00,
