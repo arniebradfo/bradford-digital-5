@@ -18,7 +18,6 @@ export default function PagesLayout({
         )}
       >
         <article>
-          <PageHeader/>
           {children}
         </article>
       </main>

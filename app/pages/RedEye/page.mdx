@@ -3,25 +3,54 @@ import { sections } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
 import { PageDetails } from "../../components/PageDetails";
+import { PageHeader } from "../../components/PageHeader";
 import { Layouts } from "../Layouts";
 import { RedEyeImages } from "./images"
 import style from "./page.module.css"
 
+<PageHeader {...{
+  header: "RedEye",
+  subHeader: "Red Team Log Visualization",
+  description: (
+    <>
+      RedEye is a visualization tool developed for the US CyberSecurity and
+      Infrastructure Security Agency (CISA) to improve the analysis and
+      communication of Red Team cybersecurity assessments. The tool imports log
+      records and summarizes them into a navigable hierarchy, timeline, and
+      interactive node-graph visualization. Additionally, RedEye includes
+      commenting and annotation features for providing context to address
+      identified vulnerabilities.
+    </>
+  ),
+  links: sections.redeye.sectionDescriptionProps.links,
+}} />
+
 <Layouts.ArticleWrapper>
 
-
-{/* # RedEye - Red Team Log Visualization 
-*RedEye is a visualization tool developed for the US CyberSecurity and Infrastructure Security Agency (CISA) to improve the analysis and communication of Red Team cybersecurity assessments. The tool imports log records and summarizes them into a navigable hierarchy, timeline, and interactive node-graph visualization. Additionally, RedEye includes commenting and annotation features for providing context to address identified vulnerabilities.*
-
-[GitHub Sourcecode](https://github.com/cisagov/RedEye)
-
-### Details
-- **Role** - UX Design & Frontend Engineering 
-- **Team** - 6 Contributors 
-- **Timeline** - 1 Year (30% weekly for 3 years) 2020-2023 
-- **Client** - US CyberSecurity and Infrastructure Security Agency (CISA) */}
-
-<PageDetails />
+<PageDetails details={[
+  {
+    label: "Role",
+    text: "UX Design & Frontend Engineering",
+  },
+  {
+    label: "Team",
+    text: "6 Contributors",
+  },
+  {
+    label: "Timeline",
+    text: (
+      <>
+        <Txt>1 Year </Txt>
+        <Txt fg={3}>(30 % weekly for 3 years) </Txt>
+        <Txt fg={3}>2020-2023</Txt>
+      </>
+    ),
+  },
+  {
+    label: "Client",
+    text: "US CyberSecurity and Infrastructure Security Agency (CISA)",
+  },
+]} />
 
 ## `Background & Context `The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
 
