@@ -5,32 +5,6 @@
   padding: var(--column-padding);
 }
 
-.ColumnTextChildren {
-  &>* {
-    max-width: var(--column-text);
-  }
-}
-
-.ColumnFull {
-  max-width: unset;
-}
-
-.ColumnMax {
-  width: 100vw;
-  width: var(--clientWidth, 100vw);
-  max-width: var(--column-max);
-  padding: 0 var(--column-padding);
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.ColumnBreakout {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
 .PageElements {
 
   & p {
@@ -72,10 +46,48 @@
   }
 }
 
+/* COLUMN TYPES ---------------------- */
+
+.ColumnContainer {
+  container-type: inline-size;
+  container-name: LayoutColumn;
+}
+
+.ColumnTextChildren {
+  &>* {
+    max-width: var(--column-text);
+  }
+}
+
+.ColumnFull {
+  max-width: unset;
+}
+
+.ColumnMax {
+  width: 100vw;
+  width: var(--clientWidth, 100vw);
+  max-width: var(--column-max);
+  padding: 0 var(--column-padding);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ColumnBreakout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* COLUMN COUNTS ---------------------- */
+
 .Columns {
   display: grid;
   --gap: 16px;
   gap: var(--gap);
+  margin-block: var(--gap);
+  grid-template-columns: repeat(1, 1fr);
+
 }
 
 .Columns1 {
@@ -91,7 +103,7 @@
 }
 
 .Columns4 {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
 }
 
 .Columns5 {
@@ -100,4 +112,41 @@
 
 .Columns6 {
   grid-template-columns: repeat(6, 1fr);
+}
+
+
+@container LayoutColumn (max-width: 800px) {
+
+  .Columns2,
+  .Columns4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .Columns6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@container LayoutColumn (max-width: 700px) {
+
+  .Columns3,
+  .Columns5 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .Columns6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container LayoutColumn (max-width: 600px) {
+
+  .Columns1,
+  .Columns2,
+  .Columns3,
+  .Columns4,
+  .Columns5,
+  .Columns6 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
