@@ -79,6 +79,21 @@
   align-items: center;
 }
 
+.Figure {
+  display: flex;
+  gap: 16px;
+
+  & img {
+    max-width: var(--column-text);
+  }
+
+  & figcaption {
+    & p {
+      margin: 0;
+    }
+  }
+}
+
 /* COLUMN COUNTS ---------------------- */
 
 .Columns {

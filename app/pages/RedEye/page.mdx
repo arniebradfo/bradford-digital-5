@@ -2,6 +2,7 @@ import { sections } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
 import { Layouts } from "../Layouts";
+import { RedEyeImages } from "./images"
 
 # RedEye - Red Team Log Visualization 
 *RedEye is a visualization tool developed for the US CyberSecurity and Infrastructure Security Agency (CISA) to improve the analysis and communication of Red Team cybersecurity assessments. The tool imports log records and summarizes them into a navigable hierarchy, timeline, and interactive node-graph visualization. Additionally, RedEye includes commenting and annotation features for providing context to address identified vulnerabilities.*
@@ -26,14 +27,11 @@ The US CyberSecurity and Infrastructure Security Agency (CISA) maintains a Red T
 
 Command and Control (C2) software like Cobalt Strike is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
 
-<Layouts.ColumnFull>
-
-![Log Files](public/lfs-media/RedEye/Cobalt-Strike-Log-Files.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i01}}>
 Even a small Cobalt Strike data set could comprise hundreds or thousands of raw log files.
-The primary goal of RedEye was to transform these complex log files into a visual representation of the campaign. It also aimed to provide a tool for the Red Team to annotate and highlight specific campaign actions, thereby offering context to assist the Blue Team in enhancing their system's protection.
+</Layouts.FigureCaption>
 
-</Layouts.ColumnFull>
+The primary goal of RedEye was to transform these complex log files into a visual representation of the campaign. It also aimed to provide a tool for the Red Team to annotate and highlight specific campaign actions, thereby offering context to assist the Blue Team in enhancing their system's protection.
 
 ### A Note on the Iterative Design Process 
 It's important to note that while this case study is structured topically around the four main phases of my process - Research, Design, Development, and Feedback - these phases are not strictly sequential in practice. Instead, they form part of an iterative cycle conducted on a shorter time scale, with each phase informing and overlapping with the others.

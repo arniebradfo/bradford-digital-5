@@ -1,3 +1,4 @@
+import Image, { ImageProps } from "next/image";
 import { cx } from "../utils/joinClassNames";
 import style from "./layout.module.css";
 
@@ -40,8 +41,24 @@ const styleColumnCount = [
   style.Columns6,
 ];
 
+const FigureCaption: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
+  className,
+  children,
+  imageProps,
+  ...props
+}) => (
+  <figure
+    className={cx(className, style.ColumnFull, style.ColumnContainer, style.Figure)}
+    {...props}
+  >
+    <Image {...imageProps} />
+    <figcaption>{children}</figcaption>
+  </figure>
+);
+
 export const Layouts = {
   ColumnFull,
   ColumnMax,
   Columns,
+  FigureCaption,
 };
