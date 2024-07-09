@@ -1,3 +1,4 @@
+import { PageHeader } from "../components/PageHeader";
 import { cx } from "../utils/joinClassNames";
 import { Footer } from "../views/Footer";
 import { Header } from "../views/Header";
@@ -13,12 +14,13 @@ export default function PagesLayout({
       <Header />
       <main
         className={cx(
-          style.PageElements,
-          style.MetaHeader,
-          style.ArticleMain
+          // style.ArticleMain
         )}
       >
-        <article className={cx(style.ArticleLayout, style.ColumnTextChildren)}>{children}</article>
+        <article>
+          <PageHeader/>
+          {children}
+        </article>
       </main>
       <Footer />
     </>

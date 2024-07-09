@@ -1,5 +1,7 @@
-.ArticleMain{
+.ArticleWrapper {
   background-color: var(--background-color-1);
+  border-bottom: var(--border-1);
+  border-top: var(--border-1);
 }
 
 .ArticleLayout {
@@ -7,6 +9,7 @@
   width: 100%;
   max-width: var(--column-full);
   padding: var(--column-padding);
+  padding-top: calc(var(--column-padding) * 2.5);
 }
 
 .PageElements {
@@ -32,11 +35,12 @@
     border-bottom: var(--border-1);
   }
 
-  ol, ul {
+  ol,
+  ul {
     padding-left: 20px;
   }
 
-  figcaption{
+  figcaption {
     font-style: italic;
     color: var(--foreground-color-3);
   }

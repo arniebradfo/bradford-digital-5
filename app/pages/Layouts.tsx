@@ -5,6 +5,27 @@ import style from "./layout.module.css";
 type HtmlProps<T extends keyof JSX.IntrinsicElements = "div"> =
   React.ComponentProps<T>;
 
+const ArticleWrapper: React.FC<HtmlProps> = ({
+  className,
+  children,
+  ...props
+}) => (
+  <section
+    className={cx(
+      className,
+      style.ArticleWrapper,
+    )}
+    {...props}
+    >
+    <div className={cx(
+      style.PageElements,
+      style.MetaHeader,
+      style.ArticleLayout,
+      style.ColumnTextChildren
+    )}>{children}</div>
+  </section>
+);
+
 const ColumnText: React.FC<HtmlProps> = ({ className, ...props }) => (
   <div
     className={cx(className, style.ColumnText, style.ColumnContainer)}
@@ -80,11 +101,12 @@ const _Image: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
 }) => <Image className={cx(className)} {...imageProps} />;
 
 export const Layouts = {
+  ArticleWrapper,
   ColumnText,
   ColumnFull,
   ColumnMax,
   Columns,
   FigureCaption,
   Graphic,
-  Image: _Image
+  Image: _Image,
 };

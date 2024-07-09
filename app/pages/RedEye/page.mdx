@@ -1,3 +1,4 @@
+import { cx } from "../../utils/joinClassNames";
 import { sections } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
@@ -5,7 +6,9 @@ import { Layouts } from "../Layouts";
 import { RedEyeImages } from "./images"
 import style from "./page.module.css"
 
-# RedEye - Red Team Log Visualization 
+<Layouts.ArticleWrapper>
+
+{/* # RedEye - Red Team Log Visualization 
 *RedEye is a visualization tool developed for the US CyberSecurity and Infrastructure Security Agency (CISA) to improve the analysis and communication of Red Team cybersecurity assessments. The tool imports log records and summarizes them into a navigable hierarchy, timeline, and interactive node-graph visualization. Additionally, RedEye includes commenting and annotation features for providing context to address identified vulnerabilities.*
 
 [GitHub Sourcecode](https://github.com/cisagov/RedEye)
@@ -14,7 +17,8 @@ import style from "./page.module.css"
 - **Role** - UX Design & Frontend Engineering 
 - **Team** - 6 Contributors 
 - **Timeline** - 1 Year (30% weekly for 3 years) 2020-2023 
-- **Client** - US CyberSecurity and Infrastructure Security Agency (CISA)
+- **Client** - US CyberSecurity and Infrastructure Security Agency (CISA) */}
+
 
 ## The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
 
@@ -457,3 +461,5 @@ In all projects following this one, I have pushed for the deployment of an alpha
 ---
 
 JB
+
+</Layouts.ArticleWrapper>

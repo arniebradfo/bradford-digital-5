@@ -6,17 +6,13 @@ import { cx } from "../utils/joinClassNames";
 import { NavLinks } from "./NavLinks";
 import { Logo } from "./Logo";
 import style from "./Header.module.css";
-import styleSection from "./Section.module.css";
 
 export const Header: React.FC<React.ComponentProps<"header">> = ({
   className,
   ...props
 }) => (
-  <header
-    className={cx(style.HeaderWrapper, styleSection.SectionWrapper, className)}
-    {...props}
-  >
-    <div className={cx(style.HeaderLayout, styleSection.Section)}>
+  <header className={cx(style.HeaderWrapper, className)} {...props}>
+    <div className={cx(style.HeaderLayout)}>
       <Txt tag="h1" fg={1} uppercase bold className={style.HeaderText}>
         {/* Link Button? */}
         <Link href={"/"}>
