@@ -5,6 +5,13 @@ import style from "./layout.module.css";
 type HtmlProps<T extends keyof JSX.IntrinsicElements = "div"> =
   React.ComponentProps<T>;
 
+const ColumnText: React.FC<HtmlProps> = ({ className, ...props }) => (
+  <div
+    className={cx(className, style.ColumnText, style.ColumnContainer)}
+    {...props}
+  />
+);
+
 const ColumnFull: React.FC<HtmlProps> = ({ className, ...props }) => (
   <div
     className={cx(className, style.ColumnFull, style.ColumnContainer)}
@@ -12,24 +19,20 @@ const ColumnFull: React.FC<HtmlProps> = ({ className, ...props }) => (
   />
 );
 
-const ColumnMax: React.FC<HtmlProps> = ({ className, children, ...props }) => (
+const ColumnMax: React.FC<HtmlProps> = ({ className, ...props }) => (
   <div
     className={cx(className, style.ColumnMax, style.ColumnContainer)}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const Columns: React.FC<
   HtmlProps & { wrap?: boolean; count?: 1 | 2 | 3 | 4 | 5 | 6 }
-> = ({ className, children, wrap = true, count = 1, ...props }) => (
+> = ({ className, wrap = true, count = 1, ...props }) => (
   <div
     className={cx(className, style.Columns, styleColumnCount[count - 1])}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const styleColumnCount = [
@@ -71,10 +74,17 @@ const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   </div>
 );
 
+const _Image: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
+  className,
+  imageProps,
+}) => <Image className={cx(className)} {...imageProps} />;
+
 export const Layouts = {
+  ColumnText,
   ColumnFull,
   ColumnMax,
   Columns,
   FigureCaption,
   Graphic,
+  Image: _Image
 };

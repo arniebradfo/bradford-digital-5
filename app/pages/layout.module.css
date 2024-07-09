@@ -26,6 +26,21 @@
     line-height: 1.2;
   }
 
+  hr {
+    margin-block: 4rem;
+    border: none;
+    border-bottom: var(--border-1);
+  }
+
+  ol, ul {
+    padding-left: 20px;
+  }
+
+  figcaption{
+    font-style: italic;
+    color: var(--foreground-color-3);
+  }
+
 }
 
 .MetaHeader {
@@ -61,6 +76,10 @@
   &>* {
     max-width: var(--column-text);
   }
+}
+
+.ColumnText {
+  /* no-op */
 }
 
 .ColumnFull {

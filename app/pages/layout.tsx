@@ -16,7 +16,6 @@ export default function PagesLayout({
           style.PageElements,
           style.MetaHeader,
           style.ArticleMain
-          // styleSection.SectionWrapper
         )}
       >
         <article className={cx(style.ArticleLayout, style.ColumnTextChildren)}>{children}</article>

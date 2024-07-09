@@ -45,8 +45,8 @@ It's important to note that while this case study is structured topically around
 
 To first research the landscape I conducted interviews with the CISA Red Team “Operators” and PNNL Cyber Security Subject Matter experts to better understand the industry, Tools, Processes, Methods, and Goals of our potential users. My standard interview process. I identified four user types to target for app development: 
 
-<Layouts.ColumnFull>
-<Layouts.Columns count={4} className={style.GraphicDescription}>
+<Layouts.ColumnText>
+<Layouts.Columns count={2} className={style.GraphicDescription}>
 
 <div>
 <Layouts.Graphic imageProps={{src: RedEyeImages.i33}}/>
@@ -73,7 +73,7 @@ This user type manages the IT department and controls budget and priority. They 
 </div>
 
 </Layouts.Columns>
-</Layouts.ColumnFull>
+</Layouts.ColumnText>
 
 
 ### `System Research `Understanding the Data Structure of a Cyber Attack 
@@ -83,40 +83,38 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 
 <Layouts.ColumnFull>
 
-<Layouts.Columns count={2}>![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/High-Fi-05.png) </Layouts.Columns>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i25}}/>
 
-<Layouts.Columns count={4}>![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/Cobalt-Strike-Log-Files.png) ![](public/lfs-media/RedEye/High-Fi-05.png)  ![](public/lfs-media/RedEye/High-Fi-05.png)</Layouts.Columns>
+<Layouts.Columns count={4} className={style.GraphicDescription}>
 
-<Layouts.Columns count={3}>![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/High-Fi-05.png) </Layouts.Columns>
-
-<Layouts.Columns count={2}>![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/High-Fi-05.png) ![](public/lfs-media/RedEye/High-Fi-05.png)  ![](public/lfs-media/RedEye/High-Fi-05.png)</Layouts.Columns>
-
-</Layouts.ColumnFull>
-
-
+<div>
 ##### Primary Entities
 - **Team Server** - Cobalt Strike servers that establish communication with Beacons on compromised Host computers.
 - **Host** - A compromised computer within the target network that "Host" Beacons and other malicious code.
 - **Beacon** - A program injected into another process that communicates with the Team Server and enables the remote execution of malicious code on a Host computer.
 - **Command** - This is a single command input issued to a Beacon, usually comprising an input, task, and output saved to a log file. This is the atomic unit of our data structure.
 - **Chain** - A connection between a Beacon and a Team Server, sometimes "chained" through one or more intermediary Beacons.
+</div>
 
+<div>
 ##### Additional Concepts
 - **Context (Privilege)** - A Beacon's user context that determines the Host permissions they possess. SYSTEM* represents the highest level of access.
 - **Lifecycle**: **Active & Exited** - Stages of a Beacon's execution. Beacons are "active" when they maintain communication with a Team Server. Beacons are deemed "exited" if they are intentionally closed, lose connection, or abandoned.
 - **Logs** - Records of terminal inputs and outputs used to command Beacons.
+</div>
+      
+</Layouts.Columns>
+
+</Layouts.ColumnFull>
 
 #### Cobalt Strike UI 
 Cobalt Strike provides a basic visualization of the current state of its Beacon chain. However, it lacks in-depth details and is primarily designed for issuing commands to active Beacons. It does not group Beacons by Host, display multiple Team Servers, or show exited Beacons or any form of historical information.
 
-<Layouts.ColumnMax>
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i02}}>
+This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon.
 
-![](public/lfs-media/RedEye/High-Fi-03.png)
-
-</Layouts.ColumnMax>
-
-This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon. 
 Source: [Screenshots](https://www.cobaltstrike.com/resources/screenshots) | [Cobalt Strike](https://www.cobaltstrike.com/)
+</Layouts.FigureCaption>
 
 ---
 
@@ -126,27 +124,45 @@ Source: [Screenshots](https://www.cobaltstrike.com/resources/screenshots) | [Cob
 
 Following a User Story Mapping session with the team, we identified four primary phases of workflow: Import Logs, Explore the enriched data, Annotate to provide context, and Present to Blue Team. The breakdown was much more complex in practice, but has been simplified for the presentation’s sake.
 
-##### 1. Import 
-- Select Log Files - from Cobalt Strike output
-- Run Parser - merges files by Beacon creating graph structure and additional data enrichment 
+<Layouts.ColumnFull>
+<Layouts.Columns count={4} className={style.GraphicDescription}>
 
-##### 2. Explore 
-- List, Filter, Sort - Navigate the textual data in a hierarchical representation
-- Node Graph - Navigate the entities in a map like visual
-- Timeline - Play and step through the campaign chronology
-- Search - find and navigate by any text value
-- Raw Log View - read original files for detailed information
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i05}}/>
+#### 1. Import 
+- **Select Log Files** - from Cobalt Strike output
+- **Run Parser** - merges files by Beacon creating graph structure and additional data enrichment 
+</div>
 
-##### 3. Annotate 
-- Add Comments - provide context to commands 
-- Edit Graph - modify layout, connections, and visual styling 
-- Rename Entities - provide context to landmarks
-- Remove/Hide - unimportant data or test infrastructure
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i04}}/>
+#### 2. Explore 
+- **List, Filter, Sort** - Navigate the textual data in a hierarchical representation
+- **Node Graph** - Navigate the entities in a map like visual
+- **Timeline** - Play and step through the campaign chronology
+- **Search** - find and navigate by any text value
+- **Raw Log View** - read original files for detailed information
+</div>
 
-##### 4. Present 
-- Export - Data sanitization and file handoff to Blue Team
-- Presentation Mode - step through topics grouped by comment tags
-- Blue Team Mode - Readonly exploration for blue team
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i03}}/>
+#### 3. Annotate 
+- **Add Comments** - provide context to commands 
+- **Edit Graph** - modify layout, connections, and visual styling 
+- **Rename Entities** - provide context to landmarks
+- **Remove/Hide** - unimportant data or test infrastructure
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i06}}/>
+#### 4. Present 
+- **Export** - Data sanitization and file handoff to Blue Team
+- **Presentation Mode** - step through topics grouped by comment tags
+- **Blue Team Mode** - Readonly exploration for blue team
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 #### Feature Prioritization: Readonly Features First, Editing Features Follow Feedback 
 
@@ -158,25 +174,48 @@ After identifying features in abstract, I jump to my design software and create 
 
 These options are then presented to the internal team to gather feedback, and a few concepts are selected to be developed into high-fidelity mockups.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{src: RedEyeImages.i15}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i16}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i17}} />
+</Layouts.Columns>
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i18}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i19}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ### `UI Design `Low Fi Example: Navigation Option Iterations 
 
 We explored several different navigation concepts, each with its own focus, costs, and benefits. For example, a 2-panel navigation layout emphasizes the relationship between the Team Server, Host, and Beacon. In contrast, a multi-page layout with breadcrumb navigation devotes more focus on the selected entity, leaving the Team Server, Host, Beacon relationship to be depicted by the graph visualization.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnFull>
+<Layouts.Columns count={3} className={style.GraphicDescription}>
 
+<div>
+<Layouts.Image imageProps={{src: RedEyeImages.i21}} />
 #### Folder Structure
-
 This approach didn't align with the data structure as Team Servers can connect to more than one Host and Beacon, preventing a clean tree structure.
+</div>
 
+<div>
+<Layouts.Image imageProps={{src: RedEyeImages.i22}} />
 #### 2 Panel with Tabs
-
 This approach was closer to the requirement, but the double panel ended up consuming too much space when additional tabs were incorporated.
+</div>
 
+<div>
+<div style={{display:'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8}}>
+<Layouts.Image imageProps={{src: RedEyeImages.i23}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i24}} />
+</div>
 #### Paged with Breadcrumbs
-
 The final selected approach optimized space by dedicating a full panel to each navigation and page view, and allowing the graph visualization to handle the display of entity relationships.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ## `UI Design `High Fi Mockups
 
@@ -184,7 +223,33 @@ Once a layout was chosen from the low-fidelity options, I created high-fidelity 
 
 After making necessary adjustments based on the feedback, UI development work could begin in earnest.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+
+<Layouts.ColumnMax>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i07}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i08}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={1}>
+<Layouts.Image imageProps={{src: RedEyeImages.i09}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i10}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i14}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={1}>
+<Layouts.Image imageProps={{src: RedEyeImages.i11}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i12}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i13}} />
+</Layouts.Columns>
+
+</Layouts.ColumnMax>
 
 ---
 
@@ -202,7 +267,7 @@ While there is a React Component Library for Carbon, the development team was no
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.Image imageProps={{src: RedEyeImages.i00}} />
 
 ### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
 
@@ -212,23 +277,35 @@ The primary difficulty was visually clustering the Beacons (dots), by their cont
 
 The main challenge was visually clustering the Beacons (dots) by their containing Host (circle) while also connecting the Beacons across Hosts in a way that wouldn't result in a visually confusing spider-web mess. Node-graph layouts are also notoriously expensive to calculate, usually utilizing an `O(n!)` physics based simulation that scales exponentially with each additional node.
 
-![](public/lfs-media/RedEye/Placeholder.png)
 
+<Layouts.ColumnFull>
+
+<Layouts.Image imageProps={{src: RedEyeImages.i28}} />
+
+<Layouts.Columns count={2} className={style.GraphicDescription}>
+
+<div>
 #### Initial Attempts: Beacon to Beacon, Across Hosts
 
 Initially, we tried to connect all the Beacons, then group them into Host groups and draw a circle around them. A second attempt reversed this process, grouping all the Beacons by Host and then connecting all the Beacons individually. 
 
 In both cases, the Beacon connections overlapped too much and were impossible to visually decipher. These two preliminary versions used combinations of d3 utils, pixi.js, and dagrejs.
+</div>
 
+<div>
 #### Optimized Layout: Host to Host, Beacons Encapsulated 
 
 After brainstorming with the team, we devised a third way of displaying layout that would group Beacon connections between Hosts into a derived Host connection. This allowed us to layout the much smaller number of Hosts as a single graph, then layout Beacons as a separate and independent graphs within each Host.
 
 This approach simplified the visual structure and, as it turned out, was significantly more performant.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 #### The Two Tiered Approach
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.Image imageProps={{src: RedEyeImages.i27}} />
 
 I developed this visualization based on d3 force directed layout and d3 hierarchy processing, along with some pre-processing of data.  
 
@@ -240,10 +317,12 @@ This approach divides a single, massive node-graph layout into several smaller, 
 
 Further performance improvement and visualization simplification can be achieved by collapsing one Host group and only displaying the internal layout when inspected or selected.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnMax>
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.Image imageProps={{src: RedEyeImages.i26}} />
+<Layouts.Image imageProps={{ src: RedEyeImages.i29 }} />
 
+</Layouts.ColumnMax>
 
 ---
 
@@ -259,27 +338,27 @@ The commenting feature was designed to allow a Red Team to provide post-campaign
 
 Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub’s code comments.
 
-![](public/lfs-media/RedEye/Placeholder.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i35}}>
 The interaction for this commenting task was quite simple: Select a command line and write a comment under it.
+</Layouts.FigureCaption>
 
 #### Revised: Annotation Sets 
 
 After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an “Annotation Set.” The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
 
-![](public/lfs-media/RedEye/Placeholder.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i36}}>
 **Single Comment** - a quick and simple way to add a comment. Click a line and write. 
 
 **Add Command to Existing Comment** - allows for editing existing annotation sets when commands are not accessible from the same list
+</Layouts.FigureCaption>
 
-![](public/lfs-media/RedEye/Placeholder.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i37}}>
 **Multi-Command Comment** - a mode to select several comments in a list and comment on all of them together.
+</Layouts.FigureCaption>
 
-![](public/lfs-media/RedEye/Placeholder.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i38}}>
 **Comment Tabs** - provide a dedicated location for viewing and editing existing comments.
+</Layouts.FigureCaption>
 
 ### `User Testing & Feedback `Electron, PWA, or Client-Server? 
 
@@ -291,9 +370,9 @@ Ultimately, we developed a headless server capable of functioning in multiple mo
 
 #### Headless Server 
 
-![](public/lfs-media/RedEye/Placeholder.png)
-
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i39}}>
 Recognizing that a terminal window might be somewhat complex for some users, I incorporated basic branding and labeling to help clarify its purpose and usage.
+</Layouts.FigureCaption>
 
 ### `User Testing & Feedback `Incorporating MITRE ATT&CK Links for Auto-Annotation
 
@@ -303,13 +382,17 @@ The MITRE ATT&CK framework is a classification system used to identify various c
 
 One of the earliest insights from user testing was the necessity for a comprehensive search feature. Initially, we offered a basic search feature that only covered the names of entities for navigation. However, during testing, users attempted global searches for specific strings in all log text output and were disappointed by the limited functionality. Delivering a performant search experience across all log text posed a significant challenge for the development team and required strong advocacy on my part, but it ultimately became one of the most useful features. Later iterations included sorting and filtering by result types.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i40}} />
+</Layouts.ColumnFull>
 
 ### `User Testing & Feedback `Graph Customization
 
 The most frequently requested feature from CSIA was the ability to edit and customize the graph. A typical dataset can include hundreds of Beacons, so CISA expressed a desire to hide less important data and highlight more significant information. We offered visual customizations to individual nodes, including shape, color, and name. Additionally, we provided a manual layout mode and the ability to show or hide labels.
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i41}} />
+</Layouts.ColumnFull>
 
 ### `Challenges User Testing & Feedback `How Do I Conduct User Testing when All User Activities are Confidential?
 
@@ -319,7 +402,9 @@ We eventually created a mostly realistic synthetic dataset that CISA could use t
 
 #### Redacted Mode
 
-![](public/lfs-media/RedEye/Placeholder.png)
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i42}} />
+</Layouts.ColumnFull>
 
 ### `Release and Reception `Open Source Release 
 
