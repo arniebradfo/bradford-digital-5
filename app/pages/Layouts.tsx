@@ -10,19 +10,17 @@ const ArticleWrapper: React.FC<HtmlProps> = ({
   children,
   ...props
 }) => (
-  <section
-    className={cx(
-      className,
-      style.ArticleWrapper,
-    )}
-    {...props}
+  <section className={cx(className, style.ArticleWrapper)} {...props}>
+    <div
+      className={cx(
+        style.PageElements,
+        style.MetaHeader,
+        style.ArticleLayout,
+        style.ColumnTextChildren
+      )}
     >
-    <div className={cx(
-      style.PageElements,
-      style.MetaHeader,
-      style.ArticleLayout,
-      style.ColumnTextChildren
-    )}>{children}</div>
+      {children}
+    </div>
   </section>
 );
 
@@ -65,10 +63,13 @@ const styleColumnCount = [
   style.Columns6,
 ];
 
-const FigureCaption: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
+const FigureCaption: React.FC<
+  HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
+> = ({
   className,
   children,
-  imageProps,
+  imageProps: { className: imageClassName, ...imageProps },
+  screenshot = true,
   ...props
 }) => (
   <figure
@@ -80,7 +81,10 @@ const FigureCaption: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
     )}
     {...props}
   >
-    <Image {...imageProps} />
+    <Image
+      className={cx(imageClassName, screenshot && style.Screenshot)}
+      {...imageProps}
+    />
     <figcaption>{children}</figcaption>
   </figure>
 );
@@ -95,10 +99,14 @@ const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   </div>
 );
 
-const _Image: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
-  className,
-  imageProps,
-}) => <Image className={cx(className, style.Screenshot)} {...imageProps} />;
+const _Image: React.FC<
+  HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
+> = ({ className, imageProps, screenshot = true }) => (
+  <Image
+    className={cx(className, screenshot && style.Screenshot)}
+    {...imageProps}
+  />
+);
 
 export const Layouts = {
   ArticleWrapper,
