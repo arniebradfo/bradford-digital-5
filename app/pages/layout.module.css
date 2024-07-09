@@ -9,7 +9,7 @@
   width: 100%;
   max-width: var(--column-full);
   padding: var(--column-padding);
-  padding-top: calc(var(--column-padding) * 2.5);
+  padding-top: calc(var(--column-padding) * 3.5);
 }
 
 .PageElements {
@@ -27,6 +27,10 @@
     margin-block: .5rem;
     margin-top: 2em;
     line-height: 1.2;
+  }
+
+  & h2:first-of-type{
+    margin-top: 0;
   }
 
   hr {

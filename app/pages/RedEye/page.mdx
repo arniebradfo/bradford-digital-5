@@ -2,11 +2,13 @@ import { cx } from "../../utils/joinClassNames";
 import { sections } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
 import { RedEyeImages } from "./images"
 import style from "./page.module.css"
 
 <Layouts.ArticleWrapper>
+
 
 {/* # RedEye - Red Team Log Visualization 
 *RedEye is a visualization tool developed for the US CyberSecurity and Infrastructure Security Agency (CISA) to improve the analysis and communication of Red Team cybersecurity assessments. The tool imports log records and summarizes them into a navigable hierarchy, timeline, and interactive node-graph visualization. Additionally, RedEye includes commenting and annotation features for providing context to address identified vulnerabilities.*
@@ -19,8 +21,9 @@ import style from "./page.module.css"
 - **Timeline** - 1 Year (30% weekly for 3 years) 2020-2023 
 - **Client** - US CyberSecurity and Infrastructure Security Agency (CISA) */}
 
+<PageDetails />
 
-## The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
+## `Background & Context `The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
 
 Red Teaming is a proactive cybersecurity strategy that involves simulating potential attacks to identify and rectify network and system vulnerabilities. This process is performed by a group of cybersecurity professionals who act as "ethical hackers" employing tactics similar to those used by actual attackers. The ultimate goal of Red Teaming is to improve the security of a system or network by identifying and fixing vulnerabilities before they can be exploited by malicious hackers.
 
