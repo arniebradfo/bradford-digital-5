@@ -15,6 +15,7 @@ export default function PagesLayout({
         className={cx(
           style.PageElements,
           style.MetaHeader,
+          style.ArticleMain
           // styleSection.SectionWrapper
         )}
       >

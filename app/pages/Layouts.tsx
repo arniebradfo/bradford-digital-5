@@ -48,7 +48,12 @@ const FigureCaption: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   ...props
 }) => (
   <figure
-    className={cx(className, style.ColumnFull, style.ColumnContainer, style.Figure)}
+    className={cx(
+      className,
+      style.ColumnFull,
+      style.ColumnContainer,
+      style.Figure
+    )}
     {...props}
   >
     <Image {...imageProps} />
@@ -56,9 +61,20 @@ const FigureCaption: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   </figure>
 );
 
+const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
+  className,
+  imageProps,
+  ...props
+}) => (
+  <div className={cx(className, style.Graphic)} {...props}>
+    <Image {...imageProps} />
+  </div>
+);
+
 export const Layouts = {
   ColumnFull,
   ColumnMax,
   Columns,
   FigureCaption,
+  Graphic,
 };

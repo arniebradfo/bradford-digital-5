@@ -1,3 +1,7 @@
+.ArticleMain{
+  background-color: var(--background-color-1);
+}
+
 .ArticleLayout {
   margin: 0 auto;
   width: 100%;
@@ -94,15 +98,22 @@
   }
 }
 
+.Graphic {
+  background-color: var(--background-color-3);
+  border-radius: var(--border-radius);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
 /* COLUMN COUNTS ---------------------- */
 
 .Columns {
   display: grid;
   --gap: 16px;
   gap: var(--gap);
-  margin-block: var(--gap);
   grid-template-columns: repeat(1, 1fr);
-
 }
 
 .Columns1 {

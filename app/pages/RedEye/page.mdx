@@ -3,6 +3,7 @@ import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
 import { Layouts } from "../Layouts";
 import { RedEyeImages } from "./images"
+import style from "./page.module.css"
 
 # RedEye - Red Team Log Visualization 
 *RedEye is a visualization tool developed for the US CyberSecurity and Infrastructure Security Agency (CISA) to improve the analysis and communication of Red Team cybersecurity assessments. The tool imports log records and summarizes them into a navigable hierarchy, timeline, and interactive node-graph visualization. Additionally, RedEye includes commenting and annotation features for providing context to address identified vulnerabilities.*
@@ -44,17 +45,36 @@ It's important to note that while this case study is structured topically around
 
 To first research the landscape I conducted interviews with the CISA Red Team “Operators” and PNNL Cyber Security Subject Matter experts to better understand the industry, Tools, Processes, Methods, and Goals of our potential users. My standard interview process. I identified four user types to target for app development: 
 
+<Layouts.ColumnFull>
+<Layouts.Columns count={4} className={style.GraphicDescription}>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i33}}/>
 #### Red Team Operator 
 CISA, our client, and other Red Teams. Their main goal is to probe the a software network for vulnerabilities and relay those issues to network's system admins. They need RedEye to ingest Cobalt Strike logs and data, visualize the intrusion campaign, annotate logs, prioritize issues, and send a report to the system admins. 
+</div>
 
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i30}}/>
 #### Blue Team 1: Cyber Security Specialist 
 This user type is responsible for defending their network from intrusion, investigating alerts, and managing risks. They need RedEye to visualize and review the Red Team's campaign, understand the methods of network exploration, and possibly understand how to fix vulnerabilities. 
+</div>
 
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i32}}/>
 #### Blue Team 2: IT Professional 
 This user type manages an organization's LAN, WAN, VPN, users, roles, permissions, and local infrastructure. They need RedEye to provide the same services as for Cyber Security Specialist, but possibly less technical in nature. 
+</div>
 
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i31}}/>
 #### Blue Team 3: Organization Leadership 
 This user type manages the IT department and controls budget and priority. They need RedEye to visualize the Red Team's campaign, be convinced that the attack happened and is a problem, understand why it happened in broad strokes, and know how to allocate resources to get it fixed.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 
 ### `System Research `Understanding the Data Structure of a Cyber Attack 
 
