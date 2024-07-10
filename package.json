@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generateImgSrc": "node ./app/media/generateFilePaths.js ./public"
+    "generateImgSrc": "node ./app/media/generateImgSrc.js ./public"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
