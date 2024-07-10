@@ -85,6 +85,7 @@ const FigureCaption: React.FC<
     <Image
       className={cx(imageClassName, screenshot && style.Screenshot)}
       sizes={imgSizes.column1Text}
+      placeholder="blur"
       {...imageProps}
     />
     <figcaption>{children}</figcaption>
@@ -106,14 +107,14 @@ const _Image: React.FC<
 > = ({ className, imageProps, screenshot = true }) => (
   <Image
     className={cx(className, screenshot && style.Screenshot)}
+    placeholder="blur"
     {...imageProps}
   />
 );
 
-const Note: React.FC<HtmlProps> = ({
-  className,
-  ...props
-}) => <aside className={cx(className, style.Note)} {...props} />;
+const Note: React.FC<HtmlProps> = ({ className, ...props }) => (
+  <aside className={cx(className, style.Note)} {...props} />
+);
 
 export const Layouts = {
   ArticleWrapper,
@@ -124,5 +125,5 @@ export const Layouts = {
   FigureCaption,
   Graphic,
   Image: _Image,
-  Note
+  Note,
 };
