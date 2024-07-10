@@ -1,7 +1,7 @@
 :root {
   /* --plex-font-family- are from layout.tsx */
   --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
-  --font-family-mono: var(--plex-font-family-mono, monospace), monospace;
+  --font-family-mono: var(--plex-font-family-mono, monospace), ui-monospace, Menlo, Monaco, monospace;
   --font-weight-normal: 400;
   --font-weight-bold: 500;
 
@@ -137,4 +137,8 @@ a {
 hr {
   border: none;
   border-bottom: var(--border-1);
+}
+
+pre, code{
+  font-family: var(--font-family-mono);
 }
