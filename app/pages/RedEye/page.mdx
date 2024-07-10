@@ -86,7 +86,7 @@ The [US CyberSecurity and Infrastructure Security Agency](https://www.cisa.gov/)
 
 Command and Control (C2) software like [Cobalt Strike](https://www.cobaltstrike.com/) is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_CobaltStrikeLogFilespng}}>
+<Layouts.FigureCaption imageProps={{ alt: "Screenshot of Cobalt Strike log files", src: Src.public_lfsmedia_RedEye_CobaltStrikeLogFilespng}}>
 Even a small Cobalt Strike data set could comprise hundreds or thousands of raw log files.
 </Layouts.FigureCaption>
 
@@ -109,25 +109,25 @@ To first research the landscape I conducted interviews with the CISA Red Team �
 <Layouts.Columns count={2} className={style.GraphicDescription}>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_PersonasRedTeamsvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Lightning bolt icon representing Red Team", src: Src.public_lfsmedia_RedEye_PersonasRedTeamsvg}}/>
 #### Red Team Operator 
 CISA, our client, and other Red Teams. Their main goal is to probe the a software network for vulnerabilities and relay those issues to network's system admins. They need RedEye to ingest Cobalt Strike logs and data, visualize the intrusion campaign, annotate logs, prioritize issues, and send a report to the system admins. 
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_PersonasBlueTeamsvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Shield icon representing Blue Team", src: Src.public_lfsmedia_RedEye_PersonasBlueTeamsvg}}/>
 #### Blue Team 1: Cyber Security Specialist 
 This user type is responsible for defending their network from intrusion, investigating alerts, and managing risks. They need RedEye to visualize and review the Red Team's campaign, understand the methods of network exploration, and possibly understand how to fix vulnerabilities. 
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_PersonasITsvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Computer icon representing IT Professionals", src: Src.public_lfsmedia_RedEye_PersonasITsvg}}/>
 #### Blue Team 2: IT Professional 
 This user type manages an organization's LAN, WAN, VPN, users, roles, permissions, and local infrastructure. They need RedEye to provide the same services as for Cyber Security Specialist, but possibly less technical in nature. 
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_PersonasExecutivesvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Pyriamid icon representing Organizational Leadership", src: Src.public_lfsmedia_RedEye_PersonasExecutivesvg}}/>
 #### Blue Team 3: Organization Leadership 
 This user type manages the IT department and controls budget and priority. They need RedEye to visualize the Red Team's campaign, be convinced that the attack happened and is a problem, understand why it happened in broad strokes, and know how to allocate resources to get it fixed.
 </div>
@@ -144,7 +144,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 
 <Layouts.ColumnFull>
 
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_NetworkOntologypng, sizes: imgSizes.column1Full}}/>
+<Layouts.Graphic imageProps={{ alt: "Diagram showing the process and ontology of a RedTeam campaign into a target network", src: Src.public_lfsmedia_RedEye_NetworkOntologypng, sizes: imgSizes.column1Full}}/>
 
 <Layouts.Columns count={4} className={style.GraphicDescription}>
 
@@ -170,7 +170,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 #### Cobalt Strike UI 
 Cobalt Strike provides a basic visualization of the current state of its Beacon chain. However, it lacks in-depth details and is primarily designed for issuing commands to active Beacons. It does not group Beacons by Host, display multiple Team Servers, or show exited Beacons or any form of historical information.
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_CobaltStrikeScreenshotpng}}>
+<Layouts.FigureCaption imageProps={{ alt: "A Screenshot of the Cobalt Strike UI", src: Src.public_lfsmedia_RedEye_CobaltStrikeScreenshotpng}}>
 This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon.
 
 Source: [CS Screenshots](https://www.cobaltstrike.com/resources/screenshots)
@@ -188,14 +188,14 @@ Following a User Story Mapping session with the team, we identified four primary
 <Layouts.Columns count={4} className={style.GraphicDescription}>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_FeaturesImportsvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Arrow icon representing Import features", src: Src.public_lfsmedia_RedEye_FeaturesImportsvg}}/>
 #### 1. Import 
 - **Select Log Files** - from Cobalt Strike output
 - **Run Parser** - merges files by Beacon creating graph structure and additional data enrichment 
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_FeaturesExploresvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Connected Nodes icon represening Exlporation features", src: Src.public_lfsmedia_RedEye_FeaturesExploresvg}}/>
 #### 2. Explore 
 - **List, Filter, Sort** - Navigate the textual data in a hierarchical representation
 - **Node Graph** - Navigate the entities in a map like visual
@@ -205,7 +205,7 @@ Following a User Story Mapping session with the team, we identified four primary
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_FeaturesAnnotatesvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Comment icon representing Annotation features", src: Src.public_lfsmedia_RedEye_FeaturesAnnotatesvg}}/>
 #### 3. Annotate 
 - **Add Comments** - provide context to commands 
 - **Edit Graph** - modify layout, connections, and visual styling 
@@ -214,7 +214,7 @@ Following a User Story Mapping session with the team, we identified four primary
 </div>
 
 <div>
-<Layouts.Graphic imageProps={{src: Src.public_lfsmedia_RedEye_FeaturesPresentsvg}}/>
+<Layouts.Graphic imageProps={{ alt: "Video Playback icon representing Presentation features", src: Src.public_lfsmedia_RedEye_FeaturesPresentsvg}}/>
 #### 4. Present 
 - **Export** - Data sanitization and file handoff to Blue Team
 - **Presentation Mode** - step through topics grouped by comment tags
@@ -239,14 +239,14 @@ These options are then presented to the internal team to gather feedback, and a 
 <Layouts.ColumnFull>
 
 <Layouts.Columns count={3}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFi01png, sizes: imgSizes.column3Full}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFi02png, sizes: imgSizes.column3Full}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFi03png, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye", src: Src.public_lfsmedia_RedEye_LowFi01png, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye", src: Src.public_lfsmedia_RedEye_LowFi02png, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye", src: Src.public_lfsmedia_RedEye_LowFi03png, sizes: imgSizes.column3Full}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFi04png, sizes: imgSizes.column2Full}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFi05png, sizes: imgSizes.column2Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye", src: Src.public_lfsmedia_RedEye_LowFi04png, sizes: imgSizes.column2Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye", src: Src.public_lfsmedia_RedEye_LowFi05png, sizes: imgSizes.column2Full}} />
 </Layouts.Columns>
 
 </Layouts.ColumnFull>
@@ -260,21 +260,21 @@ We explored several different navigation concepts, each with its own focus, cost
 <Layouts.Columns count={3} className={style.GraphicDescription}>
 
 <div>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFiNav01png, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye displaying a hierarchical folder navigation", src: Src.public_lfsmedia_RedEye_LowFiNav01png, sizes: imgSizes.column3Full}} />
 #### Folder Structure
 This approach didn't align with the data structure as Team Servers can connect to more than one Host and Beacon, preventing a clean tree structure.
 </div>
 
 <div>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFiNav02png, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye displaying a tabbed navigation navigation", src: Src.public_lfsmedia_RedEye_LowFiNav02png, sizes: imgSizes.column3Full}} />
 #### 2 Panel with Tabs
 This approach was closer to the requirement, but the double panel ended up consuming too much space when additional tabs were incorporated.
 </div>
 
 <div>
 <div style={{display:'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8}}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFiNav03apng, sizes: imgSizes.column3Full}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_LowFiNav03bpng, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye displaying a list navigation", src: Src.public_lfsmedia_RedEye_LowFiNav03apng, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{ alt: "A low fedility mockup of RedEye displaying a breadcrumb navigation", src: Src.public_lfsmedia_RedEye_LowFiNav03bpng, sizes: imgSizes.column3Full}} />
 </div>
 #### Paged with Breadcrumbs
 The final selected approach optimized space by dedicating a full panel to each navigation and page view, and allowing the graph visualization to handle the display of entity relationships.
@@ -293,26 +293,26 @@ After making necessary adjustments based on the feedback, UI development work co
 <Layouts.ColumnMax>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi01png, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi02png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a the app homepage", src: Src.public_lfsmedia_RedEye_HighFi01png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a timeline exploration feature", src: Src.public_lfsmedia_RedEye_HighFi02png, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={1}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi03png, sizes: imgSizes.column1Max }} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a log line inspection feature", src: Src.public_lfsmedia_RedEye_HighFi03png, sizes: imgSizes.column1Max }} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi04png, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi08png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying an annotation feature", src: Src.public_lfsmedia_RedEye_HighFi04png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a search feature", src: Src.public_lfsmedia_RedEye_HighFi08png, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={1}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi05png, sizes: imgSizes.column1Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a slideshow-like presentation feature", src: Src.public_lfsmedia_RedEye_HighFi05png, sizes: imgSizes.column1Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi06png, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_HighFi07png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a raw logs reading feature", src: Src.public_lfsmedia_RedEye_HighFi06png, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A RedEye mockup displaying a screenshot review feature", src: Src.public_lfsmedia_RedEye_HighFi07png, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 </Layouts.ColumnMax>
@@ -333,7 +333,7 @@ While there is a React Component Library for Carbon, the development team was no
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_CarbonBasedDesignSystempng, sizes: imgSizes.column1Text}} />
+<Layouts.Image imageProps={{ alt: "A graphic displaying the theme and style of the RedEye design system", src: Src.public_lfsmedia_RedEye_CarbonBasedDesignSystempng, sizes: imgSizes.column1Text}} />
 
 ### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
 
@@ -346,7 +346,7 @@ The main challenge was visually clustering the Beacons (dots) by their containin
 
 <Layouts.ColumnFull>
 
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_NodeGraphProcessingpng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A diagram showing the sequential processing of node data in 3 steps", src: Src.public_lfsmedia_RedEye_NodeGraphProcessingpng, sizes: imgSizes.column1Full}} />
 
 <Layouts.Columns count={2} className={style.GraphicDescription}>
 
@@ -371,7 +371,7 @@ This approach simplified the visual structure and, as it turned out, was signifi
 
 #### The Two Tiered Approach
 
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_NodeGraphLayeringpng, sizes: imgSizes.column1Text}} />
+<Layouts.Image imageProps={{ alt: "A comparison of the 2 tiers of graph layout", src: Src.public_lfsmedia_RedEye_NodeGraphLayeringpng, sizes: imgSizes.column1Text}} />
 
 I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some pre-processing of data.  
 
@@ -395,8 +395,8 @@ Further performance improvement and visualization simplification can be achieved
 
 <Layouts.Columns count={1} className={style.GraphicDescription}>
 
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_NodeGraphHeropng, sizes: imgSizes.column1Max}} />
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_NodeGraphTimeSequencepng, sizes: imgSizes.column1Max}} />
+<Layouts.Image imageProps={{ alt: "An example screenshot of the RedEye Hierarical Node Graph", src: Src.public_lfsmedia_RedEye_NodeGraphHeropng, sizes: imgSizes.column1Max}} />
+<Layouts.Image imageProps={{ alt: "A grid of RedEye graph examples displaying the time dimesions crossed with different interations states and node types", src: Src.public_lfsmedia_RedEye_NodeGraphTimeSequencepng, sizes: imgSizes.column1Max}} />
 
 </Layouts.Columns>
 
@@ -416,7 +416,7 @@ The commenting feature was designed to allow a Red Team to provide post-campaign
 
 Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub’s code comments.
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot01CommentsInlinepng}}>
+<Layouts.FigureCaption imageProps={{ alt: "Mockups of Inline Commenting feature", src: Src.public_lfsmedia_RedEye_Screenshot01CommentsInlinepng}}>
 The interaction for this commenting task was quite simple: Select a command line and write a comment under it.
 </Layouts.FigureCaption>
 
@@ -424,17 +424,17 @@ The interaction for this commenting task was quite simple: Select a command line
 
 After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an “Annotation Set.” The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot02CommentsPopoverpng}}>
+<Layouts.FigureCaption imageProps={{ alt: "Mockups of Revised Commenting feature showing a single comment input", src: Src.public_lfsmedia_RedEye_Screenshot02CommentsPopoverpng}}>
 **Single Comment** - a quick and simple way to add a comment. Click a line and write. 
 
 **Add Command to Existing Comment** - allows for editing existing annotation sets when commands are not accessible from the same list
 </Layouts.FigureCaption>
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot03CommentsMultiCommandpng}}>
+<Layouts.FigureCaption imageProps={{ alt: "Mockups of Revised Commenting feature showing mutliple command selection", src: Src.public_lfsmedia_RedEye_Screenshot03CommentsMultiCommandpng}}>
 **Multi-Command Comment** - a mode to select several comments in a list and comment on all of them together.
 </Layouts.FigureCaption>
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot04CommentsTabpng}}>
+<Layouts.FigureCaption imageProps={{ alt: "Mockups of Revised Commenting feature showing a tab with all the comments", src: Src.public_lfsmedia_RedEye_Screenshot04CommentsTabpng}}>
 **Comment Tabs** - provide a dedicated location for viewing and editing existing comments.
 </Layouts.FigureCaption>
 
@@ -448,8 +448,8 @@ Ultimately, we developed a headless server capable of functioning in multiple mo
 
 #### Headless Server 
 
-<Layouts.FigureCaption imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot05ServerTerminalpng}}>
-Recognizing that a terminal window might be somewhat complex for some users, I incorporated basic branding and labeling to help clarify its purpose and usage.
+<Layouts.FigureCaption imageProps={{ alt: "A screenshot of a server terminal window with an ascii art logo", src: Src.public_lfsmedia_RedEye_Screenshot05ServerTerminalpng}}>
+Recognizing that a terminal window might be somewhat complex for some users, I incorporated basic ascii-art branding and labeling to help clarify its purpose and usage.
 </Layouts.FigureCaption>
 
 ### `User Testing & Feedback `Incorporating MITRE ATT&CK Links for Auto-Annotation
@@ -461,7 +461,7 @@ The [MITRE ATT&CK framework](https://attack.mitre.org/) is a classification syst
 One of the earliest insights from user testing was the necessity for a comprehensive search feature. Initially, we offered a basic search feature that only covered the names of entities for navigation. However, during testing, users attempted global searches for specific strings in all log text output and were disappointed by the limited functionality. Delivering a performant search experience across all log text posed a significant challenge for the development team and required strong advocacy on my part, but it ultimately became one of the most useful features. Later iterations included sorting and filtering by result types.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot06Searchpng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of a Search window", src: Src.public_lfsmedia_RedEye_Screenshot06Searchpng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `User Testing & Feedback `Graph Customization
@@ -469,7 +469,7 @@ One of the earliest insights from user testing was the necessity for a comprehen
 The most frequently requested feature from CSIA was the ability to edit and customize the graph. A typical dataset can include hundreds of Beacons, so CISA expressed a desire to hide less important data and highlight more significant information. We offered visual customizations to individual nodes, including shape, color, and name. Additionally, we provided a manual layout mode and the ability to show or hide labels.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot07GraphCustomizationpng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A graphic displaying Graph Customization options", src: Src.public_lfsmedia_RedEye_Screenshot07GraphCustomizationpng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `Challenges User Testing & Feedback `How Do I Conduct User Testing when All User Activities are Confidential?
@@ -481,7 +481,7 @@ We eventually created a mostly realistic synthetic dataset that CISA could use t
 #### Redacted Mode
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: Src.public_lfsmedia_RedEye_Screenshot08RedactedModepng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of RedEye with all text obscured for redaction", src: Src.public_lfsmedia_RedEye_Screenshot08RedactedModepng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `Release and Reception `Open Source Release 
