@@ -10,7 +10,7 @@ import "./reset.css";
 import "./globals.css";
 
 const PlexSans = IBM_Plex_Sans({
-  weight: ["400", "500"],
+  weight: ["400", "600"],
   subsets: ["latin"],
   style: ['italic','normal'],
   variable: "--plex-font-family-sans",

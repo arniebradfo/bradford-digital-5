@@ -3,7 +3,7 @@
   --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
   --font-family-mono: var(--plex-font-family-mono, monospace), ui-monospace, Menlo, Monaco, monospace;
   --font-weight-normal: 400;
-  --font-weight-bold: 500;
+  --font-weight-bold: 600;
 
   --background-color-1: hsl(0, 0%, 100%);
   --background-color-2: hsl(0, 0%, 97%);
