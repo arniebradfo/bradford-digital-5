@@ -1,41 +1,49 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-/**
- * Recursively scans a directory and returns an object with file names as keys and their paths as values.
- * @param {string} dir - The directory to scan.
- * @param {object} fileMap - The object to populate with file paths.
- * @returns {object} - The populated fileMap.
- */
-function scanDirectory(dir, fileMap = {}) {
-    const files = fs.readdirSync(dir);
+const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg"];
 
-    files.forEach((file) => {
-        const filePath = path.join(dir, file);
-        const stat = fs.statSync(filePath);
+function scanDirectory(dir, fileMap = []) {
+  const files = fs.readdirSync(dir);
 
-        if (stat.isDirectory()) {
-            scanDirectory(filePath, fileMap);
-        } else {
-            fileMap[file] = filePath;
-        }
-    });
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
 
-    return fileMap;
+    if (stat.isDirectory()) {
+      scanDirectory(filePath, fileMap);
+    } else {
+      // Skip hidden and system files or files without an extension
+      if (file.startsWith(".") || !path.extname(file)) return;
+
+      if (!imageExtensions.includes(path.extname(file).toLowerCase())) return;
+
+      const relativePath = path.relative(__dirname, filePath);
+      fileMap.push(
+        `export { default as ${filePath
+          .replace(/[.\s-_]/gi, "")
+          .replace(/[\/\\]/gi, "_")} } from "${relativePath}";`
+      );
+    }
+  });
+
+  return fileMap;
 }
 
 // Get the directory to scan from the command line arguments
 const directoryToScan = process.argv[2];
 
 if (!directoryToScan) {
-    console.error('Please provide a directory to scan as a command line argument.');
-    process.exit(1); // Exit the script with an error code
+  console.error(
+    "Please provide a directory to scan as a command line argument."
+  );
+  process.exit(1); // Exit the script with an error code
 }
 
 // Define the output file path (same directory as the script)
-const outputJsonFile = path.join(__dirname, 'output.json');
+const outputJsonFile = path.join(__dirname, "index.ts");
 const result = scanDirectory(directoryToScan);
 
 // Save the result to a JSON file
-fs.writeFileSync(outputJsonFile, JSON.stringify(result, null, 2), 'utf-8');
+fs.writeFileSync(outputJsonFile, result.join(`\n`), "utf-8");
 console.log(`Result saved to ${outputJsonFile}`);
