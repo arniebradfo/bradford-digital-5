@@ -25,7 +25,7 @@ export const PageHeader: React.FC<
         <Spacer>/</Spacer>
         <Txt fg={3}>{subHeader}</Txt>
       </H1>
-      <P italic size={4} fg={2}>
+      <P bold mono size={5} fg={2}>
         {description}
       </P>
       {links && (

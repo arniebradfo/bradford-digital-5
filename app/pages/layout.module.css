@@ -42,7 +42,10 @@
   }
 
   figcaption {
-    font-style: italic;
+    /* font-style: italic; */
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-bold);
     color: var(--foreground-color-3);
   }
 
@@ -128,7 +131,7 @@
     flex: 1 1 0;
     min-width: 160px;
     max-width: var(--column-text);
-    & p {
+    & :first-child {
       margin: 0;
     }
   }
