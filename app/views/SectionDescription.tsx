@@ -27,9 +27,9 @@ export const SectionDescription: React.FC<
   ...props
 }) => (
   <div className={cx(className, style.SectionDescription)} {...props}>
-    {imageProps && (
+    {/* {imageProps && (
       <Image className={cx(style.SectionDescriptionImage)} {...imageProps} />
-    )}
+    )} */}
     {label && (
       <Txt size={6} fg={3} uppercase>
         {label}

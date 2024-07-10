@@ -85,7 +85,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
+
+  scroll-behavior: smooth;
+
 }
+
+/* *{ scroll-margin: var(--column-padding); } */
 
 h1,
 h2,

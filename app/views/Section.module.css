@@ -60,6 +60,8 @@
   gap: 2px;
   margin: -16px -20px;
   max-width: calc(var(--section-content-width) + 40px);
+
+  align-items: flex-start;
 }
 
 .ProjectLink {

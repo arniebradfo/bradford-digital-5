@@ -76,6 +76,12 @@ const redeye: ProjectFeatureSectionProps = {
         type: "outline",
         external: true,
       },
+      {
+        href: "https://arniebradfo.github.io/RedEye-Graph/",
+        children: "D3 Graph Demo",
+        type: "outline",
+        external: true,
+      },
     ],
   },
   heroImageProps: {

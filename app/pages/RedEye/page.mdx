@@ -25,8 +25,8 @@ import style from "./page.module.css"
   ),
   links: [
     {
-      href: "/pages/RedEye",
-      children: "Graph Demo",
+      href: "https://arniebradfo.github.io/RedEye-Graph/",
+      children: "D3 Graph Demo",
       type: "emphasis",
       external: true,
     },
@@ -76,7 +76,10 @@ Red Teaming is a proactive cybersecurity strategy that involves simulating poten
 
 The US CyberSecurity and Infrastructure Security Agency (CISA) maintains a Red Team that conducts cybersecurity assessments for other government agencies. To enhance the communication of their results, CISA collaborated with PNNL to develop an app that visualizes the process and outcomes of these assessments, which they refer to as "campaigns."
 
-[TLDR; SKIP TO THE MOCKUPS](#)
+<br/>
+
+<LinkButton href="#Mockups" children={"Skip the Reasearch / See the Mockups"} type="emphasis" />
+
 
 ### `The Task `Improve the Comprehension of a Network Intrusion 
 
@@ -222,6 +225,8 @@ Following a User Story Mapping session with the team, we identified four primary
 
 Our strategy was to start development with the import and exploration components, then use that readonly "see everything" UI to gather Red Teamer feedback on what they might want to annotate, edit, and present to the Blue Team.
 
+<br id="Mockups" style={{height:'0'}} />
+
 ### `UI Design `Low Fi Layout Options
 
 After identifying features in abstract, I jump to my design software and create placeholder boxes for each feature to rapidly mockup layout options. In this case, boxes for the timeline, graph, list, comment, search, etc... I arrange these elements in as many different layouts as I can conceive to experiment with workflows. The detailed function of each feature is not important at this stage, only the relationship between features as they relate to workflow.
@@ -239,6 +244,7 @@ These options are then presented to the internal team to gather feedback, and a 
 <Layouts.Image imageProps={{src: RedEyeImages.i19}} />
 </Layouts.Columns>
 </Layouts.ColumnFull>
+
 
 ### `UI Design `Low Fi Example: Navigation Option Iterations 
 
@@ -374,7 +380,7 @@ Further performance improvement and visualization simplification can be achieved
 
 <br/>
 
-<LinkButton href="https://arniebradfo.github.io/RedEye-Graph/" children={"Interactive Demo Graph"} type="emphasis" external />
+<LinkButton href="https://arniebradfo.github.io/RedEye-Graph/" children={"Interactive D3 Demo Graph"} type="emphasis" external />
 
 <br/>
 <br/>
@@ -524,11 +530,6 @@ Although CISA wouldn't have permitted this, I wish we could have released the pr
 
 In all projects following this one, I have pushed for the deployment of an alpha version as soon as possible, even before reaching an MVP stage. From my experience, waiting for a product to be "ready" often results in unnecessary delays in the user feedback cycle, which is crucial for identifying real issues and implementing effective solutions. It's essential to solicit feedback early and often, and to avoid locking into specific details and priorities too far in advance, allowing user feedback to help guide the product's development. The tighter the iterations of feedback, design, and deployment are, the more a team can understand and prioritize actual utility for a user.
 
----
-
-JB
-
-
 </Layouts.ArticleWrapper>
 
-<ProjectFeatureSection {...sections.hydropowerELibrary} />HeroImage, 
+{/* <ProjectFeatureSection {...sections.hydropowerELibrary} /> */}

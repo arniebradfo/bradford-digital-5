@@ -21,10 +21,10 @@ export default function PagesLayout({
           {children}
         </article>
       </main>
-      <Header />
-      <hr style={{marginInline:'var(--column-padding)'}} />
-      <Footer style={{marginTop:'calc(var(--column-padding) * -.75)'}} />
-      {/* <Footer /> */}
+      <Header style={{borderBottom:'var(--border-1)'}} />
+      {/* <hr style={{marginInline:'var(--column-padding)', maxWidth:'calc(var(--column-max) - var(--column-padding) * 2)', margin:'0 auto'}} /> */}
+      {/* <Footer style={{marginTop:'calc(var(--column-padding) * -.75)'}} /> */}
+      <Footer />
     </>
   );
 }

@@ -64,6 +64,7 @@ export const BlueprintLinksSection: React.FC<React.ComponentProps<"div">> = ({
           <ProjectLinkButton
             key={i}
             className={cx(style.ProjectLink)}
+            style={{}}
             external
             {...linkProps}
           />

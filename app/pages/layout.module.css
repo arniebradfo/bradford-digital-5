@@ -8,8 +8,7 @@
   margin: 0 auto;
   width: 100%;
   max-width: var(--column-full);
-  padding: var(--column-padding);
-  padding-top: calc(var(--column-padding) * 3.5);
+  padding: calc(var(--column-padding) * 3.5) var(--column-padding) calc(var(--column-padding) * 2);
 }
 
 .PageElements {
