@@ -4,6 +4,7 @@ import { sections, ProjectFeatureSection } from "../../views/ProjectFeatureSecti
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
 import { LinkButton } from "../../components/LinkButton";
+import Link from "next/link";
 import { PageDetails } from "../../components/PageDetails";
 import { PageHeader } from "../../components/PageHeader";
 import { Layouts } from "../Layouts";
@@ -230,7 +231,7 @@ In iteration 2, we introduced automatic document tagging for the most important 
 
 Additionally, I adjusted the app's theme in iteration 2. However, most users didn't like the vibrant orange accent color, leading me to adopt a more neutral style in the next iteration.
 
-### `User Testing `Cutting Out User Personalization and Saved Filter Features
+### `User Testing `Cutting Features: User Personalization and Saved Filter Features
 
 To inform iteration 2, I conducted observational user testing of the first iteration. Users initially requested the ability to save filter sets and tag specific documents. Implementing these personalization features would require user account management and saving user data. Additionally, the functionality for saving, editing, and overwriting filters and tags turned out to be quite complex.
 
@@ -335,9 +336,7 @@ The initial scope of this project deprioritized a responsive mobile layout to cu
 
 ---
 
-Thanks for reading
-
-JB
+Thanks for reading. Return **<Link href="/" children={"Home"}/>** to continue.
 
 </Layouts.ArticleWrapper>
 
