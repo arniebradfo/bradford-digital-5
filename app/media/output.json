@@ -64,7 +64,6 @@
       "Project-Icon-Wordpress.svg": "/lfs-media/Project-Icons/Project-Icon-Wordpress.svg"
     },
     "RedEye": {
-      ".DS_Store": "/lfs-media/RedEye/.DS_Store",
       "Carbon-Based-Design-System.png": "/lfs-media/RedEye/Carbon-Based-Design-System.png",
       "Cobalt-Strike-Log-Files.png": "/lfs-media/RedEye/Cobalt-Strike-Log-Files.png",
       "Cobalt-Strike-Screenshot.png": "/lfs-media/RedEye/Cobalt-Strike-Screenshot.png",
@@ -112,7 +111,6 @@
       "Test.png": "/lfs-media/RedEye/Test.png"
     },
     "Resume": {
-      ".DS_Store": "/lfs-media/Resume/.DS_Store",
       "Resume-James-Bradford-UX-Engineer.pdf": "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
       "Resume-James-Bradford-UX-Engineer.png": "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.png"
     }
