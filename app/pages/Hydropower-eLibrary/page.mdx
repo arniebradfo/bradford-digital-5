@@ -1,0 +1,259 @@
+import { cx } from "../../utils/joinClassNames";
+import { imgSizes } from "../../utils/imgSizes";
+import { sections, ProjectFeatureSection } from "../../views/ProjectFeatureSections";
+import { HeroImage } from "../../components/HeroImage";
+import { Txt } from "../../components/Text";
+import { LinkButton } from "../../components/LinkButton";
+import { PageDetails } from "../../components/PageDetails";
+import { PageHeader } from "../../components/PageHeader";
+import { Layouts } from "../Layouts";
+import { UserTestResultsTable } from "./UserTestResultsTable"
+import * as Src from "../../media"
+
+<PageHeader {...{
+  header: "Hydropower eLibrary",
+  subHeader: "A comprehensive repository of hydropower projects and their licensing document records",
+  description: (
+    <>
+      The Hydropower eLibrary is a free online repository for documents and
+      data related to U.S. hydropower projects and infrastructure. It
+      includes all hydropower documents from the FERC eLibrary, a
+      comprehensive list of FERC hydropower projects, and an interactive map
+      of existing U.S. hydro installations.
+    </>
+  ),
+  links: [
+    {
+      href: "https://hydropowerelibrary.pnnl.gov",
+      children: "Live Site",
+      type: "emphasis",
+      external: true,
+    },
+  ],
+  heroImageProps: {
+    ...sections.hydropowerELibrary.heroImageProps,
+    href: undefined
+  }
+}} />
+
+<Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  {
+    label: "Role",
+    text: "Product Owner, UX Design, & Frontend Engineering",
+  },
+  {
+    label: "Team",
+    text: "6 Contributors",
+  },
+  {
+    label: "Timeline",
+    text: (
+      <>
+        <Txt>1 Year </Txt>
+        <Txt fg={3}>(25 % weekly for 4 years) </Txt>
+        <Txt fg={3}>2020-2024+</Txt>
+      </>
+    ),
+  },
+  {
+    label: "Client",
+    text: "US DOE Water Power Technologies Office (WPTO)",
+  },
+]} />
+
+
+## `Problem `FERC Hydropower Licensing Documents are Difficult to Find
+
+The [Federal Energy Regulatory Commission (FERC)](https://www.ferc.gov/)’s [eLibrary](https://elibrary.ferc.gov/) is an online records information system containing millions of documents for the four industries FERC regulates: electric, hydropower, natural gas, and oil. These documents are particularly valuable to the hydropower community as they offer current and historical data on environmental studies and licensing conditions for individual hydropower projects.
+
+However, users have reported frustration with finding and accessing relevant documents within the eLibrary due to its poor user interface and confusing data structure. The U.S. Department of Energy's [Water Power Technologies Office (WPTO)](https://www.energy.gov/eere/water/water-power-technologies-office) tasked PNNL with creating a hydropower-focused version of the FERC eLibrary. This new version aims to provide hydropower industry professionals with a better user experience in locating FERC documents and additional hydropower data not included in the original FERC eLibrary.
+
+### `User Research & Context `The Original FERC eLibrary
+
+First, I interviewed and observed hydropower professionals using the [FERC eLibrary](https://elibrary.ferc.gov/) and noted several key issues common to most users:
+- **Project ID Barrier**: Finding a hydropower project's P-0000 ID number is a prerequisite for any search related to that project. There is no list of these ids, creating a significant barrier for users before they can even begin a document search.
+- **Inefficient Search Results**: A general search yields too many results, while a more targeted search excludes too much.
+- **Irrelevant Industry Data**: The categories and filters are designed for compatibility with all FERC-regulated industries, but our users are only interested in hydropower data (not transmission, oil, or natural gas).
+- **Confusing Layout**: Results are displayed in a table with a confusing layout. Users often do not understand why a result is returned, how sorting works, or how to navigate to view a result.
+- **Slow File Download Requirement**: Reviewing the actual contents of a document requires downloading the original file. These files can be quite large, resulting in slow download times.
+- **Irrelevant Document Types**: Users typically search for a small number of document types associated with the licensing process, such as License Issuances, License Amendments, and Environmental Reports. Most other records are obstacles to finding these "Key Documents."
+- **Poor Data Quality**: Data quality on the FERC eLibrary is generally poor, with frequent mis-categorizations, inconsistencies in naming conventions, and typos that make keyword searches extremely difficult.
+
+![[Pasted image 20240629180627.png]]
+A Screenshot of the original FERC eLibrary search and results page (with ctrl+F highlighting of search term)
+
+---
+
+## `Iteration 0 `Initial Designs, Layout, and Prototyping
+
+
+### Low Fi Mockups
+
+I began my design exploration with a large set of low-fidelity mockups to compare different layout options. The top five concepts are shown here. From these, I selected two to advance to high-fidelity prototypes: "2 Column Alt" as the primary option, and "1-2 Column Hybrid" as a backup.
+
+![[Pasted image 20240629103211.png]]
+
+### 2 Column Layout - High Fi Prototypes
+
+Next, I created high-fidelity interactive prototypes to develop my preferred "2 Column Alt" layout.
+
+![[Pasted image 20240629104821.png]]
+
+### Single Page Scrolling Alternate
+
+I also explored the "1-2 Column Hybrid" layout as a backup. Although I liked this more simplified concept, discussions with users and engineers led to the decision to go with the more complex layout.
+
+![[Pasted image 20240629105136.png]]
+
+### Switching Theme to Avoid Mis-Crediting Our Client
+
+Initially, I adopted the style of the [FERC.gov website](https://www.ferc.gov/industries-data/hydropower) by theming [Blueprint.js](https://blueprintjs.com/docs/) using my [Blueprint Styler](https://pnnl.github.io/blueprint-styler/) library. However, after the first round of feedback, the client (WPTO) requested a style change to avoid any brand association that might imply credit to FERC.
+
+---
+
+## `Iteration 1 `Proof of Concept
+
+### Getting the Data from the FERC eLibrary
+
+As the product owner, I worked closely with our data scientists and engineers to plan the data ingestion pipeline. We discovered that we could use the same API that the FERC eLibrary UI search uses to pull data. We considered two approaches:
+
+#### Use the FERC eLibrary as Our Database
+
+With this minimal approach, our UI would search the FERC eLibrary via their search API but provide a better search experience by translating certain elements like tags into advanced FERC filter sets on a proxy server.
+
+![[Pasted image 20240629170755.png]]
+
+Use the FERC eLibrary as our database, 
+- **Pros**: No need to host our own data. Dataset is always up-to-date.
+- **Cons**: Requires setting up a server proxy to transform data into a different structure. Dependence on another site for everything; if they block us or go offline, we are affected. No display of documents raw text.
+
+#### Copy and Host Our Own Data
+
+With this more robust and traditional approach, we'd pull, enrich, and save a copy of *all* relevant data from the FERC eLibrary (except for original files). We opted for this approach to have more control.
+
+![[Pasted image 20240629170804.png]]
+
+- **Pros**: Ability to enrich ingested data to improve data quality, including parsing raw text from documents. Ability to manage how data is queried. Independence from FERC eLibrary's servers and API. 
+- **Cons**: Initial need to pull a large volume of data (1.4 million documents). Daily updates required, so data will be one day behind. Costs associated with hosting a large amount of data.
+
+### Hydropower Projects Dataset
+
+User interviews revealed the need for a list of FERC Hydropower Projects to accompany and cross-link with the documents dataset. We identified a set of regularly updated Excel sheets published on the [Hydropower Licensing Page](https://www.ferc.gov/licensing) of the FERC website. I then collaborated with our data engineers to create an ingestion script that pulls these Excel sheets weekly, merges them into a unified schema, and publishes a new Projects dataset.
+
+### Parsing Raw Text 
+
+One of the primary user requests was the ability to quickly preview document contents without having to download them. Users wanted to scan a snippet of text to decide if the document was worth a deeper look.
+
+Parsing raw text also allowed us to perform better keyword searches, although the extreme volume of text later proved to be a performance issue.
+
+I collaborated with our engineers to devise an approach to parse as much raw text as possible. Despite our efforts, data gaps remained. Some files were image scans requiring OCR, and some raw text was formatted irregularly. We decided that achieving around 80% coverage was acceptable and moved on.
+
+![[Pasted image 20240629120140.png]]
+
+[Hydropower eLibrary | PUBLIC103012P1904TransmittalLtrNOIPAD.PDF | FERC eLibrary Document: Accession 20121031-5296 (pnnl.gov)](https://hydropowerelibrary.pnnl.gov/Documents/20121031-5296/01A72CA1-66E2-5005-8110-C31FAFC91712)
+
+### Functional React Prototype
+
+The first iteration concluded with a functional application that successfully displayed all the collected data.
+
+![[Pasted image 20240629112838.png]]
+
+---
+
+## `Iteration 2 `Private Alpha
+
+### Project Search Features & Key Document Tagging
+
+In iteration 2, we introduced automatic document tagging for the most important "Key Documents" and a project search feature that allows users to search for projects by name, organization, or waterway, rather than just the P-0000 project ID number. We also experimented with a simplified "minimal input" search homepage, but it tested poorly with users and was removed in iteration 3.
+
+![[Pasted image 20240629123740.png]]
+
+
+Additionally, I adjusted the app's theme in iteration 2. However, most users didn't like the vibrant orange accent color, leading me to adopt a more neutral style in the next iteration.
+
+### User Testing - Cutting Out User Personalization and Saved Filter Features
+
+To inform iteration 2, I conducted observational user testing of the first iteration. Users initially requested the ability to save filter sets and tag specific documents. Implementing these personalization features would require user account management and saving user data. Additionally, the functionality for saving, editing, and overwriting filters and tags turned out to be quite complex.
+
+![[Pasted image 20240629122602.png]]
+
+In iteration 2, we prototyped and user-tested these personalization features. Surprisingly, the filter sets users wanted to save were extremely simple, sometimes just a single filter. When I asked about this, users referenced their difficult experience with entering filters in the original FERC eLibrary tool. Because our search features were much easier to use, the time and effort to enter a search was less than the configuring a and using a saved filter.
+
+Regarding the document tagging feature, users mostly tagged the same Key Document types that we were already auto-tagging during data ingestion. Again, our enhanced data UX made this feature largely unnecessary.
+
+Ultimately, we decided to cut these personalization features. The marginal benefits did not justify the overhead of managing user accounts.
+
+---
+
+## `Iteration 3 `Public Beta
+
+### User Testing 
+
+After releasing the public beta, I conducted a more quantifiable observational user test with 5 participants from the hydropower industry. Each participant was asked to complete a common set of tasks designed to test each major feature of the app. Each feature was graded on a 4 point scale to help prioritize which features and tasks needed more attention.
+
+##### Test Grading
+- 🟢 **Pass Fast** - the task was completed in a single or a few attempts
+- 🟡 **Pass Slow** - the task was completed without a hint after several unsuccessful attempts
+- 🔶 **Partial Fail** - the user became stuck and required a hint to complete the task
+- 🔻 **Fail** - user could not complete task even after one or more hints were provided
+- ◽️ **Skip** - task was not attempted due to time constraints or other restrictions
+
+<UserTestResultsTable/>
+
+### Interactive Dam Map of Existing Hydropower Assets in the United States.
+One of the final and most requested features was an [interactive dam map](https://hydropowerelibrary.pnnl.gov/DamMap). We sourced data from Oak Ridge National Laboratory's (ORNL) [Existing Hydropower Assets](https://hydrosource.ornl.gov/dataset/EHA2024) (EHA) Database. This data source enabled us to plot the positions of dams nationwide and provided additional metadata for our Projects dataset.
+![[Pasted image 20240629152819.png]]
+
+### Dedicated Project Page
+We also added a dedicated [Project page](https://hydropowerelibrary.pnnl.gov/Projects/P-2114) that includes all the metadata, dams, and Key Documents tagged to that project.
+![[Pasted image 20240629153039.png]]
+
+### Additional Tweaks and Refinements
+Based on user feedback, we implemented numerous feature refinements, including a new homepage, an about page, maps integrated into most pages, improved auto-tagging, added more Projects, enabled CSV export, enhanced cross-linking between Document and Project pages, and many other improvements.
+![[Pasted image 20240629153842.png]]
+
+---
+
+You can access the app now at:
+
+###  [hydropowerelibrary.pnnl.gov](https://hydropowerelibrary.pnnl.gov/) 
+
+---
+
+## `Conclusion `A Generally Successful Launch
+
+Overall, this project was a reasonable success. It's currently deployed and receives an stead 150 average monthly users, with an average session duration of 8 minutes, and about 3,000 total monthly page views. Feedback from direct contact has been positive, with most requests asking for more data rather than additional features. WPTO was pleased with the tool and traffic. Although I was underwhelmed by the traffic numbers, our client seemed quite impressed, indicating that the app is extremely helpful to a small but dedicated user base.
+
+### What Could Have Been Better 
+
+#### Static Site Generation
+
+The current site is a React SPA that (slowly) loads a large react bundle and then requests all the data it needs. No content is rendered for several seconds, and Google's crawling capabilities are limited due to the JavaScript resources required to render each page. 
+
+In hindsight, using Server-Side Rendering (SSR) or a Static Site Generator (SSG) like [Next.js](https://nextjs.org/) would have been better. Sending pre-rendered html with this approach would improve page loading speed and enhance our chances of Google indexing our project and key document pages, potentially improving organic search traffic for searches like "Vernon Hydropower License."
+
+#### Keyword Search Coverage and Relevance Sorting
+
+Our keyword search turned out to be too slow to search all our document raw text. We had to limit the search scope to only include the full raw text of Key Documents, while other documents only had the first few thousand characters available to keyword search. This limitation was a significant hit to our UX since keyword search is the most common method of filtering.
+
+We also attempted to sort results based on "Relevance," which is a pretty fuzzy criteria. We developed rudimentary relevance scoring based on keyword frequency and location, but it did not perform particularly well. 
+
+(Database and server architecture is bit beyond my depth, but...) Utilizing other databases or search engines like ElasticSearch could vastly improve search coverage, speed, and sorting. However, supporting this along with Static Site Generation would require a significant rewrite of our current infrastructure.
+
+#### URL Search Parameters for Filter Sets
+
+Our filters are not saved or restored from URL search parameters. Adding this feature would have allowed users to keep their "Saved Filters" as a URL without requiring us to support user accounts.
+
+#### Mobile Design
+
+The initial scope of this project deprioritized a responsive mobile layout to cut development time. As the project progressed, our frontend architecture proved prohibitively difficult to retrofit with a mobile layer. If mobile design had been considered from the beginning, it would no have been difficult to maintain long-term.
+
+---
+
+JB
+
+</Layouts.ArticleWrapper>
+
+{/* <ProjectFeatureSection {...sections.hydropowerELibrary} /> */}

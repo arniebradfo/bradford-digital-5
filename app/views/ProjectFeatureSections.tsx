@@ -120,6 +120,11 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     },
     links: [
       {
+        href: "/pages/Hydropower-eLibrary",
+        children: "Case Study",
+        type: "emphasis",
+      },
+      {
         href: "https://hydropowerelibrary.pnnl.gov",
         children: "Live Site",
         type: "outline",
@@ -128,8 +133,7 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "https://hydropowerelibrary.pnnl.gov",
-    external: true,
+    href: "/pages/Hydropower-eLibrary",
     imageLayers: [
       {
         src: HydroELibLayer1,
