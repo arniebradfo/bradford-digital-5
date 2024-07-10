@@ -1,4 +1,5 @@
 import { cx } from "../../utils/joinClassNames";
+import { imgSizes } from "../../utils/imgSizes";
 import { sections, ProjectFeatureSection } from "../../views/ProjectFeatureSections";
 import { HeroImage } from "../../components/HeroImage";
 import { Txt } from "../../components/Text";
@@ -143,7 +144,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 
 <Layouts.ColumnFull>
 
-<Layouts.Graphic imageProps={{src: RedEyeImages.i25}}/>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i25, sizes: imgSizes.column1Full}}/>
 
 <Layouts.Columns count={4} className={style.GraphicDescription}>
 
@@ -164,7 +165,6 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 </div>
       
 </Layouts.Columns>
-
 </Layouts.ColumnFull>
 
 #### Cobalt Strike UI 
@@ -237,15 +237,18 @@ After identifying features in abstract, I jump to my design software and create 
 These options are then presented to the internal team to gather feedback, and a few concepts are selected to be developed into high-fidelity mockups.
 
 <Layouts.ColumnFull>
+
 <Layouts.Columns count={3}>
-<Layouts.Image imageProps={{src: RedEyeImages.i15}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i16}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i17}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i15, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i16, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i17, sizes: imgSizes.column3Full}} />
 </Layouts.Columns>
+
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: RedEyeImages.i18}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i19}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i18, sizes: imgSizes.column2Full}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i19, sizes: imgSizes.column2Full}} />
 </Layouts.Columns>
+
 </Layouts.ColumnFull>
 
 
@@ -257,21 +260,21 @@ We explored several different navigation concepts, each with its own focus, cost
 <Layouts.Columns count={3} className={style.GraphicDescription}>
 
 <div>
-<Layouts.Image imageProps={{src: RedEyeImages.i21}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i21, sizes: imgSizes.column3Full}} />
 #### Folder Structure
 This approach didn't align with the data structure as Team Servers can connect to more than one Host and Beacon, preventing a clean tree structure.
 </div>
 
 <div>
-<Layouts.Image imageProps={{src: RedEyeImages.i22}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i22, sizes: imgSizes.column3Full}} />
 #### 2 Panel with Tabs
 This approach was closer to the requirement, but the double panel ended up consuming too much space when additional tabs were incorporated.
 </div>
 
 <div>
 <div style={{display:'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8}}>
-<Layouts.Image imageProps={{src: RedEyeImages.i23}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i24}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i23, sizes: imgSizes.column3Full}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i24, sizes: imgSizes.column3Full}} />
 </div>
 #### Paged with Breadcrumbs
 The final selected approach optimized space by dedicating a full panel to each navigation and page view, and allowing the graph visualization to handle the display of entity relationships.
@@ -290,26 +293,26 @@ After making necessary adjustments based on the feedback, UI development work co
 <Layouts.ColumnMax>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: RedEyeImages.i07}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i08}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i07, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i08, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={1}>
-<Layouts.Image imageProps={{src: RedEyeImages.i09}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i09, sizes: imgSizes.column1Max }} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: RedEyeImages.i10}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i14}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i10, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i14, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={1}>
-<Layouts.Image imageProps={{src: RedEyeImages.i11}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i11, sizes: imgSizes.column1Max}} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{src: RedEyeImages.i12}} />
-<Layouts.Image imageProps={{src: RedEyeImages.i13}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i12, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i13, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 
 </Layouts.ColumnMax>
@@ -330,7 +333,7 @@ While there is a React Component Library for Carbon, the development team was no
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
-<Layouts.Image imageProps={{src: RedEyeImages.i00}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i00, sizes: imgSizes.column1Text}} />
 
 ### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
 
@@ -343,7 +346,7 @@ The main challenge was visually clustering the Beacons (dots) by their containin
 
 <Layouts.ColumnFull>
 
-<Layouts.Image imageProps={{src: RedEyeImages.i28}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i28, sizes: imgSizes.column1Full}} />
 
 <Layouts.Columns count={2} className={style.GraphicDescription}>
 
@@ -368,7 +371,7 @@ This approach simplified the visual structure and, as it turned out, was signifi
 
 #### The Two Tiered Approach
 
-<Layouts.Image imageProps={{src: RedEyeImages.i27}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i27, sizes: imgSizes.column1Text}} />
 
 I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some pre-processing of data.  
 
@@ -392,8 +395,8 @@ Further performance improvement and visualization simplification can be achieved
 
 <Layouts.Columns count={1} className={style.GraphicDescription}>
 
-<Layouts.Image imageProps={{src: RedEyeImages.i26}} />
-<Layouts.Image imageProps={{ src: RedEyeImages.i29 }} />
+<Layouts.Image imageProps={{src: RedEyeImages.i26, sizes: imgSizes.column1Max}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i29, sizes: imgSizes.column1Max}} />
 
 </Layouts.Columns>
 
@@ -458,7 +461,7 @@ The [MITRE ATT&CK framework](https://attack.mitre.org/) is a classification syst
 One of the earliest insights from user testing was the necessity for a comprehensive search feature. Initially, we offered a basic search feature that only covered the names of entities for navigation. However, during testing, users attempted global searches for specific strings in all log text output and were disappointed by the limited functionality. Delivering a performant search experience across all log text posed a significant challenge for the development team and required strong advocacy on my part, but it ultimately became one of the most useful features. Later iterations included sorting and filtering by result types.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: RedEyeImages.i40}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i40, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `User Testing & Feedback `Graph Customization
@@ -466,7 +469,7 @@ One of the earliest insights from user testing was the necessity for a comprehen
 The most frequently requested feature from CSIA was the ability to edit and customize the graph. A typical dataset can include hundreds of Beacons, so CISA expressed a desire to hide less important data and highlight more significant information. We offered visual customizations to individual nodes, including shape, color, and name. Additionally, we provided a manual layout mode and the ability to show or hide labels.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: RedEyeImages.i41}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i41, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `Challenges User Testing & Feedback `How Do I Conduct User Testing when All User Activities are Confidential?
@@ -478,7 +481,7 @@ We eventually created a mostly realistic synthetic dataset that CISA could use t
 #### Redacted Mode
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{src: RedEyeImages.i42}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i42, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull>
 
 ### `Release and Reception `Open Source Release 

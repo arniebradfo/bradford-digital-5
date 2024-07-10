@@ -1,6 +1,7 @@
 import Image, { ImageProps } from "next/image";
 import { cx } from "../utils/joinClassNames";
 import style from "./layout.module.css";
+import { imgSizes } from "../utils/imgSizes";
 
 type HtmlProps<T extends keyof JSX.IntrinsicElements = "div"> =
   React.ComponentProps<T>;
@@ -83,6 +84,7 @@ const FigureCaption: React.FC<
   >
     <Image
       className={cx(imageClassName, screenshot && style.Screenshot)}
+      sizes={imgSizes.column1Text}
       {...imageProps}
     />
     <figcaption>{children}</figcaption>

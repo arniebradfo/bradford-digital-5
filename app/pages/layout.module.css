@@ -188,7 +188,7 @@
 }
 
 .Columns4 {
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .Columns5 {
@@ -202,7 +202,7 @@
 
 @container LayoutColumn (max-width: 800px) {
 
-  .Columns2,
+  /* .Columns2, */
   .Columns4 {
     grid-template-columns: repeat(2, 1fr);
   }
