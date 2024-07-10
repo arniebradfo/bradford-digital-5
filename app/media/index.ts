@@ -62,7 +62,6 @@ export { default as public_lfsmedia_HydroELibrary_Iteration2Screenshots04Documen
 export { default as public_lfsmedia_HydroELibrary_Iteration2Screenshots05ProjectSearchpng } from "../../public/lfs-media/HydroELibrary/Iteration-2-Screenshots-05-Project-Search.png";
 export { default as public_lfsmedia_HydroELibrary_Iteration2Screenshots06ProjectPagepng } from "../../public/lfs-media/HydroELibrary/Iteration-2-Screenshots-06-Project-Page.png";
 export { default as public_lfsmedia_HydroELibrary_LowFiLayoutOptionspng } from "../../public/lfs-media/HydroELibrary/Low-Fi-Layout-Options.png";
-export { default as public_lfsmedia_HydroELibrary_Rectangle651png } from "../../public/lfs-media/HydroELibrary/Rectangle 651.png";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAdobeXdRepeatTextpng } from "../../public/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.png";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAdobeXdRepeatTextsvg } from "../../public/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.svg";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAvyMappng } from "../../public/lfs-media/Project-Icons/Project-Icon-AvyMap.png";
