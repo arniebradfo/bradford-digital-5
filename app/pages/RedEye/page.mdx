@@ -72,9 +72,9 @@ import style from "./page.module.css"
 
 ## `Background & Context `The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
 
-Red Teaming is a proactive cybersecurity strategy that involves simulating potential attacks to identify and rectify network and system vulnerabilities. This process is performed by a group of cybersecurity professionals who act as "ethical hackers" employing tactics similar to those used by actual attackers. The ultimate goal of Red Teaming is to improve the security of a system or network by identifying and fixing vulnerabilities before they can be exploited by malicious hackers.
+[Red Teaming](https://www.coresecurity.com/penetration-testing/red-team) is a proactive cybersecurity strategy that involves simulating potential attacks to identify and rectify network and system vulnerabilities. This process is performed by a group of cybersecurity professionals who act as "ethical hackers" employing tactics similar to those used by actual attackers. The ultimate goal of Red Teaming is to improve the security of a system or network by identifying and fixing vulnerabilities before they can be exploited by malicious hackers.
 
-The US CyberSecurity and Infrastructure Security Agency (CISA) maintains a Red Team that conducts cybersecurity assessments for other government agencies. To enhance the communication of their results, CISA collaborated with PNNL to develop an app that visualizes the process and outcomes of these assessments, which they refer to as "campaigns."
+The [US CyberSecurity and Infrastructure Security Agency](https://www.cisa.gov/) (CISA) maintains a Red Team that conducts cybersecurity assessments for other government agencies. To enhance the communication of their results, CISA collaborated with PNNL to develop an app that visualizes the process and outcomes of these assessments, which they refer to as "campaigns."
 
 <br/>
 
@@ -83,7 +83,7 @@ The US CyberSecurity and Infrastructure Security Agency (CISA) maintains a Red T
 
 ### `The Task `Improve the Comprehension of a Network Intrusion 
 
-Command and Control (C2) software like Cobalt Strike is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
+Command and Control (C2) software like [Cobalt Strike](https://www.cobaltstrike.com/) is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
 
 <Layouts.FigureCaption imageProps={{src: RedEyeImages.i01}}>
 Even a small Cobalt Strike data set could comprise hundreds or thousands of raw log files.
@@ -135,8 +135,9 @@ This user type manages the IT department and controls budget and priority. They 
 
 ### `System Research `Understanding the Data Structure of a Cyber Attack 
 
-Following User Research, it's crucial to understand the core ontology of information that needs to be communicated to the user. To achieve this, I collaborated with a Red Team Expert to whiteboard diagram of the entities in a cyber attack. 
-Most campaigns follow a typical narrative. The initial step involves gaining a foothold through phishing, social engineering, or other methods. Next, privileges are elevated to gain root access to a Host computer, represented by the SYSTEM* context. Once a Host is fully compromised, lateral movement within the network to other Host machines and servers is performed. Finally, sensitive assets are sealed or other malicious objectives are carried out. Typically, the final step of a Red Team campaign involves intentionally making numerous mistakes and creating noise to test the baseline level of security and determine if the attack can be detected at all.
+Following User Research, it's crucial to understand the core ontology of information that needs to be communicated to the user. To achieve this, I collaborated with a Red Team Expert to whiteboard diagram of the entities in a cyber attack.
+
+Most campaigns follow a typical narrative. The initial step involves gaining a foothold through phishing, social engineering, or other methods. Next, privileges are elevated to gain root access to a Host computer, represented by the SYSTEM\* context. Once a Host is fully compromised, lateral movement within the network to other Host machines and servers is performed. Finally, sensitive assets are sealed or other malicious objectives are carried out. Typically, the final step of a Red Team campaign involves intentionally making numerous mistakes and creating noise to test the baseline level of security and determine if the attack can be detected at all.
 
 <Layouts.ColumnFull>
 
@@ -170,7 +171,7 @@ Cobalt Strike provides a basic visualization of the current state of its Beacon 
 <Layouts.FigureCaption imageProps={{src: RedEyeImages.i02}}>
 This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon.
 
-Source: [Screenshots](https://www.cobaltstrike.com/resources/screenshots) | [Cobalt Strike](https://www.cobaltstrike.com/)
+Source: [CS Screenshots](https://www.cobaltstrike.com/resources/screenshots)
 </Layouts.FigureCaption>
 
 ---
@@ -321,9 +322,9 @@ In addition to the role of UX designer, I also contributed a significant portion
 
 ### `Component Library and Design System `Carbon Copy: A Styled Version of the Blueprint Design System, Mimicking the IBM Carbon Design Language
 
-The base styles are heavily influenced by the IBM Carbon Design System. I've always been drawn to this design system due to its utilitarian IDE visuals and its unique margin-less button layout system. This Red Team hacker-themed app seemed like an ideal match for the code-focused visual style.
+The base styles are heavily influenced by the [IBM Carbon Design System](https://carbondesignsystem.com/). I've always been drawn to this design system due to its utilitarian IDE visuals and its unique margin-less button layout system. This Red Team hacker-themed app seemed like an ideal match for the code-focused visual style.
 
-While there is a React Component Library for Carbon, the development team was not keen on learning a new library solely for style purposes. Instead, I styled our preferred Blueprint Component Library using my Blueprint Styler extension, and imported the Carbon Icon Library and IPM Plex fonts. 
+While there is a React Component Library for Carbon, the development team was not keen on learning a new library solely for style purposes. Instead, I styled our preferred [Blueprint Component Library](https://blueprintjs.com/docs/) using my [Blueprint Styler](https://pnnl.github.io/blueprint-styler/?style=bpx-carbon) extension, and imported the [Carbon Icon Library](https://carbondesignsystem.com/elements/icons/library/) and [IPM Plex](https://fonts.google.com/specimen/IBM+Plex+Sans) fonts. 
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
@@ -367,7 +368,7 @@ This approach simplified the visual structure and, as it turned out, was signifi
 
 <Layouts.Image imageProps={{src: RedEyeImages.i27}} />
 
-I developed this visualization based on d3 force directed layout and d3 hierarchy processing, along with some pre-processing of data.  
+I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some pre-processing of data.  
 
 An initial step parses the Beacon connection graph and derives a new **Host graph (1.)** by grouping all Beacons with the same Host parent. This Host graph serves as the initial global layout structure. Hosts with a larger number of Beacons are allocated more space for the subsequent tier of drawing.  
 
@@ -448,7 +449,7 @@ Recognizing that a terminal window might be somewhat complex for some users, I i
 
 ### `User Testing & Feedback `Incorporating MITRE ATT&CK Links for Auto-Annotation
 
-The MITRE ATT&CK framework is a classification system used to identify various cyber exploitation techniques. During testing, initial comments included numerous references to these techniques. CISA eventually proposed that we develop code to automatically tag commands with the corresponding MITRE ATT&CK technique. URL links to each technique provided context to nearly every command in the tool, eliminating the need for the Red Team to add any comments.
+The [MITRE ATT&CK framework](https://attack.mitre.org/) is a classification system used to identify various cyber exploitation techniques. During testing, initial comments included numerous references to these techniques. CISA eventually proposed that we develop code to automatically tag commands with the corresponding MITRE ATT&CK technique. URL links to each technique provided context to nearly every command in the tool, eliminating the need for the Red Team to add any comments.
 
 ### `User Testing & Feedback `Improving Search 
 
