@@ -8,6 +8,7 @@ const path = require('path');
  * @returns {object} - The nested object representing the folder tree.
  */
 function scanDirectory(dir, baseDir = null) {
+    
     const files = fs.readdirSync(dir);
     const tree = {};
 
@@ -19,15 +20,8 @@ function scanDirectory(dir, baseDir = null) {
             tree[file] = scanDirectory(filePath, baseDir);
         } else {
             const relativePath = path.relative(baseDir, filePath);
-            const keys = relativePath.split(path.sep);
-            const filename = keys.pop();
+            const filename = relativePath.split(path.sep).pop();
             let current = tree;
-
-            keys.forEach(key => {
-                if (!current[key]) current[key] = {};
-                current = current[key];
-            });
-
             current[filename] = `/${relativePath.replace(/\\/g, '/')}`; // Handle Windows backslashes
         }
     });
