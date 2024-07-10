@@ -148,7 +148,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 <Layouts.Columns count={4} className={style.GraphicDescription}>
 
 <div>
-##### Primary Entities
+#### Primary Entities
 - **Team Server** - Cobalt Strike servers that establish communication with Beacons on compromised Host computers.
 - **Host** - A compromised computer within the target network that "Host" Beacons and other malicious code.
 - **Beacon** - A program injected into another process that communicates with the Team Server and enables the remote execution of malicious code on a Host computer.
@@ -157,7 +157,7 @@ Most campaigns follow a typical narrative. The initial step involves gaining a f
 </div>
 
 <div>
-##### Additional Concepts
+#### Additional Concepts
 - **Context (Privilege)** - A Beacon's user context that determines the Host permissions they possess. SYSTEM* represents the highest level of access.
 - **Lifecycle**: **Active & Exited** - Stages of a Beacon's execution. Beacons are "active" when they maintain communication with a Team Server. Beacons are deemed "exited" if they are intentionally closed, lose connection, or abandoned.
 - **Logs** - Records of terminal inputs and outputs used to command Beacons.
