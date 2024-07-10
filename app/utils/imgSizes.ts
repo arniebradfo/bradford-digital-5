@@ -12,16 +12,7 @@ export const createImgSize = (sizes: Size[]) => {
         : `(max-width: ${width}px) ${Math.round(100 / divisor)}vw`;
     })
     .join(", ");
-
-  console.log(imgSizes);
-
   return imgSizes;
-
-  // `sizes="
-  //  (max-width:${ width }px) ${ 100 / divisor }, // largest
-  //  (max-width:${ width }px) ${ 100 / divisor }, // smaller
-  //  ${ width / divisor } px // smallest
-  // "`
 };
 
 const columnMax = 1600;
@@ -29,10 +20,9 @@ const columnFull = 1080;
 const columnText = 720;
 
 // +150 for padding & scrollbar
-const breakpointEven = 800+150;
-const breakpointOdd = 700+150;
-const breakpointAll = 600+150;
-
+const breakpointEven = 800 + 150;
+const breakpointOdd = 700 + 150;
+const breakpointAll = 600 + 150;
 
 const column1 = (columWidth: number) => [
   {
@@ -90,12 +80,11 @@ export const imgSizes = {
   column1Full: createImgSize(column1(columnFull)),
   column1Text: createImgSize(column1(columnText)),
 
-  column2Max:  createImgSize(column2(columnMax)),
+  column2Max: createImgSize(column2(columnMax)),
   column2Full: createImgSize(column2(columnFull)),
   column2Text: createImgSize(column2(columnText)),
 
-  column3Max:  createImgSize(column3(columnMax)),
+  column3Max: createImgSize(column3(columnMax)),
   column3Full: createImgSize(column3(columnFull)),
   column3Text: createImgSize(column3(columnText)),
-
 };
