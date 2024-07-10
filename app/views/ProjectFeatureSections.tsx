@@ -65,22 +65,28 @@ const redeye: ProjectFeatureSectionProps = {
       alt: "RedEye Logo",
     },
     links: [
-      // {
-      //   href: "/RedEye",
-      //   children: "Case Study",
-      //   type: "emphasis",
-      // },
+      {
+        href: "/pages/RedEye",
+        children: "Case Study",
+        type: "emphasis",
+      },
       {
         href: "https://github.com/cisagov/RedEye",
         children: "GitHub",
         type: "outline",
         external: true,
       },
+      {
+        href: "https://arniebradfo.github.io/RedEye-Graph/",
+        children: "D3 Graph Demo",
+        type: "outline",
+        external: true,
+      },
     ],
   },
   heroImageProps: {
-    href: "https://github.com/cisagov/RedEye",
-    external: true,
+    href: "/pages/RedEye",
+    // external: true,
     imageLayers: [
       {
         src: RedEyeLayer1,

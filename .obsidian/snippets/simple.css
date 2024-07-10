@@ -1,0 +1,109 @@
+body {
+
+  /* custom header vars */
+  --color-base-110: #ffffff;
+  --text-emphasis: var(--color-base-110);
+  --text-header: var(--text-emphasis);
+  --bold-color: var(--text-emphasis);
+  --italic-color: var(--text-emphasis);
+
+  --list-marker-color: hsla(var(--color-accent-hsl), 0.8);
+  --list-indent: 1em;
+
+  --color-base--10: hsl(0, 0%, 0%, 0.15);
+  --indentation-guide-color: var(--color-base--10);
+
+  /* --caret-color: orange;  */
+  /* --color-accent: hsl(238 100% 69%); */
+
+  --color-accent-compliment: hsl(calc(var(--accent-h) + 140), calc(var(--accent-s)* 1.5), var(--accent-l));
+  --caret-color: var(--color-accent-compliment);
+
+}
+
+[data-task="x"] {
+  opacity: 0.5;
+}
+
+
+body {
+  --h6-size: 1em;
+  --h5-line-height: 1.33;
+  --h6-line-height: 1.25;
+
+  --p-spacing: 0.2rem;
+}
+
+b,
+strong,
+.cm-strong {
+  font-weight: var(--font-bold);
+}
+
+.HyperMD-header {
+  color: var(--text-header);
+  padding-bottom: 0.3em !important;
+  padding-top: 1rem !important;
+
+  & span.cm-inline-code.cm-inline-code {
+    /* display: block; */
+    padding: 0;
+    background-color: unset;
+    font-size: .8rem !important;
+    text-transform: uppercase;
+    letter-spacing: .2ch;
+
+    & ~ .cm-header::before{
+      content: "";
+      display: block;
+    }
+  }
+}
+
+.cm-line:has(br) {
+  font-size: var(--p-spacing);
+}
+
+/* Paragraph Spacing */
+/* .markdown-source-view.mod-cm6 .cm-line:not([class*="HyperMD"]) {
+
+  &:has(+.HyperMD-list-line) {
+    padding: 0;
+  }
+
+  &:has(br) {
+    font-size: var(--p-spacing);
+
+    &:has(+.cm-table-widget) {
+      line-height: 1em;
+    }
+  }
+} */
+
+
+/* Table Spacing */
+.markdown-source-view.mod-cm6 {
+
+  & .table-editor .cm-line {
+    padding-bottom: 0;
+  }
+
+  & .cm-table-widget {
+    margin-block: calc(var(--table-drag-handle-size) * -0.5) !important;
+    z-index: 1;
+  }
+}
+
+/* :has(+.cm-table-widget) */
+
+/* .cm-formatting-header {
+      position: absolute;
+      right: 100%;
+      text-wrap: nowrap;
+  } */
+
+/* .cm-formatting-strong {
+      position: absolute;
+      bottom: 40%;
+      transform: translate(-50%);
+  } */

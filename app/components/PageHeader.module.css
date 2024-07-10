@@ -1,0 +1,24 @@
+.Header{
+  padding: 0 var(--column-padding);
+  max-width: var(--column-max);
+  margin: 0 auto;
+}
+
+.HeaderText{
+  max-width: var(--column-full);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+  /* text-wrap: balance; */
+}
+
+.HeroImageWrapper{
+  z-index: 2;
+  margin-bottom: calc(var(--column-padding) * -2);
+}
+
+.ButtonRow{
+  display: flex;
+  gap: 8px;
+}

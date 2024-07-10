@@ -12,8 +12,8 @@
 
 .Section {
   margin: 0 auto;
-  max-width: 1600px;
-  padding: 48px;
+  max-width: var(--column-max);
+  padding: var(--column-padding);
 }
 
 .SectionDescriptionImage{
@@ -38,6 +38,7 @@
 }
 
 .SectionDescriptionButtonRow {
+  flex-wrap: wrap;
   display: flex;
   gap: 8px;
   margin: 12px 0;
@@ -60,6 +61,8 @@
   gap: 2px;
   margin: -16px -20px;
   max-width: calc(var(--section-content-width) + 40px);
+
+  align-items: flex-start;
 }
 
 .ProjectLink {

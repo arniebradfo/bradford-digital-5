@@ -1,14 +1,11 @@
-import Link from "next/link";
-import { Spacer } from "../components/Spacer";
 import { cx } from "../utils/joinClassNames";
-import { externalLinkAttributes } from "../utils/link";
 import style from "./NavLinks.module.css";
 import { LinkButton } from "../components/LinkButton";
 import { Txt } from "../components/Text";
 import { Fragment } from "react";
 // import Resume from "../../public/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf";
 
-export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
+export const NavLinks: React.FC<React.ComponentProps<"div"> & {}> = ({
   className,
   ...props
 }) => (
@@ -31,6 +28,10 @@ export const NavLinks: React.FC<React.ComponentProps<"div">> = ({
 );
 
 const links = [
+  // {
+  //   children: "Project Work",
+  //   href: "/",
+  // },
   {
     children: "LinkedIn",
     href: "https://www.linkedin.com/in/arniebradfo/",

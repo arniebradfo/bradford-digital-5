@@ -1,0 +1,538 @@
+import { cx } from "../../utils/joinClassNames";
+import { sections, ProjectFeatureSection } from "../../views/ProjectFeatureSections";
+import { HeroImage } from "../../components/HeroImage";
+import { Txt } from "../../components/Text";
+import { LinkButton } from "../../components/LinkButton";
+import { PageDetails } from "../../components/PageDetails";
+import { PageHeader } from "../../components/PageHeader";
+import { Layouts } from "../Layouts";
+import { RedEyeImages } from "./images"
+import style from "./page.module.css"
+
+<PageHeader {...{
+  header: "RedEye",
+  subHeader: "Red Team Log Visualization",
+  description: (
+    <>
+      RedEye is a visualization tool developed for the US CyberSecurity and
+      Infrastructure Security Agency (CISA) to improve the analysis and
+      communication of Red Team cybersecurity assessments. The tool imports log
+      records and summarizes them into a navigable hierarchy, timeline, and
+      interactive node-graph visualization. Additionally, RedEye includes
+      commenting and annotation features for providing context to address
+      identified vulnerabilities.
+    </>
+  ),
+  links: [
+    {
+      href: "https://arniebradfo.github.io/RedEye-Graph/",
+      children: "D3 Graph Demo",
+      type: "emphasis",
+      external: true,
+    },
+    {
+      href: "https://github.com/cisagov/RedEye",
+      children: "GitHub Sourcecode",
+      type: "outline",
+      external: true,
+    },
+  ],
+  heroImageProps: {
+    ...sections.redeye.heroImageProps,
+    href: undefined
+  }
+}} />
+
+<Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  {
+    label: "Role",
+    text: "UX Design & Frontend Engineering",
+  },
+  {
+    label: "Team",
+    text: "6 Contributors",
+  },
+  {
+    label: "Timeline",
+    text: (
+      <>
+        <Txt>1 Year </Txt>
+        <Txt fg={3}>(30 % weekly for 3 years) </Txt>
+        <Txt fg={3}>2020-2023</Txt>
+      </>
+    ),
+  },
+  {
+    label: "Client",
+    text: "US CyberSecurity and Infrastructure Security Agency (CISA)",
+  },
+]} />
+
+## `Background & Context `The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
+
+[Red Teaming](https://www.coresecurity.com/penetration-testing/red-team) is a proactive cybersecurity strategy that involves simulating potential attacks to identify and rectify network and system vulnerabilities. This process is performed by a group of cybersecurity professionals who act as "ethical hackers" employing tactics similar to those used by actual attackers. The ultimate goal of Red Teaming is to improve the security of a system or network by identifying and fixing vulnerabilities before they can be exploited by malicious hackers.
+
+The [US CyberSecurity and Infrastructure Security Agency](https://www.cisa.gov/) (CISA) maintains a Red Team that conducts cybersecurity assessments for other government agencies. To enhance the communication of their results, CISA collaborated with PNNL to develop an app that visualizes the process and outcomes of these assessments, which they refer to as "campaigns."
+
+<br/>
+
+<LinkButton href="#Mockups" children={"Skip the Reasearch / See the Mockups"} type="emphasis" />
+
+
+### `The Task `Improve the Comprehension of a Network Intrusion 
+
+Command and Control (C2) software like [Cobalt Strike](https://www.cobaltstrike.com/) is used to manage Red Team campaigns. These tools establish connections to malicious programs, known as Beacons, within the target network and log every command executed. The resulting log files, with their intricate and interconnected nature, can be difficult to interpret due to their complexity. This posed a communication challenge for the CISA Red Team when presenting the campaign results to the security specialists and system administrators of the target network, collectively referred to as the Blue Team.
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i01}}>
+Even a small Cobalt Strike data set could comprise hundreds or thousands of raw log files.
+</Layouts.FigureCaption>
+
+The primary goal of RedEye was to transform these complex log files into a visual representation of the campaign. It also aimed to provide a tool for the Red Team to annotate and highlight specific campaign actions, thereby offering context to assist the Blue Team in enhancing their system's protection.
+
+<Layouts.Note>
+### A Note on the Iterative Design Process 
+It's important to note that while this case study is structured topically around the four main phases of my process - Research, Design, Development, and Feedback - these phases are not strictly sequential in practice. Instead, they form part of an iterative cycle conducted on a shorter time scale, with each phase informing and overlapping with the others.
+</Layouts.Note>
+
+---
+
+## `Phase 1 `Research
+
+### `User Types (Personas) `Red Team and Cyber Security Industry Users 
+
+To first research the landscape I conducted interviews with the CISA Red Team “Operators” and PNNL Cyber Security Subject Matter experts to better understand the industry, Tools, Processes, Methods, and Goals of our potential users. My standard interview process. I identified four user types to target for app development: 
+
+<Layouts.ColumnText>
+<Layouts.Columns count={2} className={style.GraphicDescription}>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i33}}/>
+#### Red Team Operator 
+CISA, our client, and other Red Teams. Their main goal is to probe the a software network for vulnerabilities and relay those issues to network's system admins. They need RedEye to ingest Cobalt Strike logs and data, visualize the intrusion campaign, annotate logs, prioritize issues, and send a report to the system admins. 
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i30}}/>
+#### Blue Team 1: Cyber Security Specialist 
+This user type is responsible for defending their network from intrusion, investigating alerts, and managing risks. They need RedEye to visualize and review the Red Team's campaign, understand the methods of network exploration, and possibly understand how to fix vulnerabilities. 
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i32}}/>
+#### Blue Team 2: IT Professional 
+This user type manages an organization's LAN, WAN, VPN, users, roles, permissions, and local infrastructure. They need RedEye to provide the same services as for Cyber Security Specialist, but possibly less technical in nature. 
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i31}}/>
+#### Blue Team 3: Organization Leadership 
+This user type manages the IT department and controls budget and priority. They need RedEye to visualize the Red Team's campaign, be convinced that the attack happened and is a problem, understand why it happened in broad strokes, and know how to allocate resources to get it fixed.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnText>
+
+
+### `System Research `Understanding the Data Structure of a Cyber Attack 
+
+Following User Research, it's crucial to understand the core ontology of information that needs to be communicated to the user. To achieve this, I collaborated with a Red Team Expert to whiteboard diagram of the entities in a cyber attack.
+
+Most campaigns follow a typical narrative. The initial step involves gaining a foothold through phishing, social engineering, or other methods. Next, privileges are elevated to gain root access to a Host computer, represented by the SYSTEM\* context. Once a Host is fully compromised, lateral movement within the network to other Host machines and servers is performed. Finally, sensitive assets are sealed or other malicious objectives are carried out. Typically, the final step of a Red Team campaign involves intentionally making numerous mistakes and creating noise to test the baseline level of security and determine if the attack can be detected at all.
+
+<Layouts.ColumnFull>
+
+<Layouts.Graphic imageProps={{src: RedEyeImages.i25}}/>
+
+<Layouts.Columns count={4} className={style.GraphicDescription}>
+
+<div>
+#### Primary Entities
+- **Team Server** - Cobalt Strike servers that establish communication with Beacons on compromised Host computers.
+- **Host** - A compromised computer within the target network that "Host" Beacons and other malicious code.
+- **Beacon** - A program injected into another process that communicates with the Team Server and enables the remote execution of malicious code on a Host computer.
+- **Command** - This is a single command input issued to a Beacon, usually comprising an input, task, and output saved to a log file. This is the atomic unit of our data structure.
+- **Chain** - A connection between a Beacon and a Team Server, sometimes "chained" through one or more intermediary Beacons.
+</div>
+
+<div>
+#### Additional Concepts
+- **Context (Privilege)** - A Beacon's user context that determines the Host permissions they possess. SYSTEM* represents the highest level of access.
+- **Lifecycle**: **Active & Exited** - Stages of a Beacon's execution. Beacons are "active" when they maintain communication with a Team Server. Beacons are deemed "exited" if they are intentionally closed, lose connection, or abandoned.
+- **Logs** - Records of terminal inputs and outputs used to command Beacons.
+</div>
+      
+</Layouts.Columns>
+
+</Layouts.ColumnFull>
+
+#### Cobalt Strike UI 
+Cobalt Strike provides a basic visualization of the current state of its Beacon chain. However, it lacks in-depth details and is primarily designed for issuing commands to active Beacons. It does not group Beacons by Host, display multiple Team Servers, or show exited Beacons or any form of historical information.
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i02}}>
+This screenshot from Cobalt Strike shows a graph of the current state of Beacon chaining and provides terminal access to each Beacon.
+
+Source: [CS Screenshots](https://www.cobaltstrike.com/resources/screenshots)
+</Layouts.FigureCaption>
+
+---
+
+## `Phase 2 `Design 
+
+### `UX Design and Planning `Features, Work Flow, & Prioritization 
+
+Following a User Story Mapping session with the team, we identified four primary phases of workflow: Import Logs, Explore the enriched data, Annotate to provide context, and Present to Blue Team. The breakdown was much more complex in practice, but has been simplified for the presentation’s sake.
+
+<Layouts.ColumnFull>
+<Layouts.Columns count={4} className={style.GraphicDescription}>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i05}}/>
+#### 1. Import 
+- **Select Log Files** - from Cobalt Strike output
+- **Run Parser** - merges files by Beacon creating graph structure and additional data enrichment 
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i04}}/>
+#### 2. Explore 
+- **List, Filter, Sort** - Navigate the textual data in a hierarchical representation
+- **Node Graph** - Navigate the entities in a map like visual
+- **Timeline** - Play and step through the campaign chronology
+- **Search** - find and navigate by any text value
+- **Raw Log View** - read original files for detailed information
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i03}}/>
+#### 3. Annotate 
+- **Add Comments** - provide context to commands 
+- **Edit Graph** - modify layout, connections, and visual styling 
+- **Rename Entities** - provide context to landmarks
+- **Remove/Hide** - unimportant data or test infrastructure
+</div>
+
+<div>
+<Layouts.Graphic imageProps={{src: RedEyeImages.i06}}/>
+#### 4. Present 
+- **Export** - Data sanitization and file handoff to Blue Team
+- **Presentation Mode** - step through topics grouped by comment tags
+- **Blue Team Mode** - Readonly exploration for blue team
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
+#### Feature Prioritization: Readonly Features First, Editing Features Follow Feedback 
+
+Our strategy was to start development with the import and exploration components, then use that readonly "see everything" UI to gather Red Teamer feedback on what they might want to annotate, edit, and present to the Blue Team.
+
+<br id="Mockups" style={{height:'0'}} />
+
+### `UI Design `Low Fi Layout Options
+
+After identifying features in abstract, I jump to my design software and create placeholder boxes for each feature to rapidly mockup layout options. In this case, boxes for the timeline, graph, list, comment, search, etc... I arrange these elements in as many different layouts as I can conceive to experiment with workflows. The detailed function of each feature is not important at this stage, only the relationship between features as they relate to workflow.
+
+These options are then presented to the internal team to gather feedback, and a few concepts are selected to be developed into high-fidelity mockups.
+
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{src: RedEyeImages.i15}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i16}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i17}} />
+</Layouts.Columns>
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i18}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i19}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
+
+### `UI Design `Low Fi Example: Navigation Option Iterations 
+
+We explored several different navigation concepts, each with its own focus, costs, and benefits. For example, a 2-panel navigation layout emphasizes the relationship between the Team Server, Host, and Beacon. In contrast, a multi-page layout with breadcrumb navigation devotes more focus on the selected entity, leaving the Team Server, Host, Beacon relationship to be depicted by the graph visualization.
+
+<Layouts.ColumnFull>
+<Layouts.Columns count={3} className={style.GraphicDescription}>
+
+<div>
+<Layouts.Image imageProps={{src: RedEyeImages.i21}} />
+#### Folder Structure
+This approach didn't align with the data structure as Team Servers can connect to more than one Host and Beacon, preventing a clean tree structure.
+</div>
+
+<div>
+<Layouts.Image imageProps={{src: RedEyeImages.i22}} />
+#### 2 Panel with Tabs
+This approach was closer to the requirement, but the double panel ended up consuming too much space when additional tabs were incorporated.
+</div>
+
+<div>
+<div style={{display:'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8}}>
+<Layouts.Image imageProps={{src: RedEyeImages.i23}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i24}} />
+</div>
+#### Paged with Breadcrumbs
+The final selected approach optimized space by dedicating a full panel to each navigation and page view, and allowing the graph visualization to handle the display of entity relationships.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
+### `UI Design `High Fi Mockups
+
+Once a layout was chosen from the low-fidelity options, I created high-fidelity mockups and an interactive prototype that provided a "vertical slice" of the app, showcasing each feature in one continuous workflow. At this stage, the mockups were presented to CISA for feedback and underwent minimal user testing via interactive prototypes.
+
+After making necessary adjustments based on the feedback, UI development work could begin in earnest.
+
+
+<Layouts.ColumnMax>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i07}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i08}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={1}>
+<Layouts.Image imageProps={{src: RedEyeImages.i09}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i10}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i14}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={1}>
+<Layouts.Image imageProps={{src: RedEyeImages.i11}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={2}>
+<Layouts.Image imageProps={{src: RedEyeImages.i12}} />
+<Layouts.Image imageProps={{src: RedEyeImages.i13}} />
+</Layouts.Columns>
+
+</Layouts.ColumnMax>
+
+---
+
+## `Phase 4 `Development
+
+#### UX Engineering: Design and Development  
+
+In addition to the role of UX designer, I also contributed a significant portion of the frontend development, focusing on React, HTML, CSS, and a complex set of d3 visualizations for the node-graph and timeline. 
+
+### `Component Library and Design System `Carbon Copy: A Styled Version of the Blueprint Design System, Mimicking the IBM Carbon Design Language
+
+The base styles are heavily influenced by the [IBM Carbon Design System](https://carbondesignsystem.com/). I've always been drawn to this design system due to its utilitarian IDE visuals and its unique margin-less button layout system. This Red Team hacker-themed app seemed like an ideal match for the code-focused visual style.
+
+While there is a React Component Library for Carbon, the development team was not keen on learning a new library solely for style purposes. Instead, I styled our preferred [Blueprint Component Library](https://blueprintjs.com/docs/) using my [Blueprint Styler](https://pnnl.github.io/blueprint-styler/?style=bpx-carbon) extension, and imported the [Carbon Icon Library](https://carbondesignsystem.com/elements/icons/library/) and [IPM Plex](https://fonts.google.com/specimen/IBM+Plex+Sans) fonts. 
+
+Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
+
+<Layouts.Image imageProps={{src: RedEyeImages.i00}} />
+
+### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
+
+The initial motivation for the project stemmed from CISA's desire to create a graphic representation of their campaign. The development of this Node graph visualization was a crucial aspect, yet it presented a significant challenge. The creation of a hierarchical graph, which is a complex data structure combining a node-graph and a tree-graph, could easily be the subject of an entire standalone article.
+
+The primary difficulty was visually clustering the Beacons (dots), by their containing Host (circle) while also connecting the Beacons across Hosts in a way that would look like a spider-web mess, and would render performantly in the browser. 
+
+The main challenge was visually clustering the Beacons (dots) by their containing Host (circle) while also connecting the Beacons across Hosts in a way that wouldn't result in a visually confusing spider-web mess. Node-graph layouts are also notoriously expensive to calculate, usually utilizing an `O(n!)` physics based simulation that scales exponentially with each additional node.
+
+
+<Layouts.ColumnFull>
+
+<Layouts.Image imageProps={{src: RedEyeImages.i28}} />
+
+<Layouts.Columns count={2} className={style.GraphicDescription}>
+
+<div>
+#### Initial Attempts: Beacon to Beacon, Across Hosts
+
+Initially, we tried to connect all the Beacons, then group them into Host groups and draw a circle around them. A second attempt reversed this process, grouping all the Beacons by Host and then connecting all the Beacons individually. 
+
+In both cases, the Beacon connections overlapped too much and were impossible to visually decipher. These two preliminary versions used combinations of d3 utils, pixi.js, and dagrejs.
+</div>
+
+<div>
+#### Optimized Layout: Host to Host, Beacons Encapsulated 
+
+After brainstorming with the team, we devised a third way of displaying layout that would group Beacon connections between Hosts into a derived Host connection. This allowed us to layout the much smaller number of Hosts as a single graph, then layout Beacons as a separate and independent graphs within each Host.
+
+This approach simplified the visual structure and, as it turned out, was significantly more performant.
+</div>
+
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
+#### The Two Tiered Approach
+
+<Layouts.Image imageProps={{src: RedEyeImages.i27}} />
+
+I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some pre-processing of data.  
+
+An initial step parses the Beacon connection graph and derives a new **Host graph (1.)** by grouping all Beacons with the same Host parent. This Host graph serves as the initial global layout structure. Hosts with a larger number of Beacons are allocated more space for the subsequent tier of drawing.  
+
+Each Host node is then given its own **Beacon sub-layout (2.)** within the Host and is generated with its own instance of d3 force directed layout. Connections between Beacons across different Hosts are rendered using "anchor nodes". These nodes are positioned based on their relationship to the parent Host graph connections and are restricted from moving in the Beacon force directed layout.  
+
+This approach divides a single, massive node-graph layout into several smaller, independent node-graph layouts. The segmentation significantly reduces the layout calculation and runs much faster.  
+
+Further performance improvement and visualization simplification can be achieved by collapsing one Host group and only displaying the internal layout when inspected or selected.
+
+
+<br/>
+
+<LinkButton href="https://arniebradfo.github.io/RedEye-Graph/" children={"Interactive D3 Demo Graph"} type="emphasis" external />
+
+<br/>
+<br/>
+
+<Layouts.ColumnMax>
+
+<Layouts.Columns count={1} className={style.GraphicDescription}>
+
+<Layouts.Image imageProps={{src: RedEyeImages.i26}} />
+<Layouts.Image imageProps={{ src: RedEyeImages.i29 }} />
+
+</Layouts.Columns>
+
+</Layouts.ColumnMax>
+
+---
+
+## `Phase 4 `User Feedback & Iteration 
+
+Our team maintained a standing bi-weekly meeting with CISA to present our progress, receive feedback, plan, and prioritize tasks. This continuous feedback loop was crucial to the project's success. Additionally, I conducted user testing with Subject Matter Experts (SMEs) and other "proxy" users within my organization to evaluate usability and usefulness. The following are a few examples of adjustments we made based on the feedback received.
+
+### `User Testing & Feedback `Understanding the User’s Mental Model of a “Comment” 
+
+The commenting feature was designed to allow a Red Team to provide post-campaign context to a Blue Team, and to help the Red Team keep notes on their actions to better contextualize the campaign for themselves.
+
+#### Initial Attempt: Inline Comments 
+
+Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub’s code comments.
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i35}}>
+The interaction for this commenting task was quite simple: Select a command line and write a comment under it.
+</Layouts.FigureCaption>
+
+#### Revised: Annotation Sets 
+
+After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an “Annotation Set.” The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i36}}>
+**Single Comment** - a quick and simple way to add a comment. Click a line and write. 
+
+**Add Command to Existing Comment** - allows for editing existing annotation sets when commands are not accessible from the same list
+</Layouts.FigureCaption>
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i37}}>
+**Multi-Command Comment** - a mode to select several comments in a list and comment on all of them together.
+</Layouts.FigureCaption>
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i38}}>
+**Comment Tabs** - provide a dedicated location for viewing and editing existing comments.
+</Layouts.FigureCaption>
+
+### `User Testing & Feedback `Electron, PWA, or Client-Server? 
+
+Given the sensitivity of Red Team data, our app needed to run locally. We initially considered a browser-only progressive web app that could be launched from static files, but the browser's IndexedDB didn't meet our development needs.
+
+Next we tried wrapping our web app as an Electron app, but CISA introduced a new requirement: they wanted a way to collaborate on the same data set between computers. This necessitated some form of self-Hosting on a secure private network.
+
+Ultimately, we developed a headless server capable of functioning in multiple modes: An advanced mode enabled CISA to operate this server on their local network and offer password-protected access to a single instance through a browser. A more user-friendly mode was packaged as single-click executables for each operating system. Clicking a file initiates a terminal window that starts the server on the user's local machine, followed by the opening of a browser window displaying the UI.
+
+#### Headless Server 
+
+<Layouts.FigureCaption imageProps={{src: RedEyeImages.i39}}>
+Recognizing that a terminal window might be somewhat complex for some users, I incorporated basic branding and labeling to help clarify its purpose and usage.
+</Layouts.FigureCaption>
+
+### `User Testing & Feedback `Incorporating MITRE ATT&CK Links for Auto-Annotation
+
+The [MITRE ATT&CK framework](https://attack.mitre.org/) is a classification system used to identify various cyber exploitation techniques. During testing, initial comments included numerous references to these techniques. CISA eventually proposed that we develop code to automatically tag commands with the corresponding MITRE ATT&CK technique. URL links to each technique provided context to nearly every command in the tool, eliminating the need for the Red Team to add any comments.
+
+### `User Testing & Feedback `Improving Search 
+
+One of the earliest insights from user testing was the necessity for a comprehensive search feature. Initially, we offered a basic search feature that only covered the names of entities for navigation. However, during testing, users attempted global searches for specific strings in all log text output and were disappointed by the limited functionality. Delivering a performant search experience across all log text posed a significant challenge for the development team and required strong advocacy on my part, but it ultimately became one of the most useful features. Later iterations included sorting and filtering by result types.
+
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i40}} />
+</Layouts.ColumnFull>
+
+### `User Testing & Feedback `Graph Customization
+
+The most frequently requested feature from CSIA was the ability to edit and customize the graph. A typical dataset can include hundreds of Beacons, so CISA expressed a desire to hide less important data and highlight more significant information. We offered visual customizations to individual nodes, including shape, color, and name. Additionally, we provided a manual layout mode and the ability to show or hide labels.
+
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i41}} />
+</Layouts.ColumnFull>
+
+### `Challenges User Testing & Feedback `How Do I Conduct User Testing when All User Activities are Confidential?
+
+The most significant challenge I faced as the UX designer on this project was obtaining direct user feedback. All real-world data input into this software is highly sensitive. It could include cyber-attack vulnerabilities, business information, and personally identifiable information. As a result, I couldn't directly observe any user working in a real-world scenario, nor could we ask questions that might reveal any aspect of the data. I had to be creative to devise alternative methods of gathering feedback.
+
+We eventually created a mostly realistic synthetic dataset that CISA could use to demonstrate issues, and we could use for some limited user testing. However, obtaining direct feedback from a wider audience proved to be mostly unfeasible. Users would occasionally write generalized GitHub issues or email us directly. I also developed a "Redacted Mode" to encourage sharing screenshots of data that would otherwise be sensitive, but this saw very limited usage.
+
+#### Redacted Mode
+
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{src: RedEyeImages.i42}} />
+</Layouts.ColumnFull>
+
+### `Release and Reception `Open Source Release 
+
+After nearly two years of private development, CISA approved the public release of RedEye on their GitHub page. The reception was generally positive, with a substantial number of stars and forks. We also observed a consistent and significant number of release downloads, although GitHub does not retain this metric.
+
+We continued to support the project for another year until CISA deemed the app "complete" and funding concluded.
+
+As of now, the project has <Txt bold fg={1} size={3}>2.6k Stars</Txt> and <Txt bold fg={1} size={3}>260 Forks</Txt>
+
+<br/>
+
+<LinkButton href="https://github.com/cisagov/RedEye" children={"RedEye GitHub Sourcecode"} type="emphasis" external />
+
+---
+
+## `Conclusion `What Could Have Been Better 
+
+In hind-sight, there are always aspects I wish we had approached differently. Some were unavoidable, but all serve as valuable lessons for my growth as a designer and engineer.
+
+### Improve the Download, Installation, and Startup Experience 
+
+One of the primary issues identified in user testing was the difficulty in getting the app up and running. Our unconventional headless server terminal and browser localHost experience was unintuitive for most users. Although this isn't a feature of the UI, it's absolutely a UX issue that could have been improved. I suspect this was the main obstacle to wider adoption. If users give up before the app ever launches, I suspect they'd be very unlikely to return or try again.
+
+### Simplify to a More Host-Focused Navigation 
+
+Contrary to their initial user-reported mental model of hierarchy, Red Team users tended to view all commands run as part of a Host, not a Beacon. The Beacon only represented the permission level to them. While we did have a view that displayed data in this way, I wish we could have simplified the app to focus more on this ontology and remove some of the less useful data views.
+
+### Implement Live Parsing and Use as a “Situational Awareness” Tool
+
+Live parsing was a feature requested from the very start. Red Team users wanted to keep notes on their progress using the comments feature as their campaign was ongoing. Recalling comments after a months-long campaign resulted in a lower quality report.
+
+The process of ingesting raw log text files was already quite challenging with a fixed number of files. Trying to add new data to the structure on a daily or even hourly basis proved to be excessively difficult.
+
+Later, they requested to view additional information about the “lay of the land” that would display a list of potential Hosts they could move to next. This would have shifted the app from a post-campaign review tool to a situational awareness tool to help drive a cyber attack forward, making the tool much more useful to CISA.
+
+### Cobalt Strike Became Obsolete 
+
+By the time we open-sourced this app, Cobalt Strike was starting to lose its popularity. Many of Cobalt Strike’s default exploits were frequently being defended against. A new set of C2 frameworks with superior features, such as Sliver, Brute Ratel, and Mythic, began to emerge as the new standard. The pace of the market outstripped our deployment speed.
+
+### Expand Support for More C2 Frameworks and Enable C2 Combinations
+
+Ironically, most of the newer C2 frameworks that supplanted Cobalt Strike stored their logs in a database, making it significantly easier to parse into our software's format. We could have conserved a considerable amount of time and resources if we were only required to support these newer frameworks. Live parsing would have also been more achievable.
+
+In the project's final months, our developers quickly created a parser system that could be used to write a data adapter for any C2 source. The developers also crafted two additional default parsers for Sliver and Brute Ratel based on this framework.
+
+Among all these new C2 frameworks, none seemed to command the market share that Cobalt Strike once did. We observed some Red Teams using multiple C2s in a single campaign. CISA then requested a method to merge logs from multiple C2s into a single dataset. Given more time, this would have been achievable with our new parser system, but this too didn't make the cut.
+
+### Deploy End-to-End Sooner
+
+Although CISA wouldn't have permitted this, I wish we could have released the project on GitHub much earlier without any formal announcement, and enlisted beta testers. This could have helped us identify the issue with the C2 market sooner and potentially allowed us time to address it.
+
+In all projects following this one, I have pushed for the deployment of an alpha version as soon as possible, even before reaching an MVP stage. From my experience, waiting for a product to be "ready" often results in unnecessary delays in the user feedback cycle, which is crucial for identifying real issues and implementing effective solutions. It's essential to solicit feedback early and often, and to avoid locking into specific details and priorities too far in advance, allowing user feedback to help guide the product's development. The tighter the iterations of feedback, design, and deployment are, the more a team can understand and prioritize actual utility for a user.
+
+</Layouts.ArticleWrapper>
+
+{/* <ProjectFeatureSection {...sections.hydropowerELibrary} /> */}

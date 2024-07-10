@@ -27,11 +27,9 @@ export const SectionDescription: React.FC<
   ...props
 }) => (
   <div className={cx(className, style.SectionDescription)} {...props}>
-    {imageProps && (
-      // img alt is in imageProps...
-      // eslint-disable-next-line jsx-a11y/alt-text
+    {/* {imageProps && (
       <Image className={cx(style.SectionDescriptionImage)} {...imageProps} />
-    )}
+    )} */}
     {label && (
       <Txt size={6} fg={3} uppercase>
         {label}

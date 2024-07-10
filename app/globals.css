@@ -1,9 +1,9 @@
 :root {
   /* --plex-font-family- are from layout.tsx */
   --font-family-sans: var(--plex-font-family-sans, sans-serif), sans-serif;
-  --font-family-mono: var(--plex-font-family-mono, monospace), monospace;
+  --font-family-mono: var(--plex-font-family-mono, monospace), ui-monospace, Menlo, Monaco, monospace;
   --font-weight-normal: 400;
-  --font-weight-bold: 500;
+  --font-weight-bold: 600;
 
   --background-color-1: hsl(0, 0%, 100%);
   --background-color-2: hsl(0, 0%, 97%);
@@ -31,16 +31,23 @@
 
   --line-height: 1.4;
 
+  --letter-spacing-1: 0.05em;
+
   --border-radius: 8px;
   --border-radius-image: 4px;
 
   --box-shadow-outline: 0 0 0 1px rgba(0, 0, 0, .1);
-  --box-shadow-color: rgba(0, 0, 0, .2);
+  --box-shadow-color: rgba(0, 0, 0, .3);
   --box-shadow-0: var(--box-shadow-outline);
   --box-shadow-1: var(--box-shadow-outline), 0 1px 1px var(--box-shadow-color);
   --box-shadow-2: var(--box-shadow-outline), 0 1px 1px var(--box-shadow-color), 0 2px 6px var(--box-shadow-color);
   --box-shadow-3: var(--box-shadow-outline), 0 2px 4px var(--box-shadow-color), 0 8px 24px var(--box-shadow-color);
   --box-shadow-4: var(--box-shadow-outline), 0 4px 8px var(--box-shadow-color), 0 18px 46px 6px var(--box-shadow-color);
+
+  --column-max: 1600px;
+  --column-full: 1080px;
+  --column-text: 720px;
+  --column-padding: 48px
 
 }
 
@@ -78,7 +85,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
+
+  scroll-behavior: smooth;
+
 }
+
+/* *{ scroll-margin: var(--column-padding); } */
 
 h1,
 h2,
@@ -88,6 +100,16 @@ h5,
 h6 {
   font-weight: inherit;
   font-size: inherit;
+  line-height: 1.2;
+}
+
+.metaText {
+  font-family: var(--font-family-sans);
+  font-weight:  var(--font-weight-normal);
+  color:  var(--foreground-color-3);
+  font-size: var(--font-size-6);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-1);
 }
 
 html,
@@ -110,4 +132,13 @@ a {
   &:hover {
     text-decoration-color: var(--foreground-color-1);
   }
+}
+
+hr {
+  border: none;
+  border-bottom: var(--border-1);
+}
+
+pre, code{
+  font-family: var(--font-family-mono);
 }

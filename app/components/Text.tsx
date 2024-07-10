@@ -78,3 +78,15 @@ const sizes = [
   style.TextSize5,
   style.TextSize6,
 ];
+
+
+export const H1 = (p: TxtProps) => <Txt tag="h1" size={1} fg={1} bold {...p} />
+export const H2 = (p: TxtProps) => <Txt tag="h2" size={2} fg={1} bold {...p} />
+export const H3 = (p: TxtProps) => <Txt tag="h3" size={3} fg={1} bold {...p} />
+export const H4 = (p: TxtProps) => <Txt tag="h4" size={4} fg={1} bold {...p} />
+export const H5 = (p: TxtProps) => <Txt tag="h5" size={5} fg={1} bold {...p} />
+export const H6 = (p: TxtProps) => <Txt tag="h6" size={6} fg={1} bold {...p} />
+export const P =  (p: TxtProps) => <Txt tag="p" {...p} />
+export const B = (p: TxtProps) => <Txt tag="strong" bold fg={1} {...p} />
+export const I = (p: TxtProps) => <Txt tag="em" bold fg={1} {...p} />
+export const Meta =  (p: TxtProps) => <Txt size={6} fg={3} uppercase   {...p} />

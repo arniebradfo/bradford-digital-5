@@ -4,20 +4,23 @@ import { cx } from "./utils/joinClassNames";
 import { AsciiArt } from "./components/AsciiArt";
 import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
+import { SetClientWidthCss } from "./utils/SetClientWidthCss";
 
 import "./reset.css";
 import "./globals.css";
 
 const PlexSans = IBM_Plex_Sans({
-  weight: ["400", "500"],
+  weight: ["400", "600"],
   subsets: ["latin"],
+  style: ['italic','normal'],
   variable: "--plex-font-family-sans",
 });
-const PlexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--plex-font-family-mono",
-});
+
+// const PlexMono = IBM_Plex_Mono({
+//   weight: ["400", "500"],
+//   subsets: ["latin"],
+//   variable: "--plex-font-family-mono",
+// });
 
 export const metadata: Metadata = {
   title: "James Bradford / UX Engineer",
@@ -33,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cx(PlexSans.variable, PlexMono.variable)}
+      className={cx(PlexSans.variable, /* PlexMono.variable */)}
       data-theme="light"
       suppressHydrationWarning
     >
@@ -44,6 +47,7 @@ export default function RootLayout({
         {children}
       </body>
       <AsciiArt />
+      <SetClientWidthCss />
     </html>
   );
 }

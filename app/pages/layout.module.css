@@ -1,0 +1,237 @@
+.ArticleWrapper {
+  background-color: var(--background-color-1);
+  border-bottom: var(--border-1);
+  border-top: var(--border-1);
+}
+
+.ArticleLayout {
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--column-full);
+  padding: calc(var(--column-padding) * 3.5) var(--column-padding) calc(var(--column-padding) * 2);
+}
+
+.PageElements {
+
+  & p {
+    margin-block: .5rem;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    margin-block: .5rem;
+    margin-top: 3em;
+    line-height: 1.2;
+  }
+
+  & h2:first-of-type{
+    margin-top: 0;
+  }
+
+  hr {
+    margin-block: 5rem;
+  }
+
+  ol,
+  ul {
+    padding-left: 16px;
+  }
+
+  figcaption {
+    font-style: italic;
+    color: var(--foreground-color-3);
+  }
+
+}
+
+.MetaHeader {
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    & code {
+      display: block;
+      margin-bottom: .5em;
+
+      color: var(--foreground-color-3);
+      font-size: var(--font-size-6);
+      font-family: var(--font-family-sans);
+      font-weight: var(--font-weight-normal);
+
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-1);
+    }
+  }
+}
+
+/* COLUMN TYPES ---------------------- */
+
+.ColumnContainer {
+  container-type: inline-size;
+  container-name: LayoutColumn;
+}
+
+.ColumnTextChildren {
+  &>* {
+    max-width: var(--column-text);
+  }
+}
+
+.ColumnText {
+  /* no-op */
+  margin: 16px 0;
+}
+
+.ColumnFull {
+  max-width: unset;
+  margin: 16px 0;
+}
+
+.ColumnMax {
+  margin: 16px 0;
+
+  width: 100vw;
+  width: var(--clientWidth, 100vw);
+  max-width: var(--column-max);
+  padding: 0 var(--column-padding);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ColumnBreakout {
+  
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Figure {
+  margin: 16px 0;
+
+  display: flex;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+
+  & img {
+    max-width: var(--column-text);
+  }
+
+  & figcaption {
+    flex: 1 1 0;
+    min-width: 160px;
+    max-width: var(--column-text);
+    & p {
+      margin: 0;
+    }
+  }
+}
+
+.Graphic {
+  background-color: var(--background-color-3);
+  border-radius: var(--border-radius);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.Screenshot {
+  border-radius: var(--border-radius-image);
+  box-shadow: var(--box-shadow-2);
+  overflow: hidden;
+}
+
+.Note{
+  background-color: var(--background-color-3);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin: 32px 0;
+  border: var(--border-1);
+  & :first-child{
+    margin-top: 0;
+  }
+}
+
+/* COLUMN COUNTS ---------------------- */
+
+.Columns {
+  /* margin: 16px 0; */
+
+  display: grid;
+  --gap: 8px;
+  gap: var(--gap);
+  grid-template-columns: repeat(1, 1fr);
+
+  & + &{
+    margin-top: var(--gap);
+  }
+}
+
+.Columns1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.Columns2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Columns3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.Columns4 {
+  grid-template-columns: repeat(4, auto);
+}
+
+.Columns5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.Columns6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+
+@container LayoutColumn (max-width: 800px) {
+
+  .Columns2,
+  .Columns4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .Columns6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@container LayoutColumn (max-width: 700px) {
+
+  .Columns3,
+  .Columns5 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .Columns6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container LayoutColumn (max-width: 600px) {
+
+  .Columns1,
+  .Columns2,
+  .Columns3,
+  .Columns4,
+  .Columns5,
+  .Columns6 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
