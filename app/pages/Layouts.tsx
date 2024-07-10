@@ -108,6 +108,11 @@ const _Image: React.FC<
   />
 );
 
+const Note: React.FC<HtmlProps> = ({
+  className,
+  ...props
+}) => <aside className={cx(className, style.Note)} {...props} />;
+
 export const Layouts = {
   ArticleWrapper,
   ColumnText,
@@ -117,4 +122,5 @@ export const Layouts = {
   FigureCaption,
   Graphic,
   Image: _Image,
+  Note
 };

@@ -149,6 +149,17 @@
   overflow: hidden;
 }
 
+.Note{
+  background-color: var(--background-color-3);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin: 32px 0;
+  border: var(--border-1);
+  & :first-child{
+    margin-top: 0;
+  }
+}
+
 /* COLUMN COUNTS ---------------------- */
 
 .Columns {
