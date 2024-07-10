@@ -2,40 +2,50 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Recursively scans a directory and returns an object with file names as keys and their paths as values.
+ * Recursively scans a directory and returns a nested object mimicking the folder tree.
  * @param {string} dir - The directory to scan.
- * @param {object} fileMap - The object to populate with file paths.
- * @returns {object} - The populated fileMap.
+ * @param {string} baseDir - The base directory to remove from the file path.
+ * @returns {object} - The nested object representing the folder tree.
  */
-function scanDirectory(dir, fileMap = {}) {
+function scanDirectory(dir, baseDir = null) {
     const files = fs.readdirSync(dir);
+    const tree = {};
 
     files.forEach((file) => {
         const filePath = path.join(dir, file);
         const stat = fs.statSync(filePath);
 
         if (stat.isDirectory()) {
-            scanDirectory(filePath, fileMap);
+            tree[file] = scanDirectory(filePath, baseDir);
         } else {
-            fileMap[file] = filePath;
+            const relativePath = path.relative(baseDir, filePath);
+            const keys = relativePath.split(path.sep);
+            const filename = keys.pop();
+            let current = tree;
+
+            keys.forEach(key => {
+                if (!current[key]) current[key] = {};
+                current = current[key];
+            });
+
+            current[filename] = `/${relativePath.replace(/\\/g, '/')}`; // Handle Windows backslashes
         }
     });
 
-    return fileMap;
+    return tree;
 }
 
 // Get the directory to scan from the command line arguments
 const directoryToScan = process.argv[2];
-
-// Define the output file path (same directory as the script)
-const outputJsonFile = path.join(__dirname, process.argv[3] || 'output.json');
 
 if (!directoryToScan) {
     console.error('Please provide a directory to scan as a command line argument.');
     process.exit(1); // Exit the script with an error code
 }
 
-const result = scanDirectory(directoryToScan);
+// Define the output file path (same directory as the script)
+const outputJsonFile = path.join(__dirname, 'output.json');
+const result = scanDirectory(directoryToScan, directoryToScan);
 
 // Save the result to a JSON file
 fs.writeFileSync(outputJsonFile, JSON.stringify(result, null, 2), 'utf-8');
