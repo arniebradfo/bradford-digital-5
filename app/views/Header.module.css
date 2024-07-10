@@ -13,12 +13,12 @@
 }
 
 .HeaderText {  
-  & a {
+  /* & a { */
     display: flex;
     align-items: center;
     text-decoration: none;
     gap: 1em;
-  }
+  /* } */
 }
 
 .HeaderNav {
