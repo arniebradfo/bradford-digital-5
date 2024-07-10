@@ -24,7 +24,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
           recent “License Application” for that project.
         </td>
         <td>Find a Document</td>
-        <td>🟢1 🟡2 🔶2 🔻0 ◽️0</td>
+        <td>🟢1 🟨2 🔶2 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>
@@ -35,14 +35,14 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td></td>
       </tr>
       <tr>
-        <td>- Download</td>
+        <td>&nbsp; - Download</td>
         <td>Used first 4 times</td>
-        <td>🟢4 🟡1 🔶0 🔻0 ◽️0</td>
+        <td>🟢4 🟨1 🔶0 🔻0 🕙0</td>
       </tr>
       <tr>
-        <td>- Favorite</td>
+        <td>&nbsp; - Favorite</td>
         <td>Used first 1 time</td>
-        <td>🟢3 🟡0 🔶1 🔻0 ◽️1</td>
+        <td>🟢3 🟨0 🔶1 🔻0 🕙1</td>
       </tr>
       <tr>
         <td>
@@ -51,7 +51,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td>
           <em>Clear out the current search and start from scratch</em>
         </td>
-        <td></td>
+        <td><em>---</em></td>
       </tr>
       <tr>
         <td>
@@ -59,7 +59,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
           there?
         </td>
         <td>Searching in Projects Dataset, Finding and using "State" filter</td>
-        <td>🟢2 🟡1 🔶2 🔻0 ◽️0</td>
+        <td>🟢2 🟨1 🔶2 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>
@@ -69,12 +69,12 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td>
           Applying more filters, specifically the (License) "Status" Filter
         </td>
-        <td>🟢3 🟡1 🔶1 🔻0 ◽️0</td>
+        <td>🟢3 🟨1 🔶1 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>Please find "Active Licenses" in "Idaho" only</td>
         <td>Remove filters</td>
-        <td>🟢5 🟡0 🔶0 🔻0 ◽️0</td>
+        <td>🟢5 🟨0 🔶0 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>
@@ -82,14 +82,14 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
           active license to expire (Felt)
         </td>
         <td>Sorting by property, reversing sort</td>
-        <td>🟢3 🟡1 🔶1 🔻0 ◽️0</td>
+        <td>🟢3 🟨1 🔶1 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>Find the License Issuance for that project (Felt)</td>
         <td>
           'Search this Project for Documents' button, Document search (again).
         </td>
-        <td>🟢3 🟡1 🔶1🔻0 ◽️0</td>
+        <td>🟢3 🟨1 🔶1 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>
@@ -98,12 +98,12 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td>
           <em>Clear out the current search and start from scratch</em>
         </td>
-        <td></td>
+        <td><em>---</em></td>
       </tr>
       <tr>
         <td>Find all NEPA Documents</td>
         <td>'Key Documents' filter and data tagging</td>
-        <td>🟢1 🟡2 🔶2 🔻0 ◽️0</td>
+        <td>🟢1 🟨2 🔶2 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>Search for all NEPA documents that mention “Salmon”</td>
@@ -111,18 +111,20 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
           Keyword search and understanding of why results were returned, dataset
           trust
         </td>
-        <td>🟢1 🟡3 🔶1 🔻0 ◽️0</td>
+        <td>🟢1 🟨3 🔶1 🔻0 🕙0</td>
       </tr>
       <tr>
         <td>Search for all NEPA documents that mention “Salmon” or "Trout"</td>
         <td>Advanced keyword search</td>
-        <td>🟢0 🟡0 🔶0 🔻4 ◽️1</td>
+        <td>🟢0 🟨0 🔶0 🔻4 🕙1</td>
       </tr>
+    </tbody>
+    <tfoot>
       <tr>
         <td>Totals</td>
         <td>11 Tasks / 5 Participants</td>
-        <td>🟢26 🟡12 🔶11 🔻4 ◽️2</td>
+        <td>🟢26 🟨12 🔶11 🔻4 🕙2</td>
       </tr>
-    </tbody>
+    </tfoot>
   </table>
 );
