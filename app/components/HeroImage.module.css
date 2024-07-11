@@ -1,12 +1,11 @@
 .ImageLayers {
   position: relative;
   perspective: 1000px;
-  display: inline-block;
+
 
   & .ImageLayer:first-of-type {
     transition: box-shadow var(--duration, 0.5s) ease;
     box-shadow: var(--box-shadow-3);
-    max-height: calc(100vh - var(--column-padding)* 2);
   }
 
   &:hover .ImageLayer:first-of-type {
@@ -21,8 +20,6 @@
   pointer-events: none;
   transform-style: preserve-3d;
   transform-origin: 50%;
-  height: 100%;
-  width: 100%;
 }
 
 .ImageLink {
