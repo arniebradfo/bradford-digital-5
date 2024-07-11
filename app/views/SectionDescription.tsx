@@ -36,7 +36,7 @@ export const SectionDescription: React.FC<
       </Txt>
     )}
     {header && (
-      <Txt size={2} fg={1} tag="h3" bold>
+      <Txt size={2} fg={1} tag="h2" bold>
         {header}
       </Txt>
     )}
