@@ -17,8 +17,14 @@
 
   --foreground-color-1: hsl(0, 0%, 0%);
   --foreground-color-2: hsl(0, 0%, 24%);
-  --foreground-color-3: hsl(0, 0%, 44%);
+  --foreground-color-3: hsl(0, 0%, 44%); 
   --foreground-color-4: hsl(0, 0%, 75%);
+
+  /* --foreground-color-1: hsl(0, 0%, 0%);
+  --foreground-color-3: hsl(0, 0%, 18%); 
+  --foreground-color-3: hsl(0, 0%, 35%); 
+  --foreground-color-4: hsl(0, 0%, 60%); */
+
 
   --accent-color-1: rgb(0, 0, 255);
 
