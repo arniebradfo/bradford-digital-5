@@ -32,6 +32,7 @@ export const HeroImageLayer: React.FC<
         transform,
         ...motionStyle,
       }}
+      sizes={"100vw"}
       {...props}
     />
   );
