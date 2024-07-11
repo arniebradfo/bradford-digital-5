@@ -14,7 +14,7 @@ import style from "./page.module.css"
 
 <PageHeader {...{
   header: "Hydropower eLibrary",
-  subHeader: "A comprehensive repository of hydropower projects and their licensing document records",
+  subHeader: "Dam License and Document Repository",
   description: (
     <>
       The Hydropower eLibrary is a free online repository for documents and
@@ -83,27 +83,15 @@ First, I interviewed and observed hydropower professionals using the [FERC eLibr
 - **Irrelevant Document Types**: Users typically search for a small number of document types associated with the licensing process, such as License Issuances, License Amendments, and Environmental Reports. Most other records are obstacles to finding these "Key Documents."
 - **Poor Data Quality**: Data quality on the FERC eLibrary is generally poor, with frequent mis-categorizations, inconsistencies in naming conventions, and typos that make keyword searches extremely difficult.
 
-
 #### FERC eLibrary Screenshots
 
-{/* 
-<Layouts.ColumnFull>
-<Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots01png, sizes: imgSizes.column2Full}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots02png, sizes: imgSizes.column2Full}} />
-</Layouts.Columns>
-</Layouts.ColumnFull> 
-*/}
-
-<Layouts.FigureCaption imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots01png}}>
+<Layouts.FigureCaption imageProps={{ alt: "The FERC eLibrary Search Page", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots01png}}>
 The **Search Page** didn't have too many issues. The most notible problem was finding a correct the "Docket Number" field vaule to begin search.
 </Layouts.FigureCaption>
 
-<Layouts.FigureCaption imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots02png}}>
+<Layouts.FigureCaption imageProps={{ alt: "The FERC eLibrary Results Table Page", src: Src.public_lfsmedia_HydroELibrary_FERCScreenshots02png}}>
 The **Results Page** table was difficult to visually parse, and content was hard to navigate to. Almost every user I observed used ctrl+F to highlight their search term.
 </Layouts.FigureCaption>
-
-
 
 ---
 
@@ -114,7 +102,7 @@ The **Results Page** table was difficult to visually parse, and content was hard
 I began my design exploration with a large set of low-fidelity mockups to compare different layout options. The top five concepts are shown here. From these, I selected two to advance to high-fidelity prototypes: "2 Column Alt" as the primary option, and "1-2 Column Hybrid" as a backup.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_LowFiLayoutOptionspng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "Several sets of low fedility mockup options", src: Src.public_lfsmedia_HydroELibrary_LowFiLayoutOptionspng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 ### 2 Column Layout - High Fi Prototypes
@@ -123,12 +111,12 @@ Next, I created high-fidelity interactive prototypes to develop my preferred "2 
 
 <Layouts.ColumnMax>
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups01ProjectSelectionpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups02DocumentsListpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups03Mappng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups04Tablepng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups05DocumentPagePDFpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups05DocumentPageRawpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing Docket selection", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups01ProjectSelectionpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing the Document search page with results and graphs", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups02DocumentsListpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing a map of hydropower dams in the UI", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups03Mappng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing the Document search page as a table", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups04Tablepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing a Document rendered as a pdf", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups05DocumentPagePDFpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing a Document rendered as raw text", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups05DocumentPageRawpng, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 </Layouts.ColumnMax> 
 
@@ -138,7 +126,7 @@ Next, I created high-fidelity interactive prototypes to develop my preferred "2 
 I also explored the "1-2 Column Hybrid" layout as a backup. Although I liked this more simplified concept, discussions with users and engineers led to the decision to go with the more complex layout.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups07Simplepng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "Iteration 1 mockups showing an alternate layout of a simplified single scroll search page", src: Src.public_lfsmedia_HydroELibrary_Iteration1Mockups07Simplepng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 ### Switching Themes to Avoid Mis-Crediting Our Client
@@ -158,7 +146,7 @@ As the product owner, I worked closely with our data scientists and engineers to
 With this minimal approach, our UI would search the FERC eLibrary via their search API but provide a better search experience by translating certain elements like tags into advanced FERC filter sets on a proxy server.
 
 <Layouts.ColumnFull>
-<Layouts.Graphic imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_DataflowOption01FERCHostedpng, sizes: imgSizes.column1Full}} />
+<Layouts.Graphic imageProps={{ alt: "A graphic of on-demand data retrevial from the FERC eLibary", src: Src.public_lfsmedia_HydroELibrary_DataflowOption01FERCHostedpng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 - **Pros**: No need to host our own data. Dataset is always up-to-date.
@@ -169,7 +157,7 @@ With this minimal approach, our UI would search the FERC eLibrary via their sear
 With this more robust and traditional approach, we'd pull, enrich, and save a copy of *all* relevant data from the FERC eLibrary (except for original files). We opted for this approach to have more control.
 
 <Layouts.ColumnFull>
-<Layouts.Graphic imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_DataflowOption02SelfHostedpng, sizes: imgSizes.column1Full}} />
+<Layouts.Graphic imageProps={{ alt: "A graphic showing the data ingestion and enrichment process", src: Src.public_lfsmedia_HydroELibrary_DataflowOption02SelfHostedpng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 - **Pros**: Ability to enrich ingested data to improve data quality, including parsing raw text from documents. Ability to manage how data is queried. Independence from FERC eLibrary's servers and API. 
@@ -189,8 +177,8 @@ I collaborated with our engineers to devise an approach to parse as much raw tex
 
 <Layouts.ColumnFull>
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_DocumentParsingOriginalPDFpng, sizes: imgSizes.column2Full}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_DocumentParsingRawTextpng, sizes: imgSizes.column2Full}} />
+<Layouts.Image imageProps={{ alt: "A preview of a pdf document", src: Src.public_lfsmedia_HydroELibrary_DocumentParsingOriginalPDFpng, sizes: imgSizes.column2Full}} />
+<Layouts.Image imageProps={{ alt: "A preview of a the raw text parsed out of a pdf document", src: Src.public_lfsmedia_HydroELibrary_DocumentParsingRawTextpng, sizes: imgSizes.column2Full}} />
 </Layouts.Columns>
 <br/>
 Example: [Hydropower eLibrary | PUBLIC103012P1904TransmittalLtrNOIPAD.PDF | FERC eLibrary Document: Accession 20121031-5296 (pnnl.gov)](https://hydropowerelibrary.pnnl.gov/Documents/20121031-5296/01A72CA1-66E2-5005-8110-C31FAFC91712)
@@ -203,10 +191,10 @@ The first iteration concluded with a functional application that successfully di
 
 <Layouts.ColumnMax>
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype01DocumentSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype02ProjectSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype03DocumentPagepng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype04ProjectPagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 1 Prototype Document Search Page", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype01DocumentSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 1 Prototype Document Details Page", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype03DocumentPagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 1 Prototype Project Search Page", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype02ProjectSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 1 Prototype Project Details Page", src: Src.public_lfsmedia_HydroELibrary_FunctionalPrototype04ProjectPagepng, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 </Layouts.ColumnMax> 
 
@@ -218,38 +206,30 @@ The first iteration concluded with a functional application that successfully di
 
 In iteration 2, we introduced automatic document tagging for the most important "Key Documents" and a project search feature that allows users to search for projects by name, organization, or waterway, rather than just the P-0000 project ID number. We also experimented with a simplified "minimal input" search homepage, but it tested poorly with users and was removed in iteration 3.
 
+Additionally, I adjusted the app's theme in iteration 2. However, most users didn't like the vibrant orange accent color, leading me to adopt a more neutral style in the next iteration.
+
 <Layouts.ColumnMax>
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots01Homepagepng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots02HomepageProjectFilterpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots03DocumentSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots04DocumentPagepng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots05ProjectSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots06ProjectPagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Homepage", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots01Homepagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Homepage with Project Search", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots02HomepageProjectFilterpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Document Search Page", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots03DocumentSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Document Details Page", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots04DocumentPagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Project Search Page", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots05ProjectSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 2 Project Details Page", src: Src.public_lfsmedia_HydroELibrary_Iteration2Screenshots06ProjectPagepng, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 </Layouts.ColumnMax> 
-
-Additionally, I adjusted the app's theme in iteration 2. However, most users didn't like the vibrant orange accent color, leading me to adopt a more neutral style in the next iteration.
 
 ### `User Testing `Cutting Features: User Personalization and Saved Filter Features
 
 To inform iteration 2, I conducted observational user testing of the first iteration. Users initially requested the ability to save filter sets and tag specific documents. Implementing these personalization features would require user account management and saving user data. Additionally, the functionality for saving, editing, and overwriting filters and tags turned out to be quite complex.
 
-{/* <Layouts.ColumnFull>
-<Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration210UserSavedFilterspng, sizes: imgSizes.column2Full}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration211UserCollectionspng, sizes: imgSizes.column2Full}} />
-</Layouts.Columns>
-</Layouts.ColumnFull>  */}
-
-<Layouts.FigureCaption imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration210UserSavedFilterspng}}>
-...
+<Layouts.FigureCaption imageProps={{ alt: "A screenshot of the Iteration 2 Saved Filters Panel", src: Src.public_lfsmedia_HydroELibrary_Iteration210UserSavedFilterspng}}>
+The **Saved Filters** feature provided a list where complex filters could be saved and returned to later. Numeric highlights indicate when there is new content that matches the saved filter.
 </Layouts.FigureCaption>
 
-<Layouts.FigureCaption imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_Iteration211UserCollectionspng}}>
-...
+<Layouts.FigureCaption imageProps={{ alt: "A screenshot of the Iteration 2 Collections Tags Panel", src: Src.public_lfsmedia_HydroELibrary_Iteration211UserCollectionspng}}>
+The **Collections** feature allowed a user to add custom tags to a document or project to easily find it later. Collections tags could be organized hierarchically.
 </Layouts.FigureCaption>
-
 
 In iteration 2, we prototyped and user-tested these personalization features. Surprisingly, the filter sets users wanted to save were extremely simple, sometimes just a single filter. When I asked about this, users referenced their difficult experience with entering filters in the original FERC eLibrary tool. Because our search features were much easier to use, the time and effort to enter a search was less than the configuring a and using a saved filter.
 
@@ -261,7 +241,7 @@ Ultimately, we decided to cut these personalization features. The marginal benef
 
 ## `Iteration 3 `Public Beta
 
-### User Testing 
+### Usability and Discoveribility Testing 
 
 After releasing the public beta, I conducted a more quantifiable observational user test with 5 participants from the hydropower industry. Each participant was asked to complete a common set of tasks designed to test each major feature of the app. Each feature was graded on a 4 point scale to help prioritize which features and tasks needed more attention.
 
@@ -280,13 +260,13 @@ After releasing the public beta, I conducted a more quantifiable observational u
 One of the final and most requested features was an [interactive dam map](https://hydropowerelibrary.pnnl.gov/DamMap). We sourced data from Oak Ridge National Laboratory's (ORNL) [Existing Hydropower Assets](https://hydrosource.ornl.gov/dataset/EHA2024) (EHA) Database. This data source enabled us to plot the positions of dams nationwide and provided additional metadata for our Projects dataset.
 
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDamMappng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 3 Dam Map Page", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDamMappng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 ### Dedicated Project Page
 We also added a dedicated [Project page](https://hydropowerelibrary.pnnl.gov/Projects/P-2114) that includes all the metadata, dams, and Key Documents tagged to that project.
 <Layouts.ColumnFull>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryProjectDetailspng, sizes: imgSizes.column1Full}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of an Iteration 3 Project Details Page", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryProjectDetailspng, sizes: imgSizes.column1Full}} />
 </Layouts.ColumnFull> 
 
 ### Additional Tweaks and Refinements
@@ -294,10 +274,10 @@ Based on user feedback, we implemented numerous feature refinements, including a
 
 <Layouts.ColumnMax>
 <Layouts.Columns count={2}>
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryHomepagepng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryProjectSearchpng, sizes: imgSizes.column2Max}} />
-<Layouts.Image imageProps={{ alt: "", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentDetailspng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 3 Homepage", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryHomepagepng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 3 Document Search Page", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 3 Project Search Page", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryProjectSearchpng, sizes: imgSizes.column2Max}} />
+<Layouts.Image imageProps={{ alt: "A screenshot of the Iteration 3 Document Details Page", src: Src.public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentDetailspng, sizes: imgSizes.column2Max}} />
 </Layouts.Columns>
 </Layouts.ColumnMax> 
 
