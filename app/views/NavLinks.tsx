@@ -51,6 +51,7 @@ const links = [
     children: "Resume",
     href: "/lfs-media/Resume/Resume-James-Bradford-UX-Engineer.pdf",
     external: true,
+    prefetch: false,
   },
   // {
   //   children: "FUN!",
