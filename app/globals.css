@@ -51,6 +51,18 @@
 
 }
 
+@media (max-width: 800px) {
+  :root{
+    --column-padding: 32px
+  }
+}
+@media (max-width: 600px) {
+  :root{
+    --column-padding: 24px
+  }
+}
+
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;

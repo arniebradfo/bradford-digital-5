@@ -162,6 +162,12 @@
   padding: 24px;
 }
 
+@media (max-width:600px ){
+  .Graphic{
+    padding: 8px;
+  }
+}
+
 .Screenshot {
   border-radius: var(--border-radius-image);
   box-shadow: var(--box-shadow-2);

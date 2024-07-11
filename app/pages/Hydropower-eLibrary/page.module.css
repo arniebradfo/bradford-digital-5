@@ -1,10 +1,17 @@
 .Table {
   & td:last-of-type{
-    text-wrap: nowrap;
     font-family: var(--font-family-mono);
   }
 
   & em {
     color: var(--foreground-color-3);
+  }
+}
+
+@media (min-width: 600px) {
+  .Table {
+    & td:last-of-type{
+      text-wrap: nowrap;
+    }
   }
 }

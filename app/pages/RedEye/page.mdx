@@ -334,7 +334,9 @@ While there is a React Component Library for Carbon, the development team was no
 
 Why didn't I create something entirely new? I believe that developing a new design language wouldn't significantly enhance the UX of our final product, and the time spent creating a new system could be better used in the design of the app itself.
 
+<p>
 <Layouts.Image imageProps={{ alt: "A graphic displaying the theme and style of the RedEye design system", src: Src.public_lfsmedia_RedEye_CarbonBasedDesignSystempng, sizes: imgSizes.column1Text}} />
+</p>
 
 ### `UI Development: D3 Visualization `Hierarchical Node Graph: A Graph of Graphs
 
@@ -372,9 +374,11 @@ This approach simplified the visual structure and, as it turned out, was signifi
 
 #### The Two Tiered Approach
 
+<p>
 <Layouts.Image imageProps={{ alt: "A comparison of the 2 tiers of graph layout", src: Src.public_lfsmedia_RedEye_NodeGraphLayeringpng, sizes: imgSizes.column1Text}} />
+</p>
 
-I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some pre-processing of data.  
+I developed this visualization based on [d3 force](https://github.com/d3/d3-force) directed layout and [d3 hierarchy](https://github.com/d3/d3-hierarchy) processing, along with some data pre-processing.  
 
 An initial step parses the Beacon connection graph and derives a new **Host graph (1.)** by grouping all Beacons with the same Host parent. This Host graph serves as the initial global layout structure. Hosts with a larger number of Beacons are allocated more space for the subsequent tier of drawing.  
 
