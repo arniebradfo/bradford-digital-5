@@ -59,7 +59,7 @@ const redeye: ProjectFeatureSectionProps = {
     label: "PNNL / CISA RedTeam",
     header: "RedEye",
     description:
-      "Red Team C2 Log Visualization tool to  display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
+      "A Red Team C2 Log Visualization tool to display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
     imageProps: {
       src: ImgRedEye,
       alt: "RedEye Logo",
@@ -113,7 +113,7 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "PNNL / WPTO",
     header: "Hydropower eLibrary",
-    description: "A repository of FERC licensed hydropower projects",
+    description: "A searchable repository of FERC licensed hydropower projects, FERC documents, and an interactive map of US hydropower installations.",
     imageProps: {
       src: ImgHydropowerELibrary,
       alt: "Hydropower eLibrary Favicon",
@@ -160,7 +160,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "PNNL / WPTO",
     header: "IrrigationViz",
-    description: "Visualize and compare upgrades to an irrigation district",
+    description: "A pre-engineering estimation tool for Irrigation District Managers to quickly model their district, propose infrastructure upgrades, and compare project costs with stakeholders",
     imageProps: {
       src: ImgIrrigationViz,
       alt: "IrrigationViz Logo",
@@ -200,7 +200,7 @@ const avyMap: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "Personal Project",
     header: "AvyMap",
-    description: "Visualize avalanche danger of any slope",
+    description: "A prototype app for backcountry skiers to visualize avalanche danger potential of any slope, and get links to avalanche reports. Zoom in to Analyze a Slope. Zoom out to see Avalanche Zones.",
     imageProps: {
       src: ImgAvyMap,
       alt: "AvyMap Icon",
