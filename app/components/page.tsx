@@ -9,9 +9,11 @@ import { HeroImage } from "./HeroImage";
 export default function Page() {
   return (
     <div className={stylePage.Layout}>
-      Scroll Down
-      {/* <div className={stylePage.ButtonRow}>
+      <div className={stylePage.ButtonRow}>
         <LinkButton type="emphasis" href={"#"}>
+          Emphasis
+        </LinkButton>
+        <LinkButton type="primary" href={"#"}>
           Primary
         </LinkButton>
         <LinkButton type="outline" href={"#"}>
@@ -23,7 +25,8 @@ export default function Page() {
         <LinkButton type="minimal" href={"/"}>
           Normal - Home
         </LinkButton>
-      </div> */}
+      </div>
+      Scroll Down
       <div style={{ marginBlock: 1000 }}>
         <HeroImage {...sections.irrigationViz.heroImageProps} isScrollParallax />
       </div>

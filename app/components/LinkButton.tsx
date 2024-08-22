@@ -16,7 +16,7 @@ export type LinkButtonProps = React.ComponentProps<typeof MotionLink> & {
   duration?: number;
   classNameBg?: string;
   classNameInside?: string;
-  type?: "minimal" | "outline" | "emphasis";
+  type?: "minimal" | "outline" | "emphasis" | "primary";
   external?: boolean;
 };
 
@@ -85,8 +85,10 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         style.LinkButton,
         type === "outline"
           ? style.LinkButtonOutline
-          : type === "emphasis"
-          ? style.LinkButtonEmphasis
+          : type === "emphasis" ||
+            // ? style.LinkButtonEmphasis :
+            type === "primary"
+          ? style.LinkButtonPrimary
           : undefined
       )}
       style={customVar}

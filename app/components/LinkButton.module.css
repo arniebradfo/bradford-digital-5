@@ -13,7 +13,9 @@
   overflow: visible;
 
   border-radius: var(--border-radius);
-  transition: border-color, background-color calc(var(--link-button-duration)*1) ease-out;
+  transition: border-color,
+    background-color calc(var(--link-button-duration)*1) ease-out;
+
 }
 
 .LinkButtonBg {
@@ -30,6 +32,7 @@
     transition-delay: calc(var(--link-button-duration)*0.3);
     transition-timing-function: ease-out;
     border-radius: 24px;
+    background-color: transparent;
   }
 
 }
@@ -58,7 +61,6 @@
   transition-duration: calc(var(--link-button-duration)*.5);
 
   & .LinkButtonBg {
-    /* background-color: var(--foreground-color-2); */
     background-color: transparent;
   }
 
@@ -71,4 +73,26 @@
     }
   }
 
+}
+
+
+.LinkButtonPrimary {
+  color: var(--accent-foreground-color);
+  background-color: var(--accent-background-color);
+
+  transition-duration: calc(var(--link-button-duration)*.5);
+
+  & .LinkButtonBg {
+    background-color: transparent;
+  }
+
+  &:hover {
+    background-color: transparent;
+    transition-delay: calc(var(--link-button-duration)*.5);
+    color: white;
+
+    & .LinkButtonBg {
+      background-color: var(--accent-foreground-color);
+    }
+  }
 }
