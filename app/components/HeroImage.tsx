@@ -1,9 +1,7 @@
 "use client";
 
 import { cx } from "../utils/joinClassNames";
-
 import style from "./HeroImage.module.css";
-
 import { useMagneticParallax } from "../utils/useMagneticParallax";
 import { CSSProperties, useCallback, useRef, useState } from "react";
 import {
@@ -12,7 +10,6 @@ import {
   useMotionValue,
   useMotionValueEvent,
   useScroll,
-  useTransform,
 } from "framer-motion";
 import { HeroImageLayer, HeroImageLayerProps } from "./HeroImageLayer";
 import { useRouter } from "next/navigation";
@@ -23,24 +20,16 @@ export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
 export const HeroImage: React.FC<
   React.ComponentProps<typeof motion.div> & {
     imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
-    isScrollParallax?: boolean;
     href?: string; // LinkProps["href"];
     external?: boolean;
   }
-> = ({
-  className,
-  imageLayers,
-  isScrollParallax,
-  href,
-  external,
-  ...props
-}) => {
+> = ({ className, imageLayers, href, external, ...props }) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   const {
     translateX,
-    translateY: translateYMagnetic,
+    translateY,
     startMagneticParallax,
     updateMagneticParallax,
     endMagneticParallax,
@@ -51,12 +40,6 @@ export const HeroImage: React.FC<
     isScrollUpdated: true,
   });
 
-  const scrollTranslateY = useMotionValue(0);
-  const translateYCombined = useTransform(
-    () => translateYMagnetic.get() + scrollTranslateY.get()
-  );
-
-  const scaleScroll = useMotionValue(0);
   const scaleMagnetic = useMotionValue(0);
 
   const { scrollYProgress } = useScroll({
@@ -67,14 +50,12 @@ export const HeroImage: React.FC<
   const [isActive, setIsActive] = useState(false);
 
   const startActive = useCallback(() => {
-    // if (isActive) return;
     setIsActive(true);
     startMagneticParallax();
     animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
   }, [scaleMagnetic, startMagneticParallax]);
 
   const endActive = useCallback(() => {
-    // if (!isActive) return;
     setIsActive(false);
     endMagneticParallax();
     animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
@@ -82,21 +63,23 @@ export const HeroImage: React.FC<
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const {
-      bottom = 0,
       top = 0,
+      right = window.innerWidth,
+      bottom = window.innerHeight,
       left = 0,
-      right = 0,
     } = elementRef.current?.getBoundingClientRect() || {};
 
     const { x, y } = globalMouse;
 
-    if (y > top && y < bottom && x > left && x < right) {
-      console.log("hover");
+    const isHovered = y > top && y < bottom && x > left && x < right;
+    if (isHovered) {
       if (!isActive) {
         startActive();
       }
-    } else if (isActive) {
-      endActive();
+    } else {
+      if (isActive) {
+        endActive();
+      }
     }
   });
 
@@ -136,10 +119,8 @@ export const HeroImage: React.FC<
             className={cx(layerClassName, style.ImageLayer)}
             motionValues={{
               translateX,
-              translateY: isScrollParallax
-                ? translateYCombined
-                : translateYMagnetic,
-              scale0: isScrollParallax ? scaleScroll : scaleMagnetic,
+              translateY,
+              scale0: scaleMagnetic,
             }}
             level={level || i + 1}
             style={{
