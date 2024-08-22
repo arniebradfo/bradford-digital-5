@@ -36,6 +36,11 @@
     height: 100px;
     width: 100px;
   }
+
+  .Layout:not(:hover) & {
+    /* filter:  sepia(100%) contrast(50%) hue-rotate(190deg) saturate(30%) brightness(10%); */
+    filter:  sepia(1) contrast(0.5) hue-rotate(190deg) saturate(3) brightness(1);
+  }
 }
 
 .Image {
