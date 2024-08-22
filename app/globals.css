@@ -17,7 +17,7 @@
 
   --foreground-color-1: hsl(0, 0%, 0%);
   --foreground-color-2: hsl(0, 0%, 24%);
-  --foreground-color-3: hsl(0, 0%, 44%); 
+  --foreground-color-3: hsl(0, 0%, 44%);
   --foreground-color-4: hsl(0, 0%, 75%);
 
   /* --foreground-color-1: hsl(0, 0%, 0%);
@@ -54,16 +54,16 @@
   --column-full: 1080px;
   --column-text: 720px;
   --column-padding: 48px
-
 }
 
 @media (max-width: 800px) {
-  :root{
+  :root {
     --column-padding: 32px
   }
 }
+
 @media (max-width: 600px) {
-  :root{
+  :root {
     --column-padding: 24px
   }
 }
@@ -123,8 +123,8 @@ h6 {
 
 .metaText {
   font-family: var(--font-family-sans);
-  font-weight:  var(--font-weight-normal);
-  color:  var(--foreground-color-3);
+  font-weight: var(--font-weight-normal);
+  color: var(--foreground-color-3);
   font-size: var(--font-size-6);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-1);
@@ -147,8 +147,10 @@ a {
   color: var(--foreground-color-1);
   text-decoration-color: var(--foreground-color-3);
 
-  &:hover {
-    text-decoration-color: var(--foreground-color-1);
+  &:not([class]):hover {
+    /* text-decoration-color: var(--foreground-color-1); */
+    color: var(--accent-foreground-color);
+    text-decoration-color: inherit
   }
 }
 
@@ -157,6 +159,7 @@ hr {
   border-bottom: var(--border-1);
 }
 
-pre, code{
+pre,
+code {
   font-family: var(--font-family-mono);
 }
