@@ -31,7 +31,7 @@ export const SectionDescription: React.FC<
       <Image className={cx(style.SectionDescriptionImage)} {...imageProps} />
     )} */}
     {label && (
-      <Txt size={6} fg={3} uppercase>
+      <Txt size={6} fg={0} uppercase bold>
         {label}
       </Txt>
     )}

@@ -79,10 +79,10 @@
       display: block;
       margin-bottom: .5em;
 
-      color: var(--foreground-color-3);
+      color: var(--accent-foreground-color);
       font-size: var(--font-size-6);
       font-family: var(--font-family-sans);
-      font-weight: var(--font-weight-normal);
+      font-weight: var(--font-weight-bold);
 
       text-transform: uppercase;
       letter-spacing: var(--letter-spacing-1);

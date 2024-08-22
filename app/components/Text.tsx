@@ -6,8 +6,8 @@ export type TxtProps = HTMLAttributes<HTMLOrSVGElement> & {
   /** type of tag to use - <span/> is default */
   tag?: keyof JSX.IntrinsicElements;
 
-  /** color, foreground: 1 is darkest, 4 is lightest, 2 is default */
-  fg?: 1 | 2 | 3 | 4;
+  /** color, foreground: 1 is darkest, 4 is lightest, 2 is default, 0 is primary color */
+  fg?: 0 | 1 | 2 | 3 | 4 ;
 
   /** text-size: 1 is largest, 6 is smallest, 5 is default */
   size?: 1 | 2 | 3 | 4 | 5 | 6;
@@ -47,7 +47,7 @@ export const Txt: React.FC<TxtProps> = ({
 }) => {
   const classNames = [
     // style.Text, // not needed
-    color && colors[color - 1],
+    color!=null && colors[color],
     size && sizes[size - 1],
     bold && style.TextBold,
     normal && style.TextNormal,
@@ -62,6 +62,7 @@ export const Txt: React.FC<TxtProps> = ({
 };
 
 const colors = [
+  style.TextColorPrimary,
   style.TextColor1,
   style.TextColor2,
   style.TextColor3,
@@ -86,4 +87,4 @@ export const H6 = (p: TxtProps) => <Txt tag="h6" size={6} fg={1} bold {...p} />;
 export const P = (p: TxtProps) => <Txt tag="p" {...p} />;
 export const B = (p: TxtProps) => <Txt tag="strong" bold fg={1} {...p} />;
 export const I = (p: TxtProps) => <Txt tag="em" bold fg={1} {...p} />;
-export const Meta = (p: TxtProps) => <Txt size={6} fg={3} uppercase {...p} />;
+export const Meta = (p: TxtProps) => <Txt size={6} fg={0} uppercase {...p} />;

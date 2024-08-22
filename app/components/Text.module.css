@@ -20,6 +20,10 @@
   color: var(--foreground-color-4)
 }
 
+.TextColorPrimary {
+  color: var(--accent-foreground-color)
+}
+
 /* SIZES */
 
 .TextSize1 {
