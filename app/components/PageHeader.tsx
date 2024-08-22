@@ -17,7 +17,15 @@ export const PageHeader: React.FC<
     links?: LinkButtonProps[];
     heroImageProps: HeroImageProps;
   }
-> = ({ className, header, subHeader, description, links, heroImageProps, ...props }) => (
+> = ({
+  className,
+  header,
+  subHeader,
+  description,
+  links,
+  heroImageProps,
+  ...props
+}) => (
   <header className={cx(className, style.Header)} {...props}>
     <div className={cx(style.HeaderText)}>
       <H1>
@@ -38,7 +46,7 @@ export const PageHeader: React.FC<
     </div>
 
     <div className={cx(style.HeroImageWrapper)}>
-      <HeroImage {...heroImageProps} /* isScrollParallax */ />
+      <HeroImage {...heroImageProps} />
     </div>
   </header>
 );

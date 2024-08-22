@@ -28,16 +28,16 @@ export default function Page() {
       </div>
       Scroll Down
       <div style={{ marginBlock: 1000 }}>
-        <HeroImage {...sections.irrigationViz.heroImageProps} isScrollParallax />
+        <HeroImage {...sections.irrigationViz.heroImageProps} />
       </div>
       <div style={{ marginBlock: 1000 }}>
-        <HeroImage {...sections.redeye.heroImageProps} isScrollParallax />
+        <HeroImage {...sections.redeye.heroImageProps} />
       </div>
       <div style={{ marginBlock: 1000 }}>
-        <HeroImage {...sections.hydropowerELibrary.heroImageProps} isScrollParallax />
+        <HeroImage {...sections.hydropowerELibrary.heroImageProps} />
       </div>
       <div style={{ marginBlock: 1000 }}>
-        <HeroImage {...sections.avyMap.heroImageProps} isScrollParallax />
+        <HeroImage {...sections.avyMap.heroImageProps} />
       </div>
     </div>
   );
