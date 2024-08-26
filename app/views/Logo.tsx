@@ -1,26 +1,23 @@
 import Image, { ImageProps } from "next/image";
 import { cx } from "../utils/joinClassNames";
-// import style from "./Logo.module.css";
 
 export const Logo: React.FC<Partial<ImageProps>> = ({
   className,
   ...props
 }) => (
-  // [
-  //   [style.showDarkTheme, "/logo/small-white.svg"],
-  //   [style.showLightTheme, "/logo/small.svg"],
-  // ].map(([theme, src]) => (
+  [
+    ['showDarkTheme', "/logo/small-white.svg"],
+    ['showLightTheme', "/logo/small.svg"],
+  ].map(([themeClassName, src]) => (
   <Image
-    // key={theme}
-    // className={cx(className)}
-    // src={src}
-    className={cx(className)}
-    src={"/logo/small.svg"}
-    alt={`jb logo`} // - ${theme}`}
+    key={themeClassName}
+    className={cx(className, themeClassName)}
+    src={src} // {"/logo/small.svg"}
+    alt={`jb logo- ${themeClassName}`}
     width={16}
     height={16}
     priority
     {...props}
   />
-  // ));
+  ))
 );

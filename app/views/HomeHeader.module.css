@@ -28,15 +28,3 @@
     margin: 16px -16px 0;
   }
 }
-
-@media (prefers-color-scheme: light) {
-  .showDarkTheme {
-    display: none;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .showLightTheme {
-    display: none;
-  }
-}

@@ -93,6 +93,18 @@
   }
 }
 
+@media (prefers-color-scheme: light) {
+  .showDarkTheme {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .showLightTheme {
+    display: none;
+  }
+}
+
 html {
   font-family: var(--font-family-sans);
   line-height: var(--line-height);
