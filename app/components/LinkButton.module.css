@@ -44,7 +44,7 @@
 .LinkButtonMinimal {}
 
 .LinkButtonOutline {
-  border: 1px solid var(--background-color-4);
+  border: var(--border-1);
   background-color: var(--background-color-1);
 
   &:hover {
@@ -89,7 +89,7 @@
   &:hover {
     background-color: transparent;
     transition-delay: calc(var(--link-button-duration)*.5);
-    color: white;
+    color: var(--accent-overlay-color);
 
     & .LinkButtonBg {
       background-color: var(--accent-foreground-color);
