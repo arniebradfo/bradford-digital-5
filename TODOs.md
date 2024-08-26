@@ -22,3 +22,7 @@
 - Review render performance?
 - Parallax should start on hover entire row - with bg?
 - Hover Shadow 
+
+## Advanced Page Transition Animations
+- To keep layoutId animations relative to viewport, need to scroll withing a viewport sized AnimatePresence component 
+- AnimatePresence exit requires hack to pause the Routers: https://www.imcorfitz.com/posts/adding-framer-motion-page-transitions-to-next-js-app-router

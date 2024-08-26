@@ -86,6 +86,7 @@ const redeye: ProjectFeatureSectionProps = {
   },
   heroImageProps: {
     href: "/pages/RedEye",
+    layoutId: "RedEye",
     // external: true,
     imageLayers: [
       {
@@ -113,7 +114,8 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "PNNL / WPTO",
     header: "Hydropower eLibrary",
-    description: "A searchable repository of FERC licensed hydropower projects, FERC documents, and an interactive map of US hydropower installations.",
+    description:
+      "A searchable repository of FERC licensed hydropower projects, FERC documents, and an interactive map of US hydropower installations.",
     imageProps: {
       src: ImgHydropowerELibrary,
       alt: "Hydropower eLibrary Favicon",
@@ -160,7 +162,8 @@ const irrigationViz: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "PNNL / WPTO",
     header: "IrrigationViz",
-    description: "A pre-engineering estimation tool for Irrigation District Managers to quickly model their district, propose infrastructure upgrades, and compare project costs with stakeholders",
+    description:
+      "A pre-engineering estimation tool for Irrigation District Managers to quickly model their district, propose infrastructure upgrades, and compare project costs with stakeholders",
     imageProps: {
       src: ImgIrrigationViz,
       alt: "IrrigationViz Logo",
@@ -200,7 +203,8 @@ const avyMap: ProjectFeatureSectionProps = {
   sectionDescriptionProps: {
     label: "Personal Project",
     header: "AvyMap",
-    description: "A prototype app for backcountry skiers to visualize avalanche danger potential of any slope, and get links to avalanche reports. Zoom in to Analyze a Slope. Zoom out to see Avalanche Zones.",
+    description:
+      "A prototype app for backcountry skiers to visualize avalanche danger potential of any slope, and get links to avalanche reports. Zoom in to Analyze a Slope. Zoom out to see Avalanche Zones.",
     imageProps: {
       src: ImgAvyMap,
       alt: "AvyMap Icon",
