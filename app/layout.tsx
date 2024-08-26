@@ -51,9 +51,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Script id="initializeTheme" strategy="beforeInteractive">
-          {initializeTheme}
-        </Script>
+        <script
+          id="initializeTheme"
+          dangerouslySetInnerHTML={{ __html: initializeTheme }}
+        />
         {children}
       </body>
       <AsciiArt />
