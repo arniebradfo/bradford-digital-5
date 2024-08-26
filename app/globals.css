@@ -69,8 +69,8 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
+[data-theme="dark"] {
+  &:root {
     color-scheme: dark;
 
     --background-color-1: hsl(0, 0%, 12%);
@@ -91,16 +91,14 @@
     --accent-background-color: hsl(180, 100%, 10%);
     --accent-overlay-color: black;
   }
-}
 
-@media (prefers-color-scheme: light) {
-  .showDarkTheme {
+  & .showLightTheme {
     display: none;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .showLightTheme {
+[data-theme="light"] {
+  & .showDarkTheme {
     display: none;
   }
 }
