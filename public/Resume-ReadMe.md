@@ -23,3 +23,5 @@
 - Export from browser
   - Open file directly in a web browser
   - Print > Save as PDF > no margins, no scaling
+  - add UTM tracking parameters by adding them to the url like: 
+  `file://.../Resume-James-Bradford-UX-Engineer.html?utm_medium=resume&utm_source=downloaded`
