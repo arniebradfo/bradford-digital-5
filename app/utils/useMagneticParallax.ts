@@ -28,46 +28,51 @@ export const useMagneticParallax = ({
   const translateX = useTransform(() => mouseX.get() * magneticOffset.get());
   const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
 
-  const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
+  const [_elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
-  useLayoutEffect(() => {
-    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
-    setElementDOMRect(_elementDOMRect);
-  }, [elementRef]);
+  useLayoutEffect(
+    () => setElementDOMRect(elementRef.current?.getBoundingClientRect()),
+    [elementRef]
+  );
+
+  const getElementDOMRect = useCallback(
+    (getNew = false) => {
+      if (getNew) {
+        const elementDOMRect = elementRef.current?.getBoundingClientRect();
+        setElementDOMRect(elementDOMRect);
+        return elementDOMRect;
+      } else {
+        return _elementDOMRect;
+      }
+    },
+    [_elementDOMRect, elementRef]
+  );
+
+  const magneticParallax = useCallback(
+    (start = false) => {
+      const elementDOMRect = getElementDOMRect(start);
+
+      if (!magneticOffset.isAnimating() && magneticOffset.get() === 0) {
+        const { width = 0, height = 0 } = elementDOMRect || {};
+        const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
+        if (offsetX < Infinity)
+          animate(magneticOffset, offsetX, { duration, ease });
+      }
+
+      const { centerOffsetX, centerOffsetY } = mouseOffset({ elementDOMRect });
+      mouseX.set(centerOffsetX);
+      mouseY.set(centerOffsetY);
+    },
+    [duration, getElementDOMRect, magneticOffset, mouseX, mouseY, offsetPx]
+  );
 
   const startMagneticParallax = useCallback(() => {
-    // cache the element dimensions on start
-    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
-    setElementDOMRect(_elementDOMRect);
-
-    const { width = 0, height = 0 } = _elementDOMRect || {};
-    const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
-    if (offsetX < Infinity)
-      animate(magneticOffset, offsetX, { duration, ease });
-
-    const { centerOffsetX, centerOffsetY } = mouseOffset({
-      elementDOMRect: _elementDOMRect,
-    });
-
-    mouseX.set(centerOffsetX);
-    mouseY.set(centerOffsetY);
-  }, [duration, elementRef, magneticOffset, mouseX, mouseY, offsetPx]);
+    magneticParallax(true);
+  }, [magneticParallax]);
 
   const updateMagneticParallax = useCallback(() => {
-    if (!magneticOffset.isAnimating() && magneticOffset.get() === 0) {
-      const { width = 0, height = 0 } = elementDOMRect || {};
-      const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
-      if (offsetX < Infinity)
-        animate(magneticOffset, offsetX, { duration, ease });
-    }
-
-    const { centerOffsetX, centerOffsetY } = mouseOffset({
-      elementDOMRect,
-    });
-
-    mouseX.set(centerOffsetX);
-    mouseY.set(centerOffsetY);
-  }, [duration, elementDOMRect, magneticOffset, mouseX, mouseY, offsetPx]);
+    magneticParallax(false);
+  }, [magneticParallax]);
 
   const endMagneticParallax = useCallback(() => {
     animate(magneticOffset, 0, { duration, ease });
@@ -82,12 +87,8 @@ export const useMagneticParallax = ({
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (!isScrollUpdated) return;
-
-    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
-    setElementDOMRect(_elementDOMRect);
-    const { centerOffsetX, centerOffsetY } = mouseOffset({
-      elementDOMRect: _elementDOMRect,
-    });
+    const elementDOMRect = getElementDOMRect(true);
+    const { centerOffsetX, centerOffsetY } = mouseOffset({ elementDOMRect });
     mouseX.set(centerOffsetX);
     mouseY.set(centerOffsetY);
   });

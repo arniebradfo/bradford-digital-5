@@ -31,112 +31,81 @@ export const useGrowParallax = ({
   const transformOriginY = useMotionValue(0);
   const transformOrigin = useMotionTemplate`${transformOriginX}px ${transformOriginY}px`;
 
-  const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
-
   const opacityDuration = useMemo(() => duration * 0.2, [duration]);
 
-  useLayoutEffect(() => {
-    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
-    setElementDOMRect(_elementDOMRect);
-  }, [elementRef]);
+  const [_elementDOMRect, setElementDOMRect] = useState<DOMRect>();
+
+  useLayoutEffect(
+    () => setElementDOMRect(elementRef.current?.getBoundingClientRect()),
+    [elementRef]
+  );
+
+  const getElementDOMRect = useCallback(
+    (getNew = false) => {
+      if (getNew) {
+        const elementDOMRect = elementRef.current?.getBoundingClientRect();
+        setElementDOMRect(elementDOMRect);
+        return elementDOMRect;
+      } else {
+        return _elementDOMRect;
+      }
+    },
+    [_elementDOMRect, elementRef]
+  );
+
+  const growParallax = useCallback(
+    (start = false) => {
+      const elementDOMRect = getElementDOMRect(start);
+
+      let {
+        topLeftOffsetX, //
+        topLeftOffsetY,
+        centerOffsetX,
+        centerOffsetY,
+      } = mouseOffset({ elementDOMRect });
+
+      const { height = 1, width = 1 } = elementDOMRect || {};
+      topLeftOffsetX = clamp(0, width, topLeftOffsetX);
+      topLeftOffsetY = clamp(0, height, topLeftOffsetY);
+      transformOriginX.set(topLeftOffsetX);
+      transformOriginY.set(topLeftOffsetY);
+
+      const offsetX = offsetPx / width;
+      translateX.set(centerOffsetX * offsetX);
+      translateY.set(centerOffsetY * offsetX);
+      
+      return elementDOMRect;
+    },
+    [
+      getElementDOMRect,
+      offsetPx,
+      transformOriginX,
+      transformOriginY,
+      translateX,
+      translateY,
+    ]
+  );
+
+  const updateGrowParallax = useCallback(() => {
+    growParallax(true);
+  }, [growParallax]);
 
   const startGrowParallax = useCallback(() => {
-    // cache the element dimensions on start
-    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
-    setElementDOMRect(_elementDOMRect);
-
-    let {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-      centerOffsetX,
-      centerOffsetY,
-    } = mouseOffset({ elementDOMRect: _elementDOMRect });
-
-    const { height = 1, width = 1 } = _elementDOMRect || {};
-    topLeftOffsetX = clamp(0, width, topLeftOffsetX);
-    topLeftOffsetY = clamp(0, height, topLeftOffsetY);
-
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
+    const { height = 1, width = 1 } = growParallax(true) || {};
 
     const scaleFromX = initialScaleSize / width;
     const scaleFromY = initialScaleSize / height;
 
     scaleX.set(scaleFromX);
     scaleY.set(scaleFromY);
+
     animate(scaleX, 1, { duration, ease });
     animate(scaleY, 1, { duration, ease });
     animate(opacity, 1, { duration: opacityDuration, ease });
-
-    const offsetX = offsetPx / width;
-
-    // offsetX = offsetPx
-    translateX.set(centerOffsetX * offsetX);
-    translateY.set(centerOffsetY * offsetX);
-
-    console.log({
-      topLeftOffsetX, //
-      topLeftOffsetY,
-      scaleFromX,
-      scaleFromY,
-    });
-  }, [
-    duration,
-    elementRef,
-    offsetPx,
-    opacity,
-    opacityDuration,
-    scaleX,
-    scaleY,
-    transformOriginX,
-    transformOriginY,
-    translateX,
-    translateY,
-  ]);
-
-  const updateGrowParallax = useCallback(() => {
-    let {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-      centerOffsetX,
-      centerOffsetY,
-    } = mouseOffset({ elementDOMRect });
-
-    console.log("update");
-
-    const { height = 1, width = 1 } = elementDOMRect || {};
-    topLeftOffsetX = clamp(0, width, topLeftOffsetX);
-    topLeftOffsetY = clamp(0, height, topLeftOffsetY);
-
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
-
-    const offsetX = offsetPx / width;
-
-    // offsetX = offsetPx
-    translateX.set(centerOffsetX * offsetX);
-    translateY.set(centerOffsetY * offsetX);
-  }, [
-    elementDOMRect,
-    offsetPx,
-    transformOriginX,
-    transformOriginY,
-    translateX,
-    translateY,
-  ]);
+  }, [duration, growParallax, opacity, opacityDuration, scaleX, scaleY]);
 
   const endGrowParallax = useCallback(() => {
-    let {
-      topLeftOffsetX, //
-      topLeftOffsetY,
-    } = mouseOffset({ elementDOMRect });
-
-    const { height = 1, width = 1 } = elementDOMRect || {};
-    topLeftOffsetX = clamp(0, width, topLeftOffsetX);
-    topLeftOffsetY = clamp(0, height, topLeftOffsetY);
-
-    transformOriginX.set(topLeftOffsetX);
-    transformOriginY.set(topLeftOffsetY);
+    const { height = 1, width = 1 } = growParallax() || {};
 
     const scaleFromX = initialScaleSize / width;
     const scaleFromY = initialScaleSize / height;
@@ -151,16 +120,7 @@ export const useGrowParallax = ({
       delay: duration - opacityDuration,
       ease: easeReverse,
     });
-  }, [
-    duration,
-    elementDOMRect,
-    opacity,
-    opacityDuration,
-    scaleX,
-    scaleY,
-    transformOriginX,
-    transformOriginY,
-  ]);
+  }, [growParallax, duration, scaleX, scaleY, opacity, opacityDuration]);
 
   return {
     translateX,
