@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { mouseOffset } from "./mouseOffset";
 import { useCallback, useLayoutEffect, useMemo, useState } from "react";
+import { useElementDOMRect } from "./useElementDOMRect";
 
 export const useGrowParallax = ({
   elementRef,
@@ -33,25 +34,7 @@ export const useGrowParallax = ({
 
   const opacityDuration = useMemo(() => duration * 0.2, [duration]);
 
-  const [_elementDOMRect, setElementDOMRect] = useState<DOMRect>();
-
-  useLayoutEffect(
-    () => setElementDOMRect(elementRef.current?.getBoundingClientRect()),
-    [elementRef]
-  );
-
-  const getElementDOMRect = useCallback(
-    (getNew = false) => {
-      if (getNew) {
-        const elementDOMRect = elementRef.current?.getBoundingClientRect();
-        setElementDOMRect(elementDOMRect);
-        return elementDOMRect;
-      } else {
-        return _elementDOMRect;
-      }
-    },
-    [_elementDOMRect, elementRef]
-  );
+  const { getElementDOMRect } = useElementDOMRect({ elementRef });
 
   const growParallax = useCallback(
     (start = false) => {
@@ -73,7 +56,7 @@ export const useGrowParallax = ({
       const offsetX = offsetPx / width;
       translateX.set(centerOffsetX * offsetX);
       translateY.set(centerOffsetY * offsetX);
-      
+
       return elementDOMRect;
     },
     [

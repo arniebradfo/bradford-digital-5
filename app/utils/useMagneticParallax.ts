@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { mouseOffset } from "./mouseOffset";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useElementDOMRect } from "./useElementDOMRect";
 
 export const useMagneticParallax = ({
   elementRef,
@@ -28,25 +29,7 @@ export const useMagneticParallax = ({
   const translateX = useTransform(() => mouseX.get() * magneticOffset.get());
   const translateY = useTransform(() => mouseY.get() * magneticOffset.get());
 
-  const [_elementDOMRect, setElementDOMRect] = useState<DOMRect>();
-
-  useLayoutEffect(
-    () => setElementDOMRect(elementRef.current?.getBoundingClientRect()),
-    [elementRef]
-  );
-
-  const getElementDOMRect = useCallback(
-    (getNew = false) => {
-      if (getNew) {
-        const elementDOMRect = elementRef.current?.getBoundingClientRect();
-        setElementDOMRect(elementDOMRect);
-        return elementDOMRect;
-      } else {
-        return _elementDOMRect;
-      }
-    },
-    [_elementDOMRect, elementRef]
-  );
+  const { getElementDOMRect } = useElementDOMRect({ elementRef });
 
   const magneticParallax = useCallback(
     (start = false) => {
