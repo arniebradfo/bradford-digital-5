@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { mouseOffset } from "./mouseOffset";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 export const useMagneticParallax = ({
   elementRef,
@@ -30,6 +30,11 @@ export const useMagneticParallax = ({
 
   const [elementDOMRect, setElementDOMRect] = useState<DOMRect>();
 
+  useLayoutEffect(() => {
+    const _elementDOMRect = elementRef.current?.getBoundingClientRect();
+    setElementDOMRect(_elementDOMRect);
+  }, [elementRef]);
+
   const startMagneticParallax = useCallback(() => {
     // cache the element dimensions on start
     const _elementDOMRect = elementRef.current?.getBoundingClientRect();
@@ -39,7 +44,14 @@ export const useMagneticParallax = ({
     const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
     if (offsetX < Infinity)
       animate(magneticOffset, offsetX, { duration, ease });
-  }, [duration, elementRef, magneticOffset, offsetPx]);
+
+    const { centerOffsetX, centerOffsetY } = mouseOffset({
+      elementDOMRect: _elementDOMRect,
+    });
+
+    mouseX.set(centerOffsetX);
+    mouseY.set(centerOffsetY);
+  }, [duration, elementRef, magneticOffset, mouseX, mouseY, offsetPx]);
 
   const updateMagneticParallax = useCallback(() => {
     if (!magneticOffset.isAnimating() && magneticOffset.get() === 0) {
@@ -52,9 +64,9 @@ export const useMagneticParallax = ({
     const { centerOffsetX, centerOffsetY } = mouseOffset({
       elementDOMRect,
     });
+
     mouseX.set(centerOffsetX);
     mouseY.set(centerOffsetY);
-    // magneticOffset.set(offsetX);
   }, [duration, elementDOMRect, magneticOffset, mouseX, mouseY, offsetPx]);
 
   const endMagneticParallax = useCallback(() => {
@@ -67,7 +79,7 @@ export const useMagneticParallax = ({
     target: elementRef,
     offset: ["start end", "end start"],
   });
-  
+
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (!isScrollUpdated) return;
 
