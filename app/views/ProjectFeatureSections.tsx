@@ -180,7 +180,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "https://irrigationviz.pnnl.gov/",
+    href: "/pages/IrrigationViz",
     external: true,
 
     imageLayers: [

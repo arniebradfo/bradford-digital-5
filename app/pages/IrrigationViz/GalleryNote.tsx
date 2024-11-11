@@ -1,6 +1,7 @@
 import { ComponentProps } from "react";
 import { Layouts } from "../Layouts";
 import { Txt } from "@/app/components/Text";
+import Link from "next/link";
 
 export const GalleryNote = (props: ComponentProps<typeof Layouts.Note>) => (
   <Layouts.Note {...props}>
@@ -11,7 +12,9 @@ export const GalleryNote = (props: ComponentProps<typeof Layouts.Note>) => (
       This post includes minimal context related to my UX process or software
       development and primarily showcases a gallery of final design artifacts.
       For a detailed post including process, reasoning, and decision-making,
-      please see the RedEye or Hydropower eLibrary case studies.
+      please see the <Link href="/pages/RedEye">RedEye</Link> or{" "}
+      <Link href="/pages/Hydropower-eLibrary">Hydropower</Link> eLibrary case
+      studies.
     </Txt>
   </Layouts.Note>
 );
