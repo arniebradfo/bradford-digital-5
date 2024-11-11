@@ -75,6 +75,7 @@ const column3 = (columWidth: number) => [
   },
 ];
 
+/** values correspond with how breakpoints realign in layout.module.css .ColumnN */
 export const imgSizes = {
   column1Max: createImgSize(column1(columnMax)),
   column1Full: createImgSize(column1(columnFull)),
@@ -87,4 +88,16 @@ export const imgSizes = {
   column3Max: createImgSize(column3(columnMax)),
   column3Full: createImgSize(column3(columnFull)),
   column3Text: createImgSize(column3(columnText)),
+  
+  // column4Full: createImgSize(column4(columnFull)),
+  // column5Full: createImgSize(column5(columnFull)),
+  // column6Full: createImgSize(column6(columnFull)),
+  // column7Full: createImgSize(column7(columnFull)),
+  // column8Full: createImgSize(column8(columnFull)),
+
+  // column4Max: createImgSize(column4(columnMax)),
+  // column5Max: createImgSize(column5(columnMax)),
+  // column6Max: createImgSize(column6(columnMax)),
+  // column7Max: createImgSize(column7(columnMax)),
+  // column8Max: createImgSize(column8(columnMax)),
 };
