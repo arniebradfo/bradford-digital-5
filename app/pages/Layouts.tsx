@@ -47,7 +47,7 @@ const ColumnMax: React.FC<HtmlProps> = ({ className, ...props }) => (
 );
 
 const Columns: React.FC<
-  HtmlProps & { wrap?: boolean; count?: 1 | 2 | 3 | 4 | 5 | 6 }
+  HtmlProps & { wrap?: boolean; count?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 }
 > = ({ className, wrap = true, count = 1, ...props }) => (
   <div
     className={cx(className, style.Columns, styleColumnCount[count - 1])}
@@ -62,6 +62,8 @@ const styleColumnCount = [
   style.Columns4,
   style.Columns5,
   style.Columns6,
+  style.Columns7,
+  style.Columns8,
 ];
 
 const FigureCaption: React.FC<
@@ -106,7 +108,7 @@ const _Image: React.FC<
   HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
 > = ({ className, imageProps, screenshot = true }) => (
   <Image
-    className={cx(className, screenshot && style.Screenshot)}
+    className={cx(className, screenshot ? style.Screenshot : style.Flat)}
     placeholder="blur"
     {...imageProps}
   />
