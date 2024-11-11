@@ -139,9 +139,9 @@ export { default as public_lfsmedia_IrrigationViz_310030Iteration3DistrictManage
 export { default as public_lfsmedia_IrrigationViz_320010Iteration3DistrictHomepng } from "../../public/lfs-media/IrrigationViz/320-010-Iteration3-DistrictHome.png";
 export { default as public_lfsmedia_IrrigationViz_320020Iteration3DistrictHomepng } from "../../public/lfs-media/IrrigationViz/320-020-Iteration3-DistrictHome.png";
 export { default as public_lfsmedia_IrrigationViz_320030Iteration3DistrictHomepng } from "../../public/lfs-media/IrrigationViz/320-030-Iteration3-DistrictHome.png";
-export { default as public_lfsmedia_IrrigationViz_330010Iteration3ComponentPAgepng } from "../../public/lfs-media/IrrigationViz/330-010-Iteration3-ComponentPAge.png";
-export { default as public_lfsmedia_IrrigationViz_330020Iteration3ComponentPAgepng } from "../../public/lfs-media/IrrigationViz/330-020-Iteration3-ComponentPAge.png";
-export { default as public_lfsmedia_IrrigationViz_330030Iteration3ComponentPAgepng } from "../../public/lfs-media/IrrigationViz/330-030-Iteration3-ComponentPAge.png";
+export { default as public_lfsmedia_IrrigationViz_330010Iteration3ComponentPagepng } from "../../public/lfs-media/IrrigationViz/330-010-Iteration3-ComponentPage.png";
+export { default as public_lfsmedia_IrrigationViz_330020Iteration3ComponentPagepng } from "../../public/lfs-media/IrrigationViz/330-020-Iteration3-ComponentPage.png";
+export { default as public_lfsmedia_IrrigationViz_330030Iteration3ComponentPagepng } from "../../public/lfs-media/IrrigationViz/330-030-Iteration3-ComponentPage.png";
 export { default as public_lfsmedia_IrrigationViz_340010Iteration3DrawModespng } from "../../public/lfs-media/IrrigationViz/340-010-Iteration3-DrawModes.png";
 export { default as public_lfsmedia_IrrigationViz_350010Iteration3ComparisonPagepng } from "../../public/lfs-media/IrrigationViz/350-010-Iteration3-ComparisonPage.png";
 export { default as public_lfsmedia_IrrigationViz_350020Iteration3ComparisonPagepng } from "../../public/lfs-media/IrrigationViz/350-020-Iteration3-ComparisonPage.png";
