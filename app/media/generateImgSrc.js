@@ -18,7 +18,10 @@ function scanDirectory(dir, fileMap = []) {
 
       if (!imageExtensions.includes(path.extname(file).toLowerCase())) return;
 
-      const relativePath = path.relative(__dirname, filePath);
+      const relativePath = path
+        .relative(__dirname, filePath)
+        .replace(/\\/g, "/");
+      
       fileMap.push(
         `export { default as ${filePath
           .replace(/[.\s-_]/gi, "")
