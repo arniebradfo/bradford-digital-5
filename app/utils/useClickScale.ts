@@ -21,7 +21,7 @@ export const useClickScale = ({
 
   const startClickScale = useCallback(() => {
     // cache the element dimensions on start
-    const { width = 0 } = elementRef.current?.getBoundingClientRect() || {};
+    const { width = 1 } = elementRef.current?.getBoundingClientRect() || {};
     const _clickScale = scalePx / width;
     setClickScale(_clickScale);
     animate(scale, 1 + _clickScale, { duration });

@@ -68,7 +68,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     onPointerUp: clickScalePointerUp,
   } = useClickScale({
     elementRef,
-    scalePx: 8,
+    scalePx: 4,
     duration,
     clickDuration,
   });
