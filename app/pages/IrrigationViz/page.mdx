@@ -10,7 +10,7 @@ import { PageHeader } from "../../components/PageHeader";
 import { Layouts } from "../Layouts";
 import * as Src from "../../media"
 import style from "./page.module.css"
-import {GalleryNote} from "./GalleryNote"
+import { GalleryNote } from "./GalleryNote"
 
 <PageHeader {...{
   header: "IrrigationViz",
@@ -62,14 +62,17 @@ import {GalleryNote} from "./GalleryNote"
 ]} />
 
 
-<GalleryNote/>
+<GalleryNote style={{marginTop:0}}/>
 
 ---
 
-## Problem Space - Irrigation Managers Must Commit to Purchase Before Knowing Cost.
+## `Problem Space`Irrigation Managers Must Commit to Purchase Before Knowing Cost.
 To maintain infrastructure, Irrigation District Managers need an estimate of the cost and benefit of upgrading specific sections of their Irrigation District. Currently, they must pay an engineering firm for an initial assessment, which includes the work required, a cost/benefit analysis, and possible sources of public funding/grants. This process is very time-consuming and expensive, sometimes amounting to over 20% of the total cost of upgrading the infrastructure. Most managers feel they need to be fully committed to upgrading the infrastructure _BEFORE_ investing in an accurate estimate from an engineering firm. This creates a catch-22: **managers must be willing to _pay_ the full cost of the upgrade before _knowing_ that full cost.**
+
 IrrigationViz seeks to alleviate this expensive initial estimation by providing **a self-serve tool to more quickly (though less precisely) estimate the final cost/benefit of hypothetical upgrades.** The tool would also provide documentation and links to external resources about available funding sources. Knowledge of funding sources will guide the upgrade strategy and could provide out-of-the-box funding models or revenue strategies such as hydropower generation.
+
 This tool is not intended to replace an engineering assessment. Instead, it will precede the costly engineering assessment, providing significantly cheaper preliminary analytics. This helps to eliminate impractical upgrades and gives managers more confidence in proceeding with viable options.
+
 ### Features
 The tool will provide functionality for district managers to:
 - **Model the current state** of their Irrigation District: Understand which aspects are most in need of upgrade.
@@ -77,61 +80,213 @@ The tool will provide functionality for district managers to:
 - **Learn about potential public funding sources**: Gear upgrades toward publicly funded goals.
 - **Export/share data**: Share information with other stakeholders, including district farmers, district employees, local officials, engineers, and shareholders.
 - **Single source of truth**: Keep all relevant data about their district in a single place.
+
 ### Value Add
 The key factor for success is the ability to create "accurate" estimates. This depends on:
 - **Analytic accuracy**: The accuracy of the analytic outputs produced by formulas from Idaho National Lab (INL).
 - **Analytic customization and interpretability/transparency**: The ability for managers to understand INL formulas and easily tweak  constants or inputs to enhance accuracy. The tool will offer the best possible defaults but will always allow overrides where possible, possibly even overriding the function/formula itself.
 - **Immediate demonstration of value**: Users need to derive valuable output from the tool immediately. Users will not be willing to invest too much upfront effort before receiving any results.
 - **Tool ease of use**: This includes instant initial feedback during onboarding and more advanced usage to improve analytic accuracy. In addition, a "read-only" mode needs to provide a broader audience of stakeholders an easy place to collaborate.
+
 ---
+
 ## Iteration 1
 Initially named "NeoFlow," Iteration 1 aimed to get the project off the ground by "selling the dream" to our client via a mockup presentation and project proposal. These mockups were generated in the span of a single week and prioritized aesthetics rather than functional. They served as a foundation for gathering feedback and initiating iterations, functioning as high-fidelity UI mockups with low-fidelity UX.
+
 Iteration 1 included numerous low-fidelity layouts and designs for core pages: Homepage, Documentation, District Selection, Component Editing, and Component Comparison. It also explored alternative views for the Map District Modeling View. However, the Node Graph and Sankey Water-flow views were not pursued due to the complexity of their data structure.
+
 ### Low Fi Layouts
-![[Pasted image 20240705125517.png]]
-![[Pasted image 20240705125535.png]]
+
+<Layouts.ColumnFull>
+
+<Layouts.Columns count={5}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020010Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020020Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020030Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020040Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020050Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020060Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020070Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020080Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020090Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020100Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020110Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020120Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020130Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020140Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020150Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020160Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020170Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020180Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020190Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020200Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020210Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020220Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020230Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020240Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_020250Iteration1DigitalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+</Layouts.Columns>
+
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_030010Iteration1FinalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_030020Iteration1FinalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_030030Iteration1FinalRoughspng, sizes: imgSizes.column3Full, alt:""}} />
+</Layouts.Columns>
+
+</Layouts.ColumnFull>
+
+<Layouts.ColumnFull>
 
 ### Core Pages: Sign in, Homepage, Documentation
-![[Pasted image 20240705130433.png]]
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040010Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040020Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040030Iteration1HighFipng, sizes: imgSizes.column2Max, alt: "" }} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ### District Modeling Pages: District Selection, Component Editing, Component Comparison
-![[Pasted image 20240705130442.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040040Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Columns count={1}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040050Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040070Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040080Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_040060Iteration1HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ---
+
 ## Iteration 2
+
 Iteration 2 came soon after the first. And added additional core features while reducing others. The left nav became a more traditional top nav. The left panel header was condensed and included more relevant navigation. A Key Performance Indicator (KPI) concept was added meant to constantly provide "Estimates" of the cost and benefit of user's District edits. We also added a "Properties" page for global settings and more detailed Geospatial draw and edit modes. I also added a new logo.
+
 Iteration 2 followed soon after the first, adding new core features while trimming others. The left navigation was replaced with a more traditional top navigation. The left panel header was streamlined to include more relevant navigation options. We introduced a Key Performance Indicator (KPI) feature to provide live updating "Estimates" of the cost and benefit of users' district edits. Additionally, we added a "Properties" page for global settings and more detailed geospatial draw and edit modes. I also added a new logo for the project who's elements reference a river and irrigation pivots.
+
 ### Low Fi Layouts
-![[Pasted image 20240705131719.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={4}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_210010Iteration2LowFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_210020Iteration2LowFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_210030Iteration2LowFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_210040Iteration2LowFipng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### District and Upgrade Navigation, Documentation
-![[Pasted image 20240705131850.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220010Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220020Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220030Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### Left Panel: Estimate KPIs, Global Properties, Component List
-![[Pasted image 20240705131841.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220040Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220050Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_220060Iteration2HighFipng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### Estimate KPI Interactions, Global Property Editing
-![[Pasted image 20240705131957.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={8}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230010Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230020Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230030Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230040Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230050Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230060Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230070Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_230080Iteration2EstimatesPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### Component Property Editing
-![[Pasted image 20240705132004.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={7}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240010Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240020Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240030Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240040Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240050Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240060Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_240070Iteration2EditsPanelspng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ### Draw Modes
-![[Pasted image 20240705132135.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_250010Iteration2DrawModespng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_250020Iteration2DrawModespng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_250030Iteration2DrawModespng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ### Flow Rate Dialog: Yearly Avg, Manual Settings, Import
-![[Pasted image 20240705132212.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_260010Iteration2FlowRatepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_260020Iteration2FlowRatepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_260030Iteration2FlowRatepng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ---
 ## Iteration 3
 Iteration 3 was the last major revision, with subsequent changes adhering to our more mature layout and design system. To accommodate an increasing amount of UI elements, we merged the right Component panel into the left panel. This freed us to make the left panel wider to fit more content. We also created a configurable Property Editor component system, allowing us to update inputs for any analytic via a configuration file rather than manual coding.
+
 This iteration featured several additional enhancements, including a redesigned homepage, a collapsible Help panel, an Elevation Profile of irrigation canals, minimized KPIs, and a completely redesigned Comparison Page with table layouts.
+
 ### Redesigned Homepage, District Selection
-![[Pasted image 20240705132416.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_310010Iteration3Homepagepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_310020Iteration3Homepagepng, sizes: imgSizes.column2Max, alt:"", style:{marginTop:30} }} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_310030Iteration3DistrictManagementpng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### District Navigation, Component Sets, Bulk Component Updates 
-![[Pasted image 20240705132517.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_320010Iteration3DistrictHomepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_320020Iteration3DistrictHomepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_320030Iteration3DistrictHomepng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### Component Editing, Drawing, Elevation Profile, Help Panel 
-![[Pasted image 20240705132550.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_330010Iteration3ComponentPagepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_330020Iteration3ComponentPagepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_330030Iteration3ComponentPagepng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
 ### Detailed Drawing Modes
-![[Pasted image 20240705134351.png]]
+<Layouts.ColumnFull>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_340010Iteration3DrawModespng, sizes: imgSizes.column2Max, alt:""}} screenshot={false} />
+</Layouts.ColumnFull>
+
 ### Redesigned Table Comparison Page
-![[Pasted image 20240705132723.png]]
+<Layouts.ColumnFull>
+<Layouts.Columns count={3}>
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_350010Iteration3ComparisonPagepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_350020Iteration3ComparisonPagepng, sizes: imgSizes.column2Max, alt:""}} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_IrrigationViz_350030Iteration3ComparisonPagepng, sizes: imgSizes.column2Max, alt:""}} />
+</Layouts.Columns>
+</Layouts.ColumnFull>
+
+## Try it for yourself
 
 The tool is currently publicly available at https://irrigationviz.pnnl.gov/. You can view a District in read only mode by clicking "Try IrrigationViz Now" an selecting the "Demo District." If you'd like to try the editing features, you will need to make an account.
 
