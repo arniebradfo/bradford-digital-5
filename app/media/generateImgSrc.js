@@ -21,16 +21,36 @@ function scanDirectory(dir, fileMap = []) {
       const relativePath = path
         .relative(__dirname, filePath)
         .replace(/\\/g, "/");
-      
-      fileMap.push(
-        `export { default as ${filePath
-          .replace(/[.\s-_]/gi, "")
-          .replace(/[\/\\]/gi, "_")} } from "${relativePath}";`
-      );
+      const tsName = filePath.replace(/[.\s-_]/gi, "").replace(/[\/\\]/gi, "_");
+
+      fileMap.push({
+        tsName,
+        relativePath,
+      });
+
+      // fileMap.push(  `export { default as ${tsName} } from "${relativePath}";` );
     }
   });
 
   return fileMap;
+}
+
+function formatFileMapAsTs(fileMap) {
+  return fileMap
+    .map(
+      ({ tsName, relativePath }) =>
+        `export { default as ${tsName} } from "${relativePath}";`
+    )
+    .join(`\n`);
+}
+function formatFileMapAsMdxExamples(fileMap) {
+  return [
+    `import { Layouts } from ''\n`, // just to avoid syntax error highlighting
+    ...fileMap.map(
+      ({ tsName, relativePath }) =>
+        `<Layouts.Image imageProps={{ src: Src.${tsName}, sizes: imgSizes.column2Max, alt:""}} />`
+    ),
+  ].join(`\n`);
 }
 
 // Get the directory to scan from the command line arguments
@@ -43,10 +63,14 @@ if (!directoryToScan) {
   process.exit(1); // Exit the script with an error code
 }
 
-// Define the output file path (same directory as the script)
-const outputJsonFile = path.join(__dirname, "index.ts");
 const result = scanDirectory(directoryToScan);
 
-// Save the result to a JSON file
-fs.writeFileSync(outputJsonFile, result.join(`\n`), "utf-8");
-console.log(`Result saved to ${outputJsonFile}`);
+// Define the output file path (same directory as the script)
+const outputTsFile = path.join(__dirname, "index.ts");
+const outputMdxFile = path.join(__dirname, "examples.mdx");
+
+// Save the result to file
+fs.writeFileSync(outputTsFile, formatFileMapAsTs(result), "utf-8");
+fs.writeFileSync(outputMdxFile, formatFileMapAsMdxExamples(result), "utf-8");
+
+console.log(`Result saved to ${outputTsFile}`);
