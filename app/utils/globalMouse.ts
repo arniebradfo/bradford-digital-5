@@ -1,12 +1,14 @@
-// Variables to store the latest mouse position
-export let globalMouse = { x: 0, y: 0 };
+/** Stores the latest mouse position. `-1` values are uninitialized */
+export let globalMouse = { x: -1, y: -1 };
 
-// Function to update the mouse position
 function updateMousePosition(event: MouseEvent) {
   globalMouse.x = event.clientX;
   globalMouse.y = event.clientY;
 }
 
-// Listen to mousemove events on the document
-if (typeof window !== "undefined")
+if (typeof window !== "undefined") {
+  // mouseover fires like css hover, when mouse may not have moved, as a fallback
+  document.addEventListener("mouseover", updateMousePosition);
+  // mousemove fires rapidly to smoothly update animation frames
   document.addEventListener("mousemove", updateMousePosition);
+}

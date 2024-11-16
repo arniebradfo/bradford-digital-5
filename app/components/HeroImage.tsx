@@ -71,7 +71,8 @@ export const HeroImage: React.FC<
 
     const { x, y } = globalMouse;
 
-    const isHovered = y > top && y < bottom && x > left && x < right;
+    const isHovered =
+      y >= 0 && x >= 0 && y > top && y < bottom && x > left && x < right;
     if (isHovered) {
       if (!isActive) {
         startActive();
