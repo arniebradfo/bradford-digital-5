@@ -13,7 +13,7 @@ export const GalleryNote = (props: ComponentProps<typeof Layouts.Note>) => (
       development and primarily showcases a gallery of final design artifacts.
       For a detailed post including process, reasoning, and decision-making,
       please see the <Link href="/pages/RedEye">RedEye</Link> or{" "}
-      <Link href="/pages/Hydropower-eLibrary">Hydropower</Link> eLibrary case
+      <Link href="/pages/Hydropower-eLibrary">Hydropower eLibrary</Link> case
       studies.
     </Txt>
   </Layouts.Note>
