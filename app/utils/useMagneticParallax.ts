@@ -31,36 +31,37 @@ export const useMagneticParallax = ({
 
   const { getElementDOMRect } = useElementDOMRect({ elementRef });
 
-  const magneticParallax = useCallback(
-    (start = false) => {
-      const elementDOMRect = getElementDOMRect(start);
+  const [isRunning, setIsRunning] = useState(false);
 
-      if (!magneticOffset.isAnimating() && magneticOffset.get() === 0) {
-        const { width = 0, height = 0 } = elementDOMRect || {};
-        const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
-        if (offsetX < Infinity)
-          animate(magneticOffset, offsetX, { duration, ease });
-      }
+  const magneticParallax = useCallback(() => {
+    if (!isRunning) setIsRunning(true);
+    const elementDOMRect = getElementDOMRect(!isRunning);
 
-      const { centerOffsetX, centerOffsetY } = mouseOffset({ elementDOMRect });
-      mouseX.set(centerOffsetX);
-      mouseY.set(centerOffsetY);
-    },
-    [duration, getElementDOMRect, magneticOffset, mouseX, mouseY, offsetPx]
-  );
+    if (!magneticOffset.isAnimating() && magneticOffset.get() === 0) {
+      const { width = 0, height = 0 } = elementDOMRect || {};
+      const offsetX = offsetPx / width; // if width === 0 then offsetX === Infinity
+      if (offsetX < Infinity)
+        animate(magneticOffset, offsetX, { duration, ease });
+    }
 
-  const startMagneticParallax = useCallback(() => {
-    magneticParallax(true);
-  }, [magneticParallax]);
-
-  const updateMagneticParallax = useCallback(() => {
-    magneticParallax(false);
-  }, [magneticParallax]);
+    const { centerOffsetX, centerOffsetY } = mouseOffset({ elementDOMRect });
+    mouseX.set(centerOffsetX);
+    mouseY.set(centerOffsetY);
+  }, [
+    isRunning,
+    duration,
+    getElementDOMRect,
+    magneticOffset,
+    mouseX,
+    mouseY,
+    offsetPx,
+  ]);
 
   const endMagneticParallax = useCallback(() => {
     animate(magneticOffset, 0, { duration, ease });
     animate(mouseX, 0, { duration, ease });
     animate(mouseY, 0, { duration, ease });
+    setIsRunning(false);
   }, [duration, magneticOffset, mouseX, mouseY]);
 
   const { scrollYProgress } = useScroll({
@@ -79,8 +80,8 @@ export const useMagneticParallax = ({
   return {
     translateX,
     translateY,
-    startMagneticParallax,
-    updateMagneticParallax,
+    startMagneticParallax: magneticParallax,
+    updateMagneticParallax: magneticParallax,
     endMagneticParallax,
   };
 };

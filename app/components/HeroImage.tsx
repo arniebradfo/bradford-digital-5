@@ -22,8 +22,9 @@ export const HeroImage: React.FC<
     imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
     href?: string; // LinkProps["href"];
     external?: boolean;
+    maxScale?: number;
   }
-> = ({ className, imageLayers, href, external, ...props }) => {
+> = ({ className, imageLayers, href, external, maxScale = 1, ...props }) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -47,19 +48,23 @@ export const HeroImage: React.FC<
     offset: ["start end", "end start"],
   });
 
-  const [isActive, setIsActive] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
 
-  const startActive = useCallback(() => {
-    setIsActive(true);
-    startMagneticParallax();
-    animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
-  }, [scaleMagnetic, startMagneticParallax]);
+  const runAnimation = useCallback(() => {
+    if (!isRunning) {
+      setIsRunning(true);
+      animate(scaleMagnetic, maxScale, { duration, ease: "easeInOut" });
+    }
+    updateMagneticParallax();
+  }, [isRunning, scaleMagnetic, updateMagneticParallax, maxScale]);
 
-  const endActive = useCallback(() => {
-    setIsActive(false);
-    endMagneticParallax();
-    animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
-  }, [endMagneticParallax, scaleMagnetic]);
+  const endAnimation = useCallback(() => {
+    if (isRunning) {
+      setIsRunning(false);
+      endMagneticParallax();
+      animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
+    }
+  }, [isRunning, scaleMagnetic, endMagneticParallax]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const {
@@ -71,15 +76,12 @@ export const HeroImage: React.FC<
 
     const { x, y } = globalMouse;
 
-    const isHovered = y > top && y < bottom && x > left && x < right;
+    const isHovered =
+      y >= 0 && x >= 0 && y > top && y < bottom && x > left && x < right;
     if (isHovered) {
-      if (!isActive) {
-        startActive();
-      }
+      runAnimation();
     } else {
-      if (isActive) {
-        endActive();
-      }
+      endAnimation();
     }
   });
 
@@ -98,9 +100,9 @@ export const HeroImage: React.FC<
         if (external) window.open(href);
         else router.push(href);
       }}
-      onHoverStart={startActive}
-      onHoverEnd={endActive}
-      onMouseMove={updateMagneticParallax}
+      onHoverStart={runAnimation}
+      onHoverEnd={endAnimation}
+      onMouseMove={runAnimation}
       style={customVar}
       {...props}
     >

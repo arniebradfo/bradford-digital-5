@@ -40,6 +40,6 @@ export const HeroImageLayer: React.FC<
 
 const MotionImage = motion(Image);
 
-const scaleUp = 0.015;
-const scaleMore = 0.005;
+const scaleUp = 0.005;
+const scaleMore = 0.0025;
 const translateMore = 2;
