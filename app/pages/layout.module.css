@@ -245,6 +245,7 @@
 }
 
 
+/* breakpointEven */
 @container LayoutColumn (max-width: 800px) {
 
   /* .Columns2, */
@@ -262,33 +263,31 @@
   }
 }
 
+
+/* breakpointOdd */
 @container LayoutColumn (max-width: 700px) {
 
-  .Columns3,
-  .Columns5 {
+  .Columns3 {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .Columns6 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  
 }
 
+/* breakpointAll */
 @container LayoutColumn (max-width: 600px) {
-
+  
   .Columns1,
   .Columns2,
   .Columns3,
-  .Columns4,
-  .Columns5,
-  .Columns6 {
+  .Columns4 {
     grid-template-columns: repeat(1, 1fr);
   }
-
+  
+  .Columns5,
+  .Columns6,
   .Columns7,
   .Columns8 {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
