@@ -46,7 +46,7 @@ export const PageHeader: React.FC<
     </div>
 
     <div className={cx(style.HeroImageWrapper)}>
-      <HeroImage {...heroImageProps} />
+      <HeroImage maxScale={.3} {...heroImageProps} />
     </div>
   </header>
 );

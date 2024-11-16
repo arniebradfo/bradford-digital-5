@@ -22,8 +22,9 @@ export const HeroImage: React.FC<
     imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
     href?: string; // LinkProps["href"];
     external?: boolean;
+    maxScale?: number;
   }
-> = ({ className, imageLayers, href, external, ...props }) => {
+> = ({ className, imageLayers, href, external, maxScale = 1, ...props }) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -52,10 +53,10 @@ export const HeroImage: React.FC<
   const runAnimation = useCallback(() => {
     if (!isRunning) {
       setIsRunning(true);
-      animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
+      animate(scaleMagnetic, maxScale, { duration, ease: "easeInOut" });
     }
     updateMagneticParallax();
-  }, [isRunning, scaleMagnetic, updateMagneticParallax]);
+  }, [isRunning, scaleMagnetic, updateMagneticParallax, maxScale]);
 
   const endAnimation = useCallback(() => {
     if (isRunning) {
