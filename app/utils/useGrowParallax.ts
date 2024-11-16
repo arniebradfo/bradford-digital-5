@@ -36,9 +36,49 @@ export const useGrowParallax = ({
 
   const { getElementDOMRect } = useElementDOMRect({ elementRef });
 
+  const [isRunning, setIsRunning] = useState(false);
+
+  const startGrowParallax = useCallback(
+    (elementDOMRect?: DOMRect) => {
+      const { height = 1, width = 1 } = elementDOMRect || {};
+
+      const scaleFromX = initialScaleSize / width;
+      const scaleFromY = initialScaleSize / height;
+
+      scaleX.set(scaleFromX);
+      scaleY.set(scaleFromY);
+
+      animate(scaleX, 1, { duration, ease });
+      animate(scaleY, 1, { duration, ease });
+      animate(opacity, 1, { duration: opacityDuration, ease });
+    },
+    [duration, opacity, opacityDuration, scaleX, scaleY]
+  );
+
+  const endGrowParallax = useCallback(
+    (elementDOMRect?: DOMRect) => {
+      const { height = 1, width = 1 } = elementDOMRect || {};
+
+      const scaleFromX = initialScaleSize / width;
+      const scaleFromY = initialScaleSize / height;
+
+      const durationX = width > height ? duration * 0.9 : duration;
+      const durationY = width < height ? duration * 0.9 : duration;
+
+      animate(scaleX, scaleFromX, { duration: durationX, ease: easeReverse });
+      animate(scaleY, scaleFromY, { duration: durationY, ease: easeReverse });
+      animate(opacity, 0, {
+        duration: opacityDuration,
+        delay: duration - opacityDuration,
+        ease: easeReverse,
+      });
+    },
+    [duration, scaleX, scaleY, opacity, opacityDuration]
+  );
+
   const growParallax = useCallback(
-    (start = false) => {
-      const elementDOMRect = getElementDOMRect(start);
+    (end = false) => {
+      const elementDOMRect = getElementDOMRect(!isRunning);
 
       let {
         topLeftOffsetX, //
@@ -57,9 +97,18 @@ export const useGrowParallax = ({
       translateX.set(centerOffsetX * offsetX);
       translateY.set(centerOffsetY * offsetX);
 
-      return elementDOMRect;
+      if (end) {
+        setIsRunning(false);
+        endGrowParallax(elementDOMRect);
+      } else if (!isRunning) {
+        setIsRunning(true);
+        startGrowParallax(elementDOMRect);
+      }
     },
     [
+      isRunning,
+      startGrowParallax,
+      endGrowParallax,
       getElementDOMRect,
       offsetPx,
       transformOriginX,
@@ -69,51 +118,15 @@ export const useGrowParallax = ({
     ]
   );
 
-  const updateGrowParallax = useCallback(() => {
-    growParallax(true);
-  }, [growParallax]);
-
-  const startGrowParallax = useCallback(() => {
-    const { height = 1, width = 1 } = growParallax(true) || {};
-
-    const scaleFromX = initialScaleSize / width;
-    const scaleFromY = initialScaleSize / height;
-
-    scaleX.set(scaleFromX);
-    scaleY.set(scaleFromY);
-
-    animate(scaleX, 1, { duration, ease });
-    animate(scaleY, 1, { duration, ease });
-    animate(opacity, 1, { duration: opacityDuration, ease });
-  }, [duration, growParallax, opacity, opacityDuration, scaleX, scaleY]);
-
-  const endGrowParallax = useCallback(() => {
-    const { height = 1, width = 1 } = growParallax() || {};
-
-    const scaleFromX = initialScaleSize / width;
-    const scaleFromY = initialScaleSize / height;
-
-    const durationX = width > height ? duration * 0.9 : duration;
-    const durationY = width < height ? duration * 0.9 : duration;
-
-    animate(scaleX, scaleFromX, { duration: durationX, ease: easeReverse });
-    animate(scaleY, scaleFromY, { duration: durationY, ease: easeReverse });
-    animate(opacity, 0, {
-      duration: opacityDuration,
-      delay: duration - opacityDuration,
-      ease: easeReverse,
-    });
-  }, [growParallax, duration, scaleX, scaleY, opacity, opacityDuration]);
-
   return {
     translateX,
     translateY,
     transformOrigin,
     scale,
     opacity,
-    startGrowParallax,
-    updateGrowParallax,
-    endGrowParallax,
+    startGrowParallax: growParallax,
+    updateGrowParallax: growParallax,
+    endGrowParallax: () => growParallax(true),
   };
 };
 

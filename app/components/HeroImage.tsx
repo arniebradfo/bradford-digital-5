@@ -47,19 +47,23 @@ export const HeroImage: React.FC<
     offset: ["start end", "end start"],
   });
 
-  const [isActive, setIsActive] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
 
-  const startActive = useCallback(() => {
-    setIsActive(true);
-    startMagneticParallax();
-    animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
-  }, [scaleMagnetic, startMagneticParallax]);
+  const runAnimation = useCallback(() => {
+    if (!isRunning) {
+      setIsRunning(true);
+      animate(scaleMagnetic, 1, { duration, ease: "easeInOut" });
+    }
+    updateMagneticParallax();
+  }, [isRunning, scaleMagnetic, updateMagneticParallax]);
 
-  const endActive = useCallback(() => {
-    setIsActive(false);
-    endMagneticParallax();
-    animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
-  }, [endMagneticParallax, scaleMagnetic]);
+  const endAnimation = useCallback(() => {
+    if (isRunning) {
+      setIsRunning(false);
+      endMagneticParallax();
+      animate(scaleMagnetic, 0, { duration, ease: "easeInOut" });
+    }
+  }, [isRunning, scaleMagnetic, endMagneticParallax]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const {
@@ -74,13 +78,9 @@ export const HeroImage: React.FC<
     const isHovered =
       y >= 0 && x >= 0 && y > top && y < bottom && x > left && x < right;
     if (isHovered) {
-      if (!isActive) {
-        startActive();
-      }
+      runAnimation();
     } else {
-      if (isActive) {
-        endActive();
-      }
+      endAnimation();
     }
   });
 
@@ -99,9 +99,9 @@ export const HeroImage: React.FC<
         if (external) window.open(href);
         else router.push(href);
       }}
-      onHoverStart={startActive}
-      onHoverEnd={endActive}
-      onMouseMove={updateMagneticParallax}
+      onHoverStart={runAnimation}
+      onHoverEnd={endAnimation}
+      onMouseMove={runAnimation}
       style={customVar}
       {...props}
     >
