@@ -7,9 +7,9 @@ type Size = {
 export const createImgSize = (sizes: Size[]) => {
   const imgSizes = sizes
     .map(({ width, divisor = 1, full = false }) => {
-      return full
-        ? `${Math.round(width / divisor)}px`
-        : `(max-width: ${width}px) ${Math.round(100 / divisor)}vw`;
+      let size = `(max-width: ${width}px) ${Math.round(100 / divisor)}vw`;
+      if (full) size += `, ${Math.round(width / divisor)}px`;
+      return size;
     })
     .join(", ");
   return imgSizes;
@@ -32,9 +32,6 @@ const column1 = (columWidth: number) => [
   {
     width: columWidth,
     divisor: 1,
-  },
-  {
-    width: columWidth,
     full: true,
   },
 ];
@@ -43,10 +40,6 @@ const column2 = (columWidth: number) => [
   {
     width: breakpointAll,
     divisor: 1,
-  },
-  {
-    width: columWidth,
-    divisor: 2,
   },
   {
     width: columWidth,
@@ -67,14 +60,87 @@ const column3 = (columWidth: number) => [
   {
     width: columWidth,
     divisor: 3,
-  },
-  {
-    width: columWidth,
-    divisor: 3,
     full: true,
   },
 ];
 
+const column4 = (columWidth: number) => [
+  {
+    width: breakpointAll,
+    divisor: 1,
+  },
+  {
+    width: breakpointEven,
+    divisor: 2,
+  },
+  {
+    width: columWidth,
+    divisor: 4,
+    full: true,
+  },
+];
+
+const column5 = (columWidth: number) => [
+  {
+    width: breakpointAll,
+    divisor: 2,
+  },
+  {
+    width: columWidth,
+    divisor: 5,
+    full: true,
+  },
+];
+
+const column6 = (columWidth: number) => [
+  {
+    width: breakpointAll,
+    divisor: 2,
+  },
+  {
+    width: breakpointEven,
+    divisor: 3,
+  },
+  {
+    width: columWidth,
+    divisor: 6,
+    full: true,
+  },
+];
+
+const column7 = (columWidth: number) => [
+  {
+    width: breakpointAll,
+    divisor: 2,
+  },
+  {
+    width: breakpointEven,
+    divisor: 4,
+  },
+  {
+    width: columWidth,
+    divisor: 7,
+    full: true,
+  },
+];
+
+const column8 = (columWidth: number) => [
+  {
+    width: breakpointAll,
+    divisor: 2,
+  },
+  {
+    width: breakpointEven,
+    divisor: 4,
+  },
+  {
+    width: columWidth,
+    divisor: 8,
+    full: true,
+  },
+];
+
+/** values correspond with how breakpoints realign in layout.module.css .ColumnN */
 export const imgSizes = {
   column1Max: createImgSize(column1(columnMax)),
   column1Full: createImgSize(column1(columnFull)),
@@ -87,4 +153,16 @@ export const imgSizes = {
   column3Max: createImgSize(column3(columnMax)),
   column3Full: createImgSize(column3(columnFull)),
   column3Text: createImgSize(column3(columnText)),
+
+  column4Full: createImgSize(column4(columnFull)),
+  column5Full: createImgSize(column5(columnFull)),
+  column6Full: createImgSize(column6(columnFull)),
+  column7Full: createImgSize(column7(columnFull)),
+  column8Full: createImgSize(column8(columnFull)),
+
+  column4Max: createImgSize(column4(columnMax)),
+  column5Max: createImgSize(column5(columnMax)),
+  column6Max: createImgSize(column6(columnMax)),
+  column7Max: createImgSize(column7(columnMax)),
+  column8Max: createImgSize(column8(columnMax)),
 };

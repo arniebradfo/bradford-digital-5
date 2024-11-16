@@ -167,6 +167,11 @@ const irrigationViz: ProjectFeatureSectionProps = {
     },
     links: [
       {
+        href: "/pages/IrrigationViz",
+        children: "Gallery",
+        type: "emphasis",
+      },
+      {
         href: "https://irrigationviz.pnnl.gov/",
         children: "Live Site",
         type: "outline",
@@ -175,7 +180,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "https://irrigationviz.pnnl.gov/",
+    href: "/pages/IrrigationViz",
     external: true,
 
     imageLayers: [

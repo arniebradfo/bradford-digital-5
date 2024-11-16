@@ -28,7 +28,7 @@
     line-height: 1.2;
   }
 
-  & h2:first-of-type{
+  & h2:first-of-type {
     margin-top: 0;
   }
 
@@ -48,18 +48,24 @@
 
   table {
     margin: 16px 0;
+
     & * {
       vertical-align: baseline;
     }
-    & thead, & tfoot {
+
+    & thead,
+    & tfoot {
       text-align: left;
       color: var(--foreground-color-1);
       font-weight: var(--font-weight-bold);
     }
-    & th{
+
+    & th {
       font-size: var(--font-size-4);
     }
-    & th, & td {
+
+    & th,
+    & td {
       padding: 4px 8px 16px 0;
       border-bottom: var(--border-1);
     }
@@ -126,7 +132,7 @@
 }
 
 .ColumnBreakout {
-  
+
   width: 100%;
   display: flex;
   align-items: center;
@@ -147,6 +153,7 @@
     flex: 1 1 0;
     min-width: 160px;
     max-width: var(--column-text);
+
     & p {
       margin: 0;
     }
@@ -162,8 +169,8 @@
   padding: 24px;
 }
 
-@media (max-width:600px ){
-  .Graphic{
+@media (max-width:600px) {
+  .Graphic {
     padding: 8px;
   }
 }
@@ -174,13 +181,18 @@
   overflow: hidden;
 }
 
-.Note{
+.Flat {
+  border-radius: var(--border-radius-image);
+}
+
+.Note {
   background-color: var(--background-color-3);
   border-radius: var(--border-radius);
   padding: 24px;
   margin: 32px 0;
   border: var(--border-1);
-  & :first-child{
+
+  & :first-child {
     margin-top: 0;
   }
 }
@@ -195,7 +207,7 @@
   gap: var(--gap);
   grid-template-columns: repeat(1, 1fr);
 
-  & + &{
+  &+& {
     margin-top: var(--gap);
   }
 }
@@ -224,7 +236,16 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
+.Columns7 {
+  grid-template-columns: repeat(7, 1fr);
+}
 
+.Columns8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+
+/* breakpointEven */
 @container LayoutColumn (max-width: 800px) {
 
   /* .Columns2, */
@@ -235,28 +256,38 @@
   .Columns6 {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .Columns7,
+  .Columns8 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
+
+/* breakpointOdd */
 @container LayoutColumn (max-width: 700px) {
 
-  .Columns3,
-  .Columns5 {
+  .Columns3 {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .Columns6 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 }
 
+/* breakpointAll */
 @container LayoutColumn (max-width: 600px) {
-
+  
   .Columns1,
   .Columns2,
   .Columns3,
-  .Columns4,
-  .Columns5,
-  .Columns6 {
+  .Columns4 {
     grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .Columns5,
+  .Columns6,
+  .Columns7,
+  .Columns8 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
