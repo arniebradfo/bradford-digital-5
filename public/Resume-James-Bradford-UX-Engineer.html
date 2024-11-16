@@ -20,7 +20,7 @@
           <div style="color: rgba(0, 0, 0, 0.60); font-size: 31px; font-family: IBM Plex Sans; font-weight: 500; text-transform: uppercase; letter-spacing: 1.86px; word-wrap: break-word">UX Engineer</div>
         </div>
         <div style="justify-content: flex-start; align-items: flex-start; gap: 7.39px; display: inline-flex">
-          <a href="https://www.bradford.digital" style="color: black; font-size: 13px; font-family: IBM Plex Sans; font-weight: 500; text-decoration: underline; word-wrap: break-word">www.bradford.digital</a>
+          <a id="portfolioLink" href="https://www.bradford.digital" style="color: black; font-size: 13px; font-family: IBM Plex Sans; font-weight: 500; text-decoration: underline; word-wrap: break-word">www.bradford.digital</a>
           <div style="color: rgba(0, 0, 0, 0.30); font-size: 13px; font-family: IBM Plex Sans; font-weight: 400; word-wrap: break-word">/</div>
           <div style="color: rgba(0, 0, 0, 0.80); font-size: 13px; font-family: IBM Plex Sans; font-weight: 400; word-wrap: break-word">james@bradford.digital</div>
           <div style="color: rgba(0, 0, 0, 0.30); font-size: 13px; font-family: IBM Plex Sans; font-weight: 400; word-wrap: break-word">/</div>
@@ -217,4 +217,8 @@
     </div>
   </div>
   <!-- INSERT CODE ABOVE -->
+  <script>
+    // add add tracking params to saved pdf
+    document.getElementById("portfolioLink").href += window.location.search
+  </script>
 </div></body></html>
