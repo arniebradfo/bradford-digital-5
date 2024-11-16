@@ -6,6 +6,7 @@ import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
 import { SetClientWidthCss } from "./utils/SetClientWidthCss";
 import ogImage from "../public/lfs-media/og_image.png";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import "./reset.css";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default function RootLayout({
       </body>
       <AsciiArt />
       <SetClientWidthCss />
+      <GoogleAnalytics gaId="G-M720N5B0NN" />
     </html>
   );
 }
