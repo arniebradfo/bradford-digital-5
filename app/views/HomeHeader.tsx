@@ -22,7 +22,7 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
           marginBottom: 48,
           height: 16 * 4,
           width: 16 * 4,
-          marginInline: -16
+          marginInline: -16,
         }}
       />
 
@@ -42,17 +42,12 @@ export const HomeHeader: React.FC<React.ComponentProps<"header">> = ({
           UI Development
         </Txt>
         <Spacer>-</Spacer>
-        Currently working in the{" "}
-        <Link href={"https://www.pnnl.gov/visual-analytics"} {...external}>
-          Human Centered Computing Group
+        Currently working on the{" "}
+        <Link href={"https://ai.azure.com/"} {...external}>
+          Microsoft AI Foundry
         </Link>{" "}
-        at{" "}
-        <Link href={"https://www.pnnl.gov/"} {...external}>
-          Pacific Northwest National Laboratory
-        </Link>
-        {"'s "}
-        Seattle Office making web apps for cybersecurity, geospatial analysis,
-        machine learning, and data visualization.
+        design team focusing on integrating LLM code gen into prototyping,
+        design systems, and dev handoff.
       </Txt>
 
       <NavLinks className={style.HeaderNav} />

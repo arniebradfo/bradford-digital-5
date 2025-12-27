@@ -6,8 +6,8 @@ import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
 import { SetClientWidthCss } from "./utils/SetClientWidthCss";
 import ogImage from "../public/lfs-media/og_image.png";
-import { Analytics } from "@vercel/analytics/react"
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./reset.css";
 import "./globals.css";
@@ -28,7 +28,7 @@ const PlexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: "James Bradford / UX Engineer",
   description:
-    "James Bradford is UX Engineer (User Research, UX Design, and UI Development) currently working in the Human Centered Computing Group at Pacific Northwest National Laboratory's Seattle Office making web apps for cybersecurity, geospatial analysis, machine learning, and data visualization.",
+    "James Bradford is UX Engineer (User Research, UX Design, and UI Development) currently working on the Microsoft AI Foundry design team focusing on integrating LLM code gen into prototyping design systems, and dev handoff.",
   openGraph: {
     images: {
       url: ogImage.src,
