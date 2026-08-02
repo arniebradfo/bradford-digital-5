@@ -4,6 +4,10 @@
 .obsidian/plugins
 .obsidian/workspace.json
 
+# playwright
+.playwright
+.playwright-cli
+
 # dependencies
 /node_modules
 /.pnp
