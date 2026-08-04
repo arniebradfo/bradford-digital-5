@@ -15,7 +15,7 @@ export const PageHeader: React.FC<
     subHeader?: ReactNode;
     description?: ReactNode;
     links?: LinkButtonProps[];
-    heroImageProps: HeroImageProps;
+    heroImageProps?: HeroImageProps;
   }
 > = ({
   className,
@@ -45,8 +45,10 @@ export const PageHeader: React.FC<
       )}
     </div>
 
-    <div className={cx(style.HeroImageWrapper)}>
-      <HeroImage maxScale={.3} {...heroImageProps} />
-    </div>
+    {heroImageProps && (
+      <div className={cx(style.HeroImageWrapper)}>
+        <HeroImage maxScale={.3} {...heroImageProps} />
+      </div>
+    )}
   </header>
 );
