@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Spirit Animal Vector Art",
@@ -11,13 +10,16 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
-<MdxImageRow>
+<PageDetails details={[
+  { label: "Date", text: "2012-09-06" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
+<Layouts.Columns count={2}>
 <img src="/lfs-media/2013-animal-calendar_head-eagle.png" alt="" />
 
 <img src="/lfs-media/2013-animal-calendar_head-bison.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/2013-animal-calendar_full.jpg" alt=""  />
 

@@ -4,9 +4,6 @@ import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
 import { B, H1, H2, H3, H4, H5, H6, I, Txt } from "./app/components/Text";
 
-import { MdxImageRow } from "./app/components/MdxImageRow";
-import { MdxVideo } from "./app/components/MdxVideo";
-
 /** https://nextjs.org/docs/app/building-your-application/configuring/mdx#custom-elements */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -19,8 +16,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     strong: B,
     em: I,
     img: Img,
-    MdxImageRow,
-    MdxVideo,
     ...components,
   };
 }

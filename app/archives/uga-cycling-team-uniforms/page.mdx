@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "UGA Cycling Team Uniforms",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2012-09-18" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 ## Graphic Concept
 
@@ -23,13 +27,11 @@ Uniform design for the University of Georgia cycling team featuring the Universi
 
 <img src="/lfs-media/uga-cycling_bib.png" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/uga-cycling_socks.png" alt="" />
 
 <img src="/lfs-media/uga-cycling_hats.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/uga-cycling_team-photo.jpg" alt=""  />
 

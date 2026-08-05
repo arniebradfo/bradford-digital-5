@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "AvyMap: Avalanche Safety Mobile App",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2019-02-01" },
+  { label: "Type", text: "Case Study" }
+]} />
 
 ## The Problem
 
@@ -27,25 +31,21 @@ Whether you’re skiing, snowmobiling, or mountaineering, this app is designed t
 
 This demo video shows how a user would open the app, check the local avalanche report, input the current avalanche danger ratings, and scan an area for avalanche danger.
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/AvyMap_Mockup-Mobile.png" alt="" />
 
 <img src="/lfs-media/AvyMap_Mockup-Desktop.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Representation of Slope Danger
 
 The danger is represented by colored dots and lines. The color and line length represent the degree of danger in accordance with the legend below. The colors follow the standard set in the [North American Public Avalanche Danger Scale](https://avalanche.org/avalanche-encyclopedia/danger-scale/). Put simply: green is ok, red is bad, longer lines are more dangerous. The direction of the lines also indicate the slope aspect and “fall line”, or the direction in which an avalanche will slide.
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/AvyMap_Slope-Example.png" alt="" />
 
 <img src="/lfs-media/AvyMap_Slope-Legend.svg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 This graph depicts the percentage of human triggered avalanches by slope angle. 76% of human triggered avalanches occur on slopes that are 34°–45°, and 96% occur on slopes that are between 30° and 50°. Peak activity (8%) occurs at slopes of 39°.
 
@@ -87,8 +87,7 @@ Every project needs a strong logo. This one is based on the [North American Publ
 
 <img src="/lfs-media/AvyMap_Logo.svg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={4}>
 <img src="/lfs-media/AvyMap_Logo-Danger-0.png" alt="" />
 
 <img src="/lfs-media/AvyMap_Logo-Danger-1.png" alt="" />
@@ -98,8 +97,7 @@ Every project needs a strong logo. This one is based on the [North American Publ
 <img src="/lfs-media/AvyMap_Logo-Danger-3.png" alt="" />
 
 <img src="/lfs-media/AvyMap_Logo-Danger-4.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 It's pixel aligned down to a 32px width, so it’s always super crisp at any multiple of 32px.
 

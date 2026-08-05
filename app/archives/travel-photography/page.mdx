@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Travel Photography",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2018-12-18" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 ## What better time than now?
 
@@ -27,16 +31,13 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-9.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-15.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-7.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={4}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-14.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-13.jpg" alt="" />
@@ -46,28 +47,23 @@ We spent two weeks in efficient, clean, well-designed Japan. We utilized the imp
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-12.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-11.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-8.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-1.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-5.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-6.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Japan-3.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Thailand
 
@@ -77,43 +73,35 @@ Bangkok was a harsh awakening after the clean efficiency of Japan. We traveled b
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-5.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-10.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-1.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-9.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-13.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-6.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-3.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-12.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-8.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-7.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-2.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Thailand-11.jpg" alt=""  />
 
@@ -125,8 +113,7 @@ Singapore is some kind of futuristic utopian mega-city. The entire city is a per
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-1.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={4}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-6.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-5.jpg" alt="" />
@@ -134,8 +121,7 @@ Singapore is some kind of futuristic utopian mega-city. The entire city is a per
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-3.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Singapore-2.jpg" alt=""  />
 
@@ -145,15 +131,13 @@ We spent a couple days in Kuala Lumpur as a stopover between Singapore and India
 
 {/* [Kuala Lumpur Gallery](https://adobe.ly/2Sr7sr3) */}
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Malaysia-2.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Malaysia-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Malaysia-3.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Malaysia-1.jpg" alt=""  />
 
@@ -165,31 +149,25 @@ We flew into Delhi, met up with our college friend, and a few hours laters were 
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-9.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-8.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-7.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-6.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-5.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-3.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-1.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Ledakh-2.jpg" alt=""  />
 
@@ -201,41 +179,33 @@ After our time in Ladakh, we began a month-long trek across central and western 
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jaisalmer-Lake.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jaisalmer-Camel.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Jaisalmer-Dunes.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jaisalmer-Dung-Beetle.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jodhpur-Castle.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jodhpur-Castle-Grounds.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Ellora-Rain.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Ajanta-Buddah.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Ajanta-Cave.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Old-Delhi-Red-Fort.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Jodhpur-Jaswant-Thada.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-India-Udaipur-Sunset.jpg" alt=""  />
 
@@ -245,25 +215,21 @@ We were lucky to have two weeks of rest and relaxation in Abu Dhabi, where my wi
 
 {/* [Abu Dhabi Gallery](https://adobe.ly/2SmOX7m) */}
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-7.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-3.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-5.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-6.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-2.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-UAE-1.jpg" alt=""  />
 
@@ -273,8 +239,7 @@ We spent three weeks island-hopping by ferry in Greece, starting, actually, in B
 
 {/* [Bodrum & Kos Gallery](https://adobe.ly/2GnuCs0) / [Santorini Gallery](https://adobe.ly/2GmnD2x) / [Naxos Gallery](https://adobe.ly/2GmnxrH) / [Paros Gallery](https://adobe.ly/2SpugYq) / [Tinos Gallery](https://adobe.ly/2SuKFuA) / [Athens Gallery](https://adobe.ly/2SmOTEE) */}
 
-<MdxImageRow>
-
+<Layouts.Columns count={4}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Santorini-Windmills.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Cigarettes.jpg" alt="" />
@@ -282,36 +247,29 @@ We spent three weeks island-hopping by ferry in Greece, starting, actually, in B
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Tinos.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Santorini-Church.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Sailboat.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Water.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Boat.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Tinos-Marble-Museam.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Temple-of-Zeus.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Acropolis-Sunrise.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Temple-of-Nike.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Greece-Acropolis-Model.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Italy
 
@@ -321,33 +279,27 @@ The food in Italy is amazing. We ate pizza nearly every day of the two weeks we 
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-10.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-9.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-8.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-7.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-6.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-2.jpg" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-5.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-1.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Italy-3.jpg" alt=""  />
 
@@ -357,23 +309,19 @@ Maddy’s family gathered in Abu Dhabi for an early Christmas, and we took a fam
 
 {/* [Oman Gallery](https://adobe.ly/2SmOxhi) */}
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Oman-4.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Oman-1.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Oman-2.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/James-Bradford-Travel-Photo-Oman-5.jpg" alt="" />
 
 <img src="/lfs-media/James-Bradford-Travel-Photo-Oman-3.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## It’s Good to be Back
 

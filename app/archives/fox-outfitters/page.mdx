@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "FOX outfitters",
@@ -11,19 +10,22 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
+<PageDetails details={[
+  { label: "Date", text: "2014-05-25" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
 ## Logo Design
 
 I created initial branding for a new line of camping products to be known as FOX Outfitters. I started with three different logo concepts, and moved forward with what we thought was the best.
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/fox-outfitters_sketch-sunrise.png" alt="" />
 
 <img src="/lfs-media/fox-outfitters_sketch-red-fox.png" alt="" />
 
 <img src="/lfs-media/fox-outfitters_sketch-cursive.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/fox-outfitters_logo-fox-outfitters-large.png" alt=""  />
 
@@ -35,25 +37,21 @@ I presented 3 packaging and branding concepts for a line of air mattresses and a
 
 <img src="/lfs-media/fox-outfitters_package-mat-cup-mockup-blue.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/fox-outfitters_package-mat-blue.jpg" alt="" />
 
 <img src="/lfs-media/fox-outfitters_package-cup-blue.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Package Design Concept 2
 
 <img src="/lfs-media/fox-outfitters_package-mat-cup-mockup-navy.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/fox-outfitters_package-mat-navy.jpg" alt="" />
 
 <img src="/lfs-media/fox-outfitters_package-cup-navy.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Package Design Concept 3
 
@@ -61,13 +59,11 @@ The client decided to move forward with concept 3.
 
 <img src="/lfs-media/fox-outfitters_package-mat-cup-mockup-brown.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/fox-outfitters_package-mat-brown.jpg" alt="" />
 
 <img src="/lfs-media/fox-outfitters_package-cup-brown.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Hammock Tags
 

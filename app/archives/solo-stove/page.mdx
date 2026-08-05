@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Solo Stove",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2014-04-14" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 ## Airflow Diagram
 
@@ -27,52 +31,42 @@ An interactive version is now featured on the solo stove website: [How Solo Stov
 
 ## Product Logotypes
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/solo-stove_logo-pots.png" alt="" />
 
 <img src="/lfs-media/solo-stove_logo-accessories.png" alt="" />
 
 <img src="/lfs-media/solo-stove_logo-titan.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Product Diagrams
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/solo-stove_diagram-campfire-dimensions.png" alt="" />
 
 <img src="/lfs-media/solo-stove_diagram-item-dimensions.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Web Banners
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/solo-stove_Banner-holiday_new-years.png" alt="" />
 
 <img src="/lfs-media/solo-stove_Banner-holiday_fall.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/solo-stove_Banner-holiday_veterans.png" alt="" />
 
 <img src="/lfs-media/solo-stove_Banner-holiday_thanksgiving.png" alt="" />
 
 <img src="/lfs-media/solo-stove_Banner-holiday_summer.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/solo-stove_Banner-holiday_christmas-1.png" alt="" />
 
 <img src="/lfs-media/solo-stove_Banner-holiday_christmas-2.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 </Layouts.ArticleWrapper>

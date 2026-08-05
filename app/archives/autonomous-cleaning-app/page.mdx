@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Autonomous Cleaning App",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2017-11-08" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 ## Use Case
 
@@ -29,86 +33,66 @@ The app was designed to alternate between a mobile single-column width as well a
 
 ## Mockups
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-005-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-005.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-012-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-012.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/Cleaning-App_Screenshot-013-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-014a-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-014a.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-014c-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-014c.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-016-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-016.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-018-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-018.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-041-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-041.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-044-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-044.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-046-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-046.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Cleaning-App_Screenshot-061-mobile.png" alt="" />
 
 <img src="/lfs-media/Cleaning-App_Screenshot-061.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 </Layouts.ArticleWrapper>

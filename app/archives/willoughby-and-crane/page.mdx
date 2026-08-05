@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Willoughby & Crane",
@@ -11,33 +10,34 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
+<PageDetails details={[
+  { label: "Date", text: "2014-12-05" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
 ## Sketches
 
 The client requested a logo of an origami crane for a consulting firm. I folded a paper model and did some sketches paired with type.
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/willoughby-crane_logo-sketch-3.png" alt="" />
 
 <img src="/lfs-media/willoughby-crane_logo-sketch-2.png" alt="" />
 
 <img src="/lfs-media/willoughby-crane_logo-sketch-1.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Digital Roughs
 
 The client liked the direction so I made some digital roughs of all 3 compositions.
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/willoughby-crane_logo-option-3.png" alt="" />
 
 <img src="/lfs-media/willoughby-crane_logo-option-2.png" alt="" />
 
 <img src="/lfs-media/willoughby-crane_logo-option-1.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Final Logo
 
@@ -45,13 +45,11 @@ We decided on a simple, elegant design paired with Caslon text. The old-style, s
 
 <img src="/lfs-media/willoughby-crane_logo-final-long.png" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/willoughby-crane_logo-final-wide.png" alt="" />
 
 <img src="/lfs-media/willoughby-crane_logo-final-square.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/willoughby-crane_business-card.jpg" alt=""  />
 

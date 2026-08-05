@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "WordPress Syntax Highlighter Plugin",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2019-01-20" },
+  { label: "Type", text: "Case Study" }
+]} />
 
 > A plug-in has never made me cry but this one has. It is the most amazing, lightweight, and functional plugin I have ever had the honor of using. It is a must use plugin for any one serious about WordPress and frankly should be built in to WordPress.
 > 
@@ -101,8 +105,7 @@ It’s going to be called WP Code: like VS Code, but WordPress. I produced a log
 
 <img src="/lfs-media/html-syntax-highlighter-wordpress-plugin_wp-code-logo-bg.svg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={4}>
 <img src="/lfs-media/html-syntax-highlighter-wordpress-plugin_visual-studio-ide-logo-bg.svg" alt="" />
 
 <img src="/lfs-media/html-syntax-highlighter-wordpress-plugin_vs-blend-logo-bg.svg" alt="" />
@@ -112,7 +115,6 @@ It’s going to be called WP Code: like VS Code, but WordPress. I produced a log
 <img src="/lfs-media/html-syntax-highlighter-wordpress-plugin_vs-code-insiders-logo-bg.svg" alt="" />
 
 <img src="/lfs-media/html-syntax-highlighter-wordpress-plugin_vs-team-services-bg.svg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 </Layouts.ArticleWrapper>

@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Blue Heron Brewery",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2012-03-26" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 ## Logo Study and Development
 
@@ -21,21 +25,17 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 ## Branding and Application
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/blue-heron-brewery_print-glass.png" alt="" />
 
 <img src="/lfs-media/blue-heron-brewery_print-bottle.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/blue-heron-brewery_coaster-bottle-cap.png" alt="" />
 
 <img src="/lfs-media/blue-heron-brewery_coaster-logo.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/blue-heron-brewery_bottle-and-glass.jpg" alt=""  />
 

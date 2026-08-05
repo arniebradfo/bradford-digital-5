@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "ASI Website Navigation",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2016-03-01" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 I designed and developed a more interactive and engaging navigation menu and site header system for the Autonomous Solutions corporate website. It featured a contact form built into the menu of every page instead of routing to a dedicated page.
 

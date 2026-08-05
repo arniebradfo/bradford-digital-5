@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Pavillo Camping Gear",
@@ -11,71 +10,64 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
+<PageDetails details={[
+  { label: "Date", text: "2014-05-11" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
 ## Bags
 
 <img src="/lfs-media/pavillo_bag-black.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_bag-black-icons-features.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_bag-black-icon-dimensions.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/pavillo_bag-green.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/pavillo_bag-green-logo.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_bag-green-icons-dimensions.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_bag-green-icons-features.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/pavillo_bag-blue.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_bag-blue-label-info.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_bag-blue-logo.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/pavillo_bag-red.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_bag-red-icons-temperature-dimensions.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_bag-red-icons-features.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Catalog
 
 <img src="/lfs-media/pavillo_catalog-tags.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_catalog-tag-detail.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_catalog-detail-logo.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/pavillo_catalog-page-tent.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_catalog-detail-icons-sleeping-bag.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_catalog-detail-icons-backpack.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/pavillo_catalog-page-backpack.jpg" alt=""  />
 
@@ -105,12 +97,10 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <img src="/lfs-media/pavillo_tag-backpack-cover.jpg" alt=""  />
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/pavillo_tag-backpack-features.jpg" alt="" />
 
 <img src="/lfs-media/pavillo_tag-backpack-description-multilingual.jpg" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 </Layouts.ArticleWrapper>

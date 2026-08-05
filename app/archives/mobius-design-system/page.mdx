@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Mobius Design System",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2018-03-08" },
+  { label: "Type", text: "Case Study" }
+]} />
 
 This Mobius Design System was created to standardize the UI and general interaction principles for Mobius Software. 
 This document acts as a guidebook for design decisions going forward, so these decisions need not be made over and over again. 

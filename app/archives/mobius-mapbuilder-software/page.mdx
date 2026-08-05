@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Mobius Mapbuilder Software",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2017-09-18" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 Mobius Mapbuilder software is used to create and edit maps containing geo-referenced boundary shapes. Properties of these shapes dictate where and how autonomous vehicles may operate in a given map.
 

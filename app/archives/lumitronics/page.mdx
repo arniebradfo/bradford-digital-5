@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Lumitronics",
@@ -11,28 +10,29 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
+<PageDetails details={[
+  { label: "Date", text: "2014-04-08" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
 ## Logo Development
 
-<MdxImageRow>
-
+<Layouts.Columns count={3}>
 <img src="/lfs-media/lumitronics_logo-option-3.png" alt="" />
 
 <img src="/lfs-media/lumitronics_logo-option-2.png" alt="" />
 
 <img src="/lfs-media/lumitronics_logo-option-1.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 <img src="/lfs-media/lumitronics_logo-option-final.png" alt=""  />
 
 ## Package Design
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/lumitronics_packaging-front.png" alt="" />
 
 <img src="/lfs-media/lumitronics_packaging-back.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 </Layouts.ArticleWrapper>

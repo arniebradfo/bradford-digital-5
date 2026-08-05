@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Reporting Software",
@@ -11,33 +10,32 @@ import { MdxVideo } from "../../components/MdxVideo";
 
 <Layouts.ArticleWrapper>
 
+<PageDetails details={[
+  { label: "Date", text: "2017-07-08" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
 ## Haulage Reports
 
 This reporting software displays data regarding past performance of autonomous haulage trucks. The Haulage Progress report displays how much total material was moved from the load zone to any dump zone based on a previously set goal. The Cycle Time report shows the duration of trip times to and from load and dump zones.
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Reporting_Haulage-5.png" alt="" />
 
 <img src="/lfs-media/Reporting_Haulage-6.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Reporting_Haulage-2.png" alt="" />
 
 <img src="/lfs-media/Reporting_Haulage-1.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Reporting_Haulage-10.png" alt="" />
 
 <img src="/lfs-media/Reporting_Haulage-9.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ## Geo Data Heatmap Visualization
 

@@ -1,7 +1,6 @@
 import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../../pages/Layouts";
-import { MdxImageRow } from "../../components/MdxImageRow";
-import { MdxVideo } from "../../components/MdxVideo";
 
 <PageHeader {...{
   header: "Mobius UX Audit",
@@ -10,6 +9,11 @@ import { MdxVideo } from "../../components/MdxVideo";
 }} />
 
 <Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2018-04-08" },
+  { label: "Type", text: "Archive Project" }
+]} />
 
 As a UX Designer at Autonomous Solutions Inc, I collaborated with the UX Lead to design a feature set for Mobius Command and Control Software, Version 7. Mobius is a Windows application used to remotely control a fleet of autonomous vehicles. It features an RTS-like function for tasking vehicles on a map and Adobe Illustrator-like functions for editing maps and predefined vehicle paths. Mobius utilizes the same core functionality to operate in multiple industry applications including: Mining, Agriculture, Automotive, Security, Cleaning, and Materials Handling.
 
@@ -79,77 +83,59 @@ When all was said and done, I proposed a major reorganization of the UI. Prelimi
 
 ### V 7.0 Current V 8.0 Next
 
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-1-Command.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-1-Command.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-2-Pathbuilder-Draw.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-2-Pathbuilder-Draw.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-3-Pathbuilder-Action-Editor.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-3-Pathbuilder-Action-Editor.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-4-MapManager.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-4-MapManager.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-6-Mapbuilder-Draw.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-6-Mapbuilder-Draw.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-7-Mapbuilder-Edit.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-7-Mapbuilder-Edit.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-8-Checklist.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-8-Checklist.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-9-Settings.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-9-Settings.png" alt="" />
+</Layouts.Columns>
 
-</MdxImageRow>
-
-<MdxImageRow>
-
+<Layouts.Columns count={2}>
 <img src="/lfs-media/Mobius-v7-10-User-Settings.png" alt="" />
 
 <img src="/lfs-media/Mobius-v8-10-User-Settings.png" alt="" />
-
-</MdxImageRow>
+</Layouts.Columns>
 
 ### Part 2: Structural Changes
 
