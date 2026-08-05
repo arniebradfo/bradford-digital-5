@@ -25,6 +25,9 @@ export const HeroImageLayer: React.FC<
     translateMore: translateMore * level,
   });
 
+  const isStringSrc = typeof props.src === "string";
+  const isUnoptimized = isStringSrc && !props.width && !props.fill;
+
   return (
     <MotionImage
       className={cx(className)}
@@ -33,6 +36,8 @@ export const HeroImageLayer: React.FC<
         ...motionStyle,
       }}
       sizes={"100vw"}
+      unoptimized={isUnoptimized || props.unoptimized}
+      {...(isUnoptimized && !props.width ? { width: 1200, height: 800 } : {})}
       {...props}
     />
   );
