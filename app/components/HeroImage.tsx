@@ -19,7 +19,9 @@ export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
 
 export const HeroImage: React.FC<
   React.ComponentProps<typeof motion.div> & {
-    imageLayers: Omit<HeroImageLayerProps, "motionValues">[];
+    imageLayers?: Omit<HeroImageLayerProps, "motionValues">[];
+    src?: string;
+    alt?: string;
     href?: string; // LinkProps["href"];
     external?: boolean;
     maxScale?: number;
@@ -87,26 +89,30 @@ export const HeroImage: React.FC<
 
   const customVar = { "--duration": duration + "s" } as CSSProperties;
 
-  return (
-    <motion.div
-      className={cx(
-        className,
-        style.ImageLayers,
-        href && style.ImageLink // hover cursor if href
-      )}
-      ref={elementRef}
-      onClick={() => {
-        if (!href) return;
-        if (external) window.open(href);
-        else router.push(href);
-      }}
-      onHoverStart={runAnimation}
-      onHoverEnd={endAnimation}
-      onMouseMove={runAnimation}
-      style={customVar}
-      {...props}
-    >
-      {imageLayers.map(
+    const anyProps = props as any;
+    const layers: any[] = imageLayers || (anyProps.src ? [{ src: anyProps.src, alt: anyProps.alt }] : []);
+    const { src: _src, alt: _alt, ...restProps } = anyProps;
+
+    return (
+      <motion.div
+        className={cx(
+          className,
+          style.ImageLayers,
+          href && style.ImageLink // hover cursor if href
+        )}
+        ref={elementRef}
+        onClick={() => {
+          if (!href) return;
+          if (external) window.open(href);
+          else router.push(href);
+        }}
+        onHoverStart={runAnimation}
+        onHoverEnd={endAnimation}
+        onMouseMove={runAnimation}
+        style={customVar}
+        {...restProps}
+      >
+        {layers.map(
         (
           {
             className: layerClassName,

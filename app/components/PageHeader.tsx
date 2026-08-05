@@ -15,7 +15,7 @@ export const PageHeader: React.FC<
     subHeader?: ReactNode;
     description?: ReactNode;
     links?: LinkButtonProps[];
-    heroImageProps?: HeroImageProps;
+    heroImageProps?: HeroImageProps | { src: string; alt?: string };
   }
 > = ({
   className,
