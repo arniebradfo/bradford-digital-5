@@ -101,7 +101,7 @@ export const ALL_PROJECTS: Project[] = [
     date: "2020 - 2024",
     description:
       "A Red Team C2 Log Visualization tool to display complex data, evaluate mitigation strategies, and enable effective decision making in response to a Red Team assessment.",
-    headerImage: "/lfs-media/Hero/RedEyeHero-01-BackgroundGrid.png",
+    headerImage: "/lfs-media/RedEye/RedEye-header.png",
     tags: ["featured", "PNNL"],
     href: "/work/RedEye",
   },
@@ -111,7 +111,7 @@ export const ALL_PROJECTS: Project[] = [
     date: "2020 - 2024",
     description:
       "A searchable repository of FERC licensed hydropower projects, FERC documents, and an interactive map of US hydropower installations.",
-    headerImage: "/lfs-media/Hero/HydroELibraryHero-01-Background.png",
+    headerImage: "/lfs-media/HydroELibrary/Hydro-eLibrary-header.png",
     tags: ["featured", "PNNL"],
     href: "/work/Hydropower-eLibrary",
   },
@@ -121,7 +121,7 @@ export const ALL_PROJECTS: Project[] = [
     date: "2021 - 2023",
     description:
       "A pre-engineering estimation tool for Irrigation District Managers to quickly model their district, propose infrastructure upgrades, and compare project costs with stakeholders.",
-    headerImage: "/lfs-media/Hero/IrrigationVizHero-01-Map.png",
+    headerImage: "/lfs-media/IrrigationViz/IrrigationViz-header.png",
     tags: ["featured", "PNNL"],
     href: "/work/IrrigationViz",
   },
@@ -177,7 +177,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "Software allowing operators to map haulage routes, geofences, and operational zones for autonomous vehicles.",
     headerImage:
-      "/lfs-media/mobius-mapbuilder-software/Mobius_Mapbuilder-1.png",
+      "/lfs-media/mobius-mapbuilder-software/Mobius_Mapbuilder-17.png",
     tags: ["archives", "ASI"],
     href: "/work/mobius-mapbuilder-software",
   },
@@ -188,7 +188,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "Interactive path planning tool for generating vehicle navigation trajectories in complex industrial environments.",
     headerImage:
-      "/lfs-media/mobius-pathbuilder-software/Mobius_Pathbuilder-Steps-01.png",
+      "/lfs-media/mobius-pathbuilder-software/Mobius_Pathbuilder-7.png",
     tags: ["archives", "ASI"],
     href: "/work/mobius-pathbuilder-software",
   },
@@ -328,7 +328,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "Advanced Illustration at University of Georgia: graphite, eraser, scanned textures, and digital color overlays.",
     headerImage:
-      "/lfs-media/illustration/James-Bradford-Illustration_Rooster.jpg",
+      "/lfs-media/illustration/James-Bradford-Illustration_Dragon-Dog.jpg",
     tags: ["archives", "College"],
     href: "/work/illustration",
   },
@@ -371,7 +371,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "Precision vector diagrams and pedagogical infographics created for peer-reviewed agricultural and entomological publications.",
     headerImage:
-      "/lfs-media/scientific-illustration/Pesticide-Routes-1-Larval-Ingestion.svg",
+      "/lfs-media/scientific-illustration/Pesticide-Routes-3-Direct-Contact.svg",
     tags: ["archives", "Freelance"],
     href: "/work/scientific-illustration",
   },
@@ -457,7 +457,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "A collection of 35mm and digital travel photography from journeys across Japan, Taiwan, and the Pacific Northwest.",
     headerImage:
-      "/lfs-media/travel-photography/James-Bradford-Travel-Photo-Japan-2.jpg",
+      "/lfs-media/travel-photography/James-Bradford-Travel-Photo-Jaisalmer-Dunes.jpg",
     tags: ["archives", "SideProject"],
     href: "/work/travel-photography",
   },

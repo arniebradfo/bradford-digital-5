@@ -40,6 +40,7 @@ export { default as public_lfsmedia_HydroELibrary_FunctionalPrototype01DocumentS
 export { default as public_lfsmedia_HydroELibrary_FunctionalPrototype02ProjectSearchpng } from "../../public/lfs-media/HydroELibrary/Functional-Prototype-02-Project-Search.png";
 export { default as public_lfsmedia_HydroELibrary_FunctionalPrototype03DocumentPagepng } from "../../public/lfs-media/HydroELibrary/Functional-Prototype-03-Document-Page.png";
 export { default as public_lfsmedia_HydroELibrary_FunctionalPrototype04ProjectPagepng } from "../../public/lfs-media/HydroELibrary/Functional-Prototype-04-Project-Page.png";
+export { default as public_lfsmedia_HydroELibrary_HydroeLibraryheaderpng } from "../../public/lfs-media/HydroELibrary/Hydro-eLibrary-header.png";
 export { default as public_lfsmedia_HydroELibrary_HydropowereLibraryDamMappng } from "../../public/lfs-media/HydroELibrary/Hydropower-eLibrary-Dam-Map.png";
 export { default as public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentDetailspng } from "../../public/lfs-media/HydroELibrary/Hydropower-eLibrary-Document-Details.png";
 export { default as public_lfsmedia_HydroELibrary_HydropowereLibraryDocumentSearchpng } from "../../public/lfs-media/HydroELibrary/Hydropower-eLibrary-Document-Search.png";
@@ -147,6 +148,7 @@ export { default as public_lfsmedia_IrrigationViz_350010Iteration3ComparisonPage
 export { default as public_lfsmedia_IrrigationViz_350020Iteration3ComparisonPagepng } from "../../public/lfs-media/IrrigationViz/350-020-Iteration3-ComparisonPage.png";
 export { default as public_lfsmedia_IrrigationViz_350030Iteration3ComparisonPagepng } from "../../public/lfs-media/IrrigationViz/350-030-Iteration3-ComparisonPage.png";
 export { default as public_lfsmedia_IrrigationViz_350040Iteration3ComparisonPagepng } from "../../public/lfs-media/IrrigationViz/350-040-Iteration3-ComparisonPage.png";
+export { default as public_lfsmedia_IrrigationViz_IrrigationVizheaderpng } from "../../public/lfs-media/IrrigationViz/IrrigationViz-header.png";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAdobeXdRepeatTextpng } from "../../public/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.png";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAdobeXdRepeatTextsvg } from "../../public/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.svg";
 export { default as public_lfsmedia_ProjectIcons_ProjectIconAvyMappng } from "../../public/lfs-media/Project-Icons/Project-Icon-AvyMap.png";
@@ -206,6 +208,7 @@ export { default as public_lfsmedia_RedEye_PersonasExecutivesvg } from "../../pu
 export { default as public_lfsmedia_RedEye_PersonasITsvg } from "../../public/lfs-media/RedEye/Personas-IT.svg";
 export { default as public_lfsmedia_RedEye_PersonasRedTeamsvg } from "../../public/lfs-media/RedEye/Personas-RedTeam.svg";
 export { default as public_lfsmedia_RedEye_Placeholderpng } from "../../public/lfs-media/RedEye/Placeholder.png";
+export { default as public_lfsmedia_RedEye_RedEyeheaderpng } from "../../public/lfs-media/RedEye/RedEye-header.png";
 export { default as public_lfsmedia_RedEye_Screenshot01CommentsInlinepng } from "../../public/lfs-media/RedEye/Screenshot-01-Comments-Inline.png";
 export { default as public_lfsmedia_RedEye_Screenshot02CommentsPopoverpng } from "../../public/lfs-media/RedEye/Screenshot-02-Comments-Popover.png";
 export { default as public_lfsmedia_RedEye_Screenshot03CommentsMultiCommandpng } from "../../public/lfs-media/RedEye/Screenshot-03-Comments-Multi-Command.png";
