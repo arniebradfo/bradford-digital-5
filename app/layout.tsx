@@ -52,15 +52,6 @@ export default function RootLayout({
       data-theme="light"
       suppressHydrationWarning
     >
-      <head>
-        {process.env.NODE_ENV === "development" && (
-          <Script
-            src="//unpkg.com/react-grab/dist/index.global.js"
-            crossOrigin="anonymous"
-            strategy="beforeInteractive"
-          />
-        )}
-      </head>
       <body>
         <Script id="initializeTheme" strategy="beforeInteractive">
           {initializeTheme}
