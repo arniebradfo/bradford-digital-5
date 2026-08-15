@@ -15,12 +15,12 @@ export default function WorkPage() {
 
   return (
     <>
+      <TagNav activeTag="all" />
       <PageHeader
         header="All Work"
         subHeader={`${projects.length} Projects`}
         description="A comprehensive collection of design, engineering, software, and creative projects across PNNL, ASI, Bestway, Freelance, and personal explorations."
       />
-      <TagNav activeTag="all" />
       <ProjectGallery projects={projects} />
     </>
   );

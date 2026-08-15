@@ -1,15 +1,21 @@
-import Link from "next/link";
+import { Fragment } from "react";
 import style from "./TagNav.module.css";
 import { cx } from "../utils/joinClassNames";
 import { getAllProjects, getProjectsByTag, TagKey } from "../data/projects";
+import { LinkButton } from "./LinkButton";
+import { Meta, Txt } from "./Text";
 
 interface TagNavProps {
   activeTag?: string;
   className?: string;
 }
 
-const TAG_NAV_ITEMS: { label: string; href: string; tagKey?: TagKey | "all" }[] = [
-  { label: "All Work", href: "/work", tagKey: "all" },
+const TAG_NAV_ITEMS: {
+  label: string;
+  href: string;
+  tagKey?: TagKey | "all";
+}[] = [
+  { label: "All", href: "/work", tagKey: "all" },
   { label: "PNNL", href: "/PNNL", tagKey: "PNNL" },
   { label: "ASI", href: "/ASI", tagKey: "ASI" },
   { label: "Bestway", href: "/Bestway", tagKey: "Bestway" },
@@ -20,13 +26,21 @@ const TAG_NAV_ITEMS: { label: string; href: string; tagKey?: TagKey | "all" }[] 
   { label: "Archives", href: "/archives", tagKey: "archives" },
 ];
 
-export const TagNav: React.FC<TagNavProps> = ({ activeTag = "all", className }) => {
+export const TagNav: React.FC<TagNavProps> = ({
+  activeTag = "all",
+  className,
+}) => {
   const normalizedActive = activeTag.toLowerCase();
 
   return (
-    <nav className={cx(style.NavWrapper, className)} aria-label="Work Categories">
-      <div className={style.NavScroll}>
-        {TAG_NAV_ITEMS.map((item) => {
+    <nav
+      className={cx(style.NavWrapper, className)}
+      aria-label="Work Categories"
+    >
+      <div className={style.NavLayout}>
+        <Meta fg={2}>Work:</Meta>
+        {/* <Txt fg={4} className={style.NavSpacer} /> */}
+        {TAG_NAV_ITEMS.map((item, i) => {
           const isActive =
             (item.tagKey === "all" && normalizedActive === "all") ||
             (item.tagKey && item.tagKey.toLowerCase() === normalizedActive);
@@ -37,14 +51,22 @@ export const TagNav: React.FC<TagNavProps> = ({ activeTag = "all", className }) 
               : getProjectsByTag(item.tagKey || "").length;
 
           return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cx(style.TagPill, isActive && style.Active)}
-            >
-              <span>{item.label}</span>
-              <span className={style.CountBadge}>{count}</span>
-            </Link>
+            <Fragment key={item.href}>
+              {i > 0 && (
+                <Txt fg={4} className={style.NavSpacer}>
+                  /
+                </Txt>
+              )}
+              <LinkButton
+                href={item.href}
+                offsetPx={16}
+                className={cx(style.NavLink, isActive && style.Active)}
+                classNameInside={style.NavLinkInside}
+              >
+                <span>{item.label}</span>
+                <span className={style.CountBadge}>{count}</span>
+              </LinkButton>
+            </Fragment>
           );
         })}
       </div>

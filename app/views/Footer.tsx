@@ -46,7 +46,10 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
           Vercel
         </Link>
       </Txt>
-      {/* <div style={{flex: '1 1 auto'}} /> */}
+      <div style={{flex: '1 1 auto'}} />
+      <Link href={"/work"}>
+        All Work
+      </Link>
       {/* <Logo style={{height:24, width: 24, opacity:.3}} /> */}
     </Txt>
   </footer>

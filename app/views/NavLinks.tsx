@@ -28,10 +28,10 @@ export const NavLinks: React.FC<React.ComponentProps<"div"> & {}> = ({
 );
 
 const links = [
-  {
-    children: "Work",
-    href: "/work",
-  },
+  // {
+  //   children: "Work",
+  //   href: "/work",
+  // },
   {
     children: "LinkedIn",
     href: "https://www.linkedin.com/in/arniebradfo/",

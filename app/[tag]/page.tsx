@@ -58,12 +58,12 @@ export default function TagPage({ params }: TagPageProps) {
       <Header />
       <main>
         <article>
+          <TagNav activeTag={config.tag} />
           <PageHeader
             header={config.title}
             subHeader={config.subHeader}
             description={config.blurb}
           />
-          <TagNav activeTag={config.tag} />
           <ProjectGallery projects={projects} />
         </article>
       </main>
