@@ -72,7 +72,7 @@ import style from "./page.module.css"
   },
 ]} />
 
-## `Background & Context `The Red Team Process: Hack an Organization’s Network to Uncover Weaknesses and Improve Security
+## `Background & Context `The Red Team Process: Hack an Organization's Network to Uncover Weaknesses and Improve Security
 
 [Red Teaming](https://www.coresecurity.com/penetration-testing/red-team) is a proactive cybersecurity strategy that involves simulating potential attacks to identify and rectify network and system vulnerabilities. This process is performed by a group of cybersecurity professionals who act as "ethical hackers" employing tactics similar to those used by actual attackers. The ultimate goal of Red Teaming is to improve the security of a system or network by identifying and fixing vulnerabilities before they can be exploited by malicious hackers.
 
@@ -183,7 +183,7 @@ Source: [CS Screenshots](https://www.cobaltstrike.com/resources/screenshots)
 
 ### `UX Design and Planning `Features, Work Flow, & Prioritization 
 
-Following a User Story Mapping session with the team, we identified four primary phases of workflow: Import Logs, Explore the enriched data, Annotate to provide context, and Present to Blue Team. The breakdown was much more complex in practice, but has been simplified for the presentation’s sake.
+Following a User Story Mapping session with the team, we identified four primary phases of workflow: Import Logs, Explore the enriched data, Annotate to provide context, and Present to Blue Team. The breakdown was much more complex in practice, but has been simplified for the presentation's sake.
 
 <Layouts.ColumnFull>
 <Layouts.Columns count={4} className={style.GraphicDescription}>
@@ -413,13 +413,13 @@ Further performance improvement and visualization simplification can be achieved
 
 Our team maintained a standing bi-weekly meeting with CISA to present our progress, receive feedback, plan, and prioritize tasks. This continuous feedback loop was crucial to the project's success. Additionally, I conducted user testing with Subject Matter Experts (SMEs) and other "proxy" users within my organization to evaluate usability and usefulness. The following are a few examples of adjustments we made based on the feedback received.
 
-### `User Testing & Feedback `Understanding the User’s Mental Model of a “Comment” 
+### `User Testing & Feedback `Understanding the User's Mental Model of a “Comment” 
 
 The commenting feature was designed to allow a Red Team to provide post-campaign context to a Blue Team, and to help the Red Team keep notes on their actions to better contextualize the campaign for themselves.
 
 #### Initial Attempt: Inline Comments 
 
-Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub’s code comments.
+Initially, we presumed that comments would have a roughly 1:1 relationship with commands, similar to how comments function in Google Docs or GitHub's code comments.
 
 <Layouts.FigureCaption imageProps={{ alt: "Mockups of Inline Commenting feature", src: Src.public_lfsmedia_RedEye_Screenshot01CommentsInlinepng}}>
 The interaction for this commenting task was quite simple: Select a command line and write a comment under it.
@@ -525,7 +525,7 @@ Later, they requested to view additional information about the “lay of the lan
 
 ### Cobalt Strike Became Obsolete 
 
-By the time we open-sourced this app, Cobalt Strike was starting to lose its popularity. Many of Cobalt Strike’s default exploits were frequently being defended against. A new set of C2 frameworks with superior features, such as Sliver, Brute Ratel, and Mythic, began to emerge as the new standard. The pace of the market outstripped our deployment speed.
+By the time we open-sourced this app, Cobalt Strike was starting to lose its popularity. Many of Cobalt Strike's default exploits were frequently being defended against. A new set of C2 frameworks with superior features, such as Sliver, Brute Ratel, and Mythic, began to emerge as the new standard. The pace of the market outstripped our deployment speed.
 
 ### Expand Support for More C2 Frameworks and Enable C2 Combinations
 

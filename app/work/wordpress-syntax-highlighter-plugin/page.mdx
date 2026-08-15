@@ -25,7 +25,7 @@ import { Layouts } from "../Layouts";
 
 ## The Problem
 
-I’ve been working with WordPress for years. The Visual Editor is nice, but I always reach the point where I need to edit code directly. Unfortunately, the WordPress Code Editor is… not good. It’s just a monospace textarea that could contain hundreds of lines of code. It’s impossible to read that much code in just black and white. I need my code syntax highlighted, so I would paste my post content into my own code editor, edit it, and then paste it back into WordPress. I kept thinking how nice it would be if I could just edit code directly in the WordPress Post Editor section. I tried several plugins, but none of them did quite what I needed.
+I've been working with WordPress for years. The Visual Editor is nice, but I always reach the point where I need to edit code directly. Unfortunately, the WordPress Code Editor is… not good. It's just a monospace textarea that could contain hundreds of lines of code. It's impossible to read that much code in just black and white. I need my code syntax highlighted, so I would paste my post content into my own code editor, edit it, and then paste it back into WordPress. I kept thinking how nice it would be if I could just edit code directly in the WordPress Post Editor section. I tried several plugins, but none of them did quite what I needed.
 
 Then I found the [HTML Editor Syntax Highlighter](https://wordpress.org/plugins/html-editor-syntax-highlighter/) by [Petr Mukhortov](https://www.mukhortov.com/). It worked pretty much exactly how I wanted, with the exception of one glaring hole: WordPress shortcodes were not highlighted.
 
@@ -39,11 +39,11 @@ I, like most WordPress devs, heavily relied on shortcodes for a more DRY documen
 
 ## The Solution
 
-I decided to fix it myself. How hard could it be, right? Well, it was very hard. I forked the plugin’s [Github repo](https://github.com/mukhortov/HESH-WordPress-Plugin), and started programming a shortcode parser for [CodeMirror.js](https://codemirror.net/doc/manual.html#modeapi). For just the shortcode parsing, I copied the existing xml parser and replaced the `<angle-brackets/>` with `[square-brackets/]`, but getting the parser to switch between html parsing and shortcode parsing proved to be quite difficult. I had to make another _“wordpress post”_ parser that could switch between html, shortcodes, css style blocks, and script blocks. I did eventually make it work, and Petr merged my branch in and released version 1.7. Now my code looked much better:
+I decided to fix it myself. How hard could it be, right? Well, it was very hard. I forked the plugin's [Github repo](https://github.com/mukhortov/HESH-WordPress-Plugin), and started programming a shortcode parser for [CodeMirror.js](https://codemirror.net/doc/manual.html#modeapi). For just the shortcode parsing, I copied the existing xml parser and replaced the `<angle-brackets/>` with `[square-brackets/]`, but getting the parser to switch between html parsing and shortcode parsing proved to be quite difficult. I had to make another _“wordpress post”_ parser that could switch between html, shortcodes, css style blocks, and script blocks. I did eventually make it work, and Petr merged my branch in and released version 1.7. Now my code looked much better:
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_shortcode-highlighting.png" alt=""  />
 
-But having worked with CodeMirror, I realized how much better my code editing experience could be if only I were to implement more of CodeMirror’s features. So I ran with it.
+But having worked with CodeMirror, I realized how much better my code editing experience could be if only I were to implement more of CodeMirror's features. So I ran with it.
 
 ## Version 2.0
 
@@ -51,7 +51,7 @@ For version 2, I added a bunch of new features (listed below) and totally refact
 
 ### Options Panel
 
-I added an options panel. I liked how I didn’t have to go to a different page to change the settings. Everything is done right in the editor and I can see the changes immediately. The options panel itself has some snazzy transitions, and even tracks the page in certain scrolling contexts.
+I added an options panel. I liked how I didn't have to go to a different page to change the settings. Everything is done right in the editor and I can see the changes immediately. The options panel itself has some snazzy transitions, and even tracks the page in certain scrolling contexts.
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_settings-animation.gif" alt=""  />
 
@@ -69,7 +69,7 @@ I added quick options to change the Indentation, Line Wrapping, Line Numbering, 
 
 ### Search and Replace
 
-Search and replace is an extremely helpful for larger files. If a user changes a css class name, they don’t have to go manually find and fix each instance. It even works with RegEx.
+Search and replace is an extremely helpful for larger files. If a user changes a css class name, they don't have to go manually find and fix each instance. It even works with RegEx.
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_find-and-replace.gif" alt=""  />
 
@@ -87,7 +87,7 @@ And then the new WordPress 5.0 post editor, [Gutenberg](https://wordpress.org/gu
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_gutenberg-support.png" alt=""  />
 
-It still doesn’t work in Classic Editor Block, the HTML Block, The Shortcode Block, or the “Edit as HTML” feature of every block or the and [users complain about this](https://wordpress.org/support/topic/not-working-with-gutenberg-5/), but I’m not sure I can fix it in any reasonable amount of time. I am working for free, after all.
+It still doesn't work in Classic Editor Block, the HTML Block, The Shortcode Block, or the “Edit as HTML” feature of every block or the and [users complain about this](https://wordpress.org/support/topic/not-working-with-gutenberg-5/), but I'm not sure I can fix it in any reasonable amount of time. I am working for free, after all.
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_gutenberg-no-support.png" alt=""  />
 
@@ -95,9 +95,9 @@ Gutenberg uses a new _html-comment-with-json_ syntax for its block editor. WordP
 
 ## Moving Forward: Version 3.0
 
-Like all living things, the plugin’s codebase evolved from something that was once very simple. But now It's basically just one giant javascript file. It needs to be rearchitected if it's going to move forward. And if I were to redo it, I would much prefer using more modern tools, like Webpack, Typescript, and Microsoft's Monaco Code Editor.
+Like all living things, the plugin's codebase evolved from something that was once very simple. But now It's basically just one giant javascript file. It needs to be rearchitected if it's going to move forward. And if I were to redo it, I would much prefer using more modern tools, like Webpack, Typescript, and Microsoft's Monaco Code Editor.
 
-The [Monaco Code Editor](https://microsoft.github.io/monaco-editor/) is the power behind [Visual Studio Code](https://code.visualstudio.com/). It’s an open source, HTML based code-editor that has the full support of a Microsoft dev team behind it. It is significantly better than CodeMirror. It also has a declarative, json-based method of writing syntax highlighting parsers known as [Monarch](https://microsoft.github.io/monaco-editor/monarch.html). I used it to write a new parser for Gutenberg syntaxes.
+The [Monaco Code Editor](https://microsoft.github.io/monaco-editor/) is the power behind [Visual Studio Code](https://code.visualstudio.com/). It's an open source, HTML based code-editor that has the full support of a Microsoft dev team behind it. It is significantly better than CodeMirror. It also has a declarative, json-based method of writing syntax highlighting parsers known as [Monarch](https://microsoft.github.io/monaco-editor/monarch.html). I used it to write a new parser for Gutenberg syntaxes.
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_monaco-example.png" alt=""  />
 
@@ -105,7 +105,7 @@ Version 3 of the plugin will be a total rewrite using the Monaco code editor in 
 
 _**The goal is to have syntax highlighting everywhere you edit code in WP admin.**_
 
-It’s going to be called WP Code: like VS Code, but WordPress. I produced a logo that fits into the Microsoft Visual Studio suite of logos:
+It's going to be called WP Code: like VS Code, but WordPress. I produced a logo that fits into the Microsoft Visual Studio suite of logos:
 
 <img src="/lfs-media/wordpress-syntax-highlighter-plugin/html-syntax-highlighter-wordpress-plugin_wp-code-logo-bg.svg" alt=""  />
 

@@ -32,18 +32,18 @@ I decided to perform a UX audit to take stock of the current state of the system
 3. **Organization:** Toolbars and other features seemed out of place to frequent users. Navigation could also be confusing.
 4. **Consistency:** UI that performed similar classes of functions could look completely different from feature to feature.
 5. **Development Time:** A lack of consistency also meant a lack of reusable, out-of the box UI components. Custom UI was being developed for each new feature. In addition to being time consuming, this is also very error prone.
-6. **High UI Bug Rate:** A large amount of custom UI meant that there was a larger amount of code to test, and fixing a bug in one place wouldn’t fix similar bugs elsewhere.
-7. **One-size Fits All Solution:** A core set of features can be shared between industry applications, which saves a tremendous amount of development time. This, however, means those core features have to adhere to a least-common denominator strategy, leading to a jack of all trades, master of none, application. Users in one industry, who didn’t know or care about other industries, were confused as to why the app wasn’t tailored to their specific use case. It’s a trade-off.
+6. **High UI Bug Rate:** A large amount of custom UI meant that there was a larger amount of code to test, and fixing a bug in one place wouldn't fix similar bugs elsewhere.
+7. **One-size Fits All Solution:** A core set of features can be shared between industry applications, which saves a tremendous amount of development time. This, however, means those core features have to adhere to a least-common denominator strategy, leading to a jack of all trades, master of none, application. Users in one industry, who didn't know or care about other industries, were confused as to why the app wasn't tailored to their specific use case. It's a trade-off.
 
 ## Solutions
 
-I proposed a two-part solution in the form of a Design System, the first part being to re-architect the app’s Information Architecture and consolidate the existing UI into a small library of UI components. The second part would be to re-architect the code that drives the UI to be more modular, reusable, and performant.
+I proposed a two-part solution in the form of a Design System, the first part being to re-architect the app's Information Architecture and consolidate the existing UI into a small library of UI components. The second part would be to re-architect the code that drives the UI to be more modular, reusable, and performant.
 
 ### Part 1: Information Architecture
 
 #### Affordances & Feedback
 
-In version 7, interaction would only change the foreground color of a button. This subtle change was often missed by users, leading them to believe that the button hadn’t been pressed when it had or vice versa. Users also couldn’t identify the boundary or size of most buttons, because they didn’t have an outline or background, leading to missed presses and interaction failures.
+In version 7, interaction would only change the foreground color of a button. This subtle change was often missed by users, leading them to believe that the button hadn't been pressed when it had or vice versa. Users also couldn't identify the boundary or size of most buttons, because they didn't have an outline or background, leading to missed presses and interaction failures.
 
 <img src="/lfs-media/mobius-ux-audit/Mobius-v7-vs-v8-6-Interaction-States-Old.svg" alt=""  />
 
