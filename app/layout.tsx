@@ -57,11 +57,11 @@ export default function RootLayout({
           {initializeTheme}
         </Script>
         {children}
+        <AsciiArt />
+        <SetClientWidthCss />
+        <Analytics />
+        <GoogleAnalytics gaId="G-M720N5B0NN" />
       </body>
-      <AsciiArt />
-      <SetClientWidthCss />
-      <Analytics />
-      <GoogleAnalytics gaId="G-M720N5B0NN" />
     </html>
   );
 }

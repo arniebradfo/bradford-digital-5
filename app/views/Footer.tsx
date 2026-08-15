@@ -15,7 +15,7 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
     className={cx(className, style.Layout, styleSection.SectionWrapper)}
     {...props}
   >
-    <Txt tag="p" size={6} className={cx(styleSection.Section, style.FooterSection)}>
+    <Txt tag="div" size={6} className={cx(styleSection.Section, style.FooterSection)}>
       <Txt>
         <Txt>Copyright {new Date().getFullYear()}</Txt>
         <Spacer>-</Spacer>
