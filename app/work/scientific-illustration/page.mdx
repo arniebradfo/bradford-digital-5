@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Scientific Illustration",
@@ -25,12 +27,12 @@ Freelance scientific diagrams for a publication by USDA scientists. The diagrams
 
 [Full Article](https://academic.oup.com/ee/article/47/3/499/4959686)
 
-<img src="/lfs-media/scientific-illustration/Pesticide-Routes-1-Larval-Ingestion.svg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_scientificillustration_PesticideRoutes1LarvalIngestionsvg, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/scientific-illustration/Pesticide-Routes-2-Adult-Ingestion.svg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_scientificillustration_PesticideRoutes2AdultIngestionsvg, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/scientific-illustration/Pesticide-Routes-3-Direct-Contact.svg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_scientificillustration_PesticideRoutes3DirectContactsvg, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/scientific-illustration/Pesticide-Routes-4-Transovarial-Transmission.svg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_scientificillustration_PesticideRoutes4TransovarialTransmissionsvg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

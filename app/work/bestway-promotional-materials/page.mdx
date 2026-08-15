@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Bestway Promotional Materials",
@@ -21,14 +23,14 @@ import { Layouts } from "../Layouts";
 
 ## Notebook
 
-<img src="/lfs-media/bestway-promotional-materials/bestway-promotional_notebook.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_bestwaypromotionalmaterials_bestwaypromotionalnotebookjpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## T-shirt
 
-<img src="/lfs-media/bestway-promotional-materials/bestway-promotional_t-shirt.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_bestwaypromotionalmaterials_bestwaypromotionaltshirtjpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## USB Card
 
-<img src="/lfs-media/bestway-promotional-materials/bestway-promotional_usb-card.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_bestwaypromotionalmaterials_bestwaypromotionalusbcardjpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

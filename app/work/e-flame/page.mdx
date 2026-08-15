@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "e-Flame",
@@ -21,12 +23,12 @@ import { Layouts } from "../Layouts";
 
 ## Icons
 
-<img src="/lfs-media/e-flame/eFlame_icons-dimensions.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameiconsdimensionspng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/e-flame/eFlame_icons-features.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameiconsfeaturespng, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Web Ad
 
-<img src="/lfs-media/e-flame/eFlame_amazon-ad.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameamazonadpng, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

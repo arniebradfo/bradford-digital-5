@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Spirit Animal Vector Art",
@@ -20,11 +22,11 @@ import { Layouts } from "../Layouts";
 ]} />
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/spirit-animal-vector-art/2013-animal-calendar_head-eagle.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarheadeaglepng, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/spirit-animal-vector-art/2013-animal-calendar_head-bison.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarheadbisonpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<img src="/lfs-media/spirit-animal-vector-art/2013-animal-calendar_full.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarfulljpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

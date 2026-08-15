@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Perfect Cloud",
@@ -21,12 +23,12 @@ import { Layouts } from "../Layouts";
 
 ## Mattress Materials Diagram
 
-<img src="/lfs-media/perfect-cloud/perfect-cloud_mattress-diagram.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_perfectcloud_perfectcloudmattressdiagrampng, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Package Sticker
 
-<img src="/lfs-media/perfect-cloud/perfect-cloud_packaging-sticker.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_perfectcloud_perfectcloudpackagingstickerpng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/perfect-cloud/perfect-cloud_packaging-mockup-wide.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_perfectcloud_perfectcloudpackagingmockupwidepng, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

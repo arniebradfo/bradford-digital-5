@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "ASI Website Navigation",
@@ -23,7 +25,7 @@ I designed and developed a more interactive and engaging navigation menu and sit
 
 [ASIrobots.com](https://asirobots.com)
 
-<img src="/lfs-media/asi-website-navigation/ASI-Website_search-and-menu.gif" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_asiwebsitenavigation_ASIWebsitesearchandmenugif, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Contact Form
 

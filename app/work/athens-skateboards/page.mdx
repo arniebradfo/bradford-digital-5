@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Athens Skateboards",
@@ -19,12 +21,12 @@ import { Layouts } from "../Layouts";
   { label: "Type", text: "Archive Project" }
 ]} />
 
-<img src="/lfs-media/athens-skateboards/Skateshop-of-Athens_deck-camo.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckcamopng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/athens-skateboards/Skateshop-of-Athens_deck-faces-orange.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesorangepng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/athens-skateboards/Skateshop-of-Athens_deck-faces-blue.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesbluepng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/athens-skateboards/Skateshop-of-Athens_deck-faces-orange-large.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesorangelargejpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

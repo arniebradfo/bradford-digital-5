@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Blue Heron Brewery",
@@ -21,26 +23,26 @@ import { Layouts } from "../Layouts";
 
 ## Logo Study and Development
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_heron-drawings-graphite.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryherondrawingsgraphitepng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_heron-drawings-pen.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryherondrawingspenpng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_logo-final.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerylogofinalpng, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Branding and Application
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_print-glass.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryprintglasspng, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_print-bottle.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryprintbottlepng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_coaster-bottle-cap.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerycoasterbottlecappng, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_coaster-logo.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerycoasterlogopng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_bottle-and-glass.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerybottleandglassjpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

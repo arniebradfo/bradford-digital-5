@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Lumitronics",
@@ -22,21 +24,21 @@ import { Layouts } from "../Layouts";
 ## Logo Development
 
 <Layouts.Columns count={3}>
-<img src="/lfs-media/lumitronics/lumitronics_logo-option-3.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicslogooption3png, sizes: imgSizes.column3Max, alt: "" }} />
 
-<img src="/lfs-media/lumitronics/lumitronics_logo-option-2.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicslogooption2png, sizes: imgSizes.column3Max, alt: "" }} />
 
-<img src="/lfs-media/lumitronics/lumitronics_logo-option-1.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicslogooption1png, sizes: imgSizes.column3Max, alt: "" }} />
 </Layouts.Columns>
 
-<img src="/lfs-media/lumitronics/lumitronics_logo-option-final.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicslogooptionfinalpng, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Package Design
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/lumitronics/lumitronics_packaging-front.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicspackagingfrontpng, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/lumitronics/lumitronics_packaging-back.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_lumitronics_lumitronicspackagingbackpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
 </Layouts.ArticleWrapper>

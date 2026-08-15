@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "Reporting Software",
@@ -24,33 +26,33 @@ import { Layouts } from "../Layouts";
 This reporting software displays data regarding past performance of autonomous haulage trucks. The Haulage Progress report displays how much total material was moved from the load zone to any dump zone based on a previously set goal. The Cycle Time report shows the duration of trip times to and from load and dump zones.
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-5.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage5png, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-6.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage6png, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-2.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage2png, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-1.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage1png, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-10.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage10png, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Haulage-9.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHaulage9png, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
 ## Geo Data Heatmap Visualization
 
 The heatmap report shows any autonomous vehicle data charted onto a map. It is used to identify issues with vehicle path driving and communication failures.
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Heatmaps-Screenshot-1.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHeatmapsScreenshot1png, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Heatmaps-Screenshot-2.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHeatmapsScreenshot2png, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Heatmaps-Screenshot-3.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHeatmapsScreenshot3png, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/mobius-reporting-software/Reporting_Heatmaps-Screenshot-4.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusreportingsoftware_ReportingHeatmapsScreenshot4png, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>

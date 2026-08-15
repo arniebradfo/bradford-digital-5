@@ -1,6 +1,8 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
 import { Layouts } from "../Layouts";
+import { imgSizes } from "../../utils/imgSizes";
+import * as Src from "../../media";
 
 <PageHeader {...{
   header: "UGA Cycling Team Uniforms",
@@ -23,20 +25,20 @@ import { Layouts } from "../Layouts";
 
 Uniform design for the University of Georgia cycling team featuring the University colors and a hexagonal theme inspired by the molecular structure of adrenaline, representing not only the thrill of the race, but also the team's academic background.
 
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_Adrenaline-Molecule.svg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingAdrenalineMoleculesvg, sizes: imgSizes.column1Full, alt: "" }} />
 
 ## Cycling Kit
 
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_shirt.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingshirtpng, sizes: imgSizes.column1Full, alt: "" }} />
 
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_bib.png" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingbibpng, sizes: imgSizes.column1Full, alt: "" }} />
 
 <Layouts.Columns count={2}>
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_socks.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingsockspng, sizes: imgSizes.column2Max, alt: "" }} />
 
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_hats.png" alt="" />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclinghatspng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_team-photo.jpg" alt=""  />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingteamphotojpg, sizes: imgSizes.column1Full, alt: "" }} />
 
 </Layouts.ArticleWrapper>
