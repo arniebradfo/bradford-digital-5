@@ -7,9 +7,11 @@ Fast onboarding and architecture guide for AI coding agents and contributors.
 ## 1. Quick Start & Dev Commands
 
 - **Node version:** `24.x` (see `.nvmrc`)
-- **Dev Server:** `yarn dev` (runs on `http://localhost:5555`)
-- **Build / Lint:** `yarn build` / `yarn lint`
+- **Dev Server:** `yarn dev` (runs on `http://localhost:5555`) — leave running for human verification.
+- **Verification Workflow:** Do not run `yarn build` for routine validation as it takes too long. Instead, verify changes using `yarn dev` and `playwright-cli --headed` (e.g. `playwright-cli open --headed http://localhost:5555/...`, `playwright-cli screenshot`).
+- **Lint:** `yarn lint`
 - **Media CodeGen:** `yarn generateImgSrc` (must run after adding/modifying files in `public/`)
+
 
 ---
 

@@ -25,28 +25,28 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
 
   return (
     <section className={cx(style.GalleryWrapper, className)}>
-      <div className={style.Grid}>
-        {projects.map((project) => {
-          const isVideo = project.headerImage?.endsWith(".mp4");
+      {projects.map((project) => {
+        const isVideo = project.headerImage?.endsWith(".mp4");
 
-          return (
-            <Link
-              key={project.slug}
-              href={project.href}
-              className={style.Card}
-            >
-              <div className={style.MediaContainer}>
+        return (
+          <Link
+            key={project.slug}
+            href={project.href}
+            className={style.PanelRow}
+          >
+            <div className={style.PanelInner}>
+              <div className={style.MediaWrapper}>
                 {project.headerImage && !isVideo ? (
                   <img
                     src={project.headerImage}
                     alt={project.title}
-                    className={style.CardImage}
+                    className={style.MediaImage}
                     loading="lazy"
                   />
                 ) : isVideo ? (
                   <video
                     src={project.headerImage!}
-                    className={style.CardVideo}
+                    className={style.MediaVideo}
                     autoPlay
                     muted
                     loop
@@ -61,8 +61,8 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
                 )}
               </div>
 
-              <div className={style.CardContent}>
-                <div className={style.CardMeta}>
+              <div className={style.Content}>
+                <div className={style.Meta}>
                   <span className={style.DateText}>{project.date}</span>
                   <div className={style.TagBadgeList}>
                     {project.tags.map((tag) => (
@@ -73,18 +73,19 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
                   </div>
                 </div>
 
-                <H2 className={style.CardTitle}>
+                <H2 className={style.Title}>
                   <Txt fg={1}>{project.title}</Txt>
                 </H2>
 
-                <P className={style.CardDescription} fg={2} size={5}>
+                <P className={style.Description} fg={2} size={5}>
                   {project.description}
                 </P>
               </div>
-            </Link>
-          );
-        })}
-      </div>
+            </div>
+          </Link>
+        );
+      })}
     </section>
   );
 };
+

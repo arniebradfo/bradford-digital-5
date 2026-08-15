@@ -1,81 +1,92 @@
 .GalleryWrapper {
   width: 100%;
-  max-width: var(--column-full);
-  margin: 0 auto;
-  padding: 0 var(--column-padding) 4rem var(--column-padding);
+  background-color: var(--background-color-1);
+  border-top: var(--border-1);
+  border-bottom: var(--border-1);
   box-sizing: border-box;
 }
 
-.Grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.Card {
+.PanelRow {
+  display: block;
   text-decoration: none;
   color: inherit;
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  border: 1px solid var(--border-color-1);
-  background-color: var(--background-color-1);
-  box-shadow: var(--box-shadow-1);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.Card:hover {
-  transform: translateY(-2px);
-  border-color: var(--foreground-color-4);
-  box-shadow: var(--box-shadow-3);
-}
-
-.MediaContainer {
-  position: relative;
   width: 100%;
-  height: 200px;
+  border-bottom: var(--border-1);
+  background-color: var(--background-color-1);
+  transition: background-color 500ms linear;
+  cursor: pointer;
+}
+
+.PanelRow:last-child {
+  border-bottom: none;
+}
+
+.PanelRow:hover {
+  background-color: var(--background-color-2);
+}
+
+.PanelInner {
+  max-width: var(--column-max);
+  margin: 0 auto;
+  padding: 36px var(--column-padding);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+.MediaWrapper {
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+  flex: 0 0 340px;
+  align-self: flex-start;
+  border-radius: var(--border-radius-image);
   overflow: hidden;
   background-color: var(--background-color-3);
+  box-shadow: var(--box-shadow-1);
+  box-sizing: border-box;
 }
 
-.CardImage {
+.MediaImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-.CardVideo {
+.MediaVideo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
 .PlaceholderMedia {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 24px;
   text-align: center;
+  box-sizing: border-box;
 }
 
-.CardContent {
-  padding: 20px;
-  flex: 1;
+.Content {
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-width: var(--column-text);
 }
 
-.CardMeta {
+.Meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -83,6 +94,8 @@
   font-size: var(--font-size-6);
   color: var(--foreground-color-3);
   font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-1);
 }
 
 .TagBadgeList {
@@ -102,31 +115,41 @@
   color: var(--foreground-color-2);
 }
 
-.CardTitle {
-  font-size: var(--font-size-3);
+.Title {
+  font-size: var(--font-size-2);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
-.CardDescription {
-  margin-top: 4px;
+.Description {
+  margin: 4px 0 0 0;
   line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .EmptyWrapper {
   width: 100%;
-  max-width: var(--column-full);
+  max-width: var(--column-max);
   margin: 0 auto;
   padding: 3rem var(--column-padding);
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .Grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .PanelInner {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px var(--column-padding);
+  }
+
+  .MediaWrapper {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+
+  .Content {
+    max-width: 100%;
   }
 }
+
