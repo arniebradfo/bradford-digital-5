@@ -66,7 +66,7 @@ const redeye: ProjectFeatureSectionProps = {
     },
     links: [
       {
-        href: "/pages/RedEye",
+        href: "/work/RedEye",
         children: "Case Study",
         type: "emphasis",
       },
@@ -85,7 +85,7 @@ const redeye: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "/pages/RedEye",
+    href: "/work/RedEye",
     // external: true,
     imageLayers: [
       {
@@ -120,7 +120,7 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     },
     links: [
       {
-        href: "/pages/Hydropower-eLibrary",
+        href: "/work/Hydropower-eLibrary",
         children: "Case Study",
         type: "emphasis",
       },
@@ -133,7 +133,7 @@ const hydropowerELibrary: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "/pages/Hydropower-eLibrary",
+    href: "/work/Hydropower-eLibrary",
     imageLayers: [
       {
         src: HydroELibLayer1,
@@ -167,7 +167,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
     },
     links: [
       {
-        href: "/pages/IrrigationViz",
+        href: "/work/IrrigationViz",
         children: "Gallery",
         type: "emphasis",
       },
@@ -180,7 +180,7 @@ const irrigationViz: ProjectFeatureSectionProps = {
     ],
   },
   heroImageProps: {
-    href: "/pages/IrrigationViz",
+    href: "/work/IrrigationViz",
     external: true,
 
     imageLayers: [

@@ -1,0 +1,42 @@
+import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
+import { Layouts } from "../Layouts";
+
+<PageHeader {...{
+  header: "UGA Cycling Team Uniforms",
+  subHeader: "2012-09-18",
+  description: "Uniform design for the University of Georgia cycling team featuring the University colors and a hexagonal theme inspired by the molecular structure of adrenaline, representing not only the thrill of the race, but also the team’s academic background. ",
+  heroImageProps: {
+    src: "/lfs-media/uga-cycling-team-uniforms/uga-cycling_header.png",
+    alt: "UGA Cycling Team Uniforms"
+  }
+}} />
+
+<Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2012-09-18" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
+## Graphic Concept
+
+Uniform design for the University of Georgia cycling team featuring the University colors and a hexagonal theme inspired by the molecular structure of adrenaline, representing not only the thrill of the race, but also the team’s academic background.
+
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_Adrenaline-Molecule.svg" alt=""  />
+
+## Cycling Kit
+
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_shirt.png" alt=""  />
+
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_bib.png" alt=""  />
+
+<Layouts.Columns count={2}>
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_socks.png" alt="" />
+
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_hats.png" alt="" />
+</Layouts.Columns>
+
+<img src="/lfs-media/uga-cycling-team-uniforms/uga-cycling_team-photo.jpg" alt=""  />
+
+</Layouts.ArticleWrapper>

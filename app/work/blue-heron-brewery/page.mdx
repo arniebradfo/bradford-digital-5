@@ -1,0 +1,46 @@
+import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
+import { Layouts } from "../Layouts";
+
+<PageHeader {...{
+  header: "Blue Heron Brewery",
+  subHeader: "2012-03-26",
+  description: "A branding study that focusing on logo development and application.",
+  heroImageProps: {
+    src: "/lfs-media/blue-heron-brewery/blue-heron-brewery_header.jpg",
+    alt: "Blue Heron Brewery"
+  }
+}} />
+
+<Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2012-03-26" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
+## Logo Study and Development
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_heron-drawings-graphite.png" alt=""  />
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_heron-drawings-pen.png" alt=""  />
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_logo-final.png" alt=""  />
+
+## Branding and Application
+
+<Layouts.Columns count={2}>
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_print-glass.png" alt="" />
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_print-bottle.png" alt="" />
+</Layouts.Columns>
+
+<Layouts.Columns count={2}>
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_coaster-bottle-cap.png" alt="" />
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_coaster-logo.png" alt="" />
+</Layouts.Columns>
+
+<img src="/lfs-media/blue-heron-brewery/blue-heron-brewery_bottle-and-glass.jpg" alt=""  />
+
+</Layouts.ArticleWrapper>

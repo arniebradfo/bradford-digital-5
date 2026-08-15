@@ -1,0 +1,67 @@
+.NavWrapper {
+  width: 100%;
+  max-width: var(--column-full);
+  margin: 0 auto;
+  padding: 0 var(--column-padding);
+  box-sizing: border-box;
+}
+
+.NavScroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 16px 0 24px 0;
+}
+
+.TagPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: var(--font-size-5);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--foreground-color-2);
+  background-color: var(--background-color-1);
+  border: 1px solid var(--border-color-1);
+  border-radius: 9999px;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+.TagPill:hover {
+  background-color: var(--background-color-3);
+  color: var(--foreground-color-1);
+  border-color: var(--foreground-color-4);
+}
+
+.Active {
+  background-color: var(--foreground-color-1);
+  color: var(--background-color-1);
+  border-color: var(--foreground-color-1);
+}
+
+.Active:hover {
+  background-color: var(--foreground-color-1);
+  color: var(--background-color-1);
+}
+
+.CountBadge {
+  font-size: var(--font-size-6);
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
+}
+
+.Active .CountBadge {
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .NavScroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+  }
+}

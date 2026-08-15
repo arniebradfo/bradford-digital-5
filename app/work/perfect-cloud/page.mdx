@@ -1,0 +1,32 @@
+import { PageHeader } from "../../components/PageHeader";
+import { PageDetails } from "../../components/PageDetails";
+import { Layouts } from "../Layouts";
+
+<PageHeader {...{
+  header: "Perfect Cloud",
+  subHeader: "2014-03-28",
+  description: "Infographics, packaging materials, and ecommerce media for a memory foam mattress company.",
+  heroImageProps: {
+    src: "/lfs-media/perfect-cloud/perfect-cloud_header.png",
+    alt: "Perfect Cloud"
+  }
+}} />
+
+<Layouts.ArticleWrapper>
+
+<PageDetails details={[
+  { label: "Date", text: "2014-03-28" },
+  { label: "Type", text: "Archive Project" }
+]} />
+
+## Mattress Materials Diagram
+
+<img src="/lfs-media/perfect-cloud/perfect-cloud_mattress-diagram.png" alt=""  />
+
+## Package Sticker
+
+<img src="/lfs-media/perfect-cloud/perfect-cloud_packaging-sticker.png" alt=""  />
+
+<img src="/lfs-media/perfect-cloud/perfect-cloud_packaging-mockup-wide.png" alt=""  />
+
+</Layouts.ArticleWrapper>
