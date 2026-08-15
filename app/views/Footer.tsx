@@ -15,15 +15,24 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
     className={cx(className, style.Layout, styleSection.SectionWrapper)}
     {...props}
   >
-    <Txt tag="div" size={6} className={cx(styleSection.Section, style.FooterSection)}>
+    <Txt
+      tag="div"
+      size={6}
+      className={cx(styleSection.Section, style.FooterSection)}
+    >
       <Txt>
         <Txt>Copyright {new Date().getFullYear()}</Txt>
         <Spacer>-</Spacer>
-        <Txt fg={1} bold>James Bradford</Txt>
+        <Txt fg={1} bold>
+          James Bradford
+        </Txt>
       </Txt>
       <Spacer>/</Spacer>
       <Txt>
-        <Link href={"https://github.com/arniebradfo/bradford-digital-5"} {...external}>
+        <Link
+          href={"https://github.com/arniebradfo/bradford-digital-5"}
+          {...external}
+        >
           Coded with ♥
         </Link>
         {" using "}
@@ -46,10 +55,10 @@ export const Footer: React.FC<React.ComponentProps<"footer">> = ({
           Vercel
         </Link>
       </Txt>
-      <div style={{flex: '1 1 auto'}} />
-      <Link href={"/work"}>
-        All Work
-      </Link>
+      <div style={{ flex: "1 1 auto" }} />
+      <Link href={"/"}>Home</Link>
+      <Spacer>/</Spacer>
+      <Link href={"/work"}>Archives</Link>
       {/* <Logo style={{height:24, width: 24, opacity:.3}} /> */}
     </Txt>
   </footer>
