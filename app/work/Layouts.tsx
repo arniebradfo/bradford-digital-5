@@ -66,53 +66,107 @@ const styleColumnCount = [
   style.Columns8,
 ];
 
+const getSafePlaceholder = (
+  imageProps: Partial<ImageProps>
+): ImageProps["placeholder"] => {
+  const hasBlur = Boolean(
+    imageProps.blurDataURL ||
+      (typeof imageProps.src === "object" &&
+        imageProps.src !== null &&
+        "blurDataURL" in imageProps.src &&
+        Boolean((imageProps.src as { blurDataURL?: string }).blurDataURL))
+  );
+
+  if (imageProps.placeholder === "blur" && !hasBlur) {
+    return "empty";
+  }
+  return imageProps.placeholder ?? (hasBlur ? "blur" : "empty");
+};
+
 const FigureCaption: React.FC<
   HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
 > = ({
   className,
   children,
-  imageProps: { className: imageClassName, ...imageProps },
+  imageProps: {
+    className: imageClassName,
+    placeholder: userPlaceholder,
+    ...imageProps
+  },
   screenshot = true,
   ...props
-}) => (
-  <figure
-    className={cx(
-      className,
-      style.ColumnFull,
-      style.ColumnContainer,
-      style.Figure
-    )}
-    {...props}
-  >
-    <Image
-      className={cx(imageClassName, screenshot && style.Screenshot)}
-      sizes={imgSizes.column1Text}
-      placeholder="blur"
-      {...imageProps}
-    />
-    <figcaption>{children}</figcaption>
-  </figure>
-);
+}) => {
+  const placeholder = getSafePlaceholder({
+    ...imageProps,
+    placeholder: userPlaceholder,
+  });
+
+  return (
+    <figure
+      className={cx(
+        className,
+        style.ColumnFull,
+        style.ColumnContainer,
+        style.Figure
+      )}
+      {...props}
+    >
+      <Image
+        className={cx(imageClassName, screenshot && style.Screenshot)}
+        sizes={imgSizes.column1Text}
+        {...imageProps}
+        placeholder={placeholder}
+      />
+      <figcaption>{children}</figcaption>
+    </figure>
+  );
+};
 
 const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   className,
-  imageProps,
+  imageProps: { placeholder: userPlaceholder, ...imageProps },
   ...props
-}) => (
-  <div className={cx(className, style.Graphic)} {...props}>
-    <Image {...imageProps} />
-  </div>
-);
+}) => {
+  const placeholder = getSafePlaceholder({
+    ...imageProps,
+    placeholder: userPlaceholder,
+  });
+
+  return (
+    <div className={cx(className, style.Graphic)} {...props}>
+      <Image {...imageProps} placeholder={placeholder} />
+    </div>
+  );
+};
 
 const _Image: React.FC<
   HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
-> = ({ className, imageProps, screenshot = true }) => (
-  <Image
-    className={cx(className, screenshot ? style.Screenshot : style.Flat)}
-    placeholder="blur"
-    {...imageProps}
-  />
-);
+> = ({
+  className,
+  imageProps: {
+    className: imageClassName,
+    placeholder: userPlaceholder,
+    ...imageProps
+  },
+  screenshot = true,
+}) => {
+  const placeholder = getSafePlaceholder({
+    ...imageProps,
+    placeholder: userPlaceholder,
+  });
+
+  return (
+    <Image
+      className={cx(
+        className,
+        imageClassName,
+        screenshot ? style.Screenshot : style.Flat
+      )}
+      {...imageProps}
+      placeholder={placeholder}
+    />
+  );
+};
 
 const Note: React.FC<HtmlProps> = ({ className, ...props }) => (
   <aside className={cx(className, style.Note)} {...props} />
