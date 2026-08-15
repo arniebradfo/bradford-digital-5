@@ -1,5 +1,11 @@
 # [bradford.digital](https://bradford.digital/)
 
-- Built with [Next.js](https://nextjs.org/docs). Deployed on [Vercel](https://vercel.com/arniebradfos-projects/bradford-digital-5).
+## [v5](https://github.com/arniebradfo/bradford-digital-5) 
+- v5 Built with [Next.js](https://nextjs.org/docs) and deployed on [Vercel](https://vercel.com/arniebradfos-projects/bradford-digital-5) at https://bradford-digital-5.vercel.app
 - Uses [`git-lfs`](https://git-lfs.com/). This must also be [enabled](https://vercel.com/changelog/git-lfs-support) on the [vercel project settings](https://vercel.com/arniebradfos-projects/bradford-digital-5/settings/git).
-- Previous v4 built using [Gatsby](https://www.gatsbyjs.com/) and hosted on [Netlify](https://www.netlify.com/) at https://bradford-digital.netlify.app/
+
+## [v4](https://github.com/arniebradfo/bradford-digital) 
+- Previous v4 built using [Gatsby](https://www.gatsbyjs.com/) and hosted on [Netlify](https://app.netlify.com/projects/bradford-digital/overview) at https://bradford-digital.netlify.app/
+
+## v1-v3
+- Older versions built on Wordpress
