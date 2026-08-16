@@ -1,3 +1,4 @@
+import React from "react";
 import Image, { ImageProps } from "next/image";
 import { cx } from "../utils/joinClassNames";
 import style from "./layout.module.css";
@@ -46,14 +47,104 @@ const ColumnMax: React.FC<HtmlProps> = ({ className, ...props }) => (
   />
 );
 
+const getChildAspectRatio = (child: React.ReactNode): number => {
+  if (!React.isValidElement(child)) return 1;
+  const props = child.props as any;
+
+  if (typeof props?.aspectRatio === "number" && props.aspectRatio > 0) {
+    return props.aspectRatio;
+  }
+
+  const imgProps = props?.imageProps;
+  if (imgProps) {
+    if (typeof imgProps.aspectRatio === "number" && imgProps.aspectRatio > 0) {
+      return imgProps.aspectRatio;
+    }
+    if (typeof imgProps.src === "object" && imgProps.src !== null) {
+      const { width, height } = imgProps.src;
+      if (typeof width === "number" && typeof height === "number" && height > 0) {
+        return width / height;
+      }
+    }
+    if (imgProps.width && imgProps.height) {
+      const w = Number(imgProps.width);
+      const h = Number(imgProps.height);
+      if (w > 0 && h > 0) return w / h;
+    }
+  }
+
+  if (props?.src && typeof props.src === "object" && props.src !== null) {
+    const { width, height } = props.src;
+    if (typeof width === "number" && typeof height === "number" && height > 0) {
+      return width / height;
+    }
+  }
+
+  if (props?.width && props?.height) {
+    const w = Number(props.width);
+    const h = Number(props.height);
+    if (w > 0 && h > 0) return w / h;
+  }
+
+  return 1;
+};
+
 const Columns: React.FC<
-  HtmlProps & { wrap?: boolean; count?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 }
-> = ({ className, wrap = true, count = 1, ...props }) => (
-  <div
-    className={cx(className, style.Columns, styleColumnCount[count - 1])}
-    {...props}
-  />
-);
+  HtmlProps & {
+    wrap?: boolean;
+    count?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+    equalHeight?: boolean;
+  }
+> = ({
+  className,
+  wrap = true,
+  count = 1,
+  equalHeight = false,
+  children,
+  ...props
+}) => {
+  if (equalHeight) {
+    const childrenArray = React.Children.toArray(children).filter((child) =>
+      React.isValidElement(child)
+    );
+
+    return (
+      <div
+        className={cx(
+          className,
+          style.ColumnsEqualHeight,
+          wrap ? style.ColumnsEqualHeightWrap : style.ColumnsEqualHeightNoWrap
+        )}
+        {...props}
+      >
+        {childrenArray.map((child) => {
+          if (!React.isValidElement(child)) return child;
+          const ratio = getChildAspectRatio(child);
+          const childProps = child.props as any;
+
+          return React.cloneElement(child as React.ReactElement<any>, {
+            style: {
+              flex: `${ratio} 1 0px`,
+              minWidth: 0,
+              width: "100%",
+              height: "auto",
+              ...childProps?.style,
+            },
+          });
+        })}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={cx(className, style.Columns, styleColumnCount[count - 1])}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
 const styleColumnCount = [
   style.Columns1,
@@ -91,9 +182,11 @@ const FigureCaption: React.FC<
   imageProps: {
     className: imageClassName,
     placeholder: userPlaceholder,
+    style: imageStyle,
     ...imageProps
   },
   screenshot = true,
+  style: rootStyle,
   ...props
 }) => {
   const placeholder = getSafePlaceholder({
@@ -109,11 +202,13 @@ const FigureCaption: React.FC<
         style.ColumnContainer,
         style.Figure
       )}
+      style={rootStyle}
       {...props}
     >
       <Image
         className={cx(imageClassName, screenshot && style.Screenshot)}
         sizes={imgSizes.column1Text}
+        style={imageStyle}
         {...imageProps}
         placeholder={placeholder}
       />
@@ -124,7 +219,12 @@ const FigureCaption: React.FC<
 
 const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   className,
-  imageProps: { placeholder: userPlaceholder, ...imageProps },
+  imageProps: {
+    placeholder: userPlaceholder,
+    style: imageStyle,
+    ...imageProps
+  },
+  style: rootStyle,
   ...props
 }) => {
   const placeholder = getSafePlaceholder({
@@ -133,8 +233,8 @@ const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
   });
 
   return (
-    <div className={cx(className, style.Graphic)} {...props}>
-      <Image {...imageProps} placeholder={placeholder} />
+    <div className={cx(className, style.Graphic)} style={rootStyle} {...props}>
+      <Image style={imageStyle} {...imageProps} placeholder={placeholder} />
     </div>
   );
 };
@@ -146,9 +246,12 @@ const _Image: React.FC<
   imageProps: {
     className: imageClassName,
     placeholder: userPlaceholder,
+    style: imageStyle,
     ...imageProps
   },
   screenshot = true,
+  style: rootStyle,
+  ...props
 }) => {
   const placeholder = getSafePlaceholder({
     ...imageProps,
@@ -162,7 +265,12 @@ const _Image: React.FC<
         imageClassName,
         screenshot ? style.Screenshot : style.Flat
       )}
+      style={{
+        ...rootStyle,
+        ...imageStyle,
+      }}
       {...imageProps}
+      {...props}
       placeholder={placeholder}
     />
   );
