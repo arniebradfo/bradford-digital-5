@@ -104,7 +104,7 @@ It's important to note that while this case study is structured topically around
 
 ### `User Types (Personas) `Red Team and Cyber Security Industry Users 
 
-To first research the landscape I conducted interviews with the CISA Red Team “Operators” and PNNL Cyber Security Subject Matter experts to better understand the industry, Tools, Processes, Methods, and Goals of our potential users. My standard interview process. I identified four user types to target for app development: 
+To first research the landscape I conducted interviews with the CISA Red Team "Operators" and PNNL Cyber Security Subject Matter experts to better understand the industry, Tools, Processes, Methods, and Goals of our potential users. My standard interview process. I identified four user types to target for app development: 
 
 <Layouts.ColumnText>
 <Layouts.Columns count={2} className={style.GraphicDescription}>
@@ -413,7 +413,7 @@ Further performance improvement and visualization simplification can be achieved
 
 Our team maintained a standing bi-weekly meeting with CISA to present our progress, receive feedback, plan, and prioritize tasks. This continuous feedback loop was crucial to the project's success. Additionally, I conducted user testing with Subject Matter Experts (SMEs) and other "proxy" users within my organization to evaluate usability and usefulness. The following are a few examples of adjustments we made based on the feedback received.
 
-### `User Testing & Feedback `Understanding the User's Mental Model of a “Comment” 
+### `User Testing & Feedback `Understanding the User's Mental Model of a "Comment" 
 
 The commenting feature was designed to allow a Red Team to provide post-campaign context to a Blue Team, and to help the Red Team keep notes on their actions to better contextualize the campaign for themselves.
 
@@ -427,7 +427,7 @@ The interaction for this commenting task was quite simple: Select a command line
 
 #### Revised: Annotation Sets 
 
-After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an “Annotation Set.” The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
+After presenting our initial approach to CISA, we discovered it was too limited for their needs. They wanted to group together any number of disparate command lines into what we later termed an "Annotation Set." The workflow for creating an annotation proved to be more complex, leading us to add multiple methods for adding and viewing comments.
 
 <Layouts.FigureCaption imageProps={{ alt: "Mockups of Revised Commenting feature showing a single comment input", src: Src.public_lfsmedia_RedEye_Screenshot02CommentsPopoverpng}}>
 **Single Comment** - a quick and simple way to add a comment. Click a line and write. 
@@ -515,13 +515,13 @@ One of the primary issues identified in user testing was the difficulty in getti
 
 Contrary to their initial user-reported mental model of hierarchy, Red Team users tended to view all commands run as part of a Host, not a Beacon. The Beacon only represented the permission level to them. While we did have a view that displayed data in this way, I wish we could have simplified the app to focus more on this ontology and remove some of the less useful data views.
 
-### Implement Live Parsing and Use as a “Situational Awareness” Tool
+### Implement Live Parsing and Use as a "Situational Awareness" Tool
 
 Live parsing was a feature requested from the very start. Red Team users wanted to keep notes on their progress using the comments feature as their campaign was ongoing. Recalling comments after a months-long campaign resulted in a lower quality report.
 
 The process of ingesting raw log text files was already quite challenging with a fixed number of files. Trying to add new data to the structure on a daily or even hourly basis proved to be excessively difficult.
 
-Later, they requested to view additional information about the “lay of the land” that would display a list of potential Hosts they could move to next. This would have shifted the app from a post-campaign review tool to a situational awareness tool to help drive a cyber attack forward, making the tool much more useful to CISA.
+Later, they requested to view additional information about the "lay of the land" that would display a list of potential Hosts they could move to next. This would have shifted the app from a post-campaign review tool to a situational awareness tool to help drive a cyber attack forward, making the tool much more useful to CISA.
 
 ### Cobalt Strike Became Obsolete 
 

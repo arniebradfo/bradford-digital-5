@@ -20,8 +20,8 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
       </tr>
       <tr>
         <td>
-          There is a project named “Felt” on the Teton River. Find the most
-          recent “License Application” for that project.
+          There is a project named "Felt" on the Teton River. Find the most
+          recent "License Application" for that project.
         </td>
         <td>Find a Document</td>
         <td>🟢1 🟨2 🔶2 🔻0 🕙0</td>
@@ -55,7 +55,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
       </tr>
       <tr>
         <td>
-          Find all the Projects in “Montana” “Utah” and “Idaho” - how many are
+          Find all the Projects in "Montana" "Utah" and "Idaho" - how many are
           there?
         </td>
         <td>Searching in Projects Dataset, Finding and using "State" filter</td>
@@ -106,7 +106,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td>🟢1 🟨2 🔶2 🔻0 🕙0</td>
       </tr>
       <tr>
-        <td>Search for all NEPA documents that mention “Salmon”</td>
+        <td>Search for all NEPA documents that mention "Salmon"</td>
         <td>
           Keyword search and understanding of why results were returned, dataset
           trust
@@ -114,7 +114,7 @@ export const UserTestResultsTable: React.FC<React.ComponentProps<"table">> = (
         <td>🟢1 🟨3 🔶1 🔻0 🕙0</td>
       </tr>
       <tr>
-        <td>Search for all NEPA documents that mention “Salmon” or "Trout"</td>
+        <td>Search for all NEPA documents that mention "Salmon" or "Trout"</td>
         <td>Advanced keyword search</td>
         <td>🟢0 🟨0 🔶0 🔻4 🕙1</td>
       </tr>
