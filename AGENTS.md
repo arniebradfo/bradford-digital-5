@@ -45,36 +45,14 @@ Fast onboarding and architecture guide for AI coding agents and contributors.
 
 ---
 
-## 3. Media Pipeline & Case Study Image Pattern
+## 3. Media Pipeline & Layout Skills
 
 ### The Media Quirk (`app/media`)
 Static image imports are generated automatically by scanning `public/`:
 1. Run `yarn generateImgSrc` (executes `node ./app/media/generateImgSrc.js ./public`).
 2. This creates named exports in `app/media/index.ts` (e.g. `public_lfsmedia_AvyMap_AvyMapMockupMobilepng`).
 
-### Image Component Pattern in MDX
-When authoring or updating project MDX pages in `app/work/*/page.mdx`:
+### Case Study & Work Page Layouts
+For all layout primitives (`<Layouts.Columns>`, `<Layouts.Image>`, `<Layouts.ColumnMax>`, `<Layouts.FigureCaption>`, etc.), responsive column tracks (`equalHeight`), and formatting guidelines for **Archive** vs. **Featured** pages:
 
-```tsx
-import { Layouts } from "../Layouts";
-import { imgSizes } from "../../utils/imgSizes";
-import * as Src from "../../media";
-
-{/* Full width */}
-<Layouts.ColumnFull>
-  <Layouts.Image imageProps={{ src: Src.public_lfsmedia_HydroELibrary_LowFiLayoutOptionspng, sizes: imgSizes.column1Full, alt: "Mockup" }} />
-</Layouts.ColumnFull>
-
-{/* Multi-column grid */}
-<Layouts.Columns count={2}>
-  <Layouts.Image imageProps={{ src: Src.public_lfsmedia_AvyMap_AvyMapMockupMobilepng, sizes: imgSizes.column2Max, alt: "Mobile view" }} />
-  <Layouts.Image imageProps={{ src: Src.public_lfsmedia_AvyMap_AvyMapMockupDesktoppng, sizes: imgSizes.column2Max, alt: "Desktop view" }} />
-</Layouts.Columns>
-
-{/* With caption */}
-<Layouts.FigureCaption imageProps={{ src: Src.public_lfsmedia_AvyMap_AvyMapSlopeExamplepng, alt: "Slope diagram" }}>
-  Caption text goes here.
-</Layouts.FigureCaption>
-```
-
-> **Note on Archive Pages:** Many migrated archive pages in `app/work/` still use raw `<img src="/lfs-media/..." />` tags. These should eventually be migrated to `<Layouts.Image imageProps={{ src: Src.... }}>` for Next.js image optimization and blur-up placeholder support.
+> **Layouts Skill:** Follow the guide and component reference in [.agents/skills/work-page-layouts/SKILL.md](.agents/skills/work-page-layouts/SKILL.md).
