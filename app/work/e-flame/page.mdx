@@ -24,7 +24,7 @@ import * as Src from "../../media";
 ## Icons
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameiconsdimensionspng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameiconsfeaturespng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
@@ -33,7 +33,9 @@ import * as Src from "../../media";
 ## Web Ad
 
 <Layouts.ColumnMax>
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_eflame_eFlameamazonadpng, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 </Layouts.ArticleWrapper>

@@ -22,13 +22,15 @@ import * as Src from "../../media";
 ]} />
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={3}>
+<Layouts.Columns count={3} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckcamopng, sizes: imgSizes.column3Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesorangepng, sizes: imgSizes.column3Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesbluepng, sizes: imgSizes.column3Max, alt: "" }} />
 </Layouts.Columns>
 
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_athensskateboards_SkateshopofAthensdeckfacesorangelargejpg, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 </Layouts.ArticleWrapper>

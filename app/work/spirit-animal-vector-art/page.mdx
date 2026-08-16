@@ -22,12 +22,14 @@ import * as Src from "../../media";
 ]} />
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarheadeaglepng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarheadbisonpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_spiritanimalvectorart_2013animalcalendarfulljpg, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 </Layouts.ArticleWrapper>

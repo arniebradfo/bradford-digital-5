@@ -48,7 +48,7 @@ I proposed a two-part solution in the form of a Design System, the first part be
 In version 7, interaction would only change the foreground color of a button. This subtle change was often missed by users, leading them to believe that the button hadn't been pressed when it had or vice versa. Users also couldn't identify the boundary or size of most buttons, because they didn't have an outline or background, leading to missed presses and interaction failures.
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv86InteractionStatesOldsvg, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv86InteractionStatesNewsvg, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
@@ -61,7 +61,9 @@ To improve affirmative UI feedback, interaction now includes a change in backgro
 The version 7 solution toolbar placed all feature buttons in a vertical bar on the left. This bar was often confused with the navigation menu and became overly crowded as more features were added. The function of each of the buttons was not obvious and often lead to the a duplicate button being placed somewhere else on the screen.
 
 <Layouts.ColumnMax>
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv82Toolbarspng, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 The fix was to remove the toolbar and reorganize the buttons it contained into smaller toolbars that were placed adjacent to the content they operate on.
@@ -71,7 +73,9 @@ The fix was to remove the toolbar and reorganize the buttons it contained into s
 The map contained a lot of floating UI. This began as simple, one-action buttons and ballooned into full panels of controls. These panels had to track the object they were linked to without obstructing it, and could not fall outside the bounds of the window where they become unusable. They frequently failed to follow these rules, and users hated them. They also slowed down the map performance due to the computational overhead of free-roaming boxes of UI all over the map.
 
 <Layouts.ColumnMax>
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv81FloatingUIpng, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 Docking this UI to the side of the map helps the UI to behave in a more predictable way. This simple solution improves performance, reduces development time, and produces a better UX. Some smaller commands can still be placed on the map, just not entire panels of UI.
@@ -79,7 +83,7 @@ Docking this UI to the side of the map helps the UI to behave in a more predicta
 #### Consistency: A Standard Hierarchy
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv85GeneralSpecificsvg, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv85LefttoRightpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
@@ -92,9 +96,9 @@ Almost all languages read from left-to-right and top-to-bottom. This means that 
 One of the most frustrating aspects of UX design for Mobius was that there was no obvious place to put new features. All of the existing features had filled their own niche, and finding room for something new could be a challenge. New features would also include new, custom UI that led to a huge degree of inconsistency in the UI. This confuses users, who have to learn to navigate a new layout on every screen.
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv83NewFeaturepng, sizes: imgSizes.column2Max, alt: "" }} />
-<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv7vsv84Rearrangedpng, sizes: imgSizes.column2Max, alt: "" }} />
+<Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv84Rearrangedpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 </Layouts.ColumnMax>
 
@@ -105,57 +109,48 @@ When all was said and done, I proposed a major reorganization of the UI. Prelimi
 ### V 7.0 Current V 8.0 Next
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv71Commandpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv81Commandpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv72PathbuilderDrawpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv82PathbuilderDrawpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv73PathbuilderActionEditorpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv83PathbuilderActionEditorpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv74MapManagerpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv84MapManagerpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv76MapbuilderDrawpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv86MapbuilderDrawpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv77MapbuilderEditpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv87MapbuilderEditpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv78Checklistpng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv88Checklistpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv79Settingspng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv89Settingspng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv710UserSettingspng, sizes: imgSizes.column2Max, alt: "" }} />
-
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_mobiusuxaudit_Mobiusv810UserSettingspng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 </Layouts.ColumnMax>

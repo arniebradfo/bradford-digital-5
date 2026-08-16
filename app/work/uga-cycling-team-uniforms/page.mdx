@@ -26,23 +26,27 @@ import * as Src from "../../media";
 Uniform design for the University of Georgia cycling team featuring the University colors and a hexagonal theme inspired by the molecular structure of adrenaline, representing not only the thrill of the race, but also the team's academic background.
 
 <Layouts.ColumnMax>
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingAdrenalineMoleculesvg, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 ## Cycling Kit
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingshirtpng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingbibpng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingsockspng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclinghatspng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_ugacyclingteamuniforms_ugacyclingteamphotojpg, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 </Layouts.ArticleWrapper>

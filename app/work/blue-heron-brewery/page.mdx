@@ -24,7 +24,7 @@ import * as Src from "../../media";
 ## Logo Study and Development
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={3}>
+<Layouts.Columns count={3} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryherondrawingsgraphitepng, sizes: imgSizes.column3Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryherondrawingspenpng, sizes: imgSizes.column3Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerylogofinalpng, sizes: imgSizes.column3Max, alt: "" }} />
@@ -34,17 +34,19 @@ import * as Src from "../../media";
 ## Branding and Application
 
 <Layouts.ColumnMax>
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryprintglasspng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbreweryprintbottlepng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
-<Layouts.Columns count={2}>
+<Layouts.Columns count={2} equalHeight>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerycoasterbottlecappng, sizes: imgSizes.column2Max, alt: "" }} />
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerycoasterlogopng, sizes: imgSizes.column2Max, alt: "" }} />
 </Layouts.Columns>
 
+<Layouts.Columns count={1}>
 <Layouts.Image imageProps={{ src: Src.public_lfsmedia_blueheronbrewery_blueheronbrewerybottleandglassjpg, sizes: imgSizes.column1Max, alt: "" }} />
+</Layouts.Columns>
 </Layouts.ColumnMax>
 
 </Layouts.ArticleWrapper>
