@@ -291,36 +291,3 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-/* EQUAL HEIGHT FLEX COLUMNS ---------- */
-
-.ColumnsEqualHeight {
-  display: flex;
-  --gap: 8px;
-  gap: var(--gap);
-  width: 100%;
-  align-items: stretch;
-
-  &+& {
-    margin-top: var(--gap);
-  }
-}
-
-.ColumnsEqualHeightNoWrap {
-  flex-wrap: nowrap;
-}
-
-.ColumnsEqualHeightWrap {
-  flex-wrap: wrap;
-}
-
-@container LayoutColumn (max-width: 600px) {
-  .ColumnsEqualHeightWrap {
-    flex-direction: column;
-
-    & > * {
-      flex: 1 1 100% !important;
-      width: 100% !important;
-    }
-  }
-}
