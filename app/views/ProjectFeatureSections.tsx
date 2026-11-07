@@ -212,16 +212,26 @@ const avyMap: ProjectFeatureSectionProps = {
     },
     links: [
       {
-        href: "https://www.avymap.com/#15.09/48.80559/-121.77503",
+        href: "/work/avymap-avalanche-safety-mobile-app",
+        children: "Case Study",
+        type: "emphasis",
+      },
+      {
+        href: "https://arniebradfo.github.io/avymap/#15.09/48.80559/-121.77503",
         children: "Live Prototype",
+        type: "outline",
+        external: true,
+      },
+      {
+        href: "https://github.com/arniebradfo/avymap",
+        children: "GitHub",
         type: "outline",
         external: true,
       },
     ],
   },
   heroImageProps: {
-    href: "https://www.avymap.com/#15.09/48.80559/-121.77503",
-    external: true,
+    href: "/work/avymap-avalanche-safety-mobile-app",
     imageLayers: [
       {
         src: AvyMapLayer1,

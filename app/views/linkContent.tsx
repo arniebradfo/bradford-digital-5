@@ -107,6 +107,6 @@ export const linkContent = {
     description: "Visualize avalanche danger of any slope",
     imgSrc: ImgAvyMap,
     imgAlt: "",
-    href: "https://www.avymap.com/#15.09/48.80559/-121.77503",
+    href: "https://arniebradfo.github.io/avymap/#15.09/48.80559/-121.77503",
   },
 };
