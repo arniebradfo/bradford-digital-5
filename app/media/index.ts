@@ -449,7 +449,6 @@ export { default as media_lfsmedia_lumitronics_lumitronicslogooption3png } from 
 export { default as media_lfsmedia_lumitronics_lumitronicslogooptionfinalpng } from "../../media/lfs-media/lumitronics/lumitronics_logo-option-final.png";
 export { default as media_lfsmedia_lumitronics_lumitronicspackagingbackpng } from "../../media/lfs-media/lumitronics/lumitronics_packaging-back.png";
 export { default as media_lfsmedia_lumitronics_lumitronicspackagingfrontpng } from "../../media/lfs-media/lumitronics/lumitronics_packaging-front.png";
-export { default as media_lfsmedia_mobiuscommandsoftware_Mobiusv8headerpng } from "../../media/lfs-media/mobius-command-software/Mobius-v8-header.png";
 export { default as media_lfsmedia_mobiuscommandsoftware_MobiusCommandAg1png } from "../../media/lfs-media/mobius-command-software/Mobius_Command-Ag-1.png";
 export { default as media_lfsmedia_mobiuscommandsoftware_MobiusCommandAg2png } from "../../media/lfs-media/mobius-command-software/Mobius_Command-Ag-2.png";
 export { default as media_lfsmedia_mobiuscommandsoftware_MobiusCommandAg3png } from "../../media/lfs-media/mobius-command-software/Mobius_Command-Ag-3.png";
@@ -581,6 +580,7 @@ export { default as media_lfsmedia_mobiusuxaudit_Mobiusv86MapbuilderDrawpng } fr
 export { default as media_lfsmedia_mobiusuxaudit_Mobiusv87MapbuilderEditpng } from "../../media/lfs-media/mobius-ux-audit/Mobius-v8-7-Mapbuilder-Edit.png";
 export { default as media_lfsmedia_mobiusuxaudit_Mobiusv88Checklistpng } from "../../media/lfs-media/mobius-ux-audit/Mobius-v8-8-Checklist.png";
 export { default as media_lfsmedia_mobiusuxaudit_Mobiusv89Settingspng } from "../../media/lfs-media/mobius-ux-audit/Mobius-v8-9-Settings.png";
+export { default as media_lfsmedia_mobiusuxaudit_Mobiusv8headerpng } from "../../media/lfs-media/mobius-ux-audit/Mobius-v8-header.png";
 export { default as media_lfsmedia_nancysbistroandbakery_NancysBistroBakerybusinesscardbackjpg } from "../../media/lfs-media/nancys-bistro-and-bakery/Nancys-Bistro-Bakery_business-card-back.jpg";
 export { default as media_lfsmedia_nancysbistroandbakery_NancysBistroBakerybusinesscardfrontjpg } from "../../media/lfs-media/nancys-bistro-and-bakery/Nancys-Bistro-Bakery_business-card-front.jpg";
 export { default as media_lfsmedia_nancysbistroandbakery_NancysBistroBakeryheaderjpg } from "../../media/lfs-media/nancys-bistro-and-bakery/Nancys-Bistro-Bakery_header.jpg";

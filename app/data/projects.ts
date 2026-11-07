@@ -148,7 +148,7 @@ export const ALL_PROJECTS: Project[] = [
     description:
       "A comprehensive UX audit and redesign strategy for Mobius robotics software.",
     headerImage:
-      Src.media_lfsmedia_mobiusuxaudit_Mobiusv7vsv86InteractionStatesOldsvg,
+      Src.media_lfsmedia_mobiusuxaudit_Mobiusv8headerpng,
     tags: ["archives", "ASI"],
     href: "/work/mobius-ux-audit",
   },
@@ -158,7 +158,7 @@ export const ALL_PROJECTS: Project[] = [
     date: "2017-10-20",
     description:
       "Command and control interface design for managing fleets of autonomous industrial vehicles.",
-    headerImage: Src.media_lfsmedia_mobiuscommandsoftware_Mobiusv8headerpng,
+    headerImage: Src.media_lfsmedia_mobiusuxaudit_Mobiusv71Commandpng,
     tags: ["archives", "ASI"],
     href: "/work/mobius-command-software",
   },
@@ -363,7 +363,7 @@ export const ALL_PROJECTS: Project[] = [
     date: "2017-11-08",
     description:
       "App designed to enable one user to monitor and manage several autonomous cleaning vehicles simultaneously with multi-vehicle telemetry.",
-    headerImage: "/lfs-media/autonomous-cleaning-app/Cleaning-App_Mobile.mp4",
+    headerImage: Src.media_lfsmedia_autonomouscleaningapp_CleaningAppScreenshot014apng,
     tags: ["archives", "Freelance"],
     href: "/work/autonomous-cleaning-app",
   },
