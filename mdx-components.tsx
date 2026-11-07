@@ -16,9 +16,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     strong: B,
     em: I,
     img: Img,
+    video: Video,
     ...components,
   };
 }
+
+/** Bare MDX `<video src>` tags get playback controls and a first-frame preview
+ * (matches the old Gatsby `MdxVideo` component). */
+const Video = (props: React.ComponentProps<"video">) => (
+  <video preload="metadata" controls playsInline {...props} />
+);
 
 /** https://shaneafsar.com/blog/markdown-mdx-next-images/ */
 const Img = ({

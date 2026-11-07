@@ -177,7 +177,10 @@ const Columns: React.FC<
       React.isValidElement(child)
     );
     const ratios = childrenArray.map(getChildAspectRatio);
-    const gridTemplateColumns = ratios.map((r) => `${r}fr`).join(" ");
+    // Normalize so tracks sum to 1fr: fr values summing < 1 only fill that
+    // fraction of the row (e.g. two tall portrait images). Proportions unchanged.
+    const ratioSum = ratios.reduce((sum, r) => sum + r, 0) || 1;
+    const gridTemplateColumns = ratios.map((r) => `${r / ratioSum}fr`).join(" ");
 
     return (
       <div
