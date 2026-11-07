@@ -125,19 +125,19 @@ Archive pages consist of clean visual grids grouped by section headings inside `
 <Layouts.ColumnMax>
   {/* Single Image: Always wrap in Columns count={1} */}
   <Layouts.Columns count={1}>
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_1jpg, sizes: imgSizes.column1Max, alt: "Overview" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_1jpg, sizes: imgSizes.column1Max, alt: "Overview" }} />
   </Layouts.Columns>
 
   {/* Multi-Image Rows: Use equalHeight for matching heights */}
   <Layouts.Columns count={3} equalHeight>
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_2jpg, sizes: imgSizes.column3Max, alt: "Item A" }} />
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_3jpg, sizes: imgSizes.column3Max, alt: "Item B" }} />
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_4jpg, sizes: imgSizes.column3Max, alt: "Item C" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_2jpg, sizes: imgSizes.column3Max, alt: "Item A" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_3jpg, sizes: imgSizes.column3Max, alt: "Item B" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_4jpg, sizes: imgSizes.column3Max, alt: "Item C" }} />
   </Layouts.Columns>
 
   <Layouts.Columns count={2} equalHeight>
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_5jpg, sizes: imgSizes.column2Max, alt: "Item D" }} />
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_project_6jpg, sizes: imgSizes.column2Max, alt: "Item E" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_5jpg, sizes: imgSizes.column2Max, alt: "Item D" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_project_6jpg, sizes: imgSizes.column2Max, alt: "Item E" }} />
   </Layouts.Columns>
 </Layouts.ColumnMax>
 
@@ -157,7 +157,7 @@ Featured case studies combine reading text with varied layout widths, graphic ca
 Standard body paragraphs automatically constrained to 720px text width.
 
 {/* Figure with Side Caption */}
-<Layouts.FigureCaption imageProps={{ src: Src.public_lfsmedia_RedEye_CobaltStrikeLogFilespng, alt: "Log files" }}>
+<Layouts.FigureCaption imageProps={{ src: Src.media_lfsmedia_RedEye_CobaltStrikeLogFilespng, alt: "Log files" }}>
   Even a small Cobalt Strike dataset could comprise thousands of raw log files.
 </Layouts.FigureCaption>
 
@@ -175,12 +175,12 @@ Standard body paragraphs automatically constrained to 720px text width.
 <Layouts.ColumnText>
   <Layouts.Columns count={2}>
     <div>
-      <Layouts.Graphic imageProps={{ alt: "Operator", src: Src.public_lfsmedia_RedEye_PersonasRedTeamsvg }} />
+      <Layouts.Graphic imageProps={{ alt: "Operator", src: Src.media_lfsmedia_RedEye_PersonasRedTeamsvg }} />
       #### Red Team Operator
       Primary user analyzing intrusion logs and generating security assessment reports.
     </div>
     <div>
-      <Layouts.Graphic imageProps={{ alt: "Specialist", src: Src.public_lfsmedia_RedEye_PersonasBlueTeamsvg }} />
+      <Layouts.Graphic imageProps={{ alt: "Specialist", src: Src.media_lfsmedia_RedEye_PersonasBlueTeamsvg }} />
       #### Blue Team Specialist
       Investigates alerts and validates remediation steps for identified vulnerabilities.
     </div>
@@ -191,7 +191,7 @@ Standard body paragraphs automatically constrained to 720px text width.
 
 {/* Full-Width Diagram + 2-Column Entity Breakdown */}
 <Layouts.ColumnFull>
-  <Layouts.Graphic imageProps={{ src: Src.public_lfsmedia_RedEye_NetworkOntologypng, sizes: imgSizes.column1Full, alt: "Ontology" }} />
+  <Layouts.Graphic imageProps={{ src: Src.media_lfsmedia_RedEye_NetworkOntologypng, sizes: imgSizes.column1Full, alt: "Ontology" }} />
   
   <Layouts.Columns count={2}>
     <div>
@@ -210,8 +210,8 @@ Standard body paragraphs automatically constrained to 720px text width.
 {/* High-Fidelity UI Showcase in ColumnMax */}
 <Layouts.ColumnMax>
   <Layouts.Columns count={2} equalHeight>
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_RedEye_HighFi01png, sizes: imgSizes.column2Max, alt: "Dashboard" }} />
-    <Layouts.Image imageProps={{ src: Src.public_lfsmedia_RedEye_HighFi02png, sizes: imgSizes.column2Max, alt: "Timeline" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_RedEye_HighFi01png, sizes: imgSizes.column2Max, alt: "Dashboard" }} />
+    <Layouts.Image imageProps={{ src: Src.media_lfsmedia_RedEye_HighFi02png, sizes: imgSizes.column2Max, alt: "Timeline" }} />
   </Layouts.Columns>
 </Layouts.ColumnMax>
 
@@ -223,7 +223,7 @@ Standard body paragraphs automatically constrained to 720px text width.
 ## 6. Verification Checklist
 
 When authoring or modifying work pages:
-1. Run `yarn generateImgSrc` if any assets were added or renamed in `public/lfs-media/`.
+1. Run `yarn generateImgSrc` if any images were added or renamed in `media/lfs-media/` (images go in `media/`, not `public/`; see `docs/MEDIA.md`).
 2. Wrap every single image in `<Layouts.Columns count={1}>` for consistent vertical spacing.
 3. Use `equalHeight` on multi-image `<Layouts.Columns>` whenever images have differing aspect ratios.
 4. Verify responsive scaling in Playwright (`playwright-cli open --headed http://localhost:5555/work/<slug>`) across desktop (`1440px`), tablet (`768px`), and mobile (`390px`).

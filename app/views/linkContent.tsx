@@ -1,15 +1,15 @@
-import ImgAdobeXdRepeatText from "../../public/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.svg";
-import ImgAvyMap from "../../public/lfs-media/Project-Icons/Project-Icon-AvyMap.svg";
-import ImgBlueprintFigma from "../../public/lfs-media/Project-Icons/Project-Icon-Blueprint-Figma-Components.svg";
-import ImgBlueprintStyler from "../../public/lfs-media/Project-Icons/Project-Icon-Blueprint-Styler.svg";
-import ImgFigmaAutoConstraints from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Auto-Constraints.svg";
-import ImgFigmaRandomLayers from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Random-Layers.svg";
-import ImgFigmaRepeatAsList from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Repeat-As-List.svg";
-import ImgFigmaStyleQuickActions from "../../public/lfs-media/Project-Icons/Project-Icon-Figma-Style-Quick-Actions.svg";
-import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
-import ImgIrrigationViz from "../../public/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
-import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
-import ImgWordpress from "../../public/lfs-media/Project-Icons/Project-Icon-Wordpress.svg";
+import ImgAdobeXdRepeatText from "../../media/lfs-media/Project-Icons/Project-Icon-Adobe-Xd-Repeat-Text.svg";
+import ImgAvyMap from "../../media/lfs-media/Project-Icons/Project-Icon-AvyMap.svg";
+import ImgBlueprintFigma from "../../media/lfs-media/Project-Icons/Project-Icon-Blueprint-Figma-Components.svg";
+import ImgBlueprintStyler from "../../media/lfs-media/Project-Icons/Project-Icon-Blueprint-Styler.svg";
+import ImgFigmaAutoConstraints from "../../media/lfs-media/Project-Icons/Project-Icon-Figma-Auto-Constraints.svg";
+import ImgFigmaRandomLayers from "../../media/lfs-media/Project-Icons/Project-Icon-Figma-Random-Layers.svg";
+import ImgFigmaRepeatAsList from "../../media/lfs-media/Project-Icons/Project-Icon-Figma-Repeat-As-List.svg";
+import ImgFigmaStyleQuickActions from "../../media/lfs-media/Project-Icons/Project-Icon-Figma-Style-Quick-Actions.svg";
+import ImgHydropowerELibrary from "../../media/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
+import ImgIrrigationViz from "../../media/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
+import ImgRedEye from "../../media/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
+import ImgWordpress from "../../media/lfs-media/Project-Icons/Project-Icon-Wordpress.svg";
 
 export const linkContent = {
   pluginWordpress: {

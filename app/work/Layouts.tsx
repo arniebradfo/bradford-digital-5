@@ -359,7 +359,7 @@ const Graphic: React.FC<HtmlProps & { imageProps: ImageProps }> = ({
  * @param screenshot - Toggle drop-shadow and rounded frame styling (default true).
  */
 const _Image: React.FC<
-  HtmlProps & { imageProps: ImageProps; screenshot?: boolean }
+  Omit<HtmlProps<"img">, "ref" | "src" | "alt" | "width" | "height" | "loading" | "placeholder" | "srcSet"> & { imageProps: ImageProps; screenshot?: boolean }
 > = ({
   className,
   imageProps: {

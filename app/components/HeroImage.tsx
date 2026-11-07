@@ -1,5 +1,6 @@
 "use client";
 
+import type { StaticImageData } from "next/image";
 import { cx } from "../utils/joinClassNames";
 import style from "./HeroImage.module.css";
 import { useMagneticParallax } from "../utils/useMagneticParallax";
@@ -20,7 +21,7 @@ export type HeroImageProps = React.ComponentProps<typeof HeroImage>;
 export const HeroImage: React.FC<
   React.ComponentProps<typeof motion.div> & {
     imageLayers?: Omit<HeroImageLayerProps, "motionValues">[];
-    src?: string;
+    src?: string | StaticImageData;
     alt?: string;
     href?: string; // LinkProps["href"];
     external?: boolean;

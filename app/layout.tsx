@@ -5,7 +5,7 @@ import { AsciiArt } from "./components/AsciiArt";
 import { initializeTheme } from "./utils/themeSwitch";
 import Script from "next/script";
 import { SetClientWidthCss } from "./utils/SetClientWidthCss";
-import ogImage from "../public/lfs-media/og_image.png";
+import ogImage from "../media/lfs-media/og_image.png";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 

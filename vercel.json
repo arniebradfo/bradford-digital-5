@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "ignoreCommand": "case \"$VERCEL_GIT_COMMIT_REF\" in main|staging|staging/*) echo \"Building $VERCEL_GIT_COMMIT_REF\"; exit 1;; *) echo \"Skipping $VERCEL_GIT_COMMIT_REF (only main, staging, staging/* deploy; see docs/MEDIA.md)\"; exit 0;; esac"
+}

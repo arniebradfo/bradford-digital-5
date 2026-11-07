@@ -1,28 +1,28 @@
 import { cx } from "../utils/joinClassNames";
 import style from "./Section.module.css";
 
-import RedEyeLayer1 from "../../public/lfs-media/Hero/RedEyeHero-01-BackgroundGrid.png";
-import RedEyeLayer2 from "../../public/lfs-media/Hero/RedEyeHero-02-Graph.png";
-import RedEyeLayer3 from "../../public/lfs-media/Hero/RedEyeHero-03-InfoPanel.png";
-import RedEyeLayer4 from "../../public/lfs-media/Hero/RedEyeHero-04-NavBar.png";
+import RedEyeLayer1 from "../../media/lfs-media/Hero/RedEyeHero-01-BackgroundGrid.png";
+import RedEyeLayer2 from "../../media/lfs-media/Hero/RedEyeHero-02-Graph.png";
+import RedEyeLayer3 from "../../media/lfs-media/Hero/RedEyeHero-03-InfoPanel.png";
+import RedEyeLayer4 from "../../media/lfs-media/Hero/RedEyeHero-04-NavBar.png";
 
-import HydroELibLayer1 from "../../public/lfs-media/Hero/HydroELibraryHero-01-Background.png";
-import HydroELibLayer2 from "../../public/lfs-media/Hero/HydroELibraryHero-02-Filter.png";
-import HydroELibLayer3 from "../../public/lfs-media/Hero/HydroELibraryHero-03-Navigation.png";
-import HydroELibLayer4 from "../../public/lfs-media/Hero/HydroELibraryHero-04-DampMap.png";
+import HydroELibLayer1 from "../../media/lfs-media/Hero/HydroELibraryHero-01-Background.png";
+import HydroELibLayer2 from "../../media/lfs-media/Hero/HydroELibraryHero-02-Filter.png";
+import HydroELibLayer3 from "../../media/lfs-media/Hero/HydroELibraryHero-03-Navigation.png";
+import HydroELibLayer4 from "../../media/lfs-media/Hero/HydroELibraryHero-04-DampMap.png";
 
-import IrrigationVizLayer1 from "../../public/lfs-media/Hero/IrrigationVizHero-01-Map.png";
-import IrrigationVizLayer2 from "../../public/lfs-media/Hero/IrrigationVizHero-02-LeftPanel.png";
-import IrrigationVizLayer3 from "../../public/lfs-media/Hero/IrrigationVizHero-03-NavMapMetrics.png";
+import IrrigationVizLayer1 from "../../media/lfs-media/Hero/IrrigationVizHero-01-Map.png";
+import IrrigationVizLayer2 from "../../media/lfs-media/Hero/IrrigationVizHero-02-LeftPanel.png";
+import IrrigationVizLayer3 from "../../media/lfs-media/Hero/IrrigationVizHero-03-NavMapMetrics.png";
 
-import AvyMapLayer1 from "../../public/lfs-media/Hero/AvyMapHero-01-Map.png";
-import AvyMapLayer2 from "../../public/lfs-media/Hero/AvyMapHero-02-Controls.png";
-import AvyMapLayer3 from "../../public/lfs-media/Hero/AvyMapHero-03-Button.png";
+import AvyMapLayer1 from "../../media/lfs-media/Hero/AvyMapHero-01-Map.png";
+import AvyMapLayer2 from "../../media/lfs-media/Hero/AvyMapHero-02-Controls.png";
+import AvyMapLayer3 from "../../media/lfs-media/Hero/AvyMapHero-03-Button.png";
 
-import ImgRedEye from "../../public/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
-import ImgHydropowerELibrary from "../../public/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
-import ImgIrrigationViz from "../../public/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
-import ImgAvyMap from "../../public/lfs-media/Project-Icons/Project-Icon-AvyMap.svg";
+import ImgRedEye from "../../media/lfs-media/Project-Icons/Project-Icon-RedEye.svg";
+import ImgHydropowerELibrary from "../../media/lfs-media/Project-Icons/Project-Icon-Hydropower-eLibrary.svg";
+import ImgIrrigationViz from "../../media/lfs-media/Project-Icons/Project-Icon-IrrigationViz.svg";
+import ImgAvyMap from "../../media/lfs-media/Project-Icons/Project-Icon-AvyMap.svg";
 
 import { HeroImage, HeroImageProps } from "../components/HeroImage";
 import {

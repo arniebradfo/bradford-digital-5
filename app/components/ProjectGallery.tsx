@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Project } from "../data/projects";
 import { H2, P, Txt } from "./Text";
@@ -26,7 +27,9 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
   return (
     <section className={cx(style.GalleryWrapper, className)}>
       {projects.map((project) => {
-        const isVideo = project.headerImage?.endsWith(".mp4");
+        const isVideo =
+          typeof project.headerImage === "string" &&
+          project.headerImage.endsWith(".mp4");
 
         return (
           <Link
@@ -37,15 +40,15 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
             <div className={style.PanelInner}>
               <div className={style.MediaWrapper}>
                 {project.headerImage && !isVideo ? (
-                  <img
+                  <Image
                     src={project.headerImage}
                     alt={project.title}
                     className={style.MediaImage}
-                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 340px"
                   />
                 ) : isVideo ? (
                   <video
-                    src={project.headerImage!}
+                    src={project.headerImage as string}
                     className={style.MediaVideo}
                     autoPlay
                     muted

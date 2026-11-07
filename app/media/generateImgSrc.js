@@ -53,17 +53,18 @@ function formatFileMapAsMdxExamples(fileMap) {
   ].join(`\n`);
 }
 
-// Get the directory to scan from the command line arguments
-const directoryToScan = process.argv[2];
+// Get the directories to scan from the command line arguments
+// e.g. `node generateImgSrc.js ./media ./public`
+const directoriesToScan = process.argv.slice(2);
 
-if (!directoryToScan) {
+if (directoriesToScan.length === 0) {
   console.error(
-    "Please provide a directory to scan as a command line argument."
+    "Please provide one or more directories to scan as command line arguments."
   );
   process.exit(1); // Exit the script with an error code
 }
 
-const result = scanDirectory(directoryToScan);
+const result = directoriesToScan.flatMap((dir) => scanDirectory(dir));
 
 // Define the output file path (same directory as the script)
 const outputTsFile = path.join(__dirname, "index.ts");

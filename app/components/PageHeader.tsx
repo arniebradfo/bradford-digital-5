@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import { cx } from "../utils/joinClassNames";
 import { sections } from "../views/ProjectFeatureSections";
 import { HeroImage, HeroImageProps } from "./HeroImage";
@@ -15,7 +16,7 @@ export const PageHeader: React.FC<
     subHeader?: ReactNode;
     description?: ReactNode;
     links?: LinkButtonProps[];
-    heroImageProps?: HeroImageProps | { src: string; alt?: string };
+    heroImageProps?: HeroImageProps | { src: string | StaticImageData; alt?: string };
   }
 > = ({
   className,
