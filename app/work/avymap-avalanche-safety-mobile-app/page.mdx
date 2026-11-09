@@ -1,8 +1,10 @@
 import { PageHeader } from "../../components/PageHeader";
 import { PageDetails } from "../../components/PageDetails";
+import { LinkButton } from "../../components/LinkButton";
 import { Layouts } from "../Layouts";
 import { imgSizes } from "../../utils/imgSizes";
 import * as Src from "../../media";
+import style from "./page.module.css";
 
 <PageHeader {...{
   header: "AvyMap: Avalanche Safety Mobile App",
@@ -29,13 +31,23 @@ A key to making good decisions is knowing the current conditions and which slope
 
 ## Mobile App Design
 
+<Layouts.ColumnFull>
+<div className={style.PhoneSplit}>
+
+<div className={style.Phone}>
+<video src="/lfs-media/avymap-avalanche-safety-mobile-app/AvyMaps-App-Movie-3.mp4" controls playsInline preload="metadata" />
+</div>
+
+<div>
+
 Whether you're skiing, snowmobiling, or mountaineering, this app is designed to be your backcountry companion. It uses elevation data from [Mapbox Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb) to calculate the slope, aspect, and avalanche danger of any region of the world.
 
-<p style={{textAlign:'center'}}>
-    <video src="/lfs-media/avymap-avalanche-safety-mobile-app/AvyMaps-App-Movie-3.mp4" controls playsInline preload="metadata" />
-</p>
-
 This demo video shows how a user would open the app, check the local avalanche report, input the current avalanche danger ratings, and scan an area for avalanche danger.
+
+</div>
+
+</div>
+</Layouts.ColumnFull>
 
 <Layouts.ColumnMax>
 <Layouts.Columns count={2} equalHeight>
@@ -65,15 +77,15 @@ Supporting data can be found in: Fredston, Jill. Fesler, Doug. [_Snow Sense_](ht
 
 I built a working prototype in React. I've saved it to my android phone homepage as a progressive web app and personally use it on a regular basis. I'm currently developing a user test for this working html prototype and an Adobe Xd prototype.
 
-<Layouts.ColumnMax>
+<Layouts.ColumnFull>
 <Layouts.Columns count={1}>
-<Layouts.Image imageProps={{ src: Src.media_lfsmedia_avymapavalanchesafetymobileapp_AvyMapprototypelowqualgif, sizes: imgSizes.column1Max, alt: "", style: { width: "100%", height: "auto" } }} />
+<Layouts.Image imageProps={{ src: Src.media_lfsmedia_avymapavalanchesafetymobileapp_AvyMapprototypelowqualgif, sizes: imgSizes.column1Full, alt: "Screen recording of the AvyMap React prototype", style: { width: "100%", height: "auto" } }} />
 </Layouts.Columns>
-</Layouts.ColumnMax>
+</Layouts.ColumnFull>
 
-You can test drive the prototype here:
-
-[AvyMap Prototype](https://arniebradfo.github.io/avymap/)
+<div className={style.ButtonRow}>
+<LinkButton href="https://arniebradfo.github.io/avymap/" children={"Test Drive the AvyMap Prototype"} type="emphasis" external />
+</div>
 
 ## Future Development
 
@@ -81,17 +93,29 @@ The prototype currently only works online, but service is spotty in the mountain
 
 A full list of features might include:
 
+<Layouts.ColumnFull className={style.FeatureList}>
+<Layouts.Columns count={2}>
+<div>
+
 - **Avalanche Danger Map** - Evaluate and display potential avalanche danger on an interactive map.
 - **Link to Official Report** - Geo-mapped avalanche advisory zones with links to the official government reports worldwide.
 - **Offline Maps & Reports** - save maps and official reports for use when cell service in the backcountry is spotty.
 - **Inclinometer** - Using the phone's accelerometer to more accurately measure slope angle.
 - **Notifications** - Push a warning notification when a user enters dangerous terrain.
 - **Trip Planning** - Draw a route on the map to follow.
+
+</div>
+<div>
+
 - **Trip Recording** - Display a line of depicting where the user has been.
 - **Trip Report** - Analyze a post-trip report displaying travel distance, duration, elevation change, etc.
 - **Snow Conditions Wizard** - A how-to guide for digging a snow pit, evaluating snow conditions, and creating a geo-temporal record of the results in the app.
 - **Past Avalanche Data** - Show where avalanches have occurred in the past, and view individual avalanche observation reports.
 - **Training** - Avalanche safety information and where to take classes and learn more.
+
+</div>
+</Layouts.Columns>
+</Layouts.ColumnFull>
 
 ## The Logo
 
